@@ -1,0 +1,43 @@
+#+MACRO: today date:: %B %d, %Y
+
+* LaTeX and Reveal.js
+#+LATEX_HEADER: \usepackage{color}
+
+#+MACRO: BR @@html:<br>@@
+#+MACRO: HTML_VSPACE @@html:<div style="height:$1px;font-size:1px;">&nbsp;</div>@@
+#+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
+#+MACRO: NEWPAGE @@latex:\newpage@@
+#+MACRO: VSPACE @@latex:\vspace{$1 mm}@@
+#+MACRO: LTX_VSPACE @@latex:\vspace{$1 mm}@@
+#+MACRO: FRAMEBREAK @@latex:\framebreak@@ @@html:.. nextslide:@@
+#+MACRO: QUAD @@latex:\quad@@ @@html:&ensp;@@
+#+MACRO: LTX_QUAD @@latex:\quad@@
+#+MACRO: HIDDEN @@latex:\iffalse $1 \fi@@
+
+#+MACRO: FA_ICON @@html:<i class="$1"></i>@@
+#+MACRO: BEG_FONT_SMALL @@latex:{\footnotesize@@ @@html:<span style=font-size:12pt>@@
+#+MACRO: END_FONT_SMALL @@latex:}@@ @@html:</span>@@
+
+#+MACRO: RVL_VSPACE @@html:<div style="height:$1px;font-size:1px;">&nbsp;</div>@@
+
+#+MACRO: BLUE @@html:<span style="color: blue">$1</span>@@ @@latex:{\color{blue} $1}@@
+#+MACRO: RED @@html:<span style="color: red">$1</span>@@ @@latex:{\color{red} $1}@@
+#+MACRO: GREEN @@html:<span style="color: green">$1</span>@@ @@latex:{\color{green} $1}@@
+
+#+MACRO: FRAG @@html:<span class="fragment">$1</span>@@ @@latex:$1@@
+#+MACRO: FRAG_RED @@html:<span class="fragment highlight-red">$1</span>@@ @@latex:{\bf $1}@@
+#+MACRO: FRAG_GREEN @@html:<span class="fragment highlight-green">$1</span>@@ @@latex:{\bf $1}@@
+#+MACRO: FRAG_BLUE @@html:<span class="fragment highlight-blue">$1</span>@@ @@latex:{\bf $1}@@
+#+MACRO: FRAG_GROW @@html:<span class="fragment grow">$1</span>@@ @@latex:{\bf $1}@@
+
+#+MACRO: FRAG_ID @@html:<span class="fragment" data-fragment-index="$1">$2</span>@@ @@latex:{\br $2}@@
+#+MACRO: FRAG_ID_RED @@html:<span class="fragment highlight-red" data-fragment-index="$1">$2</span>@@ @@latex:{\bf $2}@@
+#+MACRO: FRAG_ID_GREEN @@html:<span class="fragment highlight-green" data-fragment-index="$1">$2</span>@@ @@latex:{\bf $2}@@
+#+MACRO: FRAG_ID_BLUE @@html:<span class="fragment highlight-blue" data-fragment-index="$1">$2</span>@@ @@latex:{\bf $2}@@
+
+#+MACRO: FRAG_ @@html:<span class="fragment">@@
+#+MACRO: SPAN_ @@html:</span>@@
+
+#+MACRO: HSPACE @@html:<span style="display:inline-block; width: $1px;"></span>@@
+
+#+MACRO: CITE @@html:<span style=font-size:20pt>$1</span>@@ @@latex:{\small $1}@@
