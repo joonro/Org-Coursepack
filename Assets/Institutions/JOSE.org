@@ -1,6 +1,6 @@
-#+TITLE:     Template University
-#+AUTHOR:    Your Name
-#+EMAIL:     Your Email
+#+TITLE:     Journal of Open Source Education
+#+AUTHOR:    Joon Ro
+#+EMAIL:     joon.ro@outlook.com
 #+DESCRIPTION: School specific teaching materials
 #+CATEGORY: Teaching
 #+STARTUP: overview
@@ -26,10 +26,10 @@ School-specific policies here.
 * Macros
 #+MACRO: SCHOOL_COLOR 70,130,180
 
-#+MACRO: Professor Your Name
-#+MACRO: EMAIL YourEmail
+#+MACRO: PROFESSOR Joon Ro
+#+MACRO: EMAIL joon.ro@outlook.com
 #+MACRO: OFFICE BLDG 100
 #+MACRO: PHONE (000) 000-0000
-#+MACRO: SCHOOL School Name
+#+MACRO: SCHOOL Journal of Open Source Education
 #+MACRO: CITY City
 #+MACRO: CANVAS_LINK [[https://github.com][github.com]] 

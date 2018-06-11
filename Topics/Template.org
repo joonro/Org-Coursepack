@@ -1,0 +1,61 @@
+#+TITLE:     Topics: Template
+#+AUTHOR:    Your Name
+#+EMAIL:     Your Email
+#+DESCRIPTION: org file for the topic Template
+#+CATEGORY: TOPIC
+#+STARTUP: overview
+#+STARTUP: hidestars
+
+* Lectures
+** Introduction
+:PROPERTIES:
+:CUSTOM_ID: Lectures/Introduction
+:END:
+Template introduction here.
+** Subtopic
+:PROPERTIES:
+:CUSTOM_ID: Lectures/Subtopic
+:END:
+Subtopic content here.
+* Assignments
+** Assignment 1
+:PROPERTIES:
+:CUSTOM_ID: Assginments/1
+:END:
+*** Instructions
+:PROPERTIES:
+:CUSTOM_ID: Assginments/1/Instructions
+:END:
+Assignment instructions here.
+*** Rubrics
+- Rubrics for assignment
+* Exercises
+** Exercise 1
+:PROPERTIES:
+:CUSTOM_ID: Exercises/1
+:END:
+Exercise 1 instructions here.
+* Questions
+** Question 1
+:PROPERTIES:
+:CUSTOM_ID: Questions/1
+:END:
+1. Multiple Choice Question.
+   1. Choice
+   2. Choice
+   3. Choice {{{property(ANSWER)}}}
+** Short Answer
+:PROPERTIES:
+:CUSTOM_ID: Questions/SA
+:END:
+   #+ATTR_LATEX: :options [style=exampledefault, frametitle={}]
+   #+BEGIN_mdframed
+   Please answer the following short answer questions each with no more than 3
+   sentences.
+   #+END_mdframed
+
+1. Describe how to include the content of a subtree from another org file, excluding the heading
+
+   {{{VSPACE(50)}}}
+
+2. Describe how to include the content of a subtree from another org file, including the heading
