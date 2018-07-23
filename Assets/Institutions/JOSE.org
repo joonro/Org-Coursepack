@@ -26,7 +26,7 @@ School-specific policies here.
 * Macros
 #+MACRO: SCHOOL_COLOR 70,130,180
 
-#+MACRO: PROFESSOR Joon Ro
+#+MACRO: PROFESSOR Joon H. Ro & Jae-Eun Namkoong
 #+MACRO: EMAIL joon.ro@outlook.com
 #+MACRO: OFFICE BLDG 100
 #+MACRO: PHONE (000) 000-0000
