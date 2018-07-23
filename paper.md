@@ -25,7 +25,7 @@ bibliography: paper.bib
 # Summary
 
 The Org-Coursepack provides a template for developing and managing teaching
-materials using [Org mode](https://orgmode.org/manual/Export-settings.html), a major mode in [GNU Emacs](https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables). The template is designed
+materials using [Org mode](https://orgmode.org), a major mode in [GNU Emacs](https://www.gnu.org/software/emacs/). The template is designed
 to be self-explanatory, as the documentation for it consists of an example
 course developed with this template.
 
