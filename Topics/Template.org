@@ -11,7 +11,7 @@
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Introduction
 :END:
-Template introduction here.
+Content for this section here.
 ** Subtopic
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Subtopic

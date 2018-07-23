@@ -1,7 +1,7 @@
 #+TITLE:     Template: Semester
 #+AUTHOR:    Your Name
 #+EMAIL:     Your Email
-#+DESCRIPTION: Org-Coursepack-Documentation: A Comprehensive Course Template for Teaching with Org Mode
+#+DESCRIPTION: Description
 #+CATEGORY: Teaching
 
 :LOCALSETUP:
@@ -60,7 +60,7 @@
 :CUSTOM_ID: Sections/01
 :END:
 :MACROS_Section_Info:
-#+MACRO: DATE_FINAL_EXAM_01 [2018-12-16 Sun 13:00] /- 4:00PM/
+#+MACRO: DATE_FINAL_EXAM_01 [2018-12-16 Sun 13:00] - 4:00PM
 :END:
 *** Syllabus
 :PROPERTIES:
@@ -79,7 +79,7 @@
 :CUSTOM_ID: Sections/02
 :END:
 :MACROS_Section_Info:
-#+MACRO: DATE_FINAL_EXAM_02 [2018-12-14 Fri 09:00] /- 12:00PM/
+#+MACRO: DATE_FINAL_EXAM_02 [2018-12-14 Fri 09:00] - 12:00PM
 :END:
 *** Syllabus
 :PROPERTIES:
@@ -98,7 +98,7 @@
 :CUSTOM_ID: Sections/03
 :END:
 :MACROS_Section_Info:
-#+MACRO: DATE_FINAL_EXAM_03 [2018-12-15 Sat 13:00] /- 4:00PM/
+#+MACRO: DATE_FINAL_EXAM_03 [2018-12-15 Sat 13:00] - 4:00PM/
 :END:
 *** Syllabus
 :PROPERTIES:
@@ -197,21 +197,13 @@
 :END:
 
 #+BEGIN: columnview :hlines 1 :id 79d5e887-4637-43e7-8e8a-b83fa83ee56e :maxlevel 2 :skip-empty-rows t
-| Date                                    | Class | Topic                                           |
-|-----------------------------------------+-------+-------------------------------------------------|
-| [2018-08-28 Tue]                        |     1 | Introduction                                    |
-| [2018-08-30 Thu]                        |     2 | Org Mode Basics                                 |
-| [2018-09-04 Tue]                        |     3 | Topic Org Files and Content Creation            |
-| [2018-09-06 Thu]                        |     4 | Course Org Files                                |
-| [2018-09-11 Tue]                        |     5 | Semester Org Files (1/4): Introduction          |
-| [2018-09-13 Thu]                        |     6 | Semester Org Files (2/4): Sections and Syllabus |
-| [2018-09-18 Tue]                        |     7 | Semester Org Files (3/4): Classes               |
-| [2018-09-20 Thu]                        |     8 | Exporting Contents                              |
-| [2018-09-25 Tue]                        |     9 | Semester Org Files (4/4): Exams and Assignments |
-|                                         |       | _Assignment 1 Due_                              |
-| [2018-09-27 Thu]                        |    10 | _Exam 1_                                        |
-| [2018-11-21 Wed]--[2018-11-25 Sun]      |       | *Thanksgiving Holiday*                          |
-| {{{property(SECTION_DATE_FINAL_EXAM)}}} |       | _Final Exam_                                    |
+| Date                                    | Class | Topic                  |
+|-----------------------------------------+-------+------------------------|
+| [2018-08-28 Tue]                        |     1 | Introduction           |
+|                                         |       | _Assignment 1 Due_     |
+| [2018-08-30 Thu]                        |     2 | _Exam 1_               |
+| [2018-11-21 Wed]--[2018-11-25 Sun]      |       | *Thanksgiving Holiday* |
+| {{{property(SECTION_DATE_FINAL_EXAM)}}} |       | _Final Exam_           |
 #+TBLFM: ::@1$>=(string("Topic"))::$2='(replace-regexp-in-string "-" "" $2)::$>='(replace-regexp-in-string "\\*+ \\(.+\\)" "\\1" $>)
 #+END:
 
@@ -242,7 +234,7 @@
 :EXPORT_LATEX_HEADER+: \usepackage[framemethod=default]{mdframed}
 :EXPORT_LATEX_HEADER+: \usepackage{wrapfig}
 :EXPORT_LATEX_HEADER+: \usepackage{booktabs}
-:EXPORT_LATEX_HEADER+: \usepackage[outputdir=Classes]{minted}
+:EXPORT_LATEX_HEADER+: \usepackage[outputdir=Lectures]{minted}
 :EXPORT_BEAMER_THEME: Frankfurt
 :EXPORT_BEAMER_HEADER: \setbeameroption{hide notes}
 :EXPORT_BEAMER_HEADER+: \setbeamercovered{transparent}
@@ -379,7 +371,7 @@
        )) MATCH SCOPE SKIP))
 #+END_SRC
 
-** Tasks [0/1]                                          :noexport:skipcount:
+** Tasks [0/1]                                                   :skipcount:
 *** TODO Class-wide tasks
 ** Lectures and Assignments Dates                                :skipcount:
 #+MACRO: DUE_ASSIGNMENT_1 [2018-09-27 Thu]
@@ -415,6 +407,17 @@
 #+DATE_CLASS_26: [2018-11-29 Thu]
 #+DATE_CLASS_27: [2018-12-04 Tue]
 #+DATE_CLASS_28: [2018-12-06 Thu]
+** Common Items                                                  :skipcount:
+*** Handout heading                                    :handoutonly:ignore:
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Common/Handout heading
+:END:
+@@latex:\lhead{@@ {{{COURSE_NUM}}} @@latex:\\@@ {{{PROFESSOR}}} @@latex:}@@ 
+@@latex:\rhead{@@ Class {{{property(CLASS)}}} @@latex:\\@@ {{{property(Date)}}}@@latex:}@@ 
+#+LATEX: \thispagestyle{fancy}
+
+#+TOC: headlines 1 local
+#+LATEX: \vspace{6ex}
 ** Introduction
 :PROPERTIES:
 :CLASS:    1
@@ -428,14 +431,7 @@
 **** TODO Task item for this class
 
 *** Handout heading                                    :handoutonly:ignore:
-@@latex:\lhead{@@ {{{COURSE_NUM}}} @@latex:\\@@ {{{PROFESSOR}}} @@latex:}@@ 
-@@latex:\rhead{@@ Class {{{property(CLASS)}}} @@latex:\\@@ {{{property(Date)}}}@@latex:}@@ 
-
-#+LATEX: \thispagestyle{fancy}
-
-#+TOC: headlines 1 local
-
-#+LATEX: \vspace{6ex}
+#+INCLUDE: "./Semester.org::#Lecture/Common/Handout heading" :only-contents t
 *** Introduction                                                :slideonly:
 **** Announcements
 - 
@@ -446,7 +442,6 @@
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Introduction to {{{COURSE}}}
-- Overview of the Directory Structure
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Template.org::#Lectures/Introduction" :only-contents t
 *** Class Summary                                                     :slideonly:
@@ -457,10 +452,10 @@
 :END:
 ** _Exam 1_                                                           :Exam:
 :PROPERTIES: 
-:CLASS:    10
-:DATE:     [2018-09-27 Thu]
+:CLASS:    2
+:DATE:     [2018-08-30 Thu]
 :Materials:   
-:EXPORT_FILE_NAME: ./Classes/10 _Exam 1_
+:EXPORT_FILE_NAME: ./Lectures/02 _Exam 1_
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_DATE+:  Class {{{property(Class)}}} {{{NEWLINE}}} ({{{property(date)}}})
 :EXPORT_AUTHOR: {{{COURSE}}} Exam 1
@@ -593,7 +588,7 @@ Instructions:
 #+INCLUDE: "Semester.org::#Exam/1/MC/B" :only-contents t
 ***** Short Answers                                                 :newpage:
 #+INCLUDE: "Semester.org::#Exam/1/Short Answers" :only-contents t
-*** Exam Contents
+*** Exam Content
 **** Multiple Choice
 :PROPERTIES:
 :ANSWER: \checkmark
@@ -615,7 +610,6 @@ Instructions:
    1. Choice
    2. Choice
    3. Choice {{{property(ANSWER)}}}
-
 ***** Type B (Key)
 :PROPERTIES:
 :CUSTOM_ID: Exam/1/MC/B
