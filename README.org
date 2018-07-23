@@ -1,0 +1,10 @@
+#+TITLE: Org-Coursepack
+#+AUTHOR: Joon Ro
+The Org-Coursepack provides a template for developing and managing teaching
+materials using [[https://orgmode.org][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/][GNU Emacs]]. The template is designed
+to be self-explanatory, as the documentation for it consists of an example
+course developed with this template.
+
+The template (see =Courses/Template=) is designed to be self-explanatory, as
+the documentation for it (see =Courses/Org-Coursepack=) consists of an example course developed with this
+template.
