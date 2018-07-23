@@ -6,5 +6,7 @@ to be self-explanatory, as the documentation for it consists of an example
 course developed with this template.
 
 The template (see =Courses/Template=) is designed to be self-explanatory, as
-the documentation for it (see =Courses/Org-Coursepack=) consists of an example course developed with this
-template.
+the documentation for it (see =Courses/Org-Coursepack=) consists of an example
+course developed with this template.
+
+See [[file:paper.md]] for the detailed summary for the template.
