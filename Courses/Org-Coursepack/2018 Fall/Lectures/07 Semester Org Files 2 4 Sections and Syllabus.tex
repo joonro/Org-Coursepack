@@ -1,0 +1,256 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{titling} \posttitle{\par\end{center}} \setlength{\droptitle}{-30pt} \usepackage{multicol} \setlength{\columnsep}{1cm} \usepackage[T1]{fontenc} \usepackage[utf8]{inputenc} \renewcommand{\contentsname}{Table of Contents / Agenda} \usepackage[letterpaper,left=1in,right=1in,top=0.7in,bottom=1in,headheight=23pt,includehead,includefoot,heightrounded]{geometry} \usepackage{fancyhdr} \pagestyle{fancy} \fancyhf{} \cfoot{\thepage} \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier} \usepackage[onehalfspacing]{setspace} \usepackage[framemethod=default]{mdframed} \usepackage{wrapfig} \usepackage{booktabs} \usepackage[outputdir=Classes]{minted}
+\setcounter{secnumdepth}{3}
+\date{\vspace{-6ex}}
+\title{Class 7: Semester Org Files (2/4): Sections and Syllabus}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Class 7: Semester Org Files (2/4): Sections and Syllabus},
+ pdfkeywords={},
+ pdfsubject={Org-Coursepack-Documentation: A Comprehensive Course Template for Teaching with Org Mode School specific teaching materials},
+ pdfcreator={Emacs 25.3.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\lhead{ ORG 0000 \\ Joon H. Ro \& Jae-Eun Namkoong } 
+\rhead{ Class 7 \\ 2018-09-18 Tue} 
+\thispagestyle{fancy}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\vspace{6ex}
+
+\section{Sections Subtree}
+\label{sec:orgb518f6b}
+An instructor may teach multiple sections of the same course during a
+given semester. The \texttt{Sections} subtree contains a subtree for each
+section, which contains section-specific information such as section
+number, classroom location and time, and exam dates. It also acts as a
+wrapper around the content of the syllabus, which passes on section-specific
+information.
+
+\begin{verbatim}
+  * Sections
+  :PROPERTIES:
+  ** 01
+  ** 02
+  ** 03
+\end{verbatim}
+\subsection{\texttt{:PROPERTIES:}}
+\label{sec:org1f2d8ed}
+\begin{itemize}
+\item :Properties: of these subtrees have information common across all sections,
+such as \LaTeX{} preamble items via \texttt{EXPORT\_LATEX\_HEADER}. These will be
+inherited and shared by the child subtrees with the
+\texttt{org-use-property-inheritance} option set to \texttt{t}. For example:
+{\footnotesize
+\begin{minted}[]{latex}
+  * Sections
+  :PROPERTIES:
+  :CUSTOM_ID: Sections
+  :EXPORT_LATEX_CLASS: koma-article
+  :EXPORT_LATEX_CLASS_OPTIONS: [article,letterpaper,times,10pt,listings-bw,microtype]
+  :EXPORT_LATEX_HEADER+: \usepackage[onehalfspacing]{setspace}
+  :EXPORT_LATEX_HEADER+: \usepackage[T1]{fontenc}
+  :EXPORT_LATEX_HEADER+: \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier}
+  :EXPORT_LATEX_HEADER+: \usepackage{geometry} \geometry{left=1in,right=1in,top=1in,bottom=1in}
+  :EXPORT_LATEX_HEADER+: \usepackage[framemethod=default]{mdframed}
+  :EXPORT_DATE: {{{SEMESTER}}}
+  :EXPORT_OPTIONS: num:nil title:nil toc:nil tags:nil
+  :END:
+\end{minted}
+}
+\end{itemize}
+\subsection{Sections}
+\label{sec:org20b9d5a}
+\begin{itemize}
+\item Each section subtree has properties and macros for the section
+information and a child subtree for the syllabus of the section:
+
+\begin{verbatim}
+  ** 01
+  :PROPERTIES:
+  :MACROS_Section_Info:
+  *** Syllabus
+\end{verbatim}
+\end{itemize}
+\subsubsection{\texttt{:PROPERTIES:}}
+\label{sec:org8396f39}
+Each section subtree has property items containing section-specific
+information such as \texttt{:SECTION:} (section number), \texttt{:SECTION\_LOC:}
+(classroom location), \texttt{:SECTION\_DATE:} (class date and time), and
+\texttt{:SECTION\_DATE\_FINAL\_EXAM:} (final exam date), which will be used in
+the syllabus via the \texttt{\{\{\{property(Property\_NAME)\}\}\}} grammar (e.g.,
+\texttt{\{\{\{property(SECTION\_DATE)\}\}\}}). Note that we created a macro
+\texttt{\{\{\{DATE\_FINAL\_EXAM\_01\}\}\}} for \texttt{:SECTION\_DATE\_FINAL\_EXAM:}, so it can be
+used in other places, such as class announcements.
+
+\begin{verbatim}
+  ** 01
+  :PROPERTIES:
+  :SECTION: 01
+  :SECTION_DATE: Tue/Thurs, 9:30a-10:45
+  :SECTION_DATE_FINAL_EXAM: {{{DATE_FINAL_EXAM_01}}}
+  :SECTION_LOC: BLDG 100
+  :CUSTOM_ID: Sections/01
+  :END:
+\end{verbatim}
+\subsubsection{Macros}
+\label{sec:org33022bc}
+\begin{itemize}
+\item Instructors can specify the final exam date in the
+\texttt{:MACROS\_Section\_Info:} drawer.
+\item To allow this information to be used in other places (e.g.,
+reminders or announcements), we used a macro instead of a property.
+
+\begin{verbatim}
+  ** 01
+  :PROPERTIES:
+  :MACROS_Section_Info:
+  #+MACRO: DATE_FINAL_EXAM_01 [2018-12-16 Sun 13:00] - 4:00PM
+  :END:
+\end{verbatim}
+\end{itemize}
+\subsubsection{Syllabus}
+\label{sec:orgb0c369a}
+\begin{itemize}
+\item The \texttt{Syllabus} child subtree has properties containing section-specific
+information for the section's syllabus. For its body, it pulls content
+from the \texttt{Syllabus} subtree of the file.
+\begin{verbatim}
+  *** Syllabus
+  :PROPERTIES:
+  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+\end{verbatim}
+\item \texttt{:PROPERTIES:} of this subtree contain export-related information for the
+syllabus, such as \texttt{:EXPORT\_FILE\_NAME:}.
+
+\begin{verbatim}
+  *** Syllabus
+  :PROPERTIES:
+  :EXPORT_TITLE: {{{COURSE_NUM}}}-{{{property(SECTION)}}} Syllabus
+  :EXPORT_FILE_NAME: ./Syllabus/01_Syllabus
+  :EXPORT_TO:  LaTeX (Custom Time Format)
+  :OUTPUT_VIEW: PDF
+  :END:
+\end{verbatim}
+\item The syllabus subtree simply includes in its body the content of the top level \texttt{Syllabus} tree. Since
+property macros are used for section-specific information in the content,
+the corresponding section-specific information will be included automatically.
+
+\begin{verbatim}
+  *** Syllabus
+  :PROPERTIES:
+  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+\end{verbatim}
+\end{itemize}
+\section{Syllabus Subtree}
+\label{sec:org2aad40e}
+The \texttt{Syllabus} subtree contains course description, learning
+objectives, grading, etc., as shown in the example below. Instructors
+can include additional information as they see fit. We now describe each
+child subtree.
+
+\begin{verbatim}
+  * Syllabus
+  ** Tasks [0/1]                                                     :noexport:
+  ** Intro                                                            :ignore:
+  ** Course Description
+  ** Course Prerequisites
+  ** Student Learning Objectives
+  ** Course Material
+  ** Grading
+  ** Specific Course Policies
+  ** School-Specific Policies
+  ** Class Schedule                                                   :newpage:
+\end{verbatim}
+\subsection{Intro}
+\label{sec:orgfcc4742}
+The Intro has the title page of the Syllabus. The title page contains a blank
+school name (the color of the text is defined in the institution Org file) as a
+placeholder for the school logo the instructor wishes to use. There is
+also a table of course information, which heavily relies on macros
+to avoid redundancy.
+
+Some of the macros are in the form of \texttt{property(PROPERTY\_NAME)} (e.g.,
+\texttt{\{\{\{property(SECTION\_DATE)\}\}\}}), which means it will receive the value of the
+\texttt{:PROPERTY\_NAME:} property of the subtree. When the content is included in
+another subtree such as the \texttt{Sections} subtree, these property macros will pull
+the value from the subtree including this content. That is,
+\texttt{\{\{\{property(SECTION\_DATE)\}\}\}} will get the value from the \texttt{:SECTION\_DATE:}
+property of the \texttt{01} (\texttt{02}) child subtree of the \texttt{Sections} subtree when
+included by the \texttt{01} (\texttt{02}) subtree.
+
+Note that the header of the Intro subtree is assigned an \texttt{:ignore:} tag, which means the heading (\texttt{Intro})
+will be ignored in exporting.
+
+{\scriptsize
+\begin{verbatim}
+  ** Intro                                                            :ignore:
+  @@latex:\definecolor{SchoolColor}{RGB}{@@{{{SCHOOL_COLOR}}}@@latex:}@@
+
+  #+BEGIN_CENTER
+  #+LATEX: {\color{SchoolColor}{\Large
+  *{{{SCHOOL}}}*
+  #+LATEX: }}
+  #+END_CENTER
+  
+  #+BEGIN_CENTER
+  #+LATEX: {\color{SchoolColor}{
+  *{{{COURSE_NUM}}}-{{{property(SECTION)}}}*
+  
+  *{{{COURSE}}}*
+  
+  *{{{SEMESTER}}}*
+  #+LATEX: }}
+  #+END_CENTER
+  
+  {{{VSPACE(5)}}}
+  
+  | *Instructor:*               | {{{PROFESSOR}}}              | *Office Phone:*   | {{{PHONE}}}                 |
+  | *Office:*                   | {{{OFFICE}}}                 | *E-mail:*         | {{{EMAIL}}}                 |
+  | *Office Hours:*             | {{{OFFICE_HOURS}}}           | *Course Site:*    | *{{{COURSE_LINK}}}*         |
+  | *Class Meeting Day & Time:* | {{{property(SECTION_DATE)}}} | *Class Location:* | {{{property(SECTION_LOC)}}} |
+\end{verbatim}
+}
+\subsection{Course-speific information}
+\label{sec:org200c51f}
+\begin{itemize}
+\item Since different sections of the same course typically share common elements (e.g.,
+course description, prerequisites, learning objectives), the
+content of most child subtrees of \texttt{Syllabus} are pulled from the course Org
+file on exporting, using \texttt{\#+INCLUDE}.
+\item Note that instructors can use semester-specific information in these child
+subtrees using macros -- see the \texttt{Grading} child subtree for an example.
+\item School-wide information (e.g., grade cutoff percentages) is imported
+from the institution Org file.
+\end{itemize}
+\subsection{Class Schedule}
+\label{sec:org810f02d}
+\begin{itemize}
+\item The \texttt{Class Schedule} subtree contains the class schedule in a table format.
+\item The table is dynamically generated using org-mode's \href{https://orgmode.org/manual/Capturing-column-view.html\#Capturing-column-view}{columnview dynamic block}
+functionality -- it will extract information about each class from the class
+subtree's properties, and automatically create the class schedule table.
+
+\item One can use \texttt{C-c C-c} while the cursor is on the \texttt{\#+BEGIN: columnview} to
+update the columnview dynamic block. Once it is updated, \texttt{\#+TBLFM} is used
+to format the table (e.g., change the third column name from \texttt{ITEM} to
+\texttt{Topic}) automatically.
+\end{itemize}
+\end{document}

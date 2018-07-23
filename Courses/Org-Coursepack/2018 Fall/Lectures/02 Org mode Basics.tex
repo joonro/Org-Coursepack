@@ -1,0 +1,189 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{titling} \posttitle{\par\end{center}} \setlength{\droptitle}{-30pt} \usepackage{multicol} \setlength{\columnsep}{1cm} \usepackage[T1]{fontenc} \usepackage[utf8]{inputenc} \renewcommand{\contentsname}{Table of Contents / Agenda} \usepackage[letterpaper,left=1in,right=1in,top=0.7in,bottom=1in,headheight=23pt,includehead,includefoot,heightrounded]{geometry} \usepackage{fancyhdr} \pagestyle{fancy} \fancyhf{} \cfoot{\thepage} \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier} \usepackage[onehalfspacing]{setspace} \usepackage[framemethod=default]{mdframed} \usepackage{wrapfig} \usepackage{booktabs} \usepackage[outputdir=Lectures]{minted}
+\setcounter{secnumdepth}{3}
+\date{\vspace{-6ex}}
+\title{Class 2: Org Mode Basics}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Class 2: Org Mode Basics},
+ pdfkeywords={},
+ pdfsubject={Org-Coursepack-Documentation: A Comprehensive Course Template for Teaching with Org Mode School specific teaching materials},
+ pdfcreator={Emacs 25.3.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\lhead{ ORG 0000 \\ Joon H. Ro \& Jae-Eun Namkoong } 
+\rhead{ Class 2 \\ 2018-08-30 Thu} 
+\thispagestyle{fancy}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\vspace{6ex}
+
+\section{Headings}
+\label{sec:orgd916d22}
+\begin{itemize}
+\item In Org mode, a heading is denoted by preceding stars (\texttt{*}), and the level of
+a heading is determined by the number of stars.
+\item For example,
+
+\begin{verbatim}
+  * Heading 1
+  ** Subheading 1.1
+  * Heading 2
+  ** Subheading 2.1
+\end{verbatim}
+
+\item A heading can have tags and properties associated with them, which allows
+very flexible usage that we exploit throughout Org-Coursepack.
+\end{itemize}
+\subsection{Tags}
+\label{sec:orgd79f8e8}
+\begin{itemize}
+\item A heading can have tags associated with them. They are used in the form of \texttt{:tag:}, on the same line as the heading. For example,
+
+\begin{verbatim}
+  * Heading with a tag                       :tag:
+\end{verbatim}
+\end{itemize}
+\subsection{Properties}
+\label{sec:orgacf5440}
+\begin{itemize}
+\item Each heading can have properties associated with it. You can think of
+properties as data specific for the heading, as they consist of
+\texttt{:PROPERTY\_NAME:} and \texttt{PROPERTY VALUE} pairs.
+\item For example, a heading for a lecture can have property values for lecture
+number, file name for exports, etc. One of the frequently used properties is
+\texttt{:CUSTOM\_ID:}, which can be used to locate the particular heading. See the
+\texttt{Including Content from Another Org file} section for how it is used in
+Org-Coursepack.
+\item See the \href{https://orgmode.org/manual/Properties-and-columns.html}{Org manual} for more information.
+
+\item For example,
+\begin{verbatim}
+  * Heading 1
+  :PROPERTIES:
+  :CUSTOM_ID: Heading 1
+  :END:
+\end{verbatim}
+\end{itemize}
+\section{Macros}
+\label{sec:orge1f0fd8}
+Org mode provides macro replacement functionality. This can be especially
+useful for instructors, as shown in the following cases.
+
+\begin{itemize}
+\item When defining terms that will be repeated within or across course-related
+materials, or needs to be changed in future semesters.
+\begin{description}
+\item[{Example}] Suppose an instructor were to present a due date for
+"Assignment 1" in three different places (e.g., syllabus,
+lecture, and assignment guideline). By using a macro, an
+instructor can ensure that all documents have the same
+information, and make such updates easily in future
+semesters. Such a macro (named \texttt{DUE\_ASSIGNMENT\_1}) can be
+defined like the following:
+
+\begin{verbatim}
+    #+MACRO: DUE_ASSIGNMENT_1 [2018-09-27 Thu]
+\end{verbatim}
+
+One can then use the macro with \texttt{\{\{\{MACRO\_NAME\}\}\}}. For example, all
+areas in documents where it says \texttt{\{\{\{DUE\_ASSIGNMENT\_1\}\}\}} will be
+replaced with \texttt{[2018-09-27 Thu]} upon export.
+\end{description}
+
+\item When defining terms specific to a subtree (e.g., a specific class) that
+the instructor may want to use in multiple places. This can be useful when
+specifying class orders, class titles, or section numbers. One
+can achieve this by referring to property values of a subtree.
+\begin{description}
+\item[{Example}] An instructor can define a class number property like the following:
+
+\begin{verbatim}
+    * Heading
+    :PROPERTIES:
+    :CLASS:    2
+    :END:
+\end{verbatim}
+
+Then \texttt{\{\{\{property(PROPERTY\_NAME)\}\}\}} will be replaced by
+the value of \texttt{PROPERTY\_NAME} property:
+
+\begin{verbatim}
+    This is class number {{{property(CLASS)}}}.
+\end{verbatim}
+\end{description}
+
+\item See the \href{https://orgmode.org/manual/Macro-replacement.html}{Org manual} for more information.
+\end{itemize}
+\section{Including Content from Another Org file}
+\label{sec:orgb5a741c}
+\begin{itemize}
+\item In Org mode, a user can pull content, without making a copy, from any org file (including
+the current one) via the \texttt{\#+INCLUDE:} statement. See the \href{https://orgmode.org/manual/Include-files.html}{Org manual} fore more information.
+
+\item Taking advantage of this functionality, the template is created so that its
+content is modular and can be pulled flexibly as needed. This feature is
+useful when sharing content across different courses or semesters or when
+revisiting past materials (e.g., in exam reviews or when reviewing past
+cases to build on them).
+
+\begin{description}
+\item[{Example}] This is how an instructor would use the \texttt{\#+INCLUDE:} statement
+to pull content from a subtree with \texttt{:CUSTOM\_ID:} \texttt{R-squared}
+in the file \texttt{Regression.org} so it is presented across multiple
+courses (i.e., Statistics 101 and Marketing Research).
+\texttt{:only-contents t} option means only the contents of the
+subtree, not its heading and properties, will be included. To
+visit the included file, press \texttt{C-c '} while the cursor is on
+the \texttt{\#+INCLUDE:} statement.
+
+\begin{itemize}
+\item \textbf{\texttt{Regression.org}} \quad 
+
+{\small
+\begin{verbatim}
+      * R-squared
+      :PROPERTIES:
+      :CUSTOM_ID: R-squared
+      :END:
+      - The definition of \( R^{2} \) is:
+        \[ R^{2} = 1 - \dfrac{SS_{\text{res}}}{SS_{\text{tot}}}\]
+\end{verbatim}
+
+\item \textbf{\texttt{Statistics 101.org}} \quad 
+
+\begin{verbatim}
+      * Regression
+      ** R-squared
+      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+\end{verbatim}
+
+\item \textbf{\texttt{Marketing Research.org}} \quad 
+
+\begin{verbatim}
+      * Regression
+      ** R-squared
+      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+\end{verbatim}
+}
+\end{itemize}
+\end{description}
+\end{itemize}
+\end{document}
