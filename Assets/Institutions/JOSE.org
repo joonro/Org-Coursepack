@@ -1,0 +1,35 @@
+#+TITLE:     Journal of Open Source Education
+#+AUTHOR:    Joon Ro
+#+EMAIL:     joon.ro@outlook.com
+#+DESCRIPTION: School specific teaching materials
+#+CATEGORY: Teaching
+#+STARTUP: overview
+#+STARTUP: hidestars
+
+* Syllabus
+** Grading
+*** Grade Cutoff Percentage
+The following table provides the preliminary guidelines for assigning your
+letter grade:
+
+|------------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
+| Grade      |   A |  A- |  B+ |   B |  B- |  C+ |   C |  C- |  D+ |   D |  D- |
+|------------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
+| Cutoff Pct | 93% | 90% | 87% | 83% | 80% | 77% | 73% | 70% | 67% | 63% | 60% |
+|------------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----|
+** School-Specific Policies
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/School-Specific Policies
+:END:
+
+School-specific policies here.
+* Macros
+#+MACRO: SCHOOL_COLOR 70,130,180
+
+#+MACRO: PROFESSOR Joon H. Ro & Jae-Eun Namkoong
+#+MACRO: EMAIL joon.ro@outlook.com
+#+MACRO: OFFICE BLDG 100
+#+MACRO: PHONE (000) 000-0000
+#+MACRO: SCHOOL Journal of Open Source Education
+#+MACRO: CITY City
+#+MACRO: CANVAS_LINK [[https://github.com][github.com]] 

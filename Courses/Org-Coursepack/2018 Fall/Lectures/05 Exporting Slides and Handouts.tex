@@ -1,0 +1,299 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{titling} \posttitle{\par\end{center}} \setlength{\droptitle}{-30pt} \usepackage{multicol} \setlength{\columnsep}{1cm} \usepackage[T1]{fontenc} \usepackage[utf8]{inputenc} \renewcommand{\contentsname}{Table of Contents / Agenda} \usepackage[letterpaper,left=1in,right=1in,top=0.7in,bottom=1in,headheight=23pt,includehead,includefoot,heightrounded]{geometry} \usepackage{fancyhdr} \pagestyle{fancy} \fancyhf{} \cfoot{\thepage} \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier} \usepackage[onehalfspacing]{setspace} \usepackage[framemethod=default]{mdframed} \usepackage{wrapfig} \usepackage{booktabs} \usepackage[outputdir=Lectures]{minted}
+\setcounter{secnumdepth}{3}
+\date{\vspace{-6ex}}
+\title{Class 5: Exporting Slides and Handouts}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Class 5: Exporting Slides and Handouts},
+ pdfkeywords={},
+ pdfsubject={Org-Coursepack-Documentation: A Comprehensive Course Template for Teaching with Org Mode School specific teaching materials},
+ pdfcreator={Emacs 25.3.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\lhead{ ORG 0000 \\ Joon H. Ro \& Jae-Eun Namkoong } 
+\rhead{ Class 5 \\ 2018-09-11 Tue} 
+\thispagestyle{fancy}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\vspace{6ex}
+
+\section{Exporting Content in Org Mode}
+\label{sec:org8ce5740}
+Org mode provides powerful export functionalities, which enable users to
+convert Org markup content to a variety of other formats. The outputs have proper
+formatting while maintaining the original structure and markup. 
+The Org-Coursepack is set up to use reveal.js for slides and \LaTeX{} for
+handouts. Users can adapt the current setting to accomodate other output
+formats.
+
+General information about exporting can be found in the \href{https://orgmode.org/manual/Exporting.html}{Org manual}. Hence,
+this lecture focuses on describing how exporting is set up in the
+Org-Coursepack, introducing pre-built export functionalities of the
+Org-Coursepack, and offering useful exporting tips for instructors.
+\subsection{Setting Export Scope to \texttt{Subtree}}
+\label{sec:org556af86}
+The export command, \texttt{org-export-dispatch} (\texttt{C-c C-e}), takes the user
+to the \texttt{Org Export Dispatcher} interface. Here, the user can select
+whether to export the buffer (i.e., the whole file) or only a
+subtree. An instructor may use the former to create a course
+booklet and the latter to export slides for a full or part of a
+lecture. The default scope of Org mode is \texttt{Buffer}, but a user can put the following snippet in
+the Emacs init file to set the default scope to \texttt{Subtree}.
+
+\begin{minted}[]{common-lisp}
+  ;; set the default export scope to subtree
+  (setf org-export-initial-scope 'subtree)
+\end{minted}
+\subsection{Export Settings}
+\label{sec:orgd059bab}
+Org mode allows users to specify \href{https://orgmode.org/manual/Export-settings.html}{export settings} at both buffer and subtree levels.
+\subsubsection{Buffer-Level Settings}
+\label{sec:org4ec5e41}
+For buffer-level settings, one can use the \texttt{\#+OPTIONS:} statement. For
+example, including the following line in an Org file will include a table
+of contents for that file in the exported document:
+
+\begin{verbatim}
+#+OPTIONS: toc:t
+\end{verbatim}
+
+Similarly including the following line will add numbers in front of the headings.
+
+\begin{verbatim}
+#+OPTIONS: num:t
+\end{verbatim}
+
+\subsubsection{Subtree-Level Settings}
+\label{sec:orgafd1342}
+Export settings can be specified at the subtree level with
+\texttt{:PROPERTIES:}. Simply add \texttt{:EXPORT\_:} as a prefix to each option. For
+example, the title of the document can be set with
+\texttt{:EXPORT\_TITLE:}. To specify multiple settings (e.g., items for \LaTeX{} preamble),
+one can add \texttt{+} to the property name to append an additional value.  For example,
+
+\begin{verbatim}
+:PROPERTIES:
+:EXPORT_LATEX_HEADER+: \usepackage{titling}
+:EXPORT_LATEX_HEADER+: \usepackage{multicol}
+:END:
+\end{verbatim}
+\section{Clickable Links and Keybindings for Exporting}
+\label{sec:org00bbfc3}
+\subsection{Buttons}
+\label{sec:orga4b9d8d}
+We include export buttons (in the form of links written in Emacs-lisp) in the
+properties of any exportable subtree in the Org-Coursepack (e.g.,
+lectures, syllabi, and exams).
+
+For example, each lecture headline comes with the \texttt{:EXPORT\_TO:}
+property, which includes buttons such as \texttt{reveal.js} and
+\texttt{LaTeX}. These buttons will export files to their respective format,
+using \texttt{Subtree} as the export scope.
+
+After exporting, users can click on buttons in the \texttt{:VIEW\_OUTPUT:}
+property (e.g., \texttt{HTML} or \texttt{PDF}) to open the exported files.
+
+\subsection{Key Bindings}
+\label{sec:org15d9e48}
+Using the command=org-export-dispatch= (\texttt{C-c C-e}) when exporting a
+content allows users to later repeat the last export action for that
+same content using the prefix argument (\texttt{C-u}). This is a convenient
+feature when exporting the same content multiple times.
+
+\vspace{5 mm}
+
+\begin{mdframed}
+Note that the cursor shoud be in the correct position (heading,
+properties, or spaces between the heading and its first subheading) of
+the subtree being exported. When using \texttt{C-u C-c C-e} for repeated
+export, however, the cursor position does \emph{not} matter as long as the
+same buffer which contains the last exported subtree is open.
+\end{mdframed}
+
+\vspace{5 mm}
+
+To bind \texttt{C-u C-c C-e} to a key (\texttt{F5} in this example), include
+the following Emacs-lisp code in into the init file:
+
+\begin{minted}[]{common-lisp}
+;; bind f5 to keyboard macro of export-last-subtree
+(fset 'export-last-subtree
+      "\C-u\C-c\C-e")
+
+(eval-after-load "org"
+  '(progn
+     (define-key org-mode-map (kbd "<f5>") 'export-last-subtree)))
+\end{minted}
+\section{Exporting Slides: with reveal.js}
+\label{sec:orgec5bdcb}
+\begin{itemize}
+\item See the \href{https://github.com/yjwen/org-reveal/}{org-reveal documentation} for instructions on installation and usage.
+\end{itemize}
+\section{Exporting Slides: with \LaTeX{}}
+\label{sec:org59e7735}
+\LaTeX{} export is extensively supported by Org mode. We refer users to the \href{https://orgmode.org/manual/LaTeX-export.html\#LaTeX-export}{Org
+manual} for the in-depth instructions.
+
+The following snippet shows the basic setup for our \LaTeX{} output,
+where the \texttt{koma-article} class is added to \texttt{org-latex-classes} and the
+\texttt{minted} package is used for syntax highlighting. Currently, Python is
+the only language added to \texttt{org-latex-minted-langs}. Users can add to
+\texttt{org-latex-minted-langs} any other languages they want processed with
+the \texttt{minted} package.
+
+\begin{mdframed}
+Note that we manually added the \texttt{minted} package to \LaTeX{} preambles as opposed to adding
+it to \texttt{org-latex-packages-alist}. This was to allow for flexible specifications of the \texttt{outputdir} option.
+\end{mdframed}
+
+{\small
+\begin{minted}[]{common-lisp}
+(eval-after-load 'ox '(require 'ox-koma-letter))
+
+(eval-after-load 'ox '(add-to-list 'org-latex-classes
+                                   '("koma-article"
+                                     "\\documentclass{scrartcl}"
+                                     ("\\section{%s}" . "\\section*{%s}")
+                                     ("\\subsection{%s}" . "\\subsection*{%s}")
+                                     ("\\subsubsection{%s}"
+                                      . "\\subsubsection*{%s}")
+                                     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                                     ("\\subparagraph{%s}"
+                                      . "\\subparagraph*{%s}"))) )
+
+(require 'ox-latex)
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(add-to-list 'org-latex-minted-langs '(python "python"))
+\end{minted}
+}
+
+\subsection{Inserting a Page Break Before a Heading in \LaTeX{} Export}
+\label{sec:org48c0563}
+Users can add a page break in the \LaTeX{} export by inserting
+\texttt{\#+LATEX: \textbackslash{}clearpage}. Importantly, adding the following code into the init file
+automatically inserts a page break before any subtree that has a \texttt{:newpage:}
+tag.
+
+{\small
+\begin{minted}[]{common-lisp}
+(defun org/get-headline-string-element  (headline backend info)
+  "Return the org element representation of an element.
+
+  Won't work on ~verb~/=code=-only headers"
+  (let ((prop-point (next-property-change 0 headline)))
+    (if prop-point (plist-get (text-properties-at prop-point headline) :parent))))
+
+(defun org/ensure-latex-clearpage (headline backend info)
+  (when (org-export-derived-backend-p backend 'latex)
+    (let ((elmnt (org/get-headline-string-element headline backend info)))
+      (when (member "newpage" (org-element-property :tags elmnt))
+        (concat "\\clearpage\n" headline)))))
+
+(eval-after-load 'ox '(add-to-list
+                       'org-export-filter-headline-functions
+                       'org/ensure-latex-clearpage))
+\end{minted}
+}
+\section{Selective Export}
+\label{sec:org90a1fb8}
+By using raw code and custom Emacs-lisp scripts, users can flexibly
+choose which content to show/hide, depending on output format. For
+example, instructors may want to show images in slides but not in
+handouts, or they may want to include supplementary notes in handouts but not in slides.
+\subsection{Tagging a Subtree as Slide or Handout Only}
+\label{sec:org55e4ab9}
+With the code below in your init file, you can use the \texttt{:slideonly:} or
+\texttt{:handoutonly:} tags to selectively include a subtree in either a slide output
+or handout output, respectively. Currently \LaTeX{} export is set as a handout output, and
+reveal.js and beamer are set as slide outputs.
+
+For example,
+
+\begin{verbatim}
+  * This subtree will only be exported in slide output      :slideonly:
+  - Content
+  * This subtree will only be exported in handout output    :handoutonly:
+  - Content
+\end{verbatim}
+
+{\small
+\begin{minted}[]{common-lisp}
+  (defun org/parse-headings (backend)
+    "Remove every headline with certain tags in the
+    current buffer. BACKEND is the export back-end being used, as
+    a symbol.
+  
+    "
+  
+    (if (member backend '(latex))
+        (org-map-entries
+         (lambda ()
+           (progn
+             (org-narrow-to-subtree)
+             (org-cut-subtree)
+             (widen)
+             ))
+         "+slideonly"))
+  
+    (if (member backend '(beamer reveal))
+        (org-map-entries
+         (lambda ()
+           (progn
+             (org-narrow-to-subtree)
+             (org-cut-subtree)
+             (widen)
+             ))
+         "+handoutonly"))
+  
+  )
+  
+  (add-hook 'org-export-before-parsing-hook 'org/parse-headings)
+\end{minted}
+}
+\subsection{Hiding Specific Content}
+\label{sec:orgd3b35ef}
+To hide content when exporting to HTML-based format outputs (slides), use raw
+HTML tags \texttt{<span hidden>} and \texttt{</span>}. See the example below.
+
+{\small
+\begin{minted}[]{html}
+  #+REVEAL_HTML: <span hidden>
+  This will not be shown in reveal.js output
+  #+REVEAL_HTML: </span>
+\end{minted}
+}
+
+Similarly, any content placed between \texttt{\textbackslash{}iffalse} and \texttt{\textbackslash{}fi} will not be
+rendered in \LaTeX{} outputs (handouts). See the example below.
+
+{\small
+\begin{minted}[]{text}
+  #+LATEX: \iffalse
+  This will not be shown in LaTeX output
+  #+LATEX: \fi
+\end{minted}
+}
+\end{document}
