@@ -131,8 +131,8 @@ the following Emacs-lisp code in into the init file:
 
 - See the `org-reveal documentation <https://github.com/yjwen/org-reveal/>`_ for instructions on installation and usage.
 
-4 Exporting Slides: with LaTeX
-------------------------------
+4 Exporting Handouts: with LaTeX
+--------------------------------
 
 LaTeX export is extensively supported by Org mode. We refer users to the `Org
 manual <https://orgmode.org/manual/LaTeX-export.html#LaTeX-export>`_ for the in-depth instructions.

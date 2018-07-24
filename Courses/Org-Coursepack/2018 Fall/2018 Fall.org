@@ -614,7 +614,7 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Clickable Links and Keybindings" :only-contents t
 *** Exporting Slides: with reveal.js
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Slides" :only-contents t
-*** Exporting Slides: with LaTeX
+*** Exporting Handouts: with LaTeX
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Handouts" :only-contents t
 *** Selective Export
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Selective Export" :only-contents t
