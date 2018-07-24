@@ -30,7 +30,7 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 - Second, instructors can enjoy the benefits of having a flexible export system and an output-specific export option.
   - Consistent content across multiple output formats
      - Slides (e.g., via reveal.js or Beamer backends)
-     - Handouts (e.g., via the LaTeX backend)
+     - Handouts (e.g., via the LaTeX or reStructuredText backends)
   - Selective formatting and presentation of components depending on output
     format
 - Third, the template contains a) utility functions written in Emacs Lisp, b)
@@ -1122,7 +1122,6 @@ answers. See the example and note below.
 Note that the property =:ANSWER:= is empty. This is to hide answers for
 multiple choice questions--see =Exam Contents/Multiple Choice= for details.
 #+END_mdframed
-
 **** =Exam Content= Subtree
 #+ATTR_REVEAL: :frag (appear)
 The =Exam Content= subtree contains exam questions. Its content can be
@@ -1193,7 +1192,6 @@ The answer to each multiple choice question is marked with the macro
 #+END_mdframed
 
 #+REVEAL: split
-
 
 **** Short Answers
 #+ATTR_REVEAL: :frag (appear)
@@ -1415,7 +1413,7 @@ below.
 #+REVEAL: split
 
 The following code needs to be inserted in the init file to hide speaker
-notes in LaTeX and HTML output formats.
+notes in LaTeX, reStructuredText, and HTML output formats.
 
 #+BEGIN_mdframed
 Note that using the example code below will also make speaker notes appear
@@ -1425,22 +1423,23 @@ properly on Beamer.
 #+REVEAL_HTML: <span style=font-size:20pt>
 #+LATEX: {\small
 #+BEGIN_SRC emacs-lisp
-(defun my/remove-NOTES-blocks (text backend info)
-  "Filter special blocks from latex export."
+(defun my/process-NOTES-blocks (text backend info)
+  "Filter NOTES special blocks in export."
   (cond
    ((eq backend 'latex)
     (if (string/starts-with text "\\begin{NOTES}") ""))
+   ((eq backend 'rst)
+    (if (string/starts-with text ".. NOTES::") ""))
    ((eq backend 'html)
     (if (string/starts-with text "<div class=\"NOTES\">") ""))
    ((eq backend 'beamer)
     (let ((text (replace-regexp-in-string "\\\\begin{NOTES}" "\\\\note{" text)))
       (replace-regexp-in-string "\\\\end{NOTES}" "}" text)))
-))
+   ))
 
 (eval-after-load 'ox '(add-to-list
                        'org-export-filter-special-block-functions
-                       'my/remove-NOTES-blocks))
-
+                       'my/process-NOTES-blocks))
 #+END_SRC
 #+LATEX: }
 #+REVEAL_HTML: </span>
@@ -1453,7 +1452,7 @@ necessary items in the LaTeX preamble enabling the features are already
 specified in the properties of the =Lectures= subtree in the semester Org
 files of the {{{COURSE}}}.
 **** Inserting Boxed Paragraphs
-With the =mdframed= block, users can easily create boxed paragraphs in
+With the =mdframed= block, users can easily create boxed paragraphs in LaTeX 
 handouts. The example below shows the code for the box and what the box will
 look like in the handout. Note that the title of the box is written in bold
 instead of using =#+ATTR_LATEX: :options [frametitle={Title of the box}]=
@@ -1474,6 +1473,27 @@ Content of the box
 
 Content of the box
 #+END_mdframed
+
+Optionally, users can choose to add the following code to their init file so
+=mdframed= boxes are automatically converted to =note= directives in
+reStructuredText export.
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+#+LATEX: {\small
+#+BEGIN_SRC emacs-lisp
+(defun my/process-mdframed-blocks (text backend info)
+  "Filter mdframed special blocks in export."
+  (cond
+   ((org-export-derived-backend-p backend 'rst)
+      (replace-regexp-in-string ".. mdframed::" ".. note::" text t t))
+   ))
+
+(eval-after-load 'ox '(add-to-list
+                       'org-export-filter-special-block-functions
+                       'my/process-mdframed-blocks))
+#+END_SRC
+#+LATEX: }
+#+REVEAL_HTML: </span>
 **** Organizing Content in Multiple Columns
 One can easily make parts of the handout multi-column. The example
 below shows the code for creating two columns and what that will look like in
@@ -1697,18 +1717,19 @@ tag.
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Exporting/Selective Export
 :END:
-By using raw code and custom Emacs-lisp scripts, users can flexibly
-choose which content to show/hide, depending on output format. For
-example, instructors may want to show images in slides but not in
-handouts, or they may want to include supplementary notes in handouts but not in slides.
+By using raw code and custom Emacs-lisp scripts, users can flexibly choose
+which content to show/hide, depending on output format. For example,
+instructors may want to show images in slides but not in handouts, or they may
+want to include supplementary notes in handouts but not in slides.
 **** Tagging a Subtree as Slide or Handout Only
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Exporting/Slide and Handout Only
 :END:
-With the code below in your init file, you can use the =:slideonly:= or
-=:handoutonly:= tags to selectively include a subtree in either a slide output
-or handout output, respectively. Currently LaTeX export is set as a handout output, and
-reveal.js and beamer are set as slide outputs.
+With the code below in added to your init file, you can use the =:slideonly:=
+or =:handoutonly:= tags to selectively include a subtree in either a slide
+output or handout output, respectively. Currently LaTeX and =rst= backends is
+set as a handout output, and reveal.js and beamer backends are set as slide
+outputs.
 
 For example,
 
@@ -1716,9 +1737,9 @@ For example,
   ,* This subtree will only be exported in slide output      :slideonly:
   - Content
   ,* This subtree will only be exported in handout output    :handoutonly:
-  - Content
+  - Content
   #+END_EXAMPLE
-
+  
   #+LATEX: {\small
   #+BEGIN_SRC emacs-lisp
   (defun org/parse-headings (backend)
@@ -1728,7 +1749,7 @@ For example,
   
     "
   
-    (if (member backend '(latex))
+    (if (member backend '(latex rst))
         (org-map-entries
          (lambda ()
            (progn
@@ -1738,7 +1759,7 @@ For example,
              ))
          "+slideonly"))
   
-    (if (member backend '(beamer reveal))
+    (if (member backend '(reveal beamer))
         (org-map-entries
          (lambda ()
            (progn

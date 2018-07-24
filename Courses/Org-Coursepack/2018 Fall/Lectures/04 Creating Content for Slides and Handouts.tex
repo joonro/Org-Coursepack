@@ -21,7 +21,7 @@
  pdfauthor={},
  pdftitle={Class 4: Creating Content for Slides and Handouts},
  pdfkeywords={},
- pdfsubject={Org-Coursepack-Documentation: A Comprehensive Course Template for Teaching with Org Mode School specific teaching materials},
+ pdfsubject={Fall 2018 Org-Coursepack School specific teaching materials},
  pdfcreator={Emacs 25.3.1 (Org mode 9.1.13)}, 
  pdflang={English}}
 \begin{document}
@@ -36,7 +36,7 @@
 \vspace{6ex}
 
 \section{Creating Slides and Handouts: Introduction}
-\label{sec:org611f9f9}
+\label{sec:org4b6395c}
 Content is created using the Org markup language. General information on how
 to use the markeup language can be found in the \href{https://orgmode.org/manual/Markup.html}{Org manual}. Hence,
 we focus on common slide- and handout-related tasks that cannot be achieved
@@ -52,7 +52,7 @@ functionality for Beamer as well as reveal.js. In those cases we have a
 note describing how to achieve the functionality in Beamer.
 \end{mdframed}
 \section{Using Raw HTML Tags and \LaTeX{} Code}
-\label{sec:orgb0bc942}
+\label{sec:org50b2080}
 Directly quoting raw HTML tags and \LaTeX{} code allows users to have granular
 control over how contents are presented. Such quotes will be only included in
 their corresponding outputs that are HTML-based (e.g., reveal.js) and
@@ -72,9 +72,9 @@ applies to HTML as well) like the following:
 \end{verbatim}
 \end{mdframed}
 \section{Features for Both Slides and Handouts}
-\label{sec:org3b490c1}
+\label{sec:org2ecb7f4}
 \subsection{Specifying Attributes}
-\label{sec:org0af6cac}
+\label{sec:orgb9b696d}
 Org mode allows users to specify attributes to raw HTML tags or \LaTeX{} code
 using \texttt{\#+ATTR\_FORMAT:} grammar. For example, the following shows how to 
 specify the width of an image.
@@ -87,7 +87,7 @@ specify the width of an image.
 For more information, see the \href{https://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html}{tutorial on Images and XHTML export}.
 
 \subsection{Changing Font Sizes}
-\label{sec:org72b2ec1}
+\label{sec:org4d202c6}
 One of the frequently used use cases of raw HTML or \LaTeX{} code in Org markup
 is changing the font size of a specific text. 
 
@@ -120,7 +120,7 @@ HTML and LateX codes and use them together like so:
     #+LATEX: }
 \end{minted}
 \subsection{Using a Dummy Heading}
-\label{sec:org4f171d5}
+\label{sec:org4d2f0aa}
 Instructors may want the option to present content of a tree without its heading. To do so, follow the instructions at
 \url{https://orgmode.org/worg/org-hacks.html\#ignoreheadline}. Specifically, include the
 following in your init file, and any header with the \texttt{:ignore:} tag will not be printed in exported outputs.
@@ -130,7 +130,7 @@ following in your init file, and any header with the \texttt{:ignore:} tag will 
 (ox-extras-activate '(ignore-headlines))
 \end{minted}
 \section{Slides: Features for reveal.js}
-\label{sec:org88aafb2}
+\label{sec:orgb1dabfe}
 \begin{mdframed}
 Note that reveal.js is HTML-based, so any raw HTML tags (e.g., via \texttt{\#+HTML:})
 or attributes (e.g., via \texttt{\#+ATTR\_HTML:}) will be applied to reveal.js as well
@@ -140,7 +140,7 @@ should use \texttt{\#+REVEAL:} (\texttt{\#+ATTR\_REVEAL:}) instead of \texttt{\#
 \end{mdframed}
 
 \subsection{List Fragments}
-\label{sec:org3b19df4}
+\label{sec:orgc4d58c2}
 One can easily obtain list fragments (make items in the list appear
 sequentially) using reveal.js. Simply add \texttt{\#+ATTR\_REVEAL: :frag
 (appear)} before the list. See the example below.
@@ -158,7 +158,7 @@ Similarly, a list fragment can be obtained on the Beamer output by including
 \end{mdframed}
 
 \subsection{Splitting slides}
-\label{sec:org157bd67}
+\label{sec:orga54b690}
 To split content into multiple slides, insert the following code between the areas where you want the split to happen.
 
 \begin{minted}[]{text}
@@ -171,7 +171,7 @@ Similarly, a frame break can be inserted in Beamer by using \texttt{\#+BEAMER:
 \end{mdframed}
 
 \subsection{Embedding Youtube videos}
-\label{sec:orge84475f}
+\label{sec:orgbcc0f8e}
 One can use the following example to embed a YouTube video in a slide. The
 example specifies at which points of the video the viewing will start
 (1 second in) and end (60 seconds in).
@@ -185,7 +185,7 @@ example specifies at which points of the video the viewing will start
 \end{minted}
 }
 \subsection{Speaker Notes}
-\label{sec:org7ffce18}
+\label{sec:orgbf350ee}
 An instructor may create a speaker note that accompanies a lecture
 slide. reveal.js will display the speaker note in a separate browser
 window. To create a speaker note, use a \texttt{NOTES} block as shown in the example
@@ -198,7 +198,7 @@ below.
 \end{minted}
 
 The following code needs to be inserted in the init file to hide speaker
-notes in \LaTeX{} and HTML output formats.
+notes in \LaTeX{}, reStructuredText, and HTML output formats.
 
 \begin{mdframed}
 Note that using the example code below will also make speaker notes appear
@@ -207,33 +207,34 @@ properly on Beamer.
 
 {\small
 \begin{minted}[]{common-lisp}
-(defun my/remove-NOTES-blocks (text backend info)
-  "Filter special blocks from latex export."
+(defun my/process-NOTES-blocks (text backend info)
+  "Filter NOTES special blocks in export."
   (cond
    ((eq backend 'latex)
     (if (string/starts-with text "\\begin{NOTES}") ""))
+   ((eq backend 'rst)
+    (if (string/starts-with text ".. NOTES::") ""))
    ((eq backend 'html)
     (if (string/starts-with text "<div class=\"NOTES\">") ""))
    ((eq backend 'beamer)
     (let ((text (replace-regexp-in-string "\\\\begin{NOTES}" "\\\\note{" text)))
       (replace-regexp-in-string "\\\\end{NOTES}" "}" text)))
-))
+   ))
 
 (eval-after-load 'ox '(add-to-list
                        'org-export-filter-special-block-functions
-                       'my/remove-NOTES-blocks))
-
+                       'my/process-NOTES-blocks))
 \end{minted}
 }
 \section{Handouts: Features for \LaTeX{}}
-\label{sec:orgfc76de7}
+\label{sec:orgf8a08f7}
 The features introduced in this section are readily available, as the
 necessary items in the \LaTeX{} preamble enabling the features are already
 specified in the properties of the \texttt{Lectures} subtree in the semester Org
 files of the Org-Coursepack.
 \subsection{Inserting Boxed Paragraphs}
-\label{sec:orge9be1e0}
-With the \texttt{mdframed} block, users can easily create boxed paragraphs in
+\label{sec:orgfec3c98}
+With the \texttt{mdframed} block, users can easily create boxed paragraphs in \LaTeX{} 
 handouts. The example below shows the code for the box and what the box will
 look like in the handout. Note that the title of the box is written in bold
 instead of using \texttt{\#+ATTR\_LATEX: :options [frametitle=\{Title of the box\}]}
@@ -252,8 +253,27 @@ Content of the box
 
 Content of the box
 \end{mdframed}
+
+Optionally, users can choose to add the following code to their init file so
+\texttt{mdframed} boxes are automatically converted to \texttt{note} directives in
+reStructuredText export.
+
+{\small
+\begin{minted}[]{common-lisp}
+(defun my/process-mdframed-blocks (text backend info)
+  "Filter mdframed special blocks in export."
+  (cond
+   ((org-export-derived-backend-p backend 'rst)
+      (replace-regexp-in-string ".. mdframed::" ".. note::" text t t))
+   ))
+
+(eval-after-load 'ox '(add-to-list
+                       'org-export-filter-special-block-functions
+                       'my/process-mdframed-blocks))
+\end{minted}
+}
 \subsection{Organizing Content in Multiple Columns}
-\label{sec:org74a0848}
+\label{sec:org724ce29}
 One can easily make parts of the handout multi-column. The example
 below shows the code for creating two columns and what that will look like in
 the handout.
