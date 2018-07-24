@@ -1697,18 +1697,19 @@ tag.
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Exporting/Selective Export
 :END:
-By using raw code and custom Emacs-lisp scripts, users can flexibly
-choose which content to show/hide, depending on output format. For
-example, instructors may want to show images in slides but not in
-handouts, or they may want to include supplementary notes in handouts but not in slides.
+By using raw code and custom Emacs-lisp scripts, users can flexibly choose
+which content to show/hide, depending on output format. For example,
+instructors may want to show images in slides but not in handouts, or they may
+want to include supplementary notes in handouts but not in slides.
 **** Tagging a Subtree as Slide or Handout Only
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Exporting/Slide and Handout Only
 :END:
-With the code below in your init file, you can use the =:slideonly:= or
-=:handoutonly:= tags to selectively include a subtree in either a slide output
-or handout output, respectively. Currently LaTeX export is set as a handout output, and
-reveal.js and beamer are set as slide outputs.
+With the code below in added to your init file, you can use the =:slideonly:=
+or =:handoutonly:= tags to selectively include a subtree in either a slide
+output or handout output, respectively. Currently LaTeX and =rst= backends is
+set as a handout output, and reveal.js and beamer backends are set as slide
+outputs.
 
 For example,
 
@@ -1718,7 +1719,7 @@ For example,
   ,* This subtree will only be exported in handout output    :handoutonly:
   - Content
   #+END_EXAMPLE
-
+  
   #+LATEX: {\small
   #+BEGIN_SRC emacs-lisp
   (defun org/parse-headings (backend)
@@ -1728,7 +1729,7 @@ For example,
   
     "
   
-    (if (member backend '(latex))
+    (if (member backend '(latex rst))
         (org-map-entries
          (lambda ()
            (progn
@@ -1738,7 +1739,7 @@ For example,
              ))
          "+slideonly"))
   
-    (if (member backend '(beamer reveal))
+    (if (member backend '(reveal beamer))
         (org-map-entries
          (lambda ()
            (progn
