@@ -36,7 +36,7 @@
 \vspace{6ex}
 
 \section{Exporting Content in Org Mode}
-\label{sec:org3949892}
+\label{sec:orge4ccb80}
 Org mode provides powerful export functionalities, which enable users to
 convert Org markup content to a variety of other formats. The outputs have proper
 formatting while maintaining the original structure and markup. 
@@ -49,7 +49,7 @@ this lecture focuses on describing how exporting is set up in the
 Org-Coursepack, introducing pre-built export functionalities of the
 Org-Coursepack, and offering useful exporting tips for instructors.
 \subsection{Setting Export Scope to \texttt{Subtree}}
-\label{sec:org1cd53f7}
+\label{sec:orgeeab316}
 The export command, \texttt{org-export-dispatch} (\texttt{C-c C-e}), takes the user
 to the \texttt{Org Export Dispatcher} interface. Here, the user can select
 whether to export the buffer (i.e., the whole file) or only a
@@ -63,10 +63,10 @@ the Emacs init file to set the default scope to \texttt{Subtree}.
   (setf org-export-initial-scope 'subtree)
 \end{minted}
 \subsection{Export Settings}
-\label{sec:org55cb357}
+\label{sec:orgeaf516a}
 Org mode allows users to specify \href{https://orgmode.org/manual/Export-settings.html}{export settings} at both buffer and subtree levels.
 \subsubsection{Buffer-Level Settings}
-\label{sec:orgd0a7663}
+\label{sec:org8750370}
 For buffer-level settings, one can use the \texttt{\#+OPTIONS:} statement. For
 example, including the following line in an Org file will include a table
 of contents for that file in the exported document:
@@ -82,7 +82,7 @@ Similarly including the following line will add numbers in front of the headings
 \end{verbatim}
 
 \subsubsection{Subtree-Level Settings}
-\label{sec:orgf991677}
+\label{sec:orge5634e5}
 Export settings can be specified at the subtree level with
 \texttt{:PROPERTIES:}. Simply add \texttt{:EXPORT\_:} as a prefix to each option. For
 example, the title of the document can be set with
@@ -96,9 +96,9 @@ one can add \texttt{+} to the property name to append an additional value.  For 
 :END:
 \end{verbatim}
 \section{Clickable Links and Keybindings for Exporting}
-\label{sec:orgd4e706b}
+\label{sec:org5086819}
 \subsection{Buttons}
-\label{sec:org08b8e6e}
+\label{sec:orgcaead00}
 We include export buttons (in the form of links written in Emacs-lisp) in the
 properties of any exportable subtree in the Org-Coursepack (e.g.,
 lectures, syllabi, and exams).
@@ -112,7 +112,7 @@ After exporting, users can click on buttons in the \texttt{:VIEW\_OUTPUT:}
 property (e.g., \texttt{HTML} or \texttt{PDF}) to open the exported files.
 
 \subsection{Key Bindings}
-\label{sec:org527b020}
+\label{sec:orgc1146c6}
 Using the command=org-export-dispatch= (\texttt{C-c C-e}) when exporting a
 content allows users to later repeat the last export action for that
 same content using the prefix argument (\texttt{C-u}). This is a convenient
@@ -143,12 +143,12 @@ the following Emacs-lisp code in into the init file:
      (define-key org-mode-map (kbd "<f5>") 'export-last-subtree)))
 \end{minted}
 \section{Exporting Slides: with reveal.js}
-\label{sec:org4357279}
+\label{sec:org537276c}
 \begin{itemize}
 \item See the \href{https://github.com/yjwen/org-reveal/}{org-reveal documentation} for instructions on installation and usage.
 \end{itemize}
-\section{Exporting Slides: with \LaTeX{}}
-\label{sec:org1144b52}
+\section{Exporting Handouts: with \LaTeX{}}
+\label{sec:org8406f13}
 \LaTeX{} export is extensively supported by Org mode. We refer users to the \href{https://orgmode.org/manual/LaTeX-export.html\#LaTeX-export}{Org
 manual} for the in-depth instructions.
 
@@ -191,7 +191,7 @@ it to \texttt{org-latex-packages-alist}. This was to allow for flexible specific
 }
 
 \subsection{Inserting a Page Break Before a Heading in \LaTeX{} Export}
-\label{sec:org5e74bd9}
+\label{sec:org4031826}
 Users can add a page break in the \LaTeX{} export by inserting
 \texttt{\#+LATEX: \textbackslash{}clearpage}. Importantly, adding the following code into the init file
 automatically inserts a page break before any subtree that has a \texttt{:newpage:}
@@ -218,13 +218,13 @@ tag.
 \end{minted}
 }
 \section{Selective Export}
-\label{sec:orga8e28b4}
+\label{sec:orgf513811}
 By using raw code and custom Emacs-lisp scripts, users can flexibly choose
 which content to show/hide, depending on output format. For example,
 instructors may want to show images in slides but not in handouts, or they may
 want to include supplementary notes in handouts but not in slides.
 \subsection{Tagging a Subtree as Slide or Handout Only}
-\label{sec:orgffd1dff}
+\label{sec:orgee0648a}
 With the code below in added to your init file, you can use the \texttt{:slideonly:}
 or \texttt{:handoutonly:} tags to selectively include a subtree in either a slide
 output or handout output, respectively. Currently \LaTeX{} and \texttt{rst} backends is
@@ -237,7 +237,7 @@ For example,
   * This subtree will only be exported in slide output      :slideonly:
   - Content
   * This subtree will only be exported in handout output    :handoutonly:
-  - Content
+  - Content
 \end{verbatim}
 
 {\small
@@ -275,7 +275,7 @@ For example,
 \end{minted}
 }
 \subsection{Hiding Specific Content}
-\label{sec:orge620e9f}
+\label{sec:orgc4d77d6}
 To hide content when exporting to HTML-based format outputs (slides), use raw
 HTML tags \texttt{<span hidden>} and \texttt{</span>}. See the example below.
 
