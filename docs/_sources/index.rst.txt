@@ -1,10 +1,10 @@
-.. Org-Coursepack Documentation documentation master file, created by
+.. Org-Coursepack documentation master file, created by
    sphinx-quickstart on Tue Jul 24 09:43:16 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Org-Coursepack Documentation's documentation!
-========================================================
+Welcome to Org-Coursepack's documentation!
+==========================================
 
 .. toctree::
    :maxdepth: 2
