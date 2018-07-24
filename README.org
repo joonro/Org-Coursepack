@@ -10,3 +10,13 @@ the documentation for it (see =Courses/Org-Coursepack=) consists of an example
 course developed with this template.
 
 See [[file:paper.md]] for the detailed summary for the template.
+* Dependencies
+- [[https://www.gnu.org/software/emacs/][GNU Emacs]] (Org mode is distributed as part of the Emacs)
+- [[https://github.com/yjwen/org-reveal/][Org-Reveal]] (to create [[https://revealjs.com/#/][Reveal.js]] slides)
+- LaTeX (to create LaTeX handouts or Beamer slides)
+* Installation
+Clone the repo or download the ZIP archive.
+* Usage
+Org-Coursepack consists of multiple Org files. We created the documentation in
+the form of a short course.  Please see exported PDF files in
+=Org-Coursepack/Courses/Org-Coursepack/2018 Fall/Lectures/= for documentation.
