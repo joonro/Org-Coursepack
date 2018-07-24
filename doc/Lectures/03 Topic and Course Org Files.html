@@ -1,0 +1,213 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Class 3: Topic and Course Org Files &#8212; Org-Coursepack  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 4: Creating Content for Slides and Handouts" href="04 Creating Content for Slides and Handouts.html" />
+    <link rel="prev" title="Class 2: Org Mode Basics" href="02 Org Mode Basics.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-3-topic-and-course-org-files">
+<h1>Class 3: Topic and Course Org Files<a class="headerlink" href="#class-3-topic-and-course-org-files" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
+Class 3  [2018-09-04 Tue]</div></blockquote>
+<div class="section" id="topic-org-files">
+<h2>1 Topic Org Files<a class="headerlink" href="#topic-org-files" title="Permalink to this headline">¶</a></h2>
+<p>A topic Org file contains course content (e.g., lecture slides and
+notes, exam questions, assignment guidelines) for a given topic. Its
+general structure is shown below, using an example of Regression as a
+teaching topic. The top section (where lines start with <code class="docutils literal notranslate"><span class="pre">#+</span></code>) has
+metadata for the Org file. Including meta data is optional.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#+TITLE:     Topics: Regression</span>
+<span class="c1">#+AUTHOR:    Your Name</span>
+<span class="c1">#+EMAIL:     Your Email</span>
+<span class="c1">#+DESCRIPTION: Topic Org file for Regression</span>
+<span class="c1">#+CATEGORY: TOPIC</span>
+<span class="c1">#+STARTUP: overview</span>
+<span class="c1">#+STARTUP: hidestars</span>
+
+<span class="o">*</span> <span class="n">Lectures</span>
+<span class="o">*</span> <span class="n">Assignments</span>
+<span class="o">*</span> <span class="n">Exercises</span>
+<span class="o">*</span> <span class="n">Questions</span>
+</pre></div>
+</div>
+<div class="section" id="organizing-content-in-topic-org-files">
+<span id="lectures-topic-org-files-organizing-content"></span><h3>1.1 Organizing Content in Topic Org Files<a class="headerlink" href="#organizing-content-in-topic-org-files" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">In most cases, course content would be created in a topic Org file (e.g., a
+topic Org file that covers Regression), each consisting of multiple
+sub-topics (e.g., subtopics of Regression such as, Estimation, Interpretation, R-squared). Sub-topics are
+organized in the form of a subtree as shown in the example below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Lectures</span>
+<span class="o">**</span> <span class="n">Estimation</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">Lectures</span><span class="o">/</span><span class="n">Estimation</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">Interpretation</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">R</span><span class="o">-</span><span class="n">Squared</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Each sub-topic should have a <code class="docutils literal notranslate"><span class="pre">:CUSTOM_ID:</span></code> property, as shown in the example
+above, so it can be included in another file, such as a semester Org file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On a related note, an important consideration when creating a topic
+Org file is the fact that the content in it has the potential to be
+included in multiple different semester Org files. Hence, an
+instructor who, for instance, plans to teach the same topic (e.g.,
+Regression) or sub-topic (e.g., R-squared) in different courses
+(e.g., Statistics 101 and Marketing Research) would benefit from not
+making references to a specific course in the topic Org file.</p>
+</div>
+</li>
+<li><p class="first">The Org-Coursepacket includes multiple topic Org files located in the the
+<code class="docutils literal notranslate"><span class="pre">Topics</span></code> folder.</p>
+</li>
+<li><p class="first">A topic org file can contain relevant assignments, exercises, and exam
+questions under corresponding subtrees.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="course-org-files">
+<h2>2 Course Org Files<a class="headerlink" href="#course-org-files" title="Permalink to this headline">¶</a></h2>
+<p>A course Org file contains permanent information for the corresponding
+course, that is, information about the course that remains consistent across semesters
+(e.g., learning objectives, grading schemes).</p>
+<p>We will now review the structure and contents of the course Org
+file. The example below shows the highest-level headings of the course
+Org file for Org-Coursepack – i.e., Courses and Syllabus.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#+TITLE:     Course: Org-Coursepack</span>
+<span class="c1">#+AUTHOR:    Your Name</span>
+<span class="c1">#+EMAIL:     Your Email</span>
+<span class="c1">#+DESCRIPTION: org file for Org-Coursepack</span>
+<span class="c1">#+CATEGORY: COURSE</span>
+<span class="c1">#+STARTUP: overview</span>
+<span class="c1">#+STARTUP: hidestars</span>
+
+<span class="o">*</span> <span class="n">Courses</span>
+<span class="o">*</span> <span class="n">Syllabus</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Courses</span></code> tree can have a subtree for each semester teaching this
+course. See example below. Note that, in the actual course Org file,
+semester subtrees are links to their respective semester Org files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Courses</span>
+<span class="o">**</span> <span class="mi">2018</span> <span class="n">Fall</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Syllabus</span></code> subtree containts partial content for the syllabus,
+specifically, information about the course that remains consistent
+across semesters (e.g., <code class="docutils literal notranslate"><span class="pre">Course</span> <span class="pre">Description</span></code>, <code class="docutils literal notranslate"><span class="pre">Learning</span> <span class="pre">Objectives</span></code>, grading scheme). See an example of the <code class="docutils literal notranslate"><span class="pre">Syllabus</span></code>
+tree with only the <code class="docutils literal notranslate"><span class="pre">Course</span> <span class="pre">Description</span></code> subtree expanded.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Syllabus</span>
+<span class="o">**</span> <span class="n">Course</span> <span class="n">Description</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">Syllabus</span><span class="o">/</span><span class="n">Course</span> <span class="n">Description</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+<span class="n">Course</span> <span class="n">description</span> <span class="n">here</span>
+<span class="o">**</span> <span class="n">Student</span> <span class="n">Learning</span> <span class="n">Objectives</span>
+<span class="o">**</span> <span class="n">Course</span> <span class="n">Material</span>
+<span class="o">**</span> <span class="n">Grading</span>
+<span class="o">**</span> <span class="n">Specific</span> <span class="n">Course</span> <span class="n">Policies</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Class 3: Topic and Course Org Files</a><ul>
+<li><a class="reference internal" href="#topic-org-files">1 Topic Org Files</a><ul>
+<li><a class="reference internal" href="#organizing-content-in-topic-org-files">1.1 Organizing Content in Topic Org Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#course-org-files">2 Course Org Files</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="02 Org Mode Basics.html" title="previous chapter">Class 2: Org Mode Basics</a></li>
+      <li>Next: <a href="04 Creating Content for Slides and Handouts.html" title="next chapter">Class 4: Creating Content for Slides and Handouts</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Lectures/03 Topic and Course Org Files.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Joon Ro & Jae Eun Namkoong.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/Lectures/03 Topic and Course Org Files.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

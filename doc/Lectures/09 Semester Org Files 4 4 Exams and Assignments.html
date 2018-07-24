@@ -1,0 +1,299 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Class 9: Semester Org Files (4/4): Exams and Assignments &#8212; Org-Coursepack  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Class 8: Semester Org Files (3/4): Lectures" href="08 Semester Org Files 3 4 Lectures.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-9-semester-org-files-4-4-exams-and-assignments">
+<h1>Class 9: Semester Org Files (4/4): Exams and Assignments<a class="headerlink" href="#class-9-semester-org-files-4-4-exams-and-assignments" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
+Class 9  [2018-09-25 Tue]</div></blockquote>
+<div class="section" id="exams-top-level-tree">
+<h2>1 <code class="docutils literal notranslate"><span class="pre">Exams</span></code> Top-level Tree<a class="headerlink" href="#exams-top-level-tree" title="Permalink to this headline">¶</a></h2>
+<p>Instructors can create content for exams as they wuold for
+lectures. Lists can be used to create multiple choice questions. See
+the Org mode <a class="reference external" href="https://orgmode.org/manual/Plain-lists.html">manual</a> for more information. To minimize redundancy,
+exams are designed to be modular and common elements are shared as
+much as possible. Furthermore, Org mode’s property inheritance allows
+instructors to conveniently create answer keys to multiple choice
+questions and to export the exam with or without the keys.</p>
+<p>As shown in the following example, there are two subtrees in the
+Org-Coursepack: one for the exam title page and another for the mid-term
+exam.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Exams</span>                                                          <span class="p">:</span><span class="n">Exams</span><span class="p">:</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">Title</span> <span class="n">Page</span>
+<span class="o">**</span> <span class="n">Mid</span><span class="o">-</span><span class="n">Term</span> <span class="n">Exam</span>
+</pre></div>
+</div>
+<div class="section" id="properties">
+<h3>1.1 <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code><a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<p>The properties have general information common across exams, such as LaTeX headers.</p>
+</div>
+<div class="section" id="title-page-subtree">
+<h3>1.2 <code class="docutils literal notranslate"><span class="pre">Title</span> <span class="pre">Page</span></code> Subtree<a class="headerlink" href="#title-page-subtree" title="Permalink to this headline">¶</a></h3>
+<p>The content of this subtree will be shared across exams via the
+<code class="docutils literal notranslate"><span class="pre">#+INCLUDE</span></code> statement. Instructors can include general information
+pertaining to exams (e.g., student code of conduct) in this page. Note
+that any information about a specific exam (e.g., exam date, exam
+time, number of questions) can be specified by passing property values
+to the <code class="docutils literal notranslate"><span class="pre">Title</span> <span class="pre">Page</span></code> subtree. For example, the exam time information
+uses the value of the property <code class="docutils literal notranslate"><span class="pre">TIME</span></code> using <code class="docutils literal notranslate"><span class="pre">{{{property(TIME)}}}</span></code>.</p>
+</div>
+<div class="section" id="exam-subtree">
+<h3>1.3 Exam subtree<a class="headerlink" href="#exam-subtree" title="Permalink to this headline">¶</a></h3>
+<p>The mid-term exam subtree in the Org-Coursepack has the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span> <span class="n">Mid</span><span class="o">-</span><span class="n">Term</span> <span class="n">Exam</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="o">***</span> <span class="mi">01</span>
+<span class="o">***</span> <span class="mi">02</span>
+<span class="o">***</span> <span class="n">Exam</span> <span class="n">Content</span>
+</pre></div>
+</div>
+<p>Each exam has a separate subtree for each course section, and they will
+share common <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content</span></code>.</p>
+<div class="section" id="id1">
+<h4>1.3.1 <code class="docutils literal notranslate"><span class="pre">:Properties:</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Each exam subtree has properties containing information common across sections. See example below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">Exam</span><span class="o">/</span><span class="mi">1</span>
+<span class="p">:</span><span class="n">EXPORT_TITLE</span><span class="p">:</span> <span class="n">Exam</span> <span class="mi">1</span>
+<span class="p">:</span><span class="n">EXPORT_DATE</span><span class="p">:</span>  <span class="p">{{{</span><span class="n">DATE_EXAM_1</span><span class="p">}}}</span>
+<span class="p">:</span><span class="n">TIME</span><span class="p">:</span> <span class="mi">75</span> <span class="n">Minutes</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="section-subtrees">
+<h3>1.4 Section Subtrees<a class="headerlink" href="#section-subtrees" title="Permalink to this headline">¶</a></h3>
+<p>Each exam in the Org-Coursepack has two section subtrees. Instructors
+may add additional sections. Each subtree has section-specific
+information about the exam in their <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code>. Each section can
+have multiple versions of the same exam (e.g., <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> versions),
+with each version beloning to a separate subtree. The exam content
+includes a title page, multiple choice questions, and short
+answers. See the example and note below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="mi">01</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">EXPORT_AUTHOR</span><span class="p">:</span> <span class="p">{{{</span><span class="n">COURSE_NUM</span><span class="p">}}}</span><span class="o">-</span><span class="mi">01</span><span class="p">:</span> <span class="p">{{{</span><span class="n">COURSE</span><span class="p">}}}</span>
+<span class="p">:</span><span class="n">ANSWER</span><span class="p">:</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+<span class="o">****</span> <span class="n">A</span> <span class="n">Type</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="c1">#+INCLUDE: &quot;2018 Fall.org::#Exam/Title Page&quot; :only-contents t</span>
+<span class="o">*****</span> <span class="n">Multiple</span> <span class="n">Choice</span>                                               <span class="p">:</span><span class="n">newpage</span><span class="p">:</span>
+<span class="p">(</span><span class="mi">2</span> <span class="n">points</span> <span class="n">each</span><span class="p">,</span> <span class="n">unless</span> <span class="n">otherwise</span> <span class="n">specified</span><span class="p">)</span>
+<span class="c1">#+INCLUDE: &quot;2018 Fall.org::#Exam/1/MC/A&quot; :only-contents t</span>
+<span class="o">*****</span> <span class="n">Short</span> <span class="n">Answers</span>                                                 <span class="p">:</span><span class="n">newpage</span><span class="p">:</span>
+<span class="c1">#+INCLUDE: &quot;2018 Fall.org::#Exam/1/Short Answers&quot; :only-contents t</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that the property <code class="docutils literal notranslate"><span class="pre">:ANSWER:</span></code> is empty. This is to hide answers for
+multiple choice questions–see <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Contents/Multiple</span> <span class="pre">Choice</span></code> for details.</p>
+</div>
+</div>
+<div class="section" id="exam-content-subtree">
+<h3>1.5 <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content</span></code> Subtree<a class="headerlink" href="#exam-content-subtree" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content</span></code> subtree contains exam questions. Its content can be
+pulled in section-specific exam subtrees to create exams. The <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content</span></code> subtree
+can also be used to create exam keys by exporting the version subtree
+(e.g., <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">A</span> <span class="pre">(Key)</span></code>) under <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content/Multiple</span> <span class="pre">Choice</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">Exam</span> <span class="n">Content</span>
+<span class="o">****</span> <span class="n">Multiple</span> <span class="n">Choice</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="o">*****</span> <span class="n">Type</span> <span class="n">A</span> <span class="p">(</span><span class="n">Key</span><span class="p">)</span>
+<span class="o">*****</span> <span class="n">Type</span> <span class="n">B</span> <span class="p">(</span><span class="n">Key</span><span class="p">)</span>
+<span class="o">****</span> <span class="n">Short</span> <span class="n">Answers</span>                                                  <span class="p">:</span><span class="n">newpage</span><span class="p">:</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="c1">#+INCLUDE: &quot;../../../Topics/Org_Teaching.org::#Question/SA&quot; :only-contents t</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-choice">
+<h3>1.6 Multiple Choice<a class="headerlink" href="#multiple-choice" title="Permalink to this headline">¶</a></h3>
+<p>The Org-Coursepack exams have two versions (type A and B). The two
+versions have the same multiple choice questions in the same order,
+but the choice options are in different orders.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To create a new version, an instructor may first create a duplicate of the
+original version subtree and use the <code class="docutils literal notranslate"><span class="pre">Alt+Up</span></code> or <code class="docutils literal notranslate"><span class="pre">Alt+Down</span></code> keys on the choice
+options to change their orders. Pressing <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code> automatically re-numbers the
+items in the list.</p>
+</div>
+<p>The example below shows a
+subset of content in the <code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">Choice</span></code> tree.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**** Multiple Choice
+:PROPERTIES:
+:ANSWER: \checkmark
+:END:
+***** Type A (Key)
+:PROPERTIES:
+
+1. Which of the following is a vegetable?
+   1. Okra
+   2. Carrot {{{property(ANSWER)}}}
+   3. Eggplant
+   4. Pepper
+
+***** Type B (Key)
+:PROPERTIES:
+
+1. Which of the following is a vegetable?
+   1. Okra
+   2. Pepper
+   3. Eggplant
+   4. Carrot {{{property(ANSWER)}}}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The answer to each multiple choice question is marked with the macro
+<code class="docutils literal notranslate"><span class="pre">{{{property(ANSWER)}}}</span></code> and the <code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">Choice</span></code> tree has the property of <code class="docutils literal notranslate"><span class="pre">:ANSWER:</span> <span class="pre">\checkmark</span></code>. Hence, an instructor can export the version subtree (e.g., <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">A</span> <span class="pre">(Key)</span></code>) to obtain the answer keys, with correct answers marked by a checkmark symbol.</p>
+</div>
+</div>
+<div class="section" id="short-answers">
+<h3>1.7 Short Answers<a class="headerlink" href="#short-answers" title="Permalink to this headline">¶</a></h3>
+<p>Since open-ended questions do not typically require multiple versions,
+one can have such questions in the corresponding topic Org file
+(e.g., under the <code class="docutils literal notranslate"><span class="pre">Questions</span></code> top-level tree) and include them here.</p>
+</div>
+</div>
+<div class="section" id="assignments-top-level-tree">
+<h2>2 <code class="docutils literal notranslate"><span class="pre">Assignments</span></code> Top-level Tree<a class="headerlink" href="#assignments-top-level-tree" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Instructors can create assignments as they do lecture content using Org mode.</li>
+<li>Assignment instructions may be created in the <code class="docutils literal notranslate"><span class="pre">Assignments</span></code> top-level
+tree of a topic Org file, which are then included here.</li>
+<li>See <code class="docutils literal notranslate"><span class="pre">Org_Teaching/2018</span> <span class="pre">Fall/2018</span> <span class="pre">Fall.org</span></code> for an example.</li>
+</ul>
+</div>
+<div class="section" id="local-variables-top-level-tree">
+<h2>3 <code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">Variables</span></code> Top-level Tree<a class="headerlink" href="#local-variables-top-level-tree" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">variables</span></code> top-level tree has file-local variables. See the
+<a class="reference external" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables">Emacs manual</a> for more information. File-local variables include the
+options to (a) skip confirmation on running elisp-link functions
+(<code class="docutils literal notranslate"><span class="pre">org-confirm-elisp-link-function:</span> <span class="pre">nil</span></code>), (b) allow property
+inheritance (<code class="docutils literal notranslate"><span class="pre">org-use-property-inheritance:</span> <span class="pre">t</span></code>), which is important
+for many functionalities of the Org-Coursepack to work properly, and (c)
+change the default timestamp format.</p>
+<p>The following shows the content of this subtree.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Local Variables:</span>
+<span class="c1"># org-confirm-elisp-link-function: nil</span>
+<span class="c1"># org-export-babel-evaluate: &#39;inline-only</span>
+<span class="c1"># org-use-property-inheritance: t</span>
+<span class="c1"># org-time-stamp-custom-formats: (&quot;&lt;%a, %b %d, %Y&gt;&quot; . &quot;&lt;%a, %b %d, %Y %l:%M%p&gt;&quot;)</span>
+<span class="c1"># org-latex-active-timestamp-format: &quot;%s&quot;</span>
+<span class="c1"># org-latex-inactive-timestamp-format: &quot;%s&quot;</span>
+<span class="c1"># End:</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Class 9: Semester Org Files (4/4): Exams and Assignments</a><ul>
+<li><a class="reference internal" href="#exams-top-level-tree">1 <code class="docutils literal notranslate"><span class="pre">Exams</span></code> Top-level Tree</a><ul>
+<li><a class="reference internal" href="#properties">1.1 <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code></a></li>
+<li><a class="reference internal" href="#title-page-subtree">1.2 <code class="docutils literal notranslate"><span class="pre">Title</span> <span class="pre">Page</span></code> Subtree</a></li>
+<li><a class="reference internal" href="#exam-subtree">1.3 Exam subtree</a><ul>
+<li><a class="reference internal" href="#id1">1.3.1 <code class="docutils literal notranslate"><span class="pre">:Properties:</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-subtrees">1.4 Section Subtrees</a></li>
+<li><a class="reference internal" href="#exam-content-subtree">1.5 <code class="docutils literal notranslate"><span class="pre">Exam</span> <span class="pre">Content</span></code> Subtree</a></li>
+<li><a class="reference internal" href="#multiple-choice">1.6 Multiple Choice</a></li>
+<li><a class="reference internal" href="#short-answers">1.7 Short Answers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#assignments-top-level-tree">2 <code class="docutils literal notranslate"><span class="pre">Assignments</span></code> Top-level Tree</a></li>
+<li><a class="reference internal" href="#local-variables-top-level-tree">3 <code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">Variables</span></code> Top-level Tree</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="08 Semester Org Files 3 4 Lectures.html" title="previous chapter">Class 8: Semester Org Files (3/4): Lectures</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Lectures/09 Semester Org Files 4 4 Exams and Assignments.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Joon Ro & Jae Eun Namkoong.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/Lectures/09 Semester Org Files 4 4 Exams and Assignments.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
