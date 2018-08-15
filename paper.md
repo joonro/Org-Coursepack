@@ -70,7 +70,7 @@ with them—can pull instructors’ attention away from core instructional
 responsibilities. Removing such elements makes course preparation more
 seamless, and redirecting the newly found time and mental resources to
 positive educational outlets can enhance instructors’ intrinsic motivation and
-creativity [@Csikszentmihalyi<sub>2014</sub><sub>Book</sub>].
+creativity [@Csikszentmihalyi2014Book].
 
 We believe that students are the ultimate beneficiaries of this approach, as
 their overall learning experience can be enhanced through consistent,
