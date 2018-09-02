@@ -6,4 +6,867 @@
 #+STARTUP: overview
 #+STARTUP: hidestars
 
-* Classes
+* Lectures
+** Python Development Environment
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Development Environment
+:END:
+
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (none appear)
+- In Data Science, usually your workflow is interactive
+- You need a text editor to write code and a shell to interactively run the
+  code
+- You can either have them separately, or use an IDE
+- I will only introduce cross-platform tools
+*** Python Installation
+#+ATTR_REVEAL: :frag (appear)
+- Python is not domain-specific language
+
+- One needs to install scientific libraries (SciPy Stack)
+  
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (none appear)
+- Vanilla Python distribution from the official python website does not include
+  essential scientific libraries
+
+- It is highly recommended to use one of the scientific Python distributions
+  such as Anaconda
+
+**** Anaconda Scientific Python Distribution
+#+ATTR_REVEAL: :frag (appear)
+- https://www.anaconda.com/
+- Install many scientific libraries at once
+- Manage libraries (install, update) conveniently (Anaconda Navigator)
+- Comes with Intel's MKL by default
+
+#+BEGIN_NOTES
+I think the following just confuses people
+
+Let's update a package.
+
+Without any python process running, run =Anaconda Command Prompt=, and type
+the following:
+
+#+BEGIN_SRC sh
+conda update spyder
+#+END_SRC
+
+#+END_NOTES
+*** Text Editors and IDEs
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (appear)
+- When you code, you work with text
+- You will spend a lot of time with your text editor
+**** Text Editing Functionalities
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (appear)
+- Syntax Highlighting
+- Column Editing
+- Search/Replace
+
+  - RegEx Search/Replace
+**** Examples
+#+LATEX: \begin{multicols}{2}
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (none appear)
+- Notepad, Notepad++
+- TextMate
+#+LATEX: \end{multicols}
+
+#+BEGIN_NOTES
+- Notepad comes with windows
+- Another popular choice is notepad++, which is free and extensible
+#+END_NOTES
+
+**** Vim and Emacs
+#+ATTR_BEAMER: :overlay <+->  
+#+ATTR_REVEAL: :frag (none appear)
+- Vi and Vim
+- Emacs
+- [[http://en.wikipedia.org/wiki/Editor_war#Humor][Editor war]] 
+- [[http://www.slate.com/articles/technology/bitwise/2014/05/oldest_software_rivalry_emacs_and_vi_two_text_editors_used_by_programmers.html][The Oldest Rivalry in Computing]]
+
+#+BEGIN_NOTES
+- Vim and Emacs are the oldest computer applications
+- They have very different philosophy
+- If you use Unix related systems such as GNU/Linux or Mac OS, they come with
+  the OS
+- Just like Deep Purple and Led Zepplin, there are no text editors after these
+- Show them my setup a little bit
+- Maybe compiling the exam and stuff
+#+END_NOTES
+**** SublimeText
+#+ATTR_REVEAL: :frag (appear)
+- Multi selection
+
+  - Suppose I want to change 
+
+    #+BEGIN_SRC python
+    X1, X2, X3, X4 = X1, X2, X3, X4
+    #+END_SRC
+
+  - To:
+
+    #+BEGIN_SRC python
+    X1, X2, X3, X4 = data.X1, data.X2, data.X3, data.X4
+    #+END_SRC
+
+- Dynamic setting application
+- Extensibility
+**** Current Recommendation
+:LOGBOOK:
+- Note taken on [2017-09-19 Tue 14:04] \\
+  Current recommendation is Visual Studio Code.
+- Note taken on [2017-09-18 Mon 18:29] \\
+  Add Visual Studio Code
+:END:
+#+ATTR_BEAMER: :overlay <+->  
+#+ATTR_REVEAL: :frag (none appear)
+- New generation text editors: SublimeText, Atom.io, Visual Studio Code
+- Current recommendation: Visual Studio Code
+  - Free software and Open Source
+  - Powerful
+  - Better performance than Atom.io
+  - Many extensions (Python tooltip example)
+#+BEGIN_NOTES
+- Vim and Emacs are very good, but the learning curve can be steep
+- My recommendation would be atom.io
+- Very quick and powerful with a lot of python-based extensions
+- Also the multi-cursor editing was a very nice innovation, which are not
+  incorporated to vim and emacs
+#+END_NOTES
+
+**** IDE Functionalities
+#+LATEX: \begin{multicols}{2}
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (none appear)
+- Code execution
+
+  - Cell support
+  
+- Debugging
+- Code checking
+- Project Management
+- Version control integration
+
+#+LATEX: \end{multicols}
+**** IDEs for Python
+#+ATTR_BEAMER: :overlay <+->
+#+ATTR_REVEAL: :frag (none appear)
+- Usually runs a Python interpreter within the application
+- Tight integration Editor and interpreter
+
+  - Advantage at debugging
+
+- Some candidates
+
+   - Spyder 
+   - PyCharm
+   - WingIDE
+   - PyScripter (Windows only)
+**** Demo: Spyder: A Python IDE                                   :slideonly:
+:LOGBOOK:
+- State "TODO"       from              [2017-04-15 Sat 19:50] \\
+  I think I should show them spyder at least.
+:END:
+*** Code Snippets Manager
+:LOGBOOK:
+- Note taken on [2018-03-03 Sat 18:48] \\
+  Add DRY principle with WET principle.
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- Code Reuse 
+
+  - don't repeat yourself (DRY) principle
+  - c.f. WET solutions: "write everything twice", "we enjoy typing" or "waste
+    everyone's time"
+
+- You want to accumulate frequently used code snippets for productivity
+- Current recommendation: Lepton (Gistbox became not-free)
+- Or you can use simpler things such as Simplenote
+
+#+BEGIN_NOTES
+https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+#+END_NOTES
+** IPython and Jupyter
+:PROPERTIES:
+:CUSTOM_ID: Lecture/IPython and Jupyter
+:END:
+*** IPython and Jupyter
+:PROPERTIES:
+:CUSTOM_ID: Lecture/IPython and Jupyter/Intro
+:END:
+
+- IPython: Enhanced Python shell. Mainly, it provides
+
+  #+ATTR_REVEAL: :frag (appear)
+  - tab completion
+  - history search
+  - on-the-fly documentation
+  - =%magic= functions
+  - inline plotting
+
+#+REVEAL_HTML: <span hidden>
+- Documents: http://ipython.readthedocs.io/en/stable/interactive/tutorial.html
+#+REVEAL_HTML: </span>
+
+#+REVEAL: split
+
+- Jupyter
+  #+ATTR_REVEAL: :frag (appear)
+  - IPython used to be used to specify both kernel and frontend (IPython,
+    IPython QT Console, IPython Notebook)
+  - The frontend part became a language-agonastic separate project
+    - e.g., can use Julia and R kernel
+  - Now it is Jupyter, which runs an IPython kernel by default
+    
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- One kernel, multiple frontend:
+  - QT Console
+  - Notebook
+  - Lab
+*** Jupyter Lab
+#+ATTR_REVEAL: :frag (appear)
+- The latest Jupyter frontend: Jupyter Lab
+- It is a flexible frontend which can encompass both Notebook and QT Console
+- We will use this throughout the semester for class
+
+**** Running Jupyter Lab
+#+ATTR_REVEAL: :frag (appear)
+- Run =Jupyter Lab= from =Anaconda Navigator=
+  - Optionally you can create a shortcut to =jupyter lab=
+- You can run =Anaconda Prompt= and type =jupyter lab= =<Enter>=
+**** Creating a Notebook
+#+ATTR_REVEAL: :frag (appear)
+- Create a Notebook
+- Notebook consists of multiple cells which can be used for code or other things
+- You can insert a new cell with =Insert= menu
+- You can run a cell by pressing =Shift+Enter=
+
+#+ATTR_REVEAL: :frag (appear)
+
+- Input the following in the first block: 
+
+  #+BEGIN_SRC python
+  import pandas as pd
+  pd.__version__
+  #+END_SRC
+
+- Press =Shift+Enter= to run the code in the cell.
+**** Creating a Console for the Notebook
+#+ATTR_REVEAL: :frag (appear)
+- Right-click on a cell, select =Create Console for Notebook=.
+  - You can have a notebook and a console side-by-side in a browser tab.
+- You can rearrange the window layout
+- Remember the both notebook and console share the same Python kernel!
+- Press =Shift+Enter= to run the code (may change)
+  - If you want to change the behavior, see a discussion item on Canvas
+**** Can Open Text and Data (CSV) Files
+**** Workflow - Notebook + Console
+#+ATTR_REVEAL: :frag (appear)
+- Notebook and Qt Console are standalone programs
+- Throughout the semester, we will use Jupyter Lab for clarity
+*** Convenient Functionalities
+:PROPERTIES:
+:CUSTOM_ID: Lecture/IPython and Jupyter/Conveninet Functionalities
+:END:
+**** Running                                                       :noexport:
+You can run Jupyter QT Console by:
+
+#+BEGIN_SRC sh
+jupyter notebook
+#+END_SRC
+- Inside the browser window, open =IPython and Jupyter.ipynb=
+
+- It might start automatically in your ~Documents~ folder. You might have to put 
+  =IPython and Jupyter.ipynb= into one of the folders in ~Documents~
+
+- A neat trick to open a jupyter notebook anywhere is typing =jupyter notebook= in 
+  the address bar of =Windows Explorer=.
+
+**** tab completion
+
+#+LATEX: \iffalse
+https://foxdeploy.files.wordpress.com/2017/01/upgrade-your-code1.png
+#+LATEX: \fi
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- The single most convenient functionality
+- With a partially completed expression, pressing ~TAB~ key either completes
+  the expression (when there is an unique expression available) or show candidates
+
+  #+BEGIN_SRC ipython
+  >>> pr[TAB]
+
+  #+END_SRC
+
+**** history search
+#+ATTR_REVEAL: :frag (appear)
+- In a console, you can browse the history of commands by ~UP~ and ~DOWN~ keys:
+
+  #+BEGIN_SRC ipython
+  >>> [UP]
+  #+END_SRC
+
+#+BEGIN_NOTES
+- This does not work in the console in jupyter lab yet
+
+- It also provides a convenient partial matching functionality. With a
+  partially completed expression, you can browse the subset of history items which 
+  starts with the partial expression by  ~UP~ and ~DOWN~ keys:
+
+  #+BEGIN_SRC ipython
+  >>> print("Hello World!")
+  >>> pr<UP>
+  #+END_SRC
+
+#+END_NOTES
+**** On-the-fly documentation
+- If you press ~Shift+Tab~, it will display documentation about the object
+  under the cursor
+- You can put ~?~ after an object and it will print out documentation
+**** =%magic= functions
+#+ATTR_REVEAL: :frag (appear)
+- IPython provides many convenient magic functions.
+- =%cd=: change working directory
+- =%hist=: see history
+- =%load=: load a Python script. Test it with an example from    
+    http://matplotlib.org/gallery.html#pie_and_polar_charts
+
+    - For example, 
+    #+BEGIN_SRC ipython
+    >>> %load http://matplotlib.org/mpl_examples/pie_and_polar_charts/polar_bar_demo.py
+    #+END_SRC
+**** Inline plotting
+#+ATTR_REVEAL: :frag (appear)
+- One of the most useful things is that it can show plots inline. Once you run
+  the following magic in Jupyter:
+
+  #+BEGIN_SRC ipython
+  >>> %matplotlib inline
+  #+END_SRC
+
+- Plots will be rendered inline. For example, run a cell with the following:
+  
+  #+BEGIN_SRC ipython 
+  %load http://matplotlib.org/mpl_examples/pie_and_polar_charts/polar_bar_demo.py
+  #+END_SRC
+
+- This makes the notebook very useful for interactive data exploration.
+- You can use ~Create New View for Output~ as well
+*** Jupyter QT Console                                             :noexport:
+:PROPERTIES:
+:CUSTOM_ID: Lecture/IPython and Jupyter/QT Console
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- QT Console provides a GUI shell
+  - With the same IPython capabilities
+  - You can copy & Paste multi-line code
+
+*** Jupyter QT Console Demo
+:PROPERTIES:
+:CUSTOM_ID: Lecture/IPython and Jupyter/QT Console Demo
+:END:
+**** tab completion
+**** history search
+**** on-the-fly documentation
+**** =%magic= functions
+
+- You can run a script with %run
+- You can load a script from the web with %load:
+
+  #+BEGIN_SRC ipython 
+  >>> %load http://matplotlib.org/mpl_examples/pie_and_polar_charts/polar_bar_demo.py
+  #+END_SRC
+
+- One of the most useful things is that it can show plots inline. You can run
+  the following magic:
+
+  #+BEGIN_SRC ipython
+  >>> %matplotlib inline
+  #+END_SRC
+  
+  Then plots will be rendered inline. For example, run the following:
+  
+  #+BEGIN_SRC ipython 
+  >>> %load http://matplotlib.org/mpl_examples/pie_and_polar_charts/polar_bar_demo.py
+  #+END_SRC
+**** inline plotting
+
+*** Jupyter Notebook                                               :noexport:
+- Notebook provides a nice self-contained file of both code and document
+- Convenient for interactive data exploration, running Python script, etc
+
+**** Cell-based code execution
+- =Shift + Enter= to run a cell
+- You can insert a new cell with =Insert= menu
+
+**** Inline plotting
+- Of course, inline plotting also works. You can run the following cell:
+
+  #+BEGIN_SRC ipython
+  %matplotlib inline
+  %load http://matplotlib.org/mpl_examples/pie_and_polar_charts/polar_bar_demo.py 
+  #+END_SRC
+
+  This makes the notebook very useful for interactive data exploration.
+ 
+**** Markdown cell - rendering HTML 
+- A cell can be either code or markdown type
+- Can render any kind of HTML - for example, it can render LaTeX math via MathJax:
+  
+  $$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+** Python Basics
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Python Basics
+:END:
+*** Basic Syntax
+#+ATTR_REVEAL: :frag (appear)
+- ~=~ is used for assignment:
+
+  #+BEGIN_SRC python
+  >>> a = 10  # assign the value 10 to a variable named "a"
+  #+END_SRC
+  
+#+REVEAL: split
+
+- Python syntax is case-sensitive
+
+  #+BEGIN_SRC python
+  >>> a  # give me a
+  >>> A  # A does not exist
+  #+END_SRC
+  
+#+REVEAL: split
+
+- Pretty much anything (even unicode in Python 3) can be a variable name
+  
+  #+LATEX: \iffalse
+  #+BEGIN_SRC python
+  >>> α = 10
+  >>> α
+  #+END_SRC
+  #+LATEX: \fi
+
+  #+REVEAL_HTML: <span hidden>
+  \texttt{>>>} $\alpha$ \texttt{= 10}
+
+  \texttt{>>>} $\alpha$
+  #+REVEAL_HTML: </span>
+  
+#+REVEAL: split
+
+- No need for a statement terminator (e.g., ~;~). ~;~ is used to supress the
+  value of the last expression. (Mainly for interactive workflow)
+
+  #+BEGIN_SRC python
+  >>> a
+  >>> a;
+  #+END_SRC
+  
+#+REVEAL: split
+
+- ~#~ is used for comments:
+
+  #+BEGIN_SRC ipython
+  >>> print(10)  # this is a comment and will be ignored
+  #+END_SRC
+  
+#+REVEAL: split
+
+- Function calls always need parentheses, even when there is no argument:
+
+  #+BEGIN_SRC python
+  >>> print("Hello World!")  # calling print function with argument "Hellow World!"
+  >>> print()  # calling print function without any argument
+  >>> print  # shows you the information about the function
+  #+END_SRC
+
+*** Basic Data Types
+#+ATTR_REVEAL: :frag (appear)
+- You can assign some value to a variable with ~=~:
+
+  #+BEGIN_SRC python
+  number = 1
+  #+END_SRC
+
+  - type ~number~ to verify the value
+  - You can use ~type()~ function to inspect an variable's type
+
+#+REVEAL: split
+
+- There are several types of data. The most basic ones are integer, float, and string:
+
+  #+BEGIN_SRC python
+number_int = 1
+number_float = 1.0
+string = "My name is Joon"
+#+END_SRC
+
+**** String
+#+ATTR_REVEAL: :frag (appear)
+- A string is usually a bit of text
+- You can use ~"~ and ~'~ interchangeably for strings
+  - Useful when you actually have quotes in a string. For example, if the
+    string you want to represents is ~"This is an example string"~, then you
+    can use single quotes:
+
+    #+BEGIN_SRC python
+    string = '"This is an example string"'
+    #+END_SRC 
+    
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- You can easily concatenate strings with ~+~ operator:
+
+  #+BEGIN_SRC python
+  string = "My name is"
+  print(string + ' ' + 'Joon Ro')
+  #+END_SRC
+  
+- Python's string provides a very useful string formatting functionality. If interested, see https://docs.python.org/3.6/library/string.html
+    
+**** Built-in Constants
+#+ATTR_REVEAL: :frag (appear)
+- There are more, but the most frequently used are:
+
+
+
+#+ATTR_REVEAL: :frag (appear)
+- ~False~ :: The false value of the bool type. Assignments to False are
+             illegal and raise a SyntaxError.
+
+- ~True~ :: The true value of the bool type. Assignments to True are illegal
+            and raise a SyntaxError.
+
+- ~None~ :: The sole value of the type NoneType. None is frequently used to
+            represent the absence of a value
+*** Lists, Tuples, and Dictionaries
+- In addition to the basic data types, there are many data types in
+  Python. e.g., lists, dictionaries, arrays, etc
+
+**** Lists
+- Lists are one of the basic data types, and it is specified with ~[]~
+- It can hold pretty much anything
+- For example:
+
+  #+BEGIN_SRC ipython
+  >>> list_example = [1, 2, 'Third', 4, 'Fifth']
+  #+END_SRC
+
+#+REVEAL: split
+
+- In general, you can use ~len()~ function to get the length of a data:
+
+  #+BEGIN_SRC ipython
+  >>> len(list_example)
+  #+END_SRC
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- You always use integer index to access specific value(s) of a list
+- In Python, index starts with ~0~:
+
+  #+BEGIN_SRC python
+  >>> list_example[0]  # the first element
+  >>> list_example[5]  # will give you an error since the last element is 4
+  #+END_SRC
+**** Tuples
+#+ATTR_REVEAL: :frag (appear)
+- Similar to lists, but tuples are /immutable/:
+
+  #+BEGIN_SRC python
+  >>> tuple_example = (1, 2, 'Third', 4, 'Fifth')
+  #+END_SRC
+
+- Accessing values is the same as lists
+- However, you cannot change values
+- Again, you can use ~len()~ to get the length of a tuple
+**** Dictionaries
+#+ATTR_REVEAL: :frag (appear)
+- You use a dictionary when you want to index an element with a meaningful thing instead of 
+  an integer:
+
+  #+BEGIN_SRC python
+  dict_example = {}
+  dict_example['name'] = 'Joon Ro'
+  #+END_SRC
+
+- You can create it like this as well:
+
+  #+BEGIN_SRC python
+  dict_example = {'name': 'Joon Ro',
+                  'major': 'Marketing'}
+  #+END_SRC
+*** Code Blocks in Python
+#+ATTR_REVEAL: :frag (appear)
+- In many cases, you have to specify multiple lines of code as a /code block/
+- Note that in Python, blocks are distinguished by /spaces/
+
+  - It forces you to indent, which improves readability of code a lot
+
+- For example,
+
+  #+BEGIN_SRC python
+  if condition is True:
+      print("I'm inside the if block")
+      # do something
+  
+  print("I'm outside of if block")
+  #+END_SRC
+**** Importance of indentation 
+#+BEGIN_SRC c
+/*  Warning:  bogus C code!  */
+
+if (some condition)
+        if (another condition)
+                do_something(fancy);
+else
+        this_sucks(badluck);
+#+END_SRC
+
+#+ATTR_REVEAL: :frag (appear)
+- Either the indentation is wrong, or the program is buggy, because an "else" always applies to the nearest "if", unless you use braces. (Source: http://www.secnetix.de/olli/Python/block_indentation.hawk)
+**** Readability
+#+ATTR_REVEAL: :frag (appear)
+- Code is read much more often than it is written
+- You will NOT understand the code you wrote before!
+
+- Make sure to:
+
+  #+ATTR_REVEAL: :frag (appear)
+  1. Comment your code appropriately
+  2. Use meaningful variable names
+  3. Indent nested code blocks properly
+
+**** Tab VS. Spaces
+#+BEGIN_EXPORT HTML
+<iframe width="1066" height="570" 
+src="https://www.youtube.com/embed/V7PLxL8jIl8?start=147&end=231" allowfullscreen>
+</iframe>
+#+END_EXPORT
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- Do not mix tab and spaces
+- Using 4 spaces for a tab is recommended
+*** Conditional Statements and Loops
+#+ATTR_REVEAL: :frag (appear)
+- Conditional statements and loops are what makes the automation possible
+- e.g., loop over each observation in the dataset, and do some calculation
+  depending on whether a variable value satisfies a condition
+**** Conditional Expressions
+| Meaning               | Math Symbol | Python Symbols |
+|-----------------------+-------------+----------------|
+| Less than             | <           | ~<~            |
+| Greater than          | >           | ~>~            |
+| Less than or equal    | ≤           | ~<=~           |
+| Greater than or equal | ≥           | ~>=~           |
+| Equals                | =           | ~==~           |
+| Not equal             | ≠           | ~!=~           |
+
+**** ~if~ .. ~elif~ .. ~else~
+- ~if~ and ~elif~ will evaluate if the following conditional is ~True~. If it
+  is, then it will evaluate the code block associated with it. Otherwise, it
+  will move to the next ~elif~, or ~else~, or out of the ~if~ statement
+  
+  #+BEGIN_SRC python
+  if condition is True:
+      print("I'm inside the if block")
+      # do something
+  
+  print("I'm outside of if block")
+  #+END_SRC
+  
+#+REVEAL: split
+
+#+BEGIN_SRC python
+a = 10
+b = 5
+
+if a > b:
+   print("a > b")
+
+elif a < b:  # will not be evaluated if the above condition is true
+   print("a < b")
+
+else:  # will not be evaluated if any of the the above conditions is true
+   print("a == b")
+#+END_SRC
+
+#+REVEAL: split
+
+- You can just use a number for the condition in the ~if~ statements
+  
+  - ~0~ is like ~False~. Any number other than ~0~ will be regarded as ~True~
+
+    #+BEGIN_SRC python
+    if True:
+       print("I will always run")
+    
+    if 0:
+       print("I will never run")
+    #+END_SRC
+**** ~for~ loop 
+- ~for~ loop will loop over an iterable object and apply the operation inside the block 
+  to each element of the object:
+
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC python
+for counter in (an iterable):
+    print("I'm inside the for block")
+    # do something
+
+print("I'm outside of for block")
+#+END_SRC
+
+#+REVEAL: split
+
+- An iterable object is usually a list (but anything can be used)
+  #+BEGIN_SRC python
+  for number in [1, 2, 3]:  # number will take value 1, 2, 3
+      another_number = number + 3  # going to be 4, 5, 6
+      print(another_number)
+  #+END_SRC
+
+#+REVEAL: split
+
+- An useful built-in function: ~range()~, which gives you a range of numbers
+  #+BEGIN_SRC python
+  list_numbers_from_range = range(10)  # 10 numbers: 0, 1, 2, ... , 9
+  
+  for number in list_numbers_from_range:
+      print(number)
+  #+END_SRC
+
+#+REVEAL: split
+
+- Often we want to count numbers. For example,
+
+  #+BEGIN_SRC python
+  list_numbers_from_range = range(10)  # 0, 1, 2, ... , 9
+  
+  i = 0  # initialize the counter
+  for number in list_numbers_from_range:
+      i = i + 1  # equivalently, i += 1
+
+  print(i)
+  #+END_SRC
+**** Control ~for~ loop with conditional breaking and continuation
+- You can ~break~ a ~for~ loop with break:
+
+  #+BEGIN_SRC python
+  for number in range(10):
+      if number > 5:
+          break
+
+  print(number)
+  #+END_SRC
+  
+#+REVEAL: split
+
+- You can also skip one run of the loop with ~continue~:
+
+  #+BEGIN_SRC python
+  sum_numbers = 0
+
+  for number in range(10):
+      if number > 5:
+          continue  # will skip all statements below within the block
+
+      sum_numbers += number
+
+  print(number)
+  #+END_SRC
+**** Simple debugging by raising an exception
+- Remember that all the variables will retain their values when the loop stops.
+- You can do a simple debugging by forcing an exception:
+
+  #+BEGIN_SRC python
+  for number in range(10):
+      if number > 5:
+          1 / 0
+  #+END_SRC
+
+** Running Regression Analysis in Python
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Running Regression Analysis in Python
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- First, let's import basic modules for data analysis:
+
+  #+BEGIN_SRC python
+  import os
+  import numpy as np
+  import pandas as pd
+  #+END_SRC
+*** =statsmodels= module
+#+ATTR_REVEAL: :frag (appear)
+- =statsmodels= is the de-facto statistical analyses library in Python. 
+- There are two ways of using statsmodels: 1) passing data explicitly, and 2)
+  passing data as a =pd.DataFrame= with a formula specifying the model. We
+  will focus on the second method, which is more intuitive
+- To start, import =statsmodels.formula.api=:
+
+  #+BEGIN_SRC python
+  >>> import statsmodels.formula.api as smf
+  #+END_SRC
+   
+- It has many statistical models that you can use. Let's inspect elements of
+  the imported module by =smf.<TAB>=.
+- You will see many models. In general, lowercased model names indicate that
+  they will accept R-like formula. (e.g., =ols=)
+*** =patsy= formula
+- The R-like formula in Python is provided by [[https://patsy.readthedocs.io/en/latest/][=patsy=]]. In general =patsy=
+  formula has the form of =y ~ x1 + x2=, which corresponds to the following
+  model (constant skipped):
+
+  \[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \varepsilon \] 
+
+- Let's create a formula where we regress variable =Compensation= on =WinPercentage=:
+
+  #+BEGIN_SRC python
+  >>> formula = 'Compensasion ~ WinPercentage'
+  #+END_SRC
+*** Building a Model
+- Now we are ready to build the regression model with the formula and
+  data. First, you can build your model object like this:
+
+  #+BEGIN_SRC python
+  >>> smf.ols(formula=formula, data=df)
+  #+END_SRC
+   
+- Let's assign this object to a variable =model= and inspect its elements.
+
+   #+BEGIN_SRC python
+   >>> model = smf.ols(formula=formula, data=df)
+   #+END_SRC
+*** Running Regression Analysis
+- You can use =.fit()= method of the =model= object to actually run the
+  regression. You can assign the resulting object to a variable:
+
+  #+BEGIN_SRC python
+  >>> results = model.fit()
+  #+END_SRC
+   
+- The most frequently used method of the fitted object is =.summary()=. It
+  will print out the regression output:
+
+  #+BEGIN_SRC python
+  >>> results.summary()
+  #+END_SRC
+   
+You can also inspect individual statistics of the results as well.
+
+
+
+

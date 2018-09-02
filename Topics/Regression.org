@@ -6,4 +6,1270 @@
 #+STARTUP: overview
 #+STARTUP: hidestars
 
-* Classes
+* Lectures
+** Regression Analysis: Introduction
+*** Regression Analysis
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Regression Analysis
+:END:
+#+ATTR_REVEAL: :frag (none appear)
+- How can we make predictions about real-world quantities, like sales or life
+  expectancy?
+- Most often in real world applications we need to understand how one variable
+  is determined by *a number of others*
+
+#+REVEAL: split
+
+For example:
+
+#+ATTR_REVEAL: :frag (none appear)
+- How does sales volume change with changes in price. How is this affected by
+  changes in the weather?
+- How is the interest rate charged on a loan affected by credit history and by
+  loan amount?
+  
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (none appear)
+- We already used correlation coefficient to look at the relationship between 
+  /two/ variables, but ...
+- We cannot say that the correlation coefficient is a "pure" effect of
+  one variable's change on another variable
+
+  #+ATTR_REVEAL: :frag (appear)
+  - e.g., What if \( x_{1} \) (e.g., price) and \( x_{2} \) (e.g., advertising) are also correlated?
+
+    | \( \rho \)  | Sales | Price | Advertising |
+    | Sales       |     1 |  -0.8 |         0.8 |
+    | Price       |       |     1 |        -0.9 |
+    | Advertising |       |       |           1 |
+**** Regression Analysis
+:LOGBOOK:
+- Note taken on [2018-02-19 Mon 14:58] \\
+  A student ask about what is regression conceptually .. should talk about it
+  a little bit.
+:END:
+- Let's you
+
+  #+ATTR_REVEAL: :frag (appear)
+  - Discover relationship between a dependent variable (\( y \)) and 
+    multiple independent variables (\( x \)'s) jointly
+  - Identify and measure each independent variable (\( x \))'s impact on 
+    \( y \) separately 
+    - While /controlling for/ (holding others constant) other variables
+
+**** Relationship between \( x \) and \( y \)
+#+ATTR_REVEAL: :frag (appear)
+- Essentially, we want to figure out the relationship between \( y \)
+  (dependent variable) and \( x \) (independent, explanatory) variables:
+
+  \[ y_i = f(x_{1i}, x_{2i}, \cdots) \]
+
+  - Where
+    
+    - \( i \): \( i \)'th observation, \( n \): total number of observations
+    - \( y_i \): dependent variable
+    - \( x_{ki} \): \( i \)'th observation of \( k \)'th independent
+      (explanatory) variable
+    - \( f(\cdot) \): the function specifying the relationship between \( y \)
+      and \( x \)
+
+#+REVEAL: split
+
+- e.g.,
+
+  \[ \underbrace{y_{i}}_{\text{Sales}_i} = f(\underbrace{x_{
+  1i}}_{\text{Price}_i}, \underbrace{x_{2i}}_{\text{Promotion}_i}) \]
+
+- We basically want to know what \( f() \) is. For example,
+
+  \[ y_{i} = f(x_{1i}, x_{2i}) = 1 + 2 \times x_{1i}  + 3 \times x_{2i} \]
+**** Functional Form of \( f \): Linear Regression
+- In linear regression, we assume the dependent variable (\( y_{i} \)) to be a
+  linear function of independent (or explanatory) variables (\( x_{k} \)'s),
+  coefficients (\( \beta_{k} \)'s) and the error term (\( \varepsilon_{i} \)):
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[  y_{i} = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_{i} \]
+
+#+ATTR_REVEAL: :frag (appear)
+- Where
+
+  - \( \beta_k \): coefficient for independent variable \( x_k \), which
+    represents the importance of \( x_{k} \) in \( y \)
+  - \( \varepsilon_{i} \): the remaining part (error)
+
+    - Unpredictable with \( x \)'s
+        - e.g., random-walk of stock prices
+
+#+ATTR_LATEX: :options [frametitle={}]
+#+BEGIN_mdframed
+Note that \( \beta_0 \) is by itself since it corresponds to the constant term. That is, it 
+represents the intercept, and you can think of it as \( x_{0i} \) being 1 everywhere 
+(\( \beta_0 \times 1 = \beta_0 \)).
+#+END_mdframed
+
+*** Regression Analysis: Estimation
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Regression Analysis: Estimation
+:END:
+**** Estimation: Ordinary Least Squares (OLS)
+#+ATTR_REVEAL: :frag (appear)
+- Again the regression model is:
+
+  \[  y_{i} = \beta_0 + \beta_1 x_{1i} + \varepsilon_{i} \]
+
+#+ATTR_REVEAL: :frag (appear)
+- You can rearange terms
+  and characterize the error by:
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[  \varepsilon_{i} =  y_{i} -  \beta_0 - \beta_{1} x_{1i} \]
+
+- Since \( y_i \) and \( x_{1i} \) are data so they do not vary. Then, as you
+  change \( \beta_0 \) and \( \beta_1 \), \( \varepsilon_{i} \) will change.
+
+#+REVEAL: split
+
+Estimation Objective: *minimize* the sum of squared errors across all
+observations:
+
+#+ATTR_REVEAL: :frag (appear)
+\[ \sum_{i=1}^n\varepsilon^2_i = \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+   \varepsilon^2_{n-1} + \varepsilon^2_{n} \]
+   
+#+ATTR_REVEAL: :frag (appear)
+- We want to find values of \( \beta_0 \) and \( \beta_1 \) that minimize the
+  sum of squared errors
+
+#+REVEAL: split
+
+Fortunately, we have analytical solutions for the \( \beta_0 \) and \( \beta_1
+\):
+
+#+ATTR_REVEAL: :frag (appear)
+\[ \widehat{\beta_1} = \frac{ \sum_{i=1}^{n}
+   (x_{1i}-\bar{x}_1)(y_{i}-\bar{y}) }{ \sum_{i=1}^{n} (x_{1i}-\bar{x})^2 }
+   \]
+
+{{{RVL_VSPACE}}}
+
+#+ATTR_REVEAL: :frag (appear)
+\[ \widehat{\beta_0}  = \bar{y} - \widehat\beta\,\bar{x}_{1} \]
+
+- Where \( \widehat{\beta}_{k} \): estimate (actual number) of coeffcient \(
+  \beta_k \)
+
+*** Interpretation of Regression Results: Fit (Model Level)
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Interpretation/Fit (Model Level)
+:END:
+
+#+ATTR_REVEAL: :frag (appear)
+- Remember how we estimate coefficients (\( \beta_k \)'s)?
+- \( \beta_k \) which minimize the sum of squared errors are the
+  estimates, \( \widehat\beta_k \)
+- How do we measure how well our model performs?
+
+**** Sum of Squares
+#+ATTR_REVEAL: :frag (none appear)
+- Total sum of squares (\( SS_{total} \)) :: @@latex:\quad@@
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[  SS_{tot} = \sum_{i=1}^n (y_i - \bar{y})^2 \]
+
+  #+ATTR_REVEAL: :frag (appear)
+  - How much variation is in \( y \) (It's similar to variance)
+  
+#+REVEAL: split
+
+- Sum of Squared Errors (\( SS_{error} \)) :: @@latex:\quad@@
+
+  #+LATEX: \iffalse
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+   \end{aligned} \]
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2 \]
+  #+LATEX: \fi
+
+  #+REVEAL_HTML: <span hidden>
+  \[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+      = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2
+   \end{aligned} \]
+  #+REVEAL_HTML: </span>
+**** Sum of Squared Errors (Residuals)
+#+ATTR_REVEAL: :frag (appear)
+- \( SS_{error} \) is a measure of how wrong the regression estimates will be
+  overall
+- \( SS_{error} \) is a measure of variance
+- \( y_i \) is sometimes higher, sometimes lower than the regression line
+- Actual value of \( y_i \) varies because unobserved factors and randomness
+- The regression can never be a perfect predictor
+**** How well does regression fit?
+- We can use these to construct a value which represents:
+
+  #+ATTR_REVEAL: :frag (appear)
+  - what % of total variance do we explain with our model?
+
+    #+ATTR_REVEAL: :frag (appear)
+    \[ \Rightarrow \dfrac{\text{explained variance}}
+       {\text{total variance } (SS_{total})}
+    \]
+
+    #+REVEAL: split
+
+  - which can also be represented as
+
+    #+ATTR_REVEAL: :frag (appear)
+    \[
+       1 - \dfrac{\text{unexplained variance } (SS_{error})}
+       {\text{total variance } (SS_{total})}
+    \]
+
+***** \( R^2 \)
+
+#+ATTR_REVEAL: :frag (appear)
+- \( R^2 \) :: the percentage of variance in the dependent variable (\( y \))
+               explained by the independent variables (\( x \)'s):
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ R^2 = 1 - \dfrac{SS_{error}}{SS_{total}} \]
+   
+#+REVEAL: split
+
+- \( R^2 \) is between 0 and 1 (0% to 100%)
+
+*** Interpretation of Regression Results: Coefficients
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Interpretation/Coefficients
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- \( \hat{\beta}_1 \) (estimated coefficient for \( x_1 \)): How much the
+  {{{FRAG_BLUE(dependent variable (\( y \)))}}} is expected to change when the
+  {{{FRAG_BLUE(independent variable (\( x_{1} \)))}}} increases by
+  {{{FRAG_BLUE(one)}}} unit
+  
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- Suppose we have \( x_{1} \)'s value as 50, and \( \hat\beta_0 = 1 \) and \(
+  \hat\beta_1 = 3 \). Then, the predicted \( y \) value is:
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times 50 = 151 \]
+
+- If we increase \( x_{1} \) by 1:
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times (50 + 1) = 154 \]
+
+- That is, \( y \) increases by \( \hat\beta_1 \) when we increase
+'eee' is not recognized as an internal or external command,
+operable program or batch file.
+#+REVEAL: split
+
+- Mathematically,
+
+  \[  \dfrac{\partial y}{\partial x} = \dfrac{\partial ( \beta_0 + \beta_1 x)}{\partial x} = \beta_1 \]
+** Regression Analysis: Significance
+*** Review: Regression and Interpretation of Regression Results 
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Interpretation/Review
+:END:
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+\[  y_{i} = \beta_0 + \beta_1 x_{i, 1}  + \beta_2 x_{i, 2} + \cdots +  + \beta_K x_{i, K}  \varepsilon_{i} \]
+
+#+ATTR_REVEAL: :frag (appear)
+- Last class, we talked about how to interpret regression results
+
+**** Model Level
+#+ATTR_REVEAL: :frag (appear)
+- \( R^2 \): How much variation in \( y \) can my model explain?
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ R^{2} = 1 - \dfrac{SS_{error}}{SS_{total}} \]
+- We use *adjusted* \( R^2 \) to compare regressions with
+  different numbers of independent variables
+ 
+**** Variable Level (Coefficients)
+#+ATTR_REVEAL: :frag (appear)
+- How does \( x_1 \) affects \( y \)?
+- \( \beta_1 \): How \( y \) changes if \( x_1 \) is increased by 1 unit
+**** Significance
+#+ATTR_REVEAL: :frag (appear)
+- How do we know if those coefficients are /significant/?
+- Does \( x_1 \) affects \( y \)?
+
+  #+ATTR_REVEAL: :frag (appear)
+  - We do hypothesis testing for each of the coefficients separately
+*** Significance of Regression Coefficients
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Significance of Regression Coefficients
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- We do hypothesis testing for a mean for /each/ coefficient separately
+**** Null and Alternative Hypotheses
+#+ATTR_REVEAL: :frag (appear)
+- The null hypothesis is that there is /no/ effect:
+  - \( H_{0}: \beta_{k}=0 \qquad H_{A}: \beta_k \ne 0 \) 
+    
+#+REVEAL: split
+
+- Null hypothesis:
+  #+ATTR_REVEAL: :frag (appear)
+  - \( H_0 \): Winning Percentage of a head coach does not affect his
+    compensation 
+  - \( H_0 \): \( \beta_{WinPercentage} = 0 \)
+
+- Alternative hypothesis: 
+  #+ATTR_REVEAL: :frag (appear)
+  - College head coaches' winning percentages affects their compensation levels
+  - \( H_{a} \): \( \beta_{WinPercentage} \ne 0 \)
+
+**** Regression Results
+#+ATTR_REVEAL: :frag (appear)
+- =t Stat=: \( \dfrac{\hat{\beta}_{k}}{SE_{k}} \) (because \( H_0: \beta_k=0
+  \)): Reject the null if \( T > |1.96| \)
+
+#+REVEAL: split
+
+- =P-value=: the probability of observing \( \hat{\beta}_{k} \) if the null
+  hypothesis is true: reject the null if =P-value= \( < 0.05 (=\alpha) \)
+
+#+REVEAL: split
+
+- 95% \( ((1-\alpha) \times 100 \%) \) Confidence interval: will not include
+  0 if \( \hat{\beta}_{k} \) is significant
+** Multiple Regression and Categorical Variables
+*** Multiple Regression
+:PROPERTIES:
+:reveal_background: #123456
+:CUSTOM_ID: Lecture/Multiple Regression
+:END:
+:LOGBOOK:
+- Note taken on [2017-10-16 Mon 09:32] \\
+  Add Occam's razor and Einstein's quote. I think it captures the essence of the fit measures well.
+- Note taken on [2017-02-08 Wed 00:02] \\
+  For the morning class, after everything + watchmen exercise, 10 minutes left.
+- Note taken on [2016-09-21 Wed 23:19] \\
+  Here I will just introduce this, and will do it again in the next class.
+:END:
+
+**** Multiple Regression
+#+ATTR_REVEAL: :frag (none appear)
+- Sales vs. Promotion Discount is an example of simple linear regression
+- But sales of a brand depend upon many things
+  - TV Ads, In-store promotions, Coupons etc ...
+
+- When many things vary at the same time, it is hard to visually see the
+  impact of each factor
+- Multiple regression lets you look at an isolated effect of one variable 
+  
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+\[ y_{i} = \beta_0 + \beta_1 x_{i, 1} + \cdots + \beta_k x_{i, k} + \cdots +
+\beta_K x_{i, K} + \varepsilon_{i} \]
+
+#+ATTR_REVEAL: :frag (appear)
+- Interpretation of \( \hat{\beta}_k \): _holding other variables constant_, the
+  change in \( y \) if you increase \( x_k \) by 1 unit
+  
+- Just like the simple regression, mathematically,
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \dfrac{\partial y}{\partial x_k} = \dfrac{\partial ( \beta_0 + \beta_1 x_1 + \cdots + \beta_k
+  x_k + \cdots + \beta_K x_K) }{\partial x_k } = \beta_k. \]
+
+**** \( R^2 \) and Adjusted \( R^2 \)
+#+ATTR_REVEAL: :frag (appear)
+- Recall
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[
+     R^2 = 1 - \dfrac{\text{unexplained variance } (SS_{error})}
+           {\text{total variance } (SS_{total})} = 1 - \dfrac{SS_{error}}{SS_{total}}
+  \]
+
+- \( R^2 \) is between 0 and 1 (0% to 100%)
+***** \( R^2 \) in multiple regression
+#+ATTR_REVEAL: :frag (appear)
+- \( R^2 \) *always* becomes larger when we add more
+  independent variables
+- So we CANNOT use \( R^2 \) to compare the fit of two different regressions
+  with different numbers of independent variables
+***** Adjusted \( R^{2} \)
+#+ATTR_REVEAL: :frag (appear)
+- We use *adjusted* \( R^2 \) to compare regressions with
+  different numbers of independent variables
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+      \dfrac{n-1}{n-K-1} \right\} \]
+
+   #+ATTR_REVEAL: :frag (appear)
+   - \( n \): number of observations
+   - \( K \): number of independent (\( x \)) variables included in the model
+     
+#+REVEAL: split
+
+#+LATEX: \iffalse
+\[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+    \dfrac{n-1}{n-K-1} \right\} \]
+#+LATEX: \fi
+
+#+ATTR_REVEAL: :frag (appear)
+- Basically, you give a little bit of penalty for higher \( K \)
+- A variable needs to reduce \( SS_{error} \) significantly to overcome the
+  penalty
+
+#+REVEAL: split
+
+- Occam's razor: 
+
+  "Among competing hypotheses, the one with the fewest assumptions should be selected"
+
+#+REVEAL: split
+
+#+REVEAL_HTML: <span hidden>
+- Albert Einstein:
+
+  "Everything should be made as simple as possible, but no simpler"
+#+REVEAL_HTML: </span>
+  
+*** Making Predictions in Regression Models
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Making Predictions in Regression Models
+:END:
+
+Once you have regression results (estimated coefficients,
+\( \widehat\beta_k \)'s), it is easy to make predictions given values of
+\( x_k \)'s.
+
+#+ATTR_REVEAL: :frag (appear)
+- Remember we are using the linear model:
+
+  \[ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \varepsilon_i \] 
+
+- For example, estimation results can be:
+
+  \[ y_i = \underbrace{10}_{\widehat\beta_0} +
+           \underbrace{3}_{\widehat\beta_1} x_{i1} + \underbrace{3}_{\widehat\beta_2} 
+  x_{i2} \]
+
+#+REVEAL: split
+
+- Once we have \( \widehat\beta_k \)'s, given \( x_k \) values, we can
+  calculate the *predicted* value of \( y \), \( \widehat y \) by plugging in
+  those estimates:
+
+  \[ \widehat{y}_i = \widehat\beta_0 + \widehat\beta_1 x_{i1} + \widehat\beta_2
+     x_{i2} + \cdots + 0 \]
+
+  (Because \( \hat{\varepsilon}_i=E[\varepsilon_i]=0 \))
+
+#+REVEAL: split
+
+- For example, if your estimation results are:
+  
+  #+ATTR_REVEAL: :frag (appear)
+  \[ y_i = 10 + 3 x_{i1} + 3 x_{i2} \]
+
+#+ATTR_REVEAL: :frag (appear)
+- The estimate of \( y \) for values of \( x_{1} = 5, x_{2} = 4 \) is:
+  
+  #+ATTR_REVEAL: :frag (appear)  
+  \[ \widehat{y} = 10 + 3 \times \underbrace{5}_{x_{1}} + 3 \times \underbrace{4}_{x_{2}} = 37 \]
+
+*** Categorical Variables
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Categorical Variables
+:END:
+**** Use of Dummy Variables
+#+ATTR_REVEAL: :frag (appear)
+- To capture the effect of categorical variables
+  - Brands, In-store displays, Gender
+
+- Dummy variable has a value of 0 or 1
+  - 1 indicates presence of characteristic
+  - 0 indicates absence of characteristic
+**** Example
+
+#+LATEX: {\small
+#+ATTR_HTML: :align left
+| Sales | Store Type |
+|-------+------------|
+|    10 | A          |
+|     4 | B          |
+|     8 | A          |
+|     6 | B          |
+|     7 | A          |
+|     6 | B          |
+|     7 | B          |
+|     8 | A          |
+#+LATEX: }
+
+#+REVEAL: split
+
+- Categorical variables require recoding
+- Use indicator variables / dummy variables
+
+#+REVEAL: split
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+#+LATEX: {\small
+| Sales | Store Type | Dummy |
+|-------+------------+-------|
+|    10 | A          |     1 |
+|     4 | B          |     0 |
+|     8 | A          |     1 |
+|     6 | B          |     0 |
+|     7 | A          |     1 |
+|     6 | B          |     0 |
+|     7 | B          |     0 |
+|     8 | A          |     1 |
+#+LATEX: }
+#+REVEAL_HTML: </span>
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (none appear)
+- Sales Estimate = 5.75 + 2.5 \times (if store type is A).
+- Note that this gives a {{{FRAG_RED(relative)}}} measure.
+- Store type A sales are estimated to be 2.5 units {{{FRAG_RED(more than)}}} store type B.
+**** Coding Dummy Variables 
+#+ATTR_REVEAL: :frag (none appear)
+- If a category can either be present or absent, then code:
+  #+ATTR_REVEAL: :frag (appear)
+  - Presence as 1 
+  - Absence as 0
+  - Example: Presence of "In Store Display"
+- If a category can be of two types:
+  #+ATTR_REVEAL: :frag (appear)
+  - Code one of the category as 1
+  - Code the other as 0
+  - Example: Male/ Female; Cash/ Credit
+**** Coding Dummy Variables: An Example
+#+ATTR_REVEAL: :frag (appear)
+- Do male teachers get more wage in general?
+- Are Texas drivers more likely to buy a pickup truck compared to drivers in
+  other states?
+***** Model:
+- Let \( D_i \) be the dummy variable. Then, when it is true (\( D_{i} =1 \)), the model is:
+      
+  \begin{align*} 
+       y_i  & = \beta_0 + \beta_1 x_{1i} + \beta_2 D_i \\
+            & = \underbrace{(\beta_0 + \beta_2)}_{\text{intercept}} + \beta_1 x_{1i} 
+  \end{align*}
+
+#+ATTR_REVEAL: :frag (appear)
+- When it is not true (\( D_i = 0 \)), the model is:
+
+  \begin{align*} 
+      y_i & = \beta_0 + \beta_1 x_{1i} + \beta_2 D_i \\
+          & = \beta_0 + \beta_1 x_{1i}
+  \end{align*}
+
+#+REVEAL: split
+
+- So \( \beta_2 \) represents the relative difference between the two groups
+  in terms of their intercepts
+
+- What does it mean when \( \beta_2 \) is not significant?
+  
+**** Dummy coding with more than 2 categories (\( L \) levels)
+#+LATEX: \begin{multicols}{2}
+#+ATTR_REVEAL: :frag (none appear)
+- At the most, \( L-1 \) variables are needed
+- Choose a base (comparison) variable
+- Code each variable as being the category or not ...
+
+#+REVEAL: split
+  
+#+LATEX: {\small
+| Sales | REGION | R2ornot       | R3ornot       |
+|-------+--------+---------------+---------------|
+|    10 |      1 | {{{FRAG(0)}}} | {{{FRAG(0)}}} |
+|     4 |      2 | {{{FRAG(1)}}} | {{{FRAG(0)}}} |
+|     8 |      1 | {{{FRAG(0)}}} | {{{FRAG(0)}}} |
+|     6 |      2 | {{{FRAG(1)}}} | {{{FRAG(0)}}} |
+|     7 |      3 | {{{FRAG(0)}}} | {{{FRAG(1)}}} |
+|     6 |      3 | {{{FRAG(0)}}} | {{{FRAG(1)}}} |
+|     7 |      3 | {{{FRAG(0)}}} | {{{FRAG(1)}}} |
+|     8 |      1 | {{{FRAG(0)}}} | {{{FRAG(0)}}} |
+#+LATEX: }
+
+#+LATEX: \end{multicols}
+**** Dummy Coding for Multi-Category
+what if we have more than one category?
+
+e.g., color = {{{{FRAG_RED(red)}}}, {{{FRAG_GREEN(green)}}},
+{{{FRAG_BLUE(blue)}}}} is independent variable (\( x \)) and preference is
+dependent variable (\( y \))
+
+#+REVEAL: split
+
+use a separate dummy variable for each category, except one (e.g., the last)
+
+| color is {{{FRAG_RED(red)}}} :     | \( D_{i1} = 1, D_{i2} = 0 \) |
+| color is {{{FRAG_GREEN(green)}}} : | \( D_{i1} = 0, D_{i2} = 1 \) |
+| color is {{{FRAG_BLUE(blue)}}} :   | \( D_{i1} = 0, D_{i2} = 0 \) |
+
+#+ATTR_REVEAL: :frag (none appear)
+\[ y_i = \beta_0 + \beta_1 D_{i1} + \beta_2 D_{i2} = 
+   \begin{cases} 
+   \beta_0 + \beta_1 & \text{if red} \\
+   \beta_0 + \beta_2 & \text{if green} \\
+   \beta_0  & \text{if blue} \\
+  \end{cases} \]
+
+***** Interpretation
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[ y_i = \beta_0 + \beta_1 D_{i1} + \beta_2 D_{i2} = 
+   \begin{cases} 
+   \beta_0 + \beta_1 & \text{if red} \\
+   \beta_0 + \beta_2 & \text{if green} \\
+   \beta_0  & \text{if blue} \\
+  \end{cases} \]
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+- \( \beta_0 \) preference of product if {{{FRAG_BLUE(blue)}}} (blue is called the =baseline level=)
+- \( \beta_1 \) preference of product if {{{FRAG_RED(red)}}} as {{{FRAG_BLUE(compared to blue)}}} product:
+  "how much better (worse) is red product liked over blue"
+- \( \beta_2 \) preference of product if {{{FRAG_GREEN(green)}}} as {{{FRAG_BLUE(compared to blue)}}} product:
+  "how much better (worse) is green product liked over blue"
+
+**** Another Example
+#+ATTR_REVEAL: :frag (none appear)
+- Brands ={ =Sony=, =Samsung=, =Bose=}
+
+- Use a separate dummy variable for each brand, except one (e.g. the last one)
+  - \( D_{Sony} \), \( D_{Samsung}  \)
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- Dummy Coded Variables
+
+  #+REVEAL_HTML: <span style=font-size:20pt>
+  | Brand   | Brand Code | \(D_{Sony} \) | \( D_{Samsung}\) |
+  |---------+------------+---------------+------------------|
+  | Sony    |          1 |             1 |                0 |
+  | Samsung |          2 |             0 |                1 |
+  | Bose    |          3 |             0 |                0 |
+  #+REVEAL_HTML: </span>
+
+- What is the baseline in this example?
+
+#+REVEAL: split
+
+- Let’s say we have the following model to predict sales:
+
+#+REVEAL_HTML: <span style=font-size:22pt>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Ad + \beta_3 \times
+D_{Sony}  + \beta_4 \times D_{Samsung} \]
+#+REVEAL_HTML: </span>
+
+{{{RVL_VSPACE}}}
+
+#+ATTR_REVEAL: :frag (appear)
+- Then, sales for each brand is:
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+  #+ATTR_REVEAL: :frag (appear)
+  - \( Sales_{Sony} = \beta_0 + \beta_1 \times Price_{Sony} + \beta_2 \times Ad_{Sony} + \beta_3 \)
+  - \( Sales_{Samsung} = \beta_0 + \beta_1 \times Price_{Samsung} + \beta_2 \times Ad_{Samsung} + \beta_4 \)
+  - \( Sales_{Bose} = \beta_0 + \beta_1 \times Price_{Bose} + \beta_2 \times Ad_{Bose} \)
+#+REVEAL_HTML: </span>
+*** Multicollinearity
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Multicollinearity
+:END:
+
+#+ATTR_REVEAL: :frag (none appear)
+- Why do we use \( L-1 \) variables instead of \( L \) in dummy coding?
+
+- If you do, you will get *perfect multicollinearity*
+
+- What is multicollinearity?
+
+**** Multicollinearity
+
+#+ATTR_REVEAL: :frag (appear)
+- Source: Two or more independent (\( x_k \)) variables in a multiple
+  regression model are highly correlated
+
+- Since two \( x_k \)'s are moving together, it is hard to identify
+  which one is causing the changes in \( y \)
+
+#+BEGIN_NOTES
+- Campus couple example
+#+END_NOTES
+
+**** Consequences of Multicollinearity
+#+ATTR_REVEAL: :frag (none appear)
+- Estimates of the effect (coefficients) are less precise
+- Small =t-stat= (= large =p-value=)
+- =Type 2 Error=: you do not reject the null (\( H_0: \beta=0 \)) when you
+  should
+- But does *not* actually bias results
+**** Fixes
+- This is a data problem. If you have sufficient number of observations, high
+  correlation between explanatory (predictor) variables is okay
+
+  #+ATTR_REVEAL: :frag (appear)
+  - Standard Errors for estimates become smaller as you increase number of
+    sample
+#+BEGIN_NOTES
+- If you observe it many times, since they are not perfectly
+  correlated, there will be cases where the two \( x \)\  \)s move
+  differently and \( y \) changes. From that you can identify which
+  one is important
+#+END_NOTES
+**** Perfect multicollinearity
+#+ATTR_REVEAL: :frag (none appear)
+- You have complete dependency among variables (predict one with others)
+- Inversion in OLS estimate formula does not work and you cannot estimate the
+  model
+- Just like \( 1/0 \) does not work
+- Not a big problem - you will see the error right away
+#+BEGIN_NOTES
+Here, let's have an example of this.
+#+END_NOTES
+***** Dummy Variable Trap
+#+ATTR_REVEAL: :frag (none appear)
+- If you have \( L \) dummies for \( L \) number of categories, including
+  a constant term in the regression together guarantee perfect
+  multicollinearity
+
+- Analogous to this is that when you know the mean first \( n-1 \) observations then
+  you can infer \( n \)'th observation
+
+** Design of Price and Advertising Elasticity Models
+*** Variable Transformations and Non-linear Effects
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Variable Transformation and Non-linear Effects
+:END:
+**** Previous Sales Model
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Advertising +
+           \beta_3 \times Display \]
+
+#+ATTR_REVEAL: :frag (appear)
+e.g., \( Sales = 100 -100 \times Price + 50 \times Advertising +
+           1000 \times Display \)
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+- Is this an adequate model of the sales marketing mix relationship?
+
+#+REVEAL: split
+
+#+LATEX: \iffalse
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Advertising +
+           \beta_3 \times Display \]
+#+REVEAL_HTML: </span>
+#+LATEX: \fi
+
+- Problematic Implications: 
+  #+ATTR_REVEAL: :frag (none appear)
+  - Increasing advertising leads to consistent increase in sales
+  - Increase in sales from a unit increase in advertising is same at all
+    levels of advertising
+  - A price decrease always lead to an increase in sales
+    - Saturation point
+
+#+REVEAL: split
+
+- Solution: log transformation
+**** Log Transformation
+:LOGBOOK:
+- Note taken on [2016-09-19 Mon 18:21] \\
+  http://www.kenbenoit.net/courses/ME104/logmodels2.pdf
+  
+  Provides a very nice introduction.
+:END:
+
+#+ATTR_REVEAL: :frag (appear)
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[ Sales = \beta_0 + \beta_1 \times \ln(Price) + \beta_2 \times
+           \ln(Advertising) + \beta_3 \times Display \]
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+In general, two reasons to take a log:
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+1. A non-linear relationship (decreasing marginal return) exists between the
+   independent and dependent variables.
+
+#+HEADERS: :var output="/Users/joon/Dropbox/Teaching/Assets/Images/Regression/ln_x.png"
+#+begin_src python :eval no-export :results file :exports results
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+x = list(np.linspace(.1, .9, 5)) + list(range(1, 26))
+x = np.array(x)
+
+fig = plt.figure()
+plt.scatter(x, np.log(x), label=r'$\ln(x)$')
+plt.plot(x, np.log(x), color='red')
+plt.legend()
+plt.savefig(output)
+return output  # return this to org-mode
+#+end_src
+
+#+ATTR_LATEX: :width 8cm
+#+ATTR_HTML: :width 65%
+#+RESULTS:
+[[image:/Regression/ln_x.png]]
+
+#+REVEAL: split
+
+- Examples: distance, income, etc
+**** Non-Linear Effects: Inverted-U Relationship
+:PROPERTIES:
+:CUSTOM_ID: Regression/Non_Linear_Effects
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- Likelihood of Purchasing Candy Bar = \( 1.1 + 3 \times \text{Sweetness} \)
+
+  #+ATTR_REVEAL: :frag (appear)
+  - So should we keep adding sugar? 
+    
+- You can add a squared term (\( x^{2} \) when you expect inverted-U relationship
+
+#+REVEAL: split
+
+For example, if our results are:
+
+\[ y = 1 + 3 \times x - 0.2 \times x^2 \]
+
+the predicted \( y \) values (\( \hat y \)) are:
+
+| \( x \)      |   1 |   2 |   3 |   4 |  5 |    6 |    7 |    8 |    9 |   10 |  11 |  12 |
+| \( \hat y \) | 3.8 | 6.2 | 8.2 | 9.8 | 11 | 11.8 | 12.2 | 12.2 | 11.8 | 11.0 | 9.8 | 8.2 |
+
+*** Elasticities
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Elasticities
+:END:
+
+#+ATTR_REVEAL: :frag (none appear)
+- The measurement of how responsive an variable is to a change in another
+
+- The \( x \) (price, advertising, etc) elasticity of \( y \) (usually
+  demand or supply) is:
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \dfrac{\text{Percentage change in } y}{\text{Percentage change in } x} \]
+
+  #+ATTR_REVEAL: :frag (appear)
+  - where
+
+    \[ \text{Percentage change in } x= \dfrac{\Delta x}{x} \]
+
+    where \( \Delta \) denotes the change
+**** Price Elasticity of Demand
+#+ATTR_LATEX: :width 8cm
+#+ATTR_HTML: :width 80%
+[[image:/Regression/Price_elasticity_of_demand.png]]
+
+#+REVEAL: split
+
+- Price elasticity of demand (PED): 
+  - Percentage change in quantity demanded in response to a *1% change* in
+    price (holding constant all the other marketing mix variables)
+    
+#+REVEAL: split
+
+\begin{align*}
+   PED & = \left\lvert \dfrac{\% \text{Changes in Sales (Quantity Demanded)}}{\% \text{Changes in Own Price}} \right\rvert \\
+       & = \left\lvert \dfrac {\Delta Q}{Q} \Bigg/ \dfrac {\Delta P}{P} \right\rvert   \\
+\end{align*}
+
+#+REVEAL: split
+
+| Suppose Price increases 1%, and demand is \((P)\) | Sales Decrease \( (Q) \)  | Total Revenue \( P \times Q \)        |
+|---------------------------------------------------+---------------------------+---------------------------------------|
+| {{{FRAG(Elastic (\( PED > 1 \)))}}}               | {{{FRAG(More than 1)}}} % | {{{FRAG(\( \Downarrow \))}}}          |
+| {{{FRAG(Unit Elastic (\( PED = 1 \)))}}}          | {{{FRAG(1)}}} %           | {{{FRAG(\( \Longleftrightarrow \))}}} |
+| {{{FRAG(Inelastic (\( PED < 1 \)))}}}             | {{{FRAG(Less than 1)}}} % | {{{FRAG(\( \Uparrow \))}}}            |
+
+#+ATTR_REVEAL: :frag (appear)
+#+ATTR_LATEX: :options [frametitle={Note}]
+#+BEGIN_mdframed
+Note that PED only looks at the size of the change because the direction of
+the change is assumed to be negative.
+#+END_mdframed
+
+***** Elasticities in Regression
+#+ATTR_REVEAL: :frag (appear)
+- With a sample of historical data, you can measure the elasticities with the
+  log-log model:
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \ln(Q) = \beta_0 + \beta_1 \ln(P) + \varepsilon \]
+
+- (The size of) \( \beta_1 \) represents the price elasticities of demand
+
+  #+ATTR_REVEAL: :frag (appear)
+  \[ \ln(Q) = 10 -1.5 \ln(P) \]
+
+#+LATEX: \iffalse
+#+ATTR_REVEAL: :frag (appear)
+- Derivation on the class notes
+#+LATEX: \fi
+
+#+REVEAL_HTML: <span hidden>
+#+ATTR_LATEX: :options [frametitle={Why?}]
+#+BEGIN_mdframed
+Remember the interpretation of \( \beta \), the
+coefficient of in linear regression is:
+
+\[ 
+   \dfrac{d Q}{d P} = \dfrac{d (\beta_0 + \beta_1 P +
+   \varepsilon) }{d P} = \beta_1
+\]
+
+That is, the increase in \( Q \)  when \( P \)  increases by 1 unit
+
+When you have a log-log model:
+
+\[ \ln(Q) = \beta_0 + \beta_1 \ln (P) + \varepsilon\]
+
+\[ \Rightarrow Q = \exp(\beta_0 + \beta_1 \ln (P) + \varepsilon ) \]
+
+\[ \dfrac{d Q}{d P}  \quad = \underbrace{\exp(\beta_0 + \beta_1 \ln(P) +
+          \varepsilon )}_{Q}
+         \cdot \underbrace{\beta_1 \cdot \dfrac{1}{P}}_{\text{Chain Rule}} \\
+           \quad =  Q \cdot \beta_1 \cdot \dfrac{1}{P} 
+\]
+
+#+LATEX: \iffalse
+\[    \dfrac{d Q}{d P}  = Q \cdot \beta_1 \cdot \dfrac{1}{P} \]
+#+LATEX: \fi
+
+Hence,
+
+ \[       \beta_1 \quad = \dfrac{d Q}{Q} \cdot \dfrac{P}{d P} \\
+                 \quad = \dfrac{d Q}{Q} \Bigg/ \dfrac{d P}{P} \]
+
+
+NOTE: This derivation will not be on the exam
+#+END_mdframed
+#+REVEAL_HTML: </span>
+**** Cross Price Elasticities
+#+ATTR_REVEAL: :frag (appear)
+- Elasticity between variables of two different products
+
+- Important because many products are *complements* or *substitutes* to each
+  other:
+
+  #+ATTR_REVEAL: :frag (appear)
+  - Cannibalization
+
+#+REVEAL: split
+
+- Product 1's cross-price elasticity of product 2 would be:
+
+  #+ATTR_REVEAL: :frag (appear)
+  - The impact of product 2's percentage change in prices on the percentage
+    change in product 1's sales
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+#+ATTR_REVEAL: :frag (appear)
+\[ \dfrac{\text{Changes in Sales (Quantity Demanded)}}{\text{Changes in
+Price of Another Good}} = \dfrac{\Delta Q}{Q} \Bigg/ \dfrac{\Delta
+P_{other}}{P_{other}} = \dfrac{d \ln (Q)}{d \ln (P_{other})} \]
+#+REVEAL_HTML: </span>
+***** Cross Price Elasticities in Regression
+- Hence, if you have the following model:
+
+  \[ \ln(Q) = \beta_0 + \beta_1\ln(P) + \beta_2\ln(P_{other}) + \varepsilon \]
+
+  #+ATTR_REVEAL: :frag (appear)
+  \( \beta_{2} \) reflects the cross price elasticity
+
+#+REVEAL: split
+
+#+ATTR_REVEAL: :frag (appear)
+- If \( \beta_2 \) is positive ...
+  #+ATTR_REVEAL: :frag (appear)
+  - Other good price increases, your sales {{{FRAG(increase)}}} 
+    {{{FRAG(\( P_{other} \uparrow (Q_{other} \downarrow) \))}}} {{{FRAG(\(\Rightarrow Q\;\uparrow \))}}}
+  - e.g. Raise price of salsa and sales of cheese dip increase
+  - Two products are /substitute/
+    
+#+REVEAL: split
+
+- If \( \beta_2 \) is negative ...
+  #+ATTR_REVEAL: :frag (appear)
+  - Other good price increases, your sales {{{FRAG(decrease)}}}
+    {{{FRAG(\( P_{other} \uparrow (Q_{other} \downarrow) \))}}} {{{FRAG(\( \Rightarrow Q\;\downarrow \))}}}
+  - e.g. Raise price of salsa and sales of chips decrease
+  - Two products are /complements/
+
+#+REVEAL: split
+
+- If \( \beta_2 \) is zero (insignificant) ...
+  #+ATTR_REVEAL: :frag (none appear)
+  - Other good price increases, your sales {{{FRAG(don't change)}}} 
+  - e.g. Raise price of salsa and sales of pasta sauce not affected 
+  - Two products are /independent/
+**** The log-log sales response model
+#+LATEX: \iffalse
+#+REVEAL_HTML: <span style=font-size:22pt>
+\begin{align*}
+\ln(\text{sales in period } t) = \beta_0 + \beta_1 & \times \ln(\text{own
+price in period } t) \\
+                + \beta_2 & \times \ln(\text{competitor price in period } t)  + \varepsilon_t
+\end{align*}
+#+REVEAL_HTML: </span>
+#+LATEX: \fi
+
+#+REVEAL_HTML: <span hidden>
+\[ \ln(\text{sales in period } t) = \beta_0 + \beta_1 \times \ln(\text{own
+    price in period} t) + 
+   \beta_2 \times \ln(\text{competitor price in period } t)  + \varepsilon_t
+\]
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+- This model typically fits the data much better than the linear model
+- Coefficients to log(prices) may be interpreted as price elasticities 
+**** Advertising Elasticity of Demand (AED)
+
+#+ATTR_REVEAL: :frag (appear)
+- Just like the price elasticities of demand,
+- A measure to show the responsiveness of the quantity demanded of a good (or
+  service) to a change in the level of advertising:
+  
+#+ATTR_REVEAL: :frag (appear)
+\begin{align*}
+  AED  & = \dfrac{\% \text{Changes in Sales}}{\% \text{Changes in Advertising}} \\
+        & = \dfrac {\Delta Q}{Q} \Bigg/ \dfrac {\Delta A}{A}  \\
+\end{align*}
+***** AED Regression
+#+ATTR_REVEAL: :frag (appear)
+Similarly, \( \beta_1 \) in the following regression equation represents
+the advertising elasticities of demand:
+
+#+ATTR_REVEAL: :frag (appear)
+\[  \ln(Q) =  \beta_0 + \beta_1 \cdot \ln(A) + \varepsilon \]
+**** Price and Advertising Elasticity Model
+#+ATTR_REVEAL: :frag (appear)
+You can estimate all the elasticities with the following model:
+
+#+ATTR_REVEAL: :frag (appear)
+#+REVEAL_HTML: <span style=font-size:22pt>
+\begin{align*}
+\ln(\text{Sales in period } t) = \beta_0 + \beta_{own} & \times \ln(\text{Own Price in period } t) \\
+                                         + \beta_{cross} & \times \ln(\text{Other Good Price in period } t) \\
+                                         + \beta_{ad} & \times \ln (\text{Advertising}_t) \\
+                                         + \beta_{display} & \times \text{Display}_t
+\end{align*}
+#+REVEAL_HTML: </span>
+
+#+REVEAL: split
+
+#+LATEX: \iffalse
+#+REVEAL_HTML: <span style=font-size:22pt>
+\begin{align*}
+\ln(\text{Sales in period } t) = \beta_0 + \beta_{own} & \times \ln(\text{Own Price in period } t) \\
+                                         + \beta_{cross} & \times \ln(\text{Other Good Price in period } t) \\
+                                         + \beta_{ad} & \times \ln (\text{Advertising}_t) \\
+                                         + \beta_{display} & \times \text{Display}_t
+\end{align*}
+#+REVEAL_HTML: </span>
+#+LATEX: \fi
+
+#+ATTR_REVEAL: :frag (appear)
+- Interpretation of Coefficients:
+  #+ATTR_REVEAL: :frag (none appear)
+  - \( \beta_{own} \): own price elasticity 
+  - \( \beta_{cross} \): cross price elasticity
+  - \( \beta_{ad} \): advertising elasticity
+  - \( \beta_{display} \): impact of display on sales
+
+#+REVEAL_HTML: <span hidden>
+#+ATTR_LATEX: :options [frametitle={Interpretation of \( \beta_{display} \)}]
+#+BEGIN_mdframed
+The Display dummy equals to 1 when the product is on display. Hence, \(
+\beta_{display} \) represents the increase in \( \ln(\text{Sales}) \) when the
+product is on display comparing to the baseline case where the product is not
+on display.  That is,
+
+\[ \beta_{display} = \ln(\text{Sales}_{Display}) - \ln(\text{Sales}_{NoDisplay}) \]
+\[ \Rightarrow \beta_{display} = \ln\left(\dfrac{\text{Sales}_{Display}}{\text{Sales}_{NoDisplay}}\right) \]
+\[ \Rightarrow \exp(\beta_{display}) = \dfrac{\text{Sales}_{Display}}{\text{Sales}_{NoDisplay}} \]
+
+Hence, \( \exp(\beta_{display}) \) is the ratio between the two sales. For
+example, if \( \beta_{display} \) were 0.3, \( \exp(0.3) = 1.35 \), which
+means a product's sales increase by 35% when it is on display compared to when
+it is not.
+#+END_mdframed
+#+REVEAL_HTML: </span>
+
+** Interaction Effects
+:PROPERTIES:
+:CUSTOM_ID: Lecture/Interaction Effects
+:END:
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3
+      \times Feature Ad \]
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+- If a =Display=, Sales increases by \( \beta_2 \)
+- If a =Feature Ad=, Sales increase by \( \beta_3 \)
+- What if there is a =Feature Ad= and =Display= simultaneously?
+
+#+REVEAL: split
+
+#+LATEX: \iffalse
+#+REVEAL_HTML: <span style=font-size:20pt>
+\begin{align*}
+ Sales = & \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3 \times Feature Ad \\
+         & + \beta_4 \times (Display \times Feature Ad)
+\end{align*}
+
+{{{BR}}}
+
+#+ATTR_REVEAL: :frag (appear)
+\begin{align*}
+ Sales = & 100 - 3 \times Price + 5 \times Display + 4 \times Feature Ad \\
+         & + 2 \times (Display \times Feature Ad)
+\end{align*}
+#+REVEAL_HTML: </span>
+#+LATEX: \fi
+
+{{{BR}}}
+
+#+REVEAL_HTML: <span hidden>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3
+\times Feature Ad + \beta_4 \times (Display \times Feature Ad) \]
+
+\[ \text{e.g., } Sales = 100 - 3 \times Price + 5 \times Display + 4 \times Feature Ad + 2
+\times (Display \times Feature Ad) \]
+
+#+REVEAL_HTML: </span>
+
+#+ATTR_REVEAL: :frag (appear)
+- If a =Display=, Sales increases by \( \beta_2  \; (=5) \) 
+- If a =Feature Ad=, Sales increase by \( \beta_3  \; (=4)\)
+- If both a =Display= and a =Feature Ad=, sales increase by \( \beta_2 +
+  \beta_3 + \beta_4 = 11 \)
+*** With a continuous variable
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3 \times Price \times Display \]
+#+REVEAL_HTML: </span>
+
+- What does \( \beta_3 \) represent?
+
+** Overfitting and Google Flu
+:PROPERTIES:
+:CUSTOM_ID: Case/Google Flu
+:END:
+*** Google Flu
+Google's scientists first announced Google Flu in a Nature article in 2009:
+
+  #+ATTR_REVEAL: :frag (appear)
+  #+BEGIN_QUOTE
+  ... We can accurately estimate the current level of weekly influenza activity
+  in each region of the United States, with a reporting lag of *about one day*.
+  #+END_QUOTE
+   
+#+ATTR_REVEAL: :frag (appear)
+One report was that Google Flu Trends was able to predict regional
+outbreaks of flu up to 10 days before they were reported by the CDC
+
+**** Results
+#+ATTR_HTML: :width 70%
+#+ATTR_LATEX: :width 8cm
+[[image:/Big_Data/Google_Flu_Trends.jpg]]
+
+#+REVEAL_HTML: <span style=font-size:20pt>
+(source: [[http://www.uvm.edu/~cdanfort/csc-reading-group/lazer-flu-science-2014.pdf][The Parable of Google Flu: Traps in Big Data Analysis]])
+#+REVEAL_HTML: </span>
+
+**** What Went Wrong?
+
+#+ATTR_REVEAL: :frag (appear)
+- Quality of search terms
+
+  - *influenza-like illness*
+
+- Prediction without theory
+
+  \( \Rightarrow \) overfitting problem
+  
+#+BEGIN_NOTES
+- The problem is that most people don't know what "the flu" is, and
+  relying on Google searches by people who may be utterly ignorant about
+  the flu does not produce useful information.
+- most people who think they have "the flu" do not. The vast majority of
+  doctors  office visits for flu-like symptoms turn out to be other
+  viruses. CDC tracks these visits under "influenza-like illness"
+  because so many turn out to be something else. To illustrate, the CDC
+  reports that in the most recent week for which data is available, only
+  8.8% of specimens tested positive for influenza.
+#+END_NOTES 
+*** Overfitting
+**** Error Term in Regression
+- When we think about typical regression model:
+
+ \[ y_{i} = \beta_{0} + \beta_{1}x_{i1} + \cdots + \beta_{K}x_{iK} + \varepsilon_{i} \]
+
+- The error term (\( \varepsilon_{i} \)) is supposed to have mean zero
+- Not /predictable/
+- However, once they are realized, one can often find some pattern in them,
+  which will disappear as more data accumulate
+  - e.g., stock prices are supposed to be random-walk; however, from historical data, 
+    patterns will pop up
+**** Google Flu and Overfitting
+Find the best matches among 50 million search terms to fit 1152 data points
+
+#+ATTR_REVEAL: :frag (appear)
+"They ... overfit the data. They had fifty million search terms, and they
+found some that happened to fit the frequency of the 'flu' over the
+preceding decade or so, but really they were getting idiosyncratic terms
+that were peaking in the winter at the time the 'flu' peaks ... but wasn't
+driven by the fact that people were actually sick with the 'flu',"
+
+(David Lazer, an interview with [[http://www.sciencemag.org/content/343/6176/1270.2.full][Science]])
+*** Takeaways
+- Be careful of "overfitting", especially when you have a lot of variables
+- Conduct out-of-sample validation
+*** Out-of-Sample Validation
+#+ATTR_REVEAL: :frag (appear)
+- Use only a subset of data (e.g., 80% of the sample; train dataset) to estimate coefficients
+- Then predict \( \hat{y}_i \) values for the rest of the sample (validation
+  dataset) using the estimated coefficients and actual data for \( x_{k} \)'s
+  as if we do not know actual \( y_{i} \):
+
+   \[ \hat{y}_{i}= \hat{\beta}_{0} + \hat{\beta}_{1} x_{1i} +
+      \hat{\beta}_{2} x_{2i} + \cdots + \hat{\beta}_{K} x_{Ki} \]
+
+-  Compare $\hat{y}_{i}$ and the actual $y_{i}$
+
+
+

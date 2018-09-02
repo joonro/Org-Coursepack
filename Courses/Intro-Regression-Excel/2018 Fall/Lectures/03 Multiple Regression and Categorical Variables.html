@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 3: Multiple Regression and Categorical Variables</title>
+<meta name="description" content="Description
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 3: Multiple Regression and Categorical Variables</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org8b86191"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org1242d30"><span class="section-number-3">1.1</span> Announcements</h3>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org43abac4"><span class="section-number-3">1.2</span> Last Class</h3>
+<ul>
+<li class="fragment appear">Review: Regression and Interpretation of Regression Results</li>
+<li class="fragment appear">Sampling Distribution and Variance of the Sample Mean</li>
+<li class="fragment appear">Hypothesis Testing for a Mean</li>
+<li class="fragment appear">Significance of Regression Coefficients</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Multiple Regression and Categorical Variables/Agenda">
+<h3 id="Lecture/Multiple Regression and Categorical Variables/Agenda"><a id="org76d6783"></a><span class="section-number-3">1.3</span> Lecture Agenda</h3>
+<ul>
+<li class="fragment appear">Categorical Variables</li>
+<li class="fragment appear">Multicollinearity</li>
+<li class="fragment appear">Making Predictions in Regression Models</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org7c149f3"><span class="section-number-2">2</span> Categorical Variables</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="org10f981b"><span class="section-number-3">2.1</span> Use of Dummy Variables</h3>
+<ul>
+<li class="fragment appear">To capture the effect of categorical variables
+<ul>
+<li>Brands, In-store displays, Gender</li>
+
+</ul></li>
+
+<li class="fragment appear">Dummy variable has a value of 0 or 1
+<ul>
+<li>1 indicates presence of characteristic</li>
+<li>0 indicates absence of characteristic</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="org828dbac"><span class="section-number-3">2.2</span> Example</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="left">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Sales</th>
+<th scope="col" class="org-left">Store Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">B</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">B</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">A</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">B</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">B</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">A</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section >
+
+<ul>
+<li>Categorical variables require recoding</li>
+<li>Use indicator variables / dummy variables</li>
+
+</ul>
+
+</section>
+<section >
+
+<span style=font-size:20pt>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Sales</th>
+<th scope="col" class="org-left">Store Type</th>
+<th scope="col" class="org-right">Dummy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">A</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">B</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">A</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">B</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">A</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">B</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">B</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">A</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</span>
+
+</section>
+<section >
+
+<ul>
+<li>Sales Estimate = 5.75 + 2.5 &times; (if store type is A).</li>
+<li class="fragment appear">Note that this gives a <span class="fragment highlight-red">relative</span>  measure.</li>
+<li class="fragment appear">Store type A sales are estimated to be 2.5 units <span class="fragment highlight-red">more than</span>  store type B.</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-3">
+<h3 id="orgdc9db8a"><span class="section-number-3">2.3</span> Coding Dummy Variables</h3>
+<ul>
+<li>If a category can either be present or absent, then code:
+<ul>
+<li class="fragment appear">Presence as 1</li>
+<li class="fragment appear">Absence as 0</li>
+<li class="fragment appear">Example: Presence of "In Store Display"</li>
+
+</ul></li>
+<li class="fragment appear">If a category can be of two types:
+<ul>
+<li class="fragment appear">Code one of the category as 1</li>
+<li class="fragment appear">Code the other as 0</li>
+<li class="fragment appear">Example: Male/ Female; Cash/ Credit</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-4">
+<h3 id="orgf9f6864"><span class="section-number-3">2.4</span> Coding Dummy Variables: An Example</h3>
+<ul>
+<li class="fragment appear">Do male teachers get more wage in general?</li>
+<li class="fragment appear">Are Texas drivers more likely to buy a pickup truck compared to drivers in
+other states?</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-4-1">
+<h4 id="orgc227812"><span class="section-number-4">2.4.1</span> Model:</h4>
+<ul>
+<li><p>
+Let \( D_i \) be the dummy variable. Then, when it is true (\( D_{i} =1 \)), the model is:
+</p>
+
+<div>
+\begin{align*} 
+     y_i  & = \beta_0 + \beta_1 x_{1i} + \beta_2 D_i \\
+          & = \underbrace{(\beta_0 + \beta_2)}_{\text{intercept}} + \beta_1 x_{1i} 
+\end{align*}
+
+</div></li>
+
+</ul>
+
+<ul>
+<li class="fragment appear"><p>
+When it is not true (\( D_i = 0 \)), the model is:
+</p>
+
+<div>
+\begin{align*} 
+    y_i & = \beta_0 + \beta_1 x_{1i} + \beta_2 D_i \\
+        & = \beta_0 + \beta_1 x_{1i}
+\end{align*}
+
+</div></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>So \( \beta_2 \) represents the relative difference between the two groups
+in terms of their intercepts</li>
+
+<li>What does it mean when \( \beta_2 \) is not significant?</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-2-5">
+<h3 id="org625f3a6"><span class="section-number-3">2.5</span> Dummy coding with more than 2 categories (\( L \) levels)</h3>
+<ul>
+<li>At the most, \( L-1 \) variables are needed</li>
+<li class="fragment appear">Choose a base (comparison) variable</li>
+<li class="fragment appear">Code each variable as being the category or not &#x2026;</li>
+
+</ul>
+
+</section>
+<section >
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Sales</th>
+<th scope="col" class="org-right">REGION</th>
+<th scope="col" class="org-left">R2ornot</th>
+<th scope="col" class="org-left">R3ornot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">1</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">0</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">2</td>
+<td class="org-left"><span class="fragment">1</span> </td>
+<td class="org-left"><span class="fragment">0</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">0</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">2</td>
+<td class="org-left"><span class="fragment">1</span> </td>
+<td class="org-left"><span class="fragment">0</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">3</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">1</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">3</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">1</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">3</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">1</span> </td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-left"><span class="fragment">0</span> </td>
+<td class="org-left"><span class="fragment">0</span> </td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-sec-2-6">
+<h3 id="orge1eb03a"><span class="section-number-3">2.6</span> Dummy Coding for Multi-Category</h3>
+<p>
+what if we have more than one category?
+</p>
+
+<p>
+e.g., color = {<span class="fragment highlight-red">red</span> , <span class="fragment highlight-green">green</span> ,
+<span class="fragment highlight-blue">blue</span> } is independent variable (\( x \)) and preference is
+dependent variable (\( y \))
+</p>
+
+</section>
+<section >
+
+<p>
+use a separate dummy variable for each category, except one (e.g., the last)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">color is <span class="fragment highlight-red">red</span>  :</td>
+<td class="org-left">\( D_{i1} = 1, D_{i2} = 0 \)</td>
+</tr>
+
+<tr>
+<td class="org-left">color is <span class="fragment highlight-green">green</span>  :</td>
+<td class="org-left">\( D_{i1} = 0, D_{i2} = 1 \)</td>
+</tr>
+
+<tr>
+<td class="org-left">color is <span class="fragment highlight-blue">blue</span>  :</td>
+<td class="org-left">\( D_{i1} = 0, D_{i2} = 0 \)</td>
+</tr>
+</tbody>
+</table>
+
+<p class="fragment (none appear)">
+\[ y_i = \beta_0 + \beta_1 D_{i1} + \beta_2 D_{i2} = 
+   \begin{cases} 
+   \beta_0 + \beta_1 & \text{if red} \\
+   \beta_0 + \beta_2 & \text{if green} \\
+   \beta_0  & \text{if blue} \\
+  \end{cases} \]
+</p>
+
+</section>
+<section id="slide-sec-2-6-1">
+<h4 id="org6c53f52"><span class="section-number-4">2.6.1</span> Interpretation</h4>
+<span style=font-size:20pt>
+<p>
+\[ y_i = \beta_0 + \beta_1 D_{i1} + \beta_2 D_{i2} = 
+   \begin{cases} 
+   \beta_0 + \beta_1 & \text{if red} \\
+   \beta_0 + \beta_2 & \text{if green} \\
+   \beta_0  & \text{if blue} \\
+  \end{cases} \]
+</p>
+</span>
+
+<ul>
+<li class="fragment appear">\( \beta_0 \) preference of product if <span class="fragment highlight-blue">blue</span>  (blue is called the <code>baseline level</code>)</li>
+<li class="fragment appear">\( \beta_1 \) preference of product if <span class="fragment highlight-red">red</span>  as <span class="fragment highlight-blue">compared to blue</span>  product:
+"how much better (worse) is red product liked over blue"</li>
+<li class="fragment appear">\( \beta_2 \) preference of product if <span class="fragment highlight-green">green</span>  as <span class="fragment highlight-blue">compared to blue</span>  product:
+"how much better (worse) is green product liked over blue"</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-2-7">
+<h3 id="org68f0762"><span class="section-number-3">2.7</span> Another Example</h3>
+<ul>
+<li>Brands <code>{ =Sony</code>, <code>Samsung</code>, <code>Bose</code>}</li>
+
+<li class="fragment appear">Use a separate dummy variable for each brand, except one (e.g. the last one)
+<ul>
+<li>\( D_{Sony} \), \( D_{Samsung}  \)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li class="fragment appear"><p>
+Dummy Coded Variables
+</p>
+
+<span style=font-size:20pt>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Brand</th>
+<th scope="col" class="org-right">Brand Code</th>
+<th scope="col" class="org-right">\(D_{Sony} \)</th>
+<th scope="col" class="org-right">\( D_{Samsung}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Sony</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">Samsung</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Bose</td>
+<td class="org-right">3</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</span></li>
+
+<li class="fragment appear">What is the baseline in this example?</li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>Let’s say we have the following model to predict sales:</li>
+
+</ul>
+
+<span style=font-size:22pt>
+<p>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Ad + \beta_3 \times
+D_{Sony}  + \beta_4 \times D_{Samsung} \]
+</p>
+</span>
+
+<p>
+<div style="height:px;font-size:1px;">&nbsp;</div>
+</p>
+
+<ul>
+<li class="fragment appear">Then, sales for each brand is:</li>
+
+</ul>
+
+<span style=font-size:20pt>
+<ul>
+<li class="fragment appear">\( Sales_{Sony} = \beta_0 + \beta_1 \times Price_{Sony} + \beta_2 \times Ad_{Sony} + \beta_3 \)</li>
+<li class="fragment appear">\( Sales_{Samsung} = \beta_0 + \beta_1 \times Price_{Samsung} + \beta_2 \times Ad_{Samsung} + \beta_4 \)</li>
+<li class="fragment appear">\( Sales_{Bose} = \beta_0 + \beta_1 \times Price_{Bose} + \beta_2 \times Ad_{Bose} \)</li>
+
+</ul>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="orgf0913b0"><span class="section-number-2">3</span> Multicollinearity</h2>
+<ul>
+<li>Why do we use \( L-1 \) variables instead of \( L \) in dummy coding?</li>
+
+<li class="fragment appear">If you do, you will get <b>perfect multicollinearity</b></li>
+
+<li class="fragment appear">What is multicollinearity?</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-3-1">
+<h3 id="orga623c65"><span class="section-number-3">3.1</span> Multicollinearity</h3>
+<ul>
+<li class="fragment appear">Source: Two or more independent (\( x_k \)) variables in a multiple
+regression model are highly correlated</li>
+
+<li class="fragment appear">Since two \( x_k \)'s are moving together, it is hard to identify
+which one is causing the changes in \( y \)</li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>Campus couple example</li>
+
+</ul>
+
+</aside>
+
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org0745546"><span class="section-number-3">3.2</span> Consequences of Multicollinearity</h3>
+<ul>
+<li>Estimates of the effect (coefficients) are less precise</li>
+<li class="fragment appear">Small <code>t-stat</code> (= large <code>p-value</code>)</li>
+<li class="fragment appear"><code>Type 2 Error</code>: you do not reject the null (\( H_0: \beta=0 \)) when you
+should</li>
+<li class="fragment appear">But does <b>not</b> actually bias results</li>
+
+</ul>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="org0de5efe"><span class="section-number-3">3.3</span> Fixes</h3>
+<ul>
+<li>This is a data problem. If you have sufficient number of observations, high
+correlation between explanatory (predictor) variables is okay
+
+<ul>
+<li class="fragment appear">Standard Errors for estimates become smaller as you increase number of
+sample</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>If you observe it many times, since they are not perfectly
+correlated, there will be cases where the two \( x \)\  \)s move
+differently and \( y \) changes. From that you can identify which
+one is important</li>
+
+</ul>
+
+</aside>
+</section>
+<section id="slide-sec-3-4">
+<h3 id="org308d441"><span class="section-number-3">3.4</span> Perfect multicollinearity</h3>
+<ul>
+<li>You have complete dependency among variables (predict one with others)</li>
+<li class="fragment appear">Inversion in OLS estimate formula does not work and you cannot estimate the
+model</li>
+<li class="fragment appear">Just like \( 1/0 \) does not work</li>
+<li class="fragment appear">Not a big problem - you will see the error right away</li>
+
+</ul>
+<aside class="notes">
+<p>
+Here, let's have an example of this.
+</p>
+
+</aside>
+</section>
+<section id="slide-sec-3-4-1">
+<h4 id="orgbd218ed"><span class="section-number-4">3.4.1</span> Dummy Variable Trap</h4>
+<ul>
+<li>If you have \( L \) dummies for \( L \) number of categories, including
+a constant term in the regression together guarantee perfect
+multicollinearity</li>
+
+<li class="fragment appear">Analogous to this is that when you know the mean first \( n-1 \) observations then
+you can infer \( n \)'th observation</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-Regression/Making Predictions in Regression Models">
+<h2 id="Regression/Making Predictions in Regression Models"><a id="org8d2ae2a"></a><span class="section-number-2">4</span> Making Predictions in Regression Models</h2>
+<p>
+Once you have regression results (estimated coefficients,
+\( \widehat\beta_k \)'s), it is easy to make predictions given values of
+\( x_k \)'s.
+</p>
+
+<ul>
+<li class="fragment appear"><p>
+Remember we are using the linear model:
+</p>
+
+<p>
+\[ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \varepsilon_i \] 
+</p></li>
+
+<li class="fragment appear"><p>
+For example, estimation results can be:
+</p>
+
+<p>
+\[ y_i = \underbrace{10}_{\widehat\beta_0} +
+           \underbrace{3}_{\widehat\beta_1} x_{i1} + \underbrace{3}_{\widehat\beta_2} 
+  x_{i2} \]
+</p></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li><p>
+Once we have \( \widehat\beta_k \)'s, given \( x_k \) values, we can
+calculate the <b>predicted</b> value of \( y \), \( \widehat y \) by plugging in
+those estimates:
+</p>
+
+<p>
+\[ \widehat{y}_i = \widehat\beta_0 + \widehat\beta_1 x_{i1} + \widehat\beta_2
+     x_{i2} + \cdots + 0 \]
+</p>
+
+<p>
+(Because \( \hat{\varepsilon}_i=E[\varepsilon_i]=0 \))
+</p></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li><p>
+For example, if your estimation results are:
+</p>
+
+<p class="fragment (appear)">
+\[ y_i = 10 + 3 x_{i1} + 3 x_{i2} \]
+</p></li>
+
+</ul>
+
+<ul>
+<li class="fragment appear"><p>
+The estimate of \( y \) for values of \( x_{1} = 5, x_{2} = 4 \) is:
+</p>
+
+<p class="fragment (appear)">
+\[ \widehat{y} = 10 + 3 \times \underbrace{5}_{x_{1}} + 3 \times \underbrace{4}_{x_{2}} = 37 \]
+</p></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="orgbc497e1"><span class="section-number-2">5</span> Class Summary</h2>
+<ul>
+<li class="fragment appear">Categorical Variables</li>
+<li class="fragment appear">Multicollinearity</li>
+<li class="fragment appear">Making Predictions in Regression Models</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

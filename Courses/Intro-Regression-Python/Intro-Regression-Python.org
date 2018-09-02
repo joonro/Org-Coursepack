@@ -1,0 +1,51 @@
+#+TITLE:     Course: Introduction to Regression Analysis with Python
+#+AUTHOR:    Joon Ro
+#+EMAIL:     joon.ro@outlook.com
+#+CATEGORY: COURSE
+#+STARTUP: overview
+#+STARTUP: hidestars
+
+* Courses
+** [[file:2018%20Fall/2018%20Fall.org][2018 Fall]]
+* Syllabus
+** Course Description
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Description
+:END:
+This course provides students with Org-Coursepack, a modular and reusable
+teaching materials template in org-mode. Using self-explanatory course
+contents, students will be able to adapt the template and create their on
+course contents through Org-mode.
+** Course Prerequisites
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Prerequisites
+:END:
+- Basic Statistics knowledge
+** Student Learning Objectives
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Student Learning Objectives
+:END:
+As the result of this course, students should be able to:
+
+#+ATTR_REVEAL: :frag (appear)
+- Interpret regression results
+- Understand how to implement elasticity models in regression
+- Run regression analysis in Python
+** Course Material
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Material
+:END:
+- Documentation :: Handouts, readings, and assignments will be uploaded to
+                   the repository.
+- Software :: Most data manipulations and analyses will be done using Python
+
+      #+REVEAL_HTML: <span hidden>
+      #+ATTR_LATEX: :options [style=exampledefault, frametitle={Note}]
+      #+BEGIN_mdframed
+      - Please install Anaconda (can be downloaded from
+        https://www.anaconda.com/download/). Make sure you install Python 3.6
+        version (64-bit version is recommended)
+      - Please bring your laptop for each class for in-class exercises
+      #+END_mdframed
+      #+REVEAL_HTML: </span>
+

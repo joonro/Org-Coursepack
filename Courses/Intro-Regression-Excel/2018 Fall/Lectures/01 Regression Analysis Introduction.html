@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 1: Regression Analysis: Introduction</title>
+<meta name="description" content="Description
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 1: Regression Analysis: Introduction</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="orgc019444"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org200d827"><span class="section-number-3">1.1</span> Announcements</h3>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org74095ee"><span class="section-number-3">1.2</span> Last Class</h3>
+</section>
+<section id="slide-sec-Lecture/Regression Analysis Introduction/Agenda">
+<h3 id="Lecture/Regression Analysis Introduction/Agenda"><a id="org5f0804a"></a><span class="section-number-3">1.3</span> Lecture Agenda</h3>
+<ul>
+<li class="fragment appear">Regression Analysis: Introduction</li>
+<li class="fragment appear">Regression Analysis: Estimation</li>
+<li class="fragment appear">Interpretation of Regression Results: Fit (Model Level)</li>
+<li class="fragment appear">Interpretation of Regression Results: Coefficients</li>
+<li class="fragment appear">Multiple Regression</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org4507e70"><span class="section-number-2">2</span> Regression Analysis: Introduction</h2>
+<ul>
+<li>How can we make predictions about real-world quantities, like sales or life
+expectancy?</li>
+<li class="fragment appear">Most often in real world applications we need to understand how one variable
+is determined by <b>a number of others</b></li>
+
+</ul>
+
+</section>
+<section >
+
+<p>
+For example:
+</p>
+
+<ul>
+<li>How does sales volume change with changes in price. How is this affected by
+changes in the weather?</li>
+<li class="fragment appear">How is the interest rate charged on a loan affected by credit history and by
+loan amount?</li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>We already used correlation coefficient to look at the relationship between 
+<i>two</i> variables, but &#x2026;</li>
+<li class="fragment appear">We cannot say that the correlation coefficient is a "pure" effect of
+one variable's change on another variable
+
+<ul>
+<li class="fragment appear"><p>
+e.g., What if \( x_{1} \) (e.g., price) and \( x_{2} \) (e.g., advertising) are also correlated?
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\( \rho \)</td>
+<td class="org-right">Sales</td>
+<td class="org-right">Price</td>
+<td class="org-right">Advertising</td>
+</tr>
+
+<tr>
+<td class="org-left">Sales</td>
+<td class="org-right">1</td>
+<td class="org-right">-0.8</td>
+<td class="org-right">0.8</td>
+</tr>
+
+<tr>
+<td class="org-left">Price</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">1</td>
+<td class="org-right">-0.9</td>
+</tr>
+
+<tr>
+<td class="org-left">Advertising</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="orge068fe2"><span class="section-number-3">2.1</span> Regression Analysis</h3>
+<ul>
+<li>Let's you
+
+<ul>
+<li class="fragment appear">Discover relationship between a dependent variable (\( y \)) and 
+multiple independent variables (\( x \)'s) jointly</li>
+<li class="fragment appear">Identify and measure each independent variable (\( x \))'s impact on 
+\( y \) separately 
+<ul>
+<li>While <i>controlling for</i> (holding others constant) other variables</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-sec-2-2">
+<h3 id="orgba26365"><span class="section-number-3">2.2</span> Relationship between \( x \) and \( y \)</h3>
+<ul>
+<li class="fragment appear"><p>
+Essentially, we want to figure out the relationship between \( y \)
+(dependent variable) and \( x \) (independent, explanatory) variables:
+</p>
+
+<p>
+\[ y_i = f(x_{1i}, x_{2i}, \cdots) \]
+</p>
+
+<ul>
+<li>Where
+
+<ul>
+<li>\( i \): \( i \)'th observation, \( n \): total number of observations</li>
+<li>\( y_i \): dependent variable</li>
+<li>\( x_{ki} \): \( i \)'th observation of \( k \)'th independent
+(explanatory) variable</li>
+<li>\( f(\cdot) \): the function specifying the relationship between \( y \)
+and \( x \)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li><p>
+e.g.,
+</p>
+
+<p>
+\[ \underbrace{y_{i}}_{\text{Sales}_i} = f(\underbrace{x_{
+  1i}}_{\text{Price}_i}, \underbrace{x_{2i}}_{\text{Promotion}_i}) \]
+</p></li>
+
+<li><p>
+We basically want to know what \( f() \) is. For example,
+</p>
+
+<p>
+\[ y_{i} = f(x_{1i}, x_{2i}) = 1 + 2 \times x_{1i}  + 3 \times x_{2i} \]
+</p></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-3">
+<h3 id="org569b9cd"><span class="section-number-3">2.3</span> Functional Form of \( f \): Linear Regression</h3>
+<ul>
+<li><p>
+In linear regression, we assume the dependent variable (\( y_{i} \)) to be a
+linear function of independent (or explanatory) variables (\( x_{k} \)'s),
+coefficients (\( \beta_{k} \)'s) and the error term (\( \varepsilon_{i} \)):
+</p>
+
+<p class="fragment (appear)">
+\[  y_{i} = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_{i} \]
+</p></li>
+
+</ul>
+
+<ul>
+<li class="fragment appear">Where
+
+<ul>
+<li>\( \beta_k \): coefficient for independent variable \( x_k \), which
+represents the importance of \( x_{k} \) in \( y \)</li>
+<li>\( \varepsilon_{i} \): the remaining part (error)
+
+<ul>
+<li>Unpredictable with \( x \)'s
+<ul>
+<li>e.g., random-walk of stock prices</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="mdframed">
+<p>
+Note that \( \beta_0 \) is by itself since it corresponds to the constant term. That is, it 
+represents the intercept, and you can think of it as \( x_{0i} \) being 1 everywhere 
+(\( \beta_0 \times 1 = \beta_0 \)).
+</p>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="orge17d6b3"><span class="section-number-2">3</span> Regression Analysis: Estimation</h2>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="orgdd430b2"><span class="section-number-3">3.1</span> Estimation: Ordinary Least Squares (OLS)</h3>
+<ul>
+<li class="fragment appear"><p>
+Again the regression model is:
+</p>
+
+<p>
+\[  y_{i} = \beta_0 + \beta_1 x_{1i} + \varepsilon_{i} \]
+</p></li>
+
+</ul>
+
+<ul>
+<li class="fragment appear"><p>
+You can rearange terms
+and characterize the error by:
+</p>
+
+<p class="fragment (appear)">
+\[  \varepsilon_{i} =  y_{i} -  \beta_0 - \beta_{1} x_{1i} \]
+</p></li>
+
+<li class="fragment appear">Since \( y_i \) and \( x_{1i} \) are data so they do not vary. Then, as you
+change \( \beta_0 \) and \( \beta_1 \), \( \varepsilon_{i} \) will change.</li>
+
+</ul>
+
+</section>
+<section >
+
+<p>
+Estimation Objective: <b>minimize</b> the sum of squared errors across all
+observations:
+</p>
+
+<p class="fragment (appear)">
+\[ \sum_{i=1}^n\varepsilon^2_i = \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+   \varepsilon^2_{n-1} + \varepsilon^2_{n} \]
+</p>
+
+<ul>
+<li class="fragment appear">We want to find values of \( \beta_0 \) and \( \beta_1 \) that minimize the
+sum of squared errors</li>
+
+</ul>
+
+</section>
+<section >
+
+<p>
+Fortunately, we have analytical solutions for the \( \beta_0 \) and \( \beta_1
+\):
+</p>
+
+<p class="fragment (appear)">
+\[ \widehat{\beta_1} = \frac{ \sum_{i=1}^{n}
+   (x_{1i}-\bar{x}_1)(y_{i}-\bar{y}) }{ \sum_{i=1}^{n} (x_{1i}-\bar{x})^2 }
+   \]
+</p>
+
+<p>
+<div style="height:px;font-size:1px;">&nbsp;</div>
+</p>
+
+<p class="fragment (appear)">
+\[ \widehat{\beta_0}  = \bar{y} - \widehat\beta\,\bar{x}_{1} \]
+</p>
+
+<ul>
+<li>Where \( \widehat{\beta}_{k} \): estimate (actual number) of coeffcient \(
+  \beta_k \)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orgc6577d0"><span class="section-number-2">4</span> Interpretation of Regression Results: Fit (Model Level)</h2>
+<ul>
+<li class="fragment appear">Remember how we estimate coefficients (\( \beta_k \)'s)?</li>
+<li class="fragment appear">\( \beta_k \) which minimize the sum of squared errors are the
+estimates, \( \widehat\beta_k \)</li>
+<li class="fragment appear">How do we measure how well our model performs?</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-1">
+<h3 id="org2eb319e"><span class="section-number-3">4.1</span> Sum of Squares</h3>
+<dl>
+<dt>Total sum of squares (\( SS_{total} \))</dt><dd><p>
+
+</p>
+
+<p class="fragment (appear)">
+\[  SS_{tot} = \sum_{i=1}^n (y_i - \bar{y})^2 \]
+</p>
+
+<ul>
+<li class="fragment appear">How much variation is in \( y \) (It's similar to variance)</li>
+
+</ul></dd>
+
+</dl>
+
+</section>
+<section >
+
+<dl>
+<dt>Sum of Squared Errors (\( SS_{error} \))</dt><dd><p>
+
+</p>
+
+<p class="fragment (appear)">
+\[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+   \end{aligned} \]
+</p>
+
+<p class="fragment (appear)">
+\[ = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2 \]
+</p>
+<span hidden>
+<p>
+\[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+      = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2
+   \end{aligned} \]
+</p>
+</span></dd>
+
+</dl>
+</section>
+<section id="slide-sec-4-2">
+<h3 id="org007482b"><span class="section-number-3">4.2</span> Sum of Squared Errors (Residuals)</h3>
+<ul>
+<li class="fragment appear">\( SS_{error} \) is a measure of how wrong the regression estimates will be
+overall</li>
+<li class="fragment appear">\( SS_{error} \) is a measure of variance</li>
+<li class="fragment appear">\( y_i \) is sometimes higher, sometimes lower than the regression line</li>
+<li class="fragment appear">Actual value of \( y_i \) varies because unobserved factors and randomness</li>
+<li class="fragment appear">The regression can never be a perfect predictor</li>
+
+</ul>
+</section>
+<section id="slide-sec-4-3">
+<h3 id="orgbb30b66"><span class="section-number-3">4.3</span> How well does regression fit?</h3>
+<ul>
+<li>We can use these to construct a value which represents:
+
+<ul>
+<li class="fragment appear"><p>
+what % of total variance do we explain with our model?
+</p>
+
+<p class="fragment (appear)">
+\[ \Rightarrow \dfrac{\text{explained variance}}
+       {\text{total variance } (SS_{total})}
+    \]
+</p>
+
+</section>
+<section ></li>
+
+<li class="fragment appear"><p>
+which can also be represented as
+</p>
+
+<p class="fragment (appear)">
+\[
+       1 - \dfrac{\text{unexplained variance } (SS_{error})}
+       {\text{total variance } (SS_{total})}
+    \]
+</p></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-1">
+<h4 id="orgc87a1f8"><span class="section-number-4">4.3.1</span> \( R^2 \)</h4>
+<dl>
+<dt class="fragment appear">\( R^2 \)</dt><dd class="fragment appear"><p>
+the percentage of variance in the dependent variable (\( y \))
+explained by the independent variables (\( x \)'s):
+</p>
+
+<p class="fragment (appear)">
+\[ R^2 = 1 - \dfrac{SS_{error}}{SS_{total}} \]
+</p></dd>
+
+</dl>
+
+</section>
+<section >
+
+<ul>
+<li>\( R^2 \) is between 0 and 1 (0% to 100%)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="org8df4c6a"><span class="section-number-2">5</span> Interpretation of Regression Results: Coefficients</h2>
+<ul>
+<li class="fragment appear">\( \hat{\beta}_1 \) (estimated coefficient for \( x_1 \)): How much the
+<span class="fragment highlight-blue">dependent variable (\( y \))</span>  is expected to change when the
+<span class="fragment highlight-blue">independent variable (\( x_{1} \))</span>  increases by
+<span class="fragment highlight-blue">one</span>  unit</li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li class="fragment appear"><p>
+Suppose we have \( x_{1} \)'s value as 50, and \( \hat\beta_0 = 1 \) and \(
+  \hat\beta_1 = 3 \). Then, the predicted \( y \) value is:
+</p>
+
+<p class="fragment (appear)">
+\[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times 50 = 151 \]
+</p></li>
+
+<li class="fragment appear"><p>
+If we increase \( x_{1} \) by 1:
+</p>
+
+<p class="fragment (appear)">
+\[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times (50 + 1) = 154 \]
+</p></li>
+
+<li class="fragment appear">That is, \( y \) increases by \( \hat\beta_1 \) when we increase</li>
+
+</ul>
+<p>
+'eee' is not recognized as an internal or external command,
+operable program or batch file.
+</p>
+</section>
+<section >
+
+<ul>
+<li><p>
+Mathematically,
+</p>
+
+<p>
+\[  \dfrac{\partial y}{\partial x} = \dfrac{\partial ( \beta_0 + \beta_1 x)}{\partial x} = \beta_1 \]
+</p></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-6">
+<h2 id="org31be74e"><span class="section-number-2">6</span> Multiple Regression</h2>
+</section>
+<section id="slide-sec-6-1">
+<h3 id="org3e561b0"><span class="section-number-3">6.1</span> Multiple Regression</h3>
+<ul>
+<li>Sales vs. Promotion Discount is an example of simple linear regression</li>
+<li class="fragment appear">But sales of a brand depend upon many things
+<ul>
+<li>TV Ads, In-store promotions, Coupons etc &#x2026;</li>
+
+</ul></li>
+
+<li class="fragment appear">When many things vary at the same time, it is hard to visually see the
+impact of each factor</li>
+<li class="fragment appear">Multiple regression lets you look at an isolated effect of one variable</li>
+
+</ul>
+
+</section>
+<section >
+
+<p class="fragment (appear)">
+\[ y_{i} = \beta_0 + \beta_1 x_{i, 1} + \cdots + \beta_k x_{i, k} + \cdots +
+\beta_K x_{i, K} + \varepsilon_{i} \]
+</p>
+
+<ul>
+<li class="fragment appear">Interpretation of \( \hat{\beta}_k \): <span class="underline">holding other variables constant</span>, the
+change in \( y \) if you increase \( x_k \) by 1 unit</li>
+
+<li class="fragment appear"><p>
+Just like the simple regression, mathematically,
+</p>
+
+<p class="fragment (appear)">
+\[ \dfrac{\partial y}{\partial x_k} = \dfrac{\partial ( \beta_0 + \beta_1 x_1 + \cdots + \beta_k
+  x_k + \cdots + \beta_K x_K) }{\partial x_k } = \beta_k. \]
+</p></li>
+
+</ul>
+
+</section>
+<section id="slide-sec-6-2">
+<h3 id="orgd871b37"><span class="section-number-3">6.2</span> \( R^2 \) and Adjusted \( R^2 \)</h3>
+<ul>
+<li class="fragment appear"><p>
+Recall
+</p>
+
+<p class="fragment (appear)">
+\[
+     R^2 = 1 - \dfrac{\text{unexplained variance } (SS_{error})}
+           {\text{total variance } (SS_{total})} = 1 - \dfrac{SS_{error}}{SS_{total}}
+  \]
+</p></li>
+
+<li class="fragment appear">\( R^2 \) is between 0 and 1 (0% to 100%)</li>
+
+</ul>
+</section>
+<section id="slide-sec-6-2-1">
+<h4 id="org419d133"><span class="section-number-4">6.2.1</span> \( R^2 \) in multiple regression</h4>
+<ul>
+<li class="fragment appear">\( R^2 \) <b>always</b> becomes larger when we add more
+independent variables</li>
+<li class="fragment appear">So we CANNOT use \( R^2 \) to compare the fit of two different regressions
+with different numbers of independent variables</li>
+
+</ul>
+</section>
+<section id="slide-sec-6-2-2">
+<h4 id="orga5398f4"><span class="section-number-4">6.2.2</span> Adjusted \( R^{2} \)</h4>
+<ul>
+<li class="fragment appear"><p>
+We use <b>adjusted</b> \( R^2 \) to compare regressions with
+different numbers of independent variables
+</p>
+
+<p class="fragment (appear)">
+\[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+      \dfrac{n-1}{n-K-1} \right\} \]
+</p>
+
+<ul>
+<li class="fragment appear">\( n \): number of observations</li>
+<li class="fragment appear">\( K \): number of independent (\( x \)) variables included in the model</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<p>
+\[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+    \dfrac{n-1}{n-K-1} \right\} \]
+</p>
+<ul>
+<li class="fragment appear">Basically, you give a little bit of penalty for higher \( K \)</li>
+<li class="fragment appear">A variable needs to reduce \( SS_{error} \) significantly to overcome the
+penalty</li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li><p>
+Occam's razor: 
+</p>
+
+<p>
+"Among competing hypotheses, the one with the fewest assumptions should be selected"
+</p></li>
+
+</ul>
+
+</section>
+<section >
+
+<span hidden>
+<ul>
+<li><p>
+Albert Einstein:
+</p>
+
+<p>
+"Everything should be made as simple as possible, but no simpler"
+</p></li>
+
+</ul>
+</span>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-7">
+<h2 id="orgf62bcf8"><span class="section-number-2">7</span> Class Summary</h2>
+<ul>
+<li class="fragment appear">Regression Analysis: Introduction</li>
+<li class="fragment appear">Regression Analysis: Estimation</li>
+<li class="fragment appear">Interpretation of Regression Results: Fit (Model Level)</li>
+<li class="fragment appear">Interpretation of Regression Results: Coefficients</li>
+<li class="fragment appear">Multiple Regression</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
