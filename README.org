@@ -22,18 +22,18 @@ the form of a short course. You can read the [[https://joonro.github.io/Org-Cour
 or checkout exported PDF files in =Org-Coursepack/Courses/Org-Coursepack/2018
 Fall/Lectures/=.
 * Example Courses
-The Org-Coursepack includes two example courses created with Org-Coursepack
-: =Introduction to Regression Analysis with Excel= and =Introduction to
+The Org-Coursepack includes two example courses created with Org-Coursepack:
+=Introduction to Regression Analysis with Excel= and =Introduction to
 Regression Analysis with Python=. These example courses showcase the modular
 usage of the template, as they focus on how to reduce redundancy in creating
 overalapping course materials.
 
-The two example courses share plenty of materials in statistical topics, but
-one course applies these topics using Excel while the other uses
+The two courses share plenty of materials in statistical topics, but one
+course applies these topics using Excel while the other uses
 Python. Demonstrating how to efficiently construct course materials with the
-Org-Coursepack, the example courses share materials on fundamental statistical
-topics via topic Org files and selectively include materials related to Python
-and Excel from their own respective topic Org files where needed.
+Org-Coursepack, the courses share materials on statistical topics via topic
+Org files and selectively include materials related to Python and Excel from
+their own respective topic Org files where needed.
 
 See the semester Org files, exported syllabus, and exported lecture files
 linked below.
