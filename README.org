@@ -46,6 +46,9 @@ linked below.
 - [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018%2520Fall/2018%2520Fall.org][Semester Org file (Fall 2018)]]
 - [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018%2520Fall/Syllabus/Syllabus%2520(Section%25201).pdf][Exported Syllabus]]
 - [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Intro-Regression-Python/2018%2520Fall/Lectures][Exported Lecture files directory]]
+* Authors
+- [[https://github.com/joonro/Org-Coursepack/tree/develop/Courses/Intro-Regression-Excel/2018%2520Fall/Lectures][Joon Ro]] & Jae Eun Namkoong
 * Changelog
 ** v1.1.0
-- Add two example courses.
+- Add two example courses, =Introduction to Regression Analysis with Excel=
+  and =Introduction to Regression Analysis with Python=
