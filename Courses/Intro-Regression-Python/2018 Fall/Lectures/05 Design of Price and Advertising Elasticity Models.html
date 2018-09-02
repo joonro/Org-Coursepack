@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 5: Design of Price and Advertising Elasticity Models</title>
+<meta name="description" content="Description
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 5: Design of Price and Advertising Elasticity Models</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="orgf709478"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="orge3c7945"><span class="section-number-3">1.1</span> Announcements</h3>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org8d13cfb"><span class="section-number-3">1.2</span> Last Class</h3>
+<ul>
+<li class="fragment appear">Categorical Variables</li>
+<li class="fragment appear">Multicollinearity</li>
+<li class="fragment appear">Making Predictions in Regression Models</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Design of Price and Advertising Elasticity Models/Agenda">
+<h3 id="Lecture/Design of Price and Advertising Elasticity Models/Agenda"><a id="org81b90c7"></a><span class="section-number-3">1.3</span> Lecture Agenda</h3>
+<ul>
+<li class="fragment appear">Variable Transformations and Non-linear Effects</li>
+<li class="fragment appear">Elasticities</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org71465b1"><span class="section-number-2">2</span> Variable Transformations and Non-linear Effects</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="orgee62212"><span class="section-number-3">2.1</span> Previous Sales Model</h3>
+<span style=font-size:20pt>
+<p>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Advertising +
+           \beta_3 \times Display \]
+</p>
+
+<p class="fragment (appear)">
+e.g., \( Sales = 100 -100 \times Price + 50 \times Advertising +
+           1000 \times Display \)
+</p>
+</span>
+
+<ul>
+<li class="fragment appear">Is this an adequate model of the sales marketing mix relationship?</li>
+
+</ul>
+
+</section>
+<section >
+
+<span style=font-size:20pt>
+<p>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Advertising +
+           \beta_3 \times Display \]
+</p>
+</span>
+<ul>
+<li>Problematic Implications: 
+<ul>
+<li>Increasing advertising leads to consistent increase in sales</li>
+<li class="fragment appear">Increase in sales from a unit increase in advertising is same at all
+levels of advertising</li>
+<li class="fragment appear">A price decrease always lead to an increase in sales
+<ul>
+<li>Saturation point</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>Solution: log transformation</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="org3bd292f"><span class="section-number-3">2.2</span> Log Transformation</h3>
+<span style=font-size:20pt>
+<p>
+\[ Sales = \beta_0 + \beta_1 \times \ln(Price) + \beta_2 \times
+           \ln(Advertising) + \beta_3 \times Display \]
+</p>
+</span>
+
+<p class="fragment (appear)">
+In general, two reasons to take a log:
+</p>
+
+</section>
+<section >
+
+<ol>
+<li class="fragment appear">A non-linear relationship (decreasing marginal return) exists between the
+independent and dependent variables.</li>
+
+</ol>
+
+
+<div class="figure">
+<p><img src="file:///c:/Users/joon/Sync/Org-Coursepack/Assets/Images/Regression/ln_x.png" alt="ln_x.png" width="65%" />
+</p>
+</div>
+
+</section>
+<section >
+
+<ul>
+<li>Examples: distance, income, etc</li>
+
+</ul>
+</section>
+<section id="slide-sec-Regression/Non_Linear_Effects">
+<h3 id="Regression/Non_Linear_Effects"><a id="orge6a1239"></a><span class="section-number-3">2.3</span> Non-Linear Effects: Inverted-U Relationship</h3>
+<ul>
+<li class="fragment appear">Likelihood of Purchasing Candy Bar = \( 1.1 + 3 \times \text{Sweetness} \)
+
+<ul>
+<li class="fragment appear">So should we keep adding sugar?</li>
+
+</ul></li>
+
+<li class="fragment appear">You can add a squared term (\( x^{2} \) when you expect inverted-U relationship</li>
+
+</ul>
+
+</section>
+<section >
+
+<p>
+For example, if our results are:
+</p>
+
+<p>
+\[ y = 1 + 3 \times x - 0.2 \times x^2 \]
+</p>
+
+<p>
+the predicted \( y \) values (\( \hat y \)) are:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\( x \)</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-right">7</td>
+<td class="org-right">8</td>
+<td class="org-right">9</td>
+<td class="org-right">10</td>
+<td class="org-right">11</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">\( \hat y \)</td>
+<td class="org-right">3.8</td>
+<td class="org-right">6.2</td>
+<td class="org-right">8.2</td>
+<td class="org-right">9.8</td>
+<td class="org-right">11</td>
+<td class="org-right">11.8</td>
+<td class="org-right">12.2</td>
+<td class="org-right">12.2</td>
+<td class="org-right">11.8</td>
+<td class="org-right">11.0</td>
+<td class="org-right">9.8</td>
+<td class="org-right">8.2</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="orgd159584"><span class="section-number-2">3</span> Elasticities</h2>
+<ul>
+<li>The measurement of how responsive an variable is to a change in another</li>
+
+<li class="fragment appear"><p>
+The \( x \) (price, advertising, etc) elasticity of \( y \) (usually
+demand or supply) is:
+</p>
+
+<p class="fragment (appear)">
+\[ \dfrac{\text{Percentage change in } y}{\text{Percentage change in } x} \]
+</p>
+
+<ul>
+<li class="fragment appear"><p>
+where
+</p>
+
+<p>
+\[ \text{Percentage change in } x= \dfrac{\Delta x}{x} \]
+</p>
+
+<p>
+where \( \Delta \) denotes the change
+</p></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="org1b86321"><span class="section-number-3">3.1</span> Price Elasticity of Demand</h3>
+
+<div class="figure">
+<p><img src="file:///c:/Users/joon/Sync/Org-Coursepack/Assets/Images/Regression/Price_elasticity_of_demand.png" alt="Price_elasticity_of_demand.png" width="80%" />
+</p>
+</div>
+
+</section>
+<section >
+
+<ul>
+<li>Price elasticity of demand (PED): 
+<ul>
+<li>Percentage change in quantity demanded in response to a <b>1% change</b> in
+price (holding constant all the other marketing mix variables)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<div>
+\begin{align*}
+   PED & = \left\lvert \dfrac{\% \text{Changes in Sales (Quantity Demanded)}}{\% \text{Changes in Own Price}} \right\rvert \\
+       & = \left\lvert \dfrac {\Delta Q}{Q} \Bigg/ \dfrac {\Delta P}{P} \right\rvert   \\
+\end{align*}
+
+</div>
+
+</section>
+<section >
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Suppose Price increases 1%, and demand is \((P)\)</th>
+<th scope="col" class="org-left">Sales Decrease \( (Q) \)</th>
+<th scope="col" class="org-left">Total Revenue \( P \times Q \)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><span class="fragment">Elastic (\( PED > 1 \))</span> </td>
+<td class="org-left"><span class="fragment">More than 1</span>  %</td>
+<td class="org-left"><span class="fragment">\( \Downarrow \)</span> </td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="fragment">Unit Elastic (\( PED = 1 \))</span> </td>
+<td class="org-left"><span class="fragment">1</span>  %</td>
+<td class="org-left"><span class="fragment">\( \Longleftrightarrow \)</span> </td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="fragment">Inelastic (\( PED < 1 \))</span> </td>
+<td class="org-left"><span class="fragment">Less than 1</span>  %</td>
+<td class="org-left"><span class="fragment">\( \Uparrow \)</span> </td>
+</tr>
+</tbody>
+</table>
+
+<div class="fragment (appear) mdframed">
+<p>
+Note that PED only looks at the size of the change because the direction of
+the change is assumed to be negative.
+</p>
+
+</div>
+
+</section>
+<section id="slide-sec-3-1-1">
+<h4 id="org824bc55"><span class="section-number-4">3.1.1</span> Elasticities in Regression</h4>
+<ul>
+<li class="fragment appear"><p>
+With a sample of historical data, you can measure the elasticities with the
+log-log model:
+</p>
+
+<p class="fragment (appear)">
+\[ \ln(Q) = \beta_0 + \beta_1 \ln(P) + \varepsilon \]
+</p></li>
+
+<li class="fragment appear"><p>
+(The size of) \( \beta_1 \) represents the price elasticities of demand
+</p>
+
+<p class="fragment (appear)">
+\[ \ln(Q) = 10 -1.5 \ln(P) \]
+</p></li>
+
+</ul>
+
+<ul>
+<li class="fragment appear">Derivation on the class notes</li>
+
+</ul>
+<span hidden>
+<div class="mdframed">
+<p>
+Remember the interpretation of \( \beta \), the
+coefficient of in linear regression is:
+</p>
+
+<p>
+\[ 
+   \dfrac{d Q}{d P} = \dfrac{d (\beta_0 + \beta_1 P +
+   \varepsilon) }{d P} = \beta_1
+\]
+</p>
+
+<p>
+That is, the increase in \( Q \)  when \( P \)  increases by 1 unit
+</p>
+
+<p>
+When you have a log-log model:
+</p>
+
+<p>
+\[ \ln(Q) = \beta_0 + \beta_1 \ln (P) + \varepsilon\]
+</p>
+
+<p>
+\[ \Rightarrow Q = \exp(\beta_0 + \beta_1 \ln (P) + \varepsilon ) \]
+</p>
+
+<p>
+\[ \dfrac{d Q}{d P}  \quad = \underbrace{\exp(\beta_0 + \beta_1 \ln(P) +
+          \varepsilon )}_{Q}
+         \cdot \underbrace{\beta_1 \cdot \dfrac{1}{P}}_{\text{Chain Rule}} \\
+           \quad =  Q \cdot \beta_1 \cdot \dfrac{1}{P} 
+\]
+</p>
+
+<p>
+\[    \dfrac{d Q}{d P}  = Q \cdot \beta_1 \cdot \dfrac{1}{P} \]
+</p>
+<p>
+Hence,
+</p>
+
+<p>
+\[       \beta_1 \quad = \dfrac{d Q}{Q} \cdot \dfrac{P}{d P} \\
+                 \quad = \dfrac{d Q}{Q} \Bigg/ \dfrac{d P}{P} \]
+</p>
+
+
+<p>
+NOTE: This derivation will not be on the exam
+</p>
+
+</div>
+</span>
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org35cb54e"><span class="section-number-3">3.2</span> Cross Price Elasticities</h3>
+<ul>
+<li class="fragment appear">Elasticity between variables of two different products</li>
+
+<li class="fragment appear">Important because many products are <b>complements</b> or <b>substitutes</b> to each
+other:
+
+<ul>
+<li class="fragment appear">Cannibalization</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>Product 1's cross-price elasticity of product 2 would be:
+
+<ul>
+<li class="fragment appear">The impact of product 2's percentage change in prices on the percentage
+change in product 1's sales</li>
+
+</ul></li>
+
+</ul>
+
+<span style=font-size:20pt>
+<p class="fragment (appear)">
+\[ \dfrac{\text{Changes in Sales (Quantity Demanded)}}{\text{Changes in
+Price of Another Good}} = \dfrac{\Delta Q}{Q} \Bigg/ \dfrac{\Delta
+P_{other}}{P_{other}} = \dfrac{d \ln (Q)}{d \ln (P_{other})} \]
+</p>
+</span>
+</section>
+<section id="slide-sec-3-2-1">
+<h4 id="orgd8a8108"><span class="section-number-4">3.2.1</span> Cross Price Elasticities in Regression</h4>
+<ul>
+<li><p>
+Hence, if you have the following model:
+</p>
+
+<p>
+\[ \ln(Q) = \beta_0 + \beta_1\ln(P) + \beta_2\ln(P_{other}) + \varepsilon \]
+</p>
+
+<p class="fragment (appear)">
+\( \beta_{2} \) reflects the cross price elasticity
+</p></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li class="fragment appear">If \( \beta_2 \) is positive &#x2026;
+<ul>
+<li class="fragment appear">Other good price increases, your sales <span class="fragment">increase</span>  
+<span class="fragment">\( P_{other} \uparrow (Q_{other} \downarrow) \)</span>  <span class="fragment">\(\Rightarrow Q\;\uparrow \)</span></li>
+<li class="fragment appear">e.g. Raise price of salsa and sales of cheese dip increase</li>
+<li class="fragment appear">Two products are <i>substitute</i></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>If \( \beta_2 \) is negative &#x2026;
+<ul>
+<li class="fragment appear">Other good price increases, your sales <span class="fragment">decrease</span> 
+<span class="fragment">\( P_{other} \uparrow (Q_{other} \downarrow) \)</span>  <span class="fragment">\( \Rightarrow Q\;\downarrow \)</span></li>
+<li class="fragment appear">e.g. Raise price of salsa and sales of chips decrease</li>
+<li class="fragment appear">Two products are <i>complements</i></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li>If \( \beta_2 \) is zero (insignificant) &#x2026;
+<ul>
+<li>Other good price increases, your sales <span class="fragment">don't change</span></li>
+<li class="fragment appear">e.g. Raise price of salsa and sales of pasta sauce not affected</li>
+<li class="fragment appear">Two products are <i>independent</i></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="org793c27a"><span class="section-number-3">3.3</span> The log-log sales response model</h3>
+<span style=font-size:22pt>
+<div>
+\begin{align*}
+\ln(\text{sales in period } t) = \beta_0 + \beta_1 & \times \ln(\text{own
+price in period } t) \\
+                + \beta_2 & \times \ln(\text{competitor price in period } t)  + \varepsilon_t
+\end{align*}
+
+</div>
+</span>
+<span hidden>
+<p>
+\[ \ln(\text{sales in period } t) = \beta_0 + \beta_1 \times \ln(\text{own
+    price in period} t) + 
+   \beta_2 \times \ln(\text{competitor price in period } t)  + \varepsilon_t
+\]
+</p>
+</span>
+
+<ul>
+<li class="fragment appear">This model typically fits the data much better than the linear model</li>
+<li class="fragment appear">Coefficients to log(prices) may be interpreted as price elasticities</li>
+
+</ul>
+</section>
+<section id="slide-sec-3-4">
+<h3 id="orga3f2690"><span class="section-number-3">3.4</span> Advertising Elasticity of Demand (AED)</h3>
+<ul>
+<li class="fragment appear">Just like the price elasticities of demand,</li>
+<li class="fragment appear">A measure to show the responsiveness of the quantity demanded of a good (or
+service) to a change in the level of advertising:</li>
+
+</ul>
+
+<div class="fragment (appear)">
+\begin{align*}
+  AED  & = \dfrac{\% \text{Changes in Sales}}{\% \text{Changes in Advertising}} \\
+        & = \dfrac {\Delta Q}{Q} \Bigg/ \dfrac {\Delta A}{A}  \\
+\end{align*}
+
+</div>
+</section>
+<section id="slide-sec-3-4-1">
+<h4 id="org67a8863"><span class="section-number-4">3.4.1</span> AED Regression</h4>
+<p class="fragment (appear)">
+Similarly, \( \beta_1 \) in the following regression equation represents
+the advertising elasticities of demand:
+</p>
+
+<p class="fragment (appear)">
+\[  \ln(Q) =  \beta_0 + \beta_1 \cdot \ln(A) + \varepsilon \]
+</p>
+</section>
+<section id="slide-sec-3-5">
+<h3 id="orgb94f4e3"><span class="section-number-3">3.5</span> Price and Advertising Elasticity Model</h3>
+<p class="fragment (appear)">
+You can estimate all the elasticities with the following model:
+</p>
+
+<span style=font-size:22pt>
+<div>
+\begin{align*}
+\ln(\text{Sales in period } t) = \beta_0 + \beta_{own} & \times \ln(\text{Own Price in period } t) \\
+                                         + \beta_{cross} & \times \ln(\text{Other Good Price in period } t) \\
+                                         + \beta_{ad} & \times \ln (\text{Advertising}_t) \\
+                                         + \beta_{display} & \times \text{Display}_t
+\end{align*}
+
+</div>
+</span>
+
+</section>
+<section >
+
+<span style=font-size:22pt>
+<div>
+\begin{align*}
+\ln(\text{Sales in period } t) = \beta_0 + \beta_{own} & \times \ln(\text{Own Price in period } t) \\
+                                         + \beta_{cross} & \times \ln(\text{Other Good Price in period } t) \\
+                                         + \beta_{ad} & \times \ln (\text{Advertising}_t) \\
+                                         + \beta_{display} & \times \text{Display}_t
+\end{align*}
+
+</div>
+</span>
+<ul>
+<li class="fragment appear">Interpretation of Coefficients:
+<ul>
+<li>\( \beta_{own} \): own price elasticity</li>
+<li class="fragment appear">\( \beta_{cross} \): cross price elasticity</li>
+<li class="fragment appear">\( \beta_{ad} \): advertising elasticity</li>
+<li class="fragment appear">\( \beta_{display} \): impact of display on sales</li>
+
+</ul></li>
+
+</ul>
+
+<span hidden>
+<div class="mdframed">
+<p>
+The Display dummy equals to 1 when the product is on display. Hence, \(
+\beta_{display} \) represents the increase in \( \ln(\text{Sales}) \) when the
+product is on display comparing to the baseline case where the product is not
+on display.  That is,
+</p>
+
+<p>
+\[ \beta_{display} = \ln(\text{Sales}_{Display}) - \ln(\text{Sales}_{NoDisplay}) \]
+\[ \Rightarrow \beta_{display} = \ln\left(\dfrac{\text{Sales}_{Display}}{\text{Sales}_{NoDisplay}}\right) \]
+\[ \Rightarrow \exp(\beta_{display}) = \dfrac{\text{Sales}_{Display}}{\text{Sales}_{NoDisplay}} \]
+</p>
+
+<p>
+Hence, \( \exp(\beta_{display}) \) is the ratio between the two sales. For
+example, if \( \beta_{display} \) were 0.3, \( \exp(0.3) = 1.35 \), which
+means a product's sales increase by 35% when it is on display compared to when
+it is not.
+</p>
+
+</div>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orgacb529f"><span class="section-number-2">4</span> Class Summary</h2>
+<ul>
+<li class="fragment appear">Variable Transformations and Non-linear Effects</li>
+<li class="fragment appear">Elasticities</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

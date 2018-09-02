@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 6: Interaction Effects and Overfitting</title>
+<meta name="description" content="Description
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 6: Interaction Effects and Overfitting</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org3489781"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org9d4373c"><span class="section-number-3">1.1</span> Announcements</h3>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org2056cc2"><span class="section-number-3">1.2</span> Last Class</h3>
+<ul>
+<li class="fragment appear">Variable Transformations and Non-linear Effects</li>
+<li class="fragment appear">Elasticities</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Interaction Effects and Overfitting/Agenda">
+<h3 id="Lecture/Interaction Effects and Overfitting/Agenda"><a id="orgfb3e80b"></a><span class="section-number-3">1.3</span> Lecture Agenda</h3>
+<ul>
+<li class="fragment appear">Interaction Effects</li>
+<li class="fragment appear">Overfitting</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="orgfae1c1b"><span class="section-number-2">2</span> Interaction Effects</h2>
+<span style=font-size:20pt>
+<p>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3
+      \times Feature Ad \]
+</p>
+</span>
+
+<ul>
+<li class="fragment appear">If a <code>Display</code>, Sales increases by \( \beta_2 \)</li>
+<li class="fragment appear">If a <code>Feature Ad</code>, Sales increase by \( \beta_3 \)</li>
+<li class="fragment appear">What if there is a <code>Feature Ad</code> and <code>Display</code> simultaneously?</li>
+
+</ul>
+
+</section>
+<section >
+
+<span style=font-size:20pt>
+<div>
+\begin{align*}
+ Sales = & \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3 \times Feature Ad \\
+         & + \beta_4 \times (Display \times Feature Ad)
+\end{align*}
+
+</div>
+
+<p>
+<br>
+</p>
+
+<div class="fragment (appear)">
+\begin{align*}
+ Sales = & 100 - 3 \times Price + 5 \times Display + 4 \times Feature Ad \\
+         & + 2 \times (Display \times Feature Ad)
+\end{align*}
+
+</div>
+</span>
+<p>
+<br>
+</p>
+
+<span hidden>
+<p>
+\[ Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3
+\times Feature Ad + \beta_4 \times (Display \times Feature Ad) \]
+</p>
+
+<p>
+\[ \text{e.g., } Sales = 100 - 3 \times Price + 5 \times Display + 4 \times Feature Ad + 2
+\times (Display \times Feature Ad) \]
+</p>
+
+</span>
+
+<ul>
+<li class="fragment appear">If a <code>Display</code>, Sales increases by \( \beta_2  \; (=5) \)</li>
+<li class="fragment appear">If a <code>Feature Ad</code>, Sales increase by \( \beta_3  \; (=4)\)</li>
+<li class="fragment appear">If both a <code>Display</code> and a <code>Feature Ad</code>, sales increase by \( \beta_2 +
+  \beta_3 + \beta_4 = 11 \)</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="orgaacf1b4"><span class="section-number-3">2.1</span> With a continuous variable</h3>
+<span style=font-size:20pt>
+<p>
+\[  Sales = \beta_0 + \beta_1 \times Price + \beta_2 \times Display + \beta_3 \times Price \times Display \]
+</p>
+</span>
+
+<ul>
+<li>What does \( \beta_3 \) represent?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="orge203c69"><span class="section-number-2">3</span> Overfitting</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="org144c0bf"><span class="section-number-3">3.1</span> Google Flu</h3>
+<p>
+Google's scientists first announced Google Flu in a Nature article in 2009:
+</p>
+
+<blockquote  class="fragment (appear)">
+<p>
+&#x2026; We can accurately estimate the current level of weekly influenza activity
+in each region of the United States, with a reporting lag of <b>about one day</b>.
+</p>
+</blockquote>
+
+<p class="fragment (appear)">
+One report was that Google Flu Trends was able to predict regional
+outbreaks of flu up to 10 days before they were reported by the CDC
+</p>
+
+</section>
+<section id="slide-sec-3-1-1">
+<h4 id="org466d273"><span class="section-number-4">3.1.1</span> Results</h4>
+
+<div class="figure">
+<p><img src="file:///c:/Users/joon/Sync/Org-Coursepack/Assets/Images/Big_Data/Google_Flu_Trends.jpg" alt="Google_Flu_Trends.jpg" width="70%" />
+</p>
+</div>
+
+<span style=font-size:20pt>
+<p>
+(source: <a href="http://www.uvm.edu/~cdanfort/csc-reading-group/lazer-flu-science-2014.pdf">The Parable of Google Flu: Traps in Big Data Analysis</a>)
+</p>
+</span>
+
+</section>
+<section id="slide-sec-3-1-2">
+<h4 id="org52b0ec6"><span class="section-number-4">3.1.2</span> What Went Wrong?</h4>
+<ul>
+<li class="fragment appear">Quality of search terms
+
+<ul>
+<li><b>influenza-like illness</b></li>
+
+</ul></li>
+
+<li class="fragment appear"><p>
+Prediction without theory
+</p>
+
+<p>
+\( \Rightarrow \) overfitting problem
+</p></li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>The problem is that most people don't know what "the flu" is, and
+relying on Google searches by people who may be utterly ignorant about
+the flu does not produce useful information.</li>
+<li>most people who think they have "the flu" do not. The vast majority of
+doctors  office visits for flu-like symptoms turn out to be other
+viruses. CDC tracks these visits under "influenza-like illness"
+because so many turn out to be something else. To illustrate, the CDC
+reports that in the most recent week for which data is available, only
+8.8% of specimens tested positive for influenza.</li>
+
+</ul>
+
+</aside>
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org60172f6"><span class="section-number-3">3.2</span> Overfitting</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+</section>
+<section id="slide-sec-3-2-1">
+<h4 id="org92611cb"><span class="section-number-4">3.2.1</span> Error Term in Regression</h4>
+<ul>
+<li><p>
+When we think about typical regression model:
+</p>
+
+<p>
+\[ y_{i} = \beta_{0} + \beta_{1}x_{i1} + \cdots + \beta_{K}x_{iK} + \varepsilon_{i} \]
+</p></li>
+
+<li>The error term (\( \varepsilon_{i} \)) is supposed to have mean zero</li>
+<li>Not <i>predictable</i></li>
+<li>However, once they are realized, one can often find some pattern in them,
+which will disappear as more data accumulate
+<ul>
+<li>e.g., stock prices are supposed to be random-walk; however, from historical data, 
+patterns will pop up</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-3-2-2">
+<h4 id="orgaef5a5e"><span class="section-number-4">3.2.2</span> Google Flu and Overfitting</h4>
+<p>
+Find the best matches among 50 million search terms to fit 1152 data points
+</p>
+
+<p class="fragment (appear)">
+"They &#x2026; overfit the data. They had fifty million search terms, and they
+found some that happened to fit the frequency of the 'flu' over the
+preceding decade or so, but really they were getting idiosyncratic terms
+that were peaking in the winter at the time the 'flu' peaks &#x2026; but wasn't
+driven by the fact that people were actually sick with the 'flu',"
+</p>
+
+<p>
+(David Lazer, an interview with <a href="http://www.sciencemag.org/content/343/6176/1270.2.full">Science</a>)
+</p>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="org81c0a8d"><span class="section-number-3">3.3</span> Takeaways</h3>
+<ul>
+<li>Be careful of "overfitting", especially when you have a lot of variables</li>
+<li>Conduct out-of-sample validation</li>
+
+</ul>
+</section>
+<section id="slide-sec-3-4">
+<h3 id="org39b1f75"><span class="section-number-3">3.4</span> Out-of-Sample Validation</h3>
+<ul>
+<li class="fragment appear">Use only a subset of data (e.g., 80% of the sample; train dataset) to estimate coefficients</li>
+<li class="fragment appear"><p>
+Then predict \( \hat{y}_i \) values for the rest of the sample (validation
+dataset) using the estimated coefficients and actual data for \( x_{k} \)'s
+as if we do not know actual \( y_{i} \):
+</p>
+
+<p>
+\[ \hat{y}_{i}= \hat{\beta}_{0} + \hat{\beta}_{1} x_{1i} +
+      \hat{\beta}_{2} x_{2i} + \cdots + \hat{\beta}_{K} x_{Ki} \]
+</p></li>
+
+<li class="fragment appear">Compare \(\hat{y}_{i}\) and the actual \(y_{i}\)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orge84f59f"><span class="section-number-2">4</span> Class Summary</h2>
+<ul>
+<li class="fragment appear">Interaction Effects</li>
+<li class="fragment appear">Overfitting</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{titling} \posttitle{\par\end{center}} \setlength{\droptitle}{-30pt} \usepackage{multicol} \setlength{\columnsep}{1cm} \usepackage[T1]{fontenc} \usepackage[utf8]{inputenc} \renewcommand{\contentsname}{Table of Contents / Agenda} \usepackage[letterpaper,left=1in,right=1in,top=0.7in,bottom=1in,headheight=23pt,includehead,includefoot,heightrounded]{geometry} \usepackage{fancyhdr} \pagestyle{fancy} \fancyhf{} \cfoot{\thepage} \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier} \usepackage[onehalfspacing]{setspace} \usepackage[framemethod=default]{mdframed} \usepackage{wrapfig} \usepackage{booktabs} \usepackage[outputdir=Lectures]{minted}
+\setcounter{secnumdepth}{3}
+\date{\vspace{-6ex}}
+\title{Class 2: Regression Analysis: Introduction}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Class 2: Regression Analysis: Introduction},
+ pdfkeywords={},
+ pdfsubject={Description School specific teaching materials},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\lhead{ COURSE 0000 \\ Joon H. Ro } 
+\rhead{ Class 2 \\ 2018-08-30 Thu} 
+\thispagestyle{fancy}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\vspace{6ex}
+
+\section{Regression Analysis: Introduction}
+\label{sec:orgf4bc218}
+\begin{itemize}
+\item How can we make predictions about real-world quantities, like sales or life
+expectancy?
+\item Most often in real world applications we need to understand how one variable
+is determined by \textbf{a number of others}
+\end{itemize}
+
+For example:
+
+\begin{itemize}
+\item How does sales volume change with changes in price. How is this affected by
+changes in the weather?
+\item How is the interest rate charged on a loan affected by credit history and by
+loan amount?
+\end{itemize}
+
+\begin{itemize}
+\item We already used correlation coefficient to look at the relationship between 
+\emph{two} variables, but \ldots{}
+\item We cannot say that the correlation coefficient is a "pure" effect of
+one variable's change on another variable
+
+\begin{itemize}
+\item e.g., What if \(x_{1}\) (e.g., price) and \(x_{2}\) (e.g., advertising) are also correlated?
+
+\begin{center}
+\begin{tabular}{lrrr}
+\(\rho\) & Sales & Price & Advertising\\
+Sales & 1 & -0.8 & 0.8\\
+Price &  & 1 & -0.9\\
+Advertising &  &  & 1\\
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{itemize}
+\subsection{Regression Analysis}
+\label{sec:orgf7e9c00}
+\begin{itemize}
+\item Let's you
+
+\begin{itemize}
+\item Discover relationship between a dependent variable (\(y\)) and 
+multiple independent variables (\(x\)'s) jointly
+\item Identify and measure each independent variable (\(x\))'s impact on 
+\(y\) separately 
+\begin{itemize}
+\item While \emph{controlling for} (holding others constant) other variables
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsection{Relationship between \(x\) and \(y\)}
+\label{sec:orge82feab}
+\begin{itemize}
+\item Essentially, we want to figure out the relationship between \(y\)
+(dependent variable) and \(x\) (independent, explanatory) variables:
+
+\[ y_i = f(x_{1i}, x_{2i}, \cdots) \]
+
+\begin{itemize}
+\item Where
+
+\begin{itemize}
+\item \(i\): \(i\)'th observation, \(n\): total number of observations
+\item \(y_i\): dependent variable
+\item \(x_{ki}\): \(i\)'th observation of \(k\)'th independent
+(explanatory) variable
+\item \(f(\cdot)\): the function specifying the relationship between \(y\)
+and \(x\)
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item e.g.,
+
+\[ \underbrace{y_{i}}_{\text{Sales}_i} = f(\underbrace{x_{
+  1i}}_{\text{Price}_i}, \underbrace{x_{2i}}_{\text{Promotion}_i}) \]
+
+\item We basically want to know what \(f()\) is. For example,
+
+\[ y_{i} = f(x_{1i}, x_{2i}) = 1 + 2 \times x_{1i}  + 3 \times x_{2i} \]
+\end{itemize}
+\subsection{Functional Form of \(f\): Linear Regression}
+\label{sec:orga447038}
+\begin{itemize}
+\item In linear regression, we assume the dependent variable (\(y_{i}\)) to be a
+linear function of independent (or explanatory) variables (\(x_{k}\)'s),
+coefficients (\(\beta_{k}\)'s) and the error term (\(\varepsilon_{i}\)):
+
+\[  y_{i} = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_{i} \]
+\end{itemize}
+
+\begin{itemize}
+\item Where
+
+\begin{itemize}
+\item \(\beta_k\): coefficient for independent variable \(x_k\), which
+represents the importance of \(x_{k}\) in \(y\)
+\item \(\varepsilon_{i}\): the remaining part (error)
+
+\begin{itemize}
+\item Unpredictable with \(x\)'s
+\begin{itemize}
+\item e.g., random-walk of stock prices
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\begin{mdframed}[frametitle={}]
+Note that \(\beta_0\) is by itself since it corresponds to the constant term. That is, it 
+represents the intercept, and you can think of it as \(x_{0i}\) being 1 everywhere 
+(\(\beta_0 \times 1 = \beta_0\)).
+\end{mdframed}
+\section{Regression Analysis: Estimation}
+\label{sec:orga8af186}
+\subsection{Estimation: Ordinary Least Squares (OLS)}
+\label{sec:org5c182d5}
+\begin{itemize}
+\item Again the regression model is:
+
+\[  y_{i} = \beta_0 + \beta_1 x_{1i} + \varepsilon_{i} \]
+\end{itemize}
+
+\begin{itemize}
+\item You can rearange terms
+and characterize the error by:
+
+\[  \varepsilon_{i} =  y_{i} -  \beta_0 - \beta_{1} x_{1i} \]
+
+\item Since \(y_i\) and \(x_{1i}\) are data so they do not vary. Then, as you
+change \(\beta_0\) and \(\beta_1\), \(\varepsilon_{i}\) will change.
+\end{itemize}
+
+Estimation Objective: \textbf{minimize} the sum of squared errors across all
+observations:
+
+\[ \sum_{i=1}^n\varepsilon^2_i = \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+   \varepsilon^2_{n-1} + \varepsilon^2_{n} \]
+
+\begin{itemize}
+\item We want to find values of \(\beta_0\) and \(\beta_1\) that minimize the
+sum of squared errors
+\end{itemize}
+
+Fortunately, we have analytical solutions for the \(\beta_0\) and \(\beta_1\):
+
+\[ \widehat{\beta_1} = \frac{ \sum_{i=1}^{n}
+   (x_{1i}-\bar{x}_1)(y_{i}-\bar{y}) }{ \sum_{i=1}^{n} (x_{1i}-\bar{x})^2 }
+   \]
+
+
+
+\[ \widehat{\beta_0}  = \bar{y} - \widehat\beta\,\bar{x}_{1} \]
+
+\begin{itemize}
+\item Where \(\widehat{\beta}_{k}\): estimate (actual number) of coeffcient \(\beta_k\)
+\end{itemize}
+\section{Interpretation of Regression Results: Fit (Model Level)}
+\label{sec:orgae17b85}
+\begin{itemize}
+\item Remember how we estimate coefficients (\(\beta_k\)'s)?
+\item \(\beta_k\) which minimize the sum of squared errors are the
+estimates, \(\widehat\beta_k\)
+\item How do we measure how well our model performs?
+\end{itemize}
+
+\subsection{Sum of Squares}
+\label{sec:orgf421c0b}
+\begin{description}
+\item[{Total sum of squares (\(SS_{total}\))}] \quad
+
+\[  SS_{tot} = \sum_{i=1}^n (y_i - \bar{y})^2 \]
+
+\begin{itemize}
+\item How much variation is in \(y\) (It's similar to variance)
+\end{itemize}
+\end{description}
+
+\begin{description}
+\item[{Sum of Squared Errors (\(SS_{error}\))}] \quad
+
+\iffalse
+\[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+   \end{aligned} \]
+
+\[ = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2 \]
+\fi
+
+\[ \begin{aligned}
+      SS_{err} &= \varepsilon^2_1 + \varepsilon^2_2 + \cdots +
+                   \varepsilon^2_{n-1} + \varepsilon^2_{n} = \sum_{i=1}^n \varepsilon^2_i 
+      = \sum_{i=1}^n \left\{ y_i - \underbrace{(\beta_0 + \beta_1 x_{i})}_{\text{predicted}} \right\}^2
+   \end{aligned} \]
+\end{description}
+\subsection{Sum of Squared Errors (Residuals)}
+\label{sec:org11a2bca}
+\begin{itemize}
+\item \(SS_{error}\) is a measure of how wrong the regression estimates will be
+overall
+\item \(SS_{error}\) is a measure of variance
+\item \(y_i\) is sometimes higher, sometimes lower than the regression line
+\item Actual value of \(y_i\) varies because unobserved factors and randomness
+\item The regression can never be a perfect predictor
+\end{itemize}
+\subsection{How well does regression fit?}
+\label{sec:orgf6b6d7c}
+\begin{itemize}
+\item We can use these to construct a value which represents:
+
+\begin{itemize}
+\item what \% of total variance do we explain with our model?
+
+\[ \Rightarrow \dfrac{\text{explained variance}}
+       {\text{total variance } (SS_{total})}
+    \]
+
+\item which can also be represented as
+
+\[
+       1 - \dfrac{\text{unexplained variance } (SS_{error})}
+       {\text{total variance } (SS_{total})}
+    \]
+\end{itemize}
+\end{itemize}
+
+\subsubsection{\(R^2\)}
+\label{sec:orgca30e0a}
+
+\begin{description}
+\item[{\(R^2\)}] the percentage of variance in the dependent variable (\(y\))
+explained by the independent variables (\(x\)'s):
+
+\[ R^2 = 1 - \dfrac{SS_{error}}{SS_{total}} \]
+\end{description}
+
+\begin{itemize}
+\item \(R^2\) is between 0 and 1 (0\% to 100\%)
+\end{itemize}
+\section{Interpretation of Regression Results: Coefficients}
+\label{sec:org2f749c0}
+
+\begin{itemize}
+\item \(\hat{\beta}_1\) (estimated coefficient for \(x_1\)): How much the
+ {\bf dependent variable (\( y \))} is expected to change when the
+ {\bf independent variable (\( x_{1} \))} increases by
+ {\bf one} unit
+\end{itemize}
+
+\begin{itemize}
+\item Suppose we have \(x_{1}\)'s value as 50, and \(\hat\beta_0 = 1\) and \(\hat\beta_1 = 3\). Then, the predicted \(y\) value is:
+
+\[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times 50 = 151 \]
+
+\item If we increase \(x_{1}\) by 1:
+
+\[ \underbrace{\hat\beta_0}_{1} + \underbrace{\hat\beta_1}_{3} \times (50 + 1) = 154 \]
+
+\item That is, \(y\) increases by \(\hat\beta_1\) when we increase
+\end{itemize}
+'eee' is not recognized as an internal or external command,
+operable program or batch file.
+\begin{itemize}
+\item Mathematically,
+
+\[  \dfrac{\partial y}{\partial x} = \dfrac{\partial ( \beta_0 + \beta_1 x)}{\partial x} = \beta_1 \]
+\end{itemize}
+\section{Multiple Regression}
+\label{sec:org3a847bb}
+\subsection{Multiple Regression}
+\label{sec:orgdb80cd8}
+\begin{itemize}
+\item Sales vs. Promotion Discount is an example of simple linear regression
+\item But sales of a brand depend upon many things
+\begin{itemize}
+\item TV Ads, In-store promotions, Coupons etc \ldots{}
+\end{itemize}
+
+\item When many things vary at the same time, it is hard to visually see the
+impact of each factor
+\item Multiple regression lets you look at an isolated effect of one variable
+\end{itemize}
+
+\[ y_{i} = \beta_0 + \beta_1 x_{i, 1} + \cdots + \beta_k x_{i, k} + \cdots +
+\beta_K x_{i, K} + \varepsilon_{i} \]
+
+\begin{itemize}
+\item Interpretation of \(\hat{\beta}_k\): \uline{holding other variables constant}, the
+change in \(y\) if you increase \(x_k\) by 1 unit
+
+\item Just like the simple regression, mathematically,
+
+\[ \dfrac{\partial y}{\partial x_k} = \dfrac{\partial ( \beta_0 + \beta_1 x_1 + \cdots + \beta_k
+  x_k + \cdots + \beta_K x_K) }{\partial x_k } = \beta_k. \]
+\end{itemize}
+
+\subsection{\(R^2\) and Adjusted \(R^2\)}
+\label{sec:orgf6fb29f}
+\begin{itemize}
+\item Recall
+
+\[
+     R^2 = 1 - \dfrac{\text{unexplained variance } (SS_{error})}
+           {\text{total variance } (SS_{total})} = 1 - \dfrac{SS_{error}}{SS_{total}}
+  \]
+
+\item \(R^2\) is between 0 and 1 (0\% to 100\%)
+\end{itemize}
+\subsubsection{\(R^2\) in multiple regression}
+\label{sec:orgbbaf789}
+\begin{itemize}
+\item \(R^2\) \textbf{always} becomes larger when we add more
+independent variables
+\item So we CANNOT use \(R^2\) to compare the fit of two different regressions
+with different numbers of independent variables
+\end{itemize}
+\subsubsection{Adjusted \(R^{2}\)}
+\label{sec:org3a1c982}
+\begin{itemize}
+\item We use \textbf{adjusted} \(R^2\) to compare regressions with
+different numbers of independent variables
+
+\[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+      \dfrac{n-1}{n-K-1} \right\} \]
+
+\begin{itemize}
+\item \(n\): number of observations
+\item \(K\): number of independent (\(x\)) variables included in the model
+\end{itemize}
+\end{itemize}
+
+\iffalse
+\[  R^2_{adj} = 1 - \left\{ \dfrac{SS_{error}}{SS_{total}} \times
+    \dfrac{n-1}{n-K-1} \right\} \]
+\fi
+
+\begin{itemize}
+\item Basically, you give a little bit of penalty for higher \(K\)
+\item A variable needs to reduce \(SS_{error}\) significantly to overcome the
+penalty
+\end{itemize}
+
+\begin{itemize}
+\item Occam's razor: 
+
+"Among competing hypotheses, the one with the fewest assumptions should be selected"
+\end{itemize}
+
+\begin{itemize}
+\item Albert Einstein:
+
+"Everything should be made as simple as possible, but no simpler"
+\end{itemize}
+\section{Running Regression Analysis in Python}
+\label{sec:org87a115c}
+\begin{itemize}
+\item First, let's import basic modules for data analysis:
+
+\begin{minted}[]{python}
+  import os
+  import numpy as np
+  import pandas as pd
+\end{minted}
+\end{itemize}
+\subsection{\texttt{statsmodels} module}
+\label{sec:orgf8f4b5c}
+\begin{itemize}
+\item \texttt{statsmodels} is the de-facto statistical analyses library in Python.
+\item There are two ways of using statsmodels: 1) passing data explicitly, and 2)
+passing data as a \texttt{pd.DataFrame} with a formula specifying the model. We
+will focus on the second method, which is more intuitive
+\item To start, import \texttt{statsmodels.formula.api}:
+
+\begin{minted}[]{python}
+  >>> import statsmodels.formula.api as smf
+\end{minted}
+
+\item It has many statistical models that you can use. Let's inspect elements of
+the imported module by \texttt{smf.<TAB>}.
+\item You will see many models. In general, lowercased model names indicate that
+they will accept R-like formula. (e.g., \texttt{ols})
+\end{itemize}
+\subsection{\texttt{patsy} formula}
+\label{sec:org61abb3f}
+\begin{itemize}
+\item The R-like formula in Python is provided by \href{https://patsy.readthedocs.io/en/latest/}{\texttt{patsy}}. In general \texttt{patsy}
+formula has the form of \texttt{y \textasciitilde{} x1 + x2}, which corresponds to the following
+model (constant skipped):
+
+\[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \varepsilon \]
+
+\item Let's create a formula where we regress variable \texttt{Compensation} on \texttt{WinPercentage}:
+
+\begin{minted}[]{python}
+  >>> formula = 'Compensasion ~ WinPercentage'
+\end{minted}
+\end{itemize}
+\subsection{Building a Model}
+\label{sec:org5be6169}
+\begin{itemize}
+\item Now we are ready to build the regression model with the formula and
+data. First, you can build your model object like this:
+
+\begin{minted}[]{python}
+  >>> smf.ols(formula=formula, data=df)
+\end{minted}
+
+\item Let's assign this object to a variable \texttt{model} and inspect its elements.
+
+\begin{minted}[]{python}
+   >>> model = smf.ols(formula=formula, data=df)
+\end{minted}
+\end{itemize}
+\subsection{Running Regression Analysis}
+\label{sec:org3ba6034}
+\begin{itemize}
+\item You can use \texttt{.fit()} method of the \texttt{model} object to actually run the
+regression. You can assign the resulting object to a variable:
+
+\begin{minted}[]{python}
+  >>> results = model.fit()
+\end{minted}
+
+\item The most frequently used method of the fitted object is \texttt{.summary()}. It
+will print out the regression output:
+
+\begin{minted}[]{python}
+  >>> results.summary()
+\end{minted}
+\end{itemize}
+
+You can also inspect individual statistics of the results as well.
+\end{document}
