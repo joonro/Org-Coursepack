@@ -48,6 +48,11 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 *** Requirements
 - Basic knowledge of Emacs
 - Basic knowledge of Org mode
+** Quickstart Guide
+:PROPERTIES:
+:CUSTOM_ID: Lectures/Quickstart Guide
+:END:
+Quickstart Guide
 ** Org Mode Basic Functionalities
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Org Mode Basic Functionalities

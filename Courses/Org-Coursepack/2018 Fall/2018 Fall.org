@@ -463,6 +463,8 @@
 - Overview of the directory structure
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Introduction" :only-contents t
+*** Quickstart Guide
+#+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Quickstart Guide" :only-contents t
 *** Overview of the Directory Structure
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Directory Structure" :only-contents t
 *** Class Summary                                                     :slideonly:
