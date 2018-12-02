@@ -531,12 +531,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "Semester.org::#Exam/1/MC/A" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/MC/A" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
 **** B Type
 :PROPERTIES:
 :EXPORT_TITLE+: (Type B)
@@ -546,12 +546,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "Semester.org::#Exam/1/MC/B" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/MC/B" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
 *** 02
 :PROPERTIES:
 :EXPORT_AUTHOR: {{{COURSE_NUM}}}-02: {{{COURSE}}}
@@ -566,13 +566,13 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "Semester.org::#Exam/1/MC/A" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/MC/A" :only-contents t
 
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
 **** B Type
 :PROPERTIES:
 :EXPORT_TITLE+: (Type B)
@@ -582,12 +582,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "Semester.org::#Exam/1/MC/B" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/MC/B" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
 *** Exam Content
 **** Multiple Choice
 :PROPERTIES:
