@@ -15,7 +15,47 @@ See [[file:paper.md]] for the detailed summary for the template.
 - [[https://github.com/yjwen/org-reveal/][Org-Reveal]] (to create [[https://revealjs.com/#/][Reveal.js]] slides)
 - LaTeX (to create LaTeX handouts or Beamer slides)
 * Installation
-Clone the repo or download the ZIP archive.
+If you already use Emacs, 
+=Org-Coursepack= itself can be installed by just cloning the repo or
+downloading and unzipping the ZIP archive. Since Org-Coursepack is
+self-contained, users can freely choose the location of the installation.
+
+See XXX for a detailed guide of installing 
+
+To use Org-Coursepack, the user need to have Emacs (to create course
+contents) and LaTeX (for handout exports) installed.
+
+- Emacs :: See the official [[https://www.gnu.org/software/emacs/download.html][Download & installation]] page for installation
+  instructions for different operating systems. This documentation
+  is written with GNU Emacs 26.1.
+- LaTeX :: For LaTeX distribution, one can use [[https://tug.org/texlive/][TeX Live]] for GNU/Linux and Windows
+  and [[https://tug.org/mactex/][MacTeX]] for macOS. This documentation is written with TeX Live 2018.
+*** Emacs setup and packages
+**** Emacs init file
+Emacs uses [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Init-file.html#Init-file][init file]], which is similar to =.vimrc= file for vim, for user
+configurations. We provide a basic init file, which contains necessary
+settings for LaTeX and beamer export. Please see =/Assets/init.el=.
+
+Users who already use Emacs would likely to have an init file with their
+custom settings. They can copy & paste necessary part of the code snippet.
+
+Users who never used Emacs can use this file as the starting point for their
+init file. You can place =init.el= into the =.emacs.d= directory under your
+=HOME= folder. Note that in Windows, you have to set the environment variable
+=HOME= to your user profile directory (e.g., =C:\Users\UserName=) for Emacs to
+locate the init file. Or, you can use the =AppData= directory as well. See
+[[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html#Location-of-init-file][Where do I put my init file?]] of the Emacs documentation.
+
+The =init.el= provided with =Org-Coursepack= is set up so it will check if the
+necessary packages (=org-plus-contrib= and =ox-reveal=) are installed, and install 
+any missing packages. It may take some time to install these pacakges when the user
+starts Emacs the first time.
+**** Org-Coursepack
+Clone the Org-Coursepack repo or download and unzip the ZIP archive to the
+location of your choice. Since Org-Coursepack is self-contained, users can
+freely choose the location of the installation. We will use =/=
+as the root path of Org-Coursepack throughout this quickstart guide.
+
 * Usage
 Org-Coursepack consists of multiple Org files. We created the documentation in
 the form of a short course. You can read the [[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]]
