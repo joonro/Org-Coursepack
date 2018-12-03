@@ -1,8 +1,12 @@
-#+MACRO: today date:: %B %d, %Y
-
-* LaTeX and Reveal.js
+* Export Setup
+** HTML Export
+#+HTML_HEAD: <base target="_blank">
+#+HTML_HEAD: <base href="../">
+** LaTeX
 #+LATEX_HEADER: \usepackage{color}
-
+* Macros
+#+MACRO: today date:: %B %d, %Y
+** LaTeX and Reveal.js
 #+MACRO: BR @@html:<br>@@
 #+MACRO: HTML_VSPACE @@html:<div style="height:$1px;font-size:1px;">&nbsp;</div>@@
 #+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
