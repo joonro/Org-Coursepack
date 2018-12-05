@@ -196,7 +196,7 @@
   =#+BEGIN: columnview=.
 :END:
 
-#+BEGIN: columnview :hlines 1 :id 79d5e887-4637-43e7-8e8a-b83fa83ee56e :maxlevel 2 :skip-empty-rows t
+#+BEGIN: columnview :hlines 1 :id Lectures :maxlevel 2 :skip-empty-rows t
 | Date                                    | Class | Topic                  |
 |-----------------------------------------+-------+------------------------|
 | [2018-08-28 Tue]                        |     1 | Introduction           |
@@ -215,7 +215,7 @@
 * Lectures
 :PROPERTIES:
 :COLUMNS: %Date %Class %ITEM
-:ID:  79d5e887-4637-43e7-8e8a-b83fa83ee56e 
+:ID:  Lectures
 :Class_ALL: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 --
 :EXPORT_LATEX_CLASS_OPTIONS: [10pt,article]
 :EXPORT_LATEX_HEADER+: \usepackage{titling}
@@ -424,7 +424,7 @@
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/01 Introduction
 :DATE:     [2018-08-28 Tue]
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 *** Tasks [0/1]                                                    :noexport:
@@ -459,7 +459,7 @@
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_DATE+:  Class {{{property(Class)}}} {{{NEWLINE}}} ({{{property(date)}}})
 :EXPORT_AUTHOR: {{{COURSE}}} Exam 1
-:OUTPUT_REVEAL: [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][View HTML]]
+:OUTPUT_REVEAL: [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][View HTML]]
 :OUTPUT_LATEX: [[elisp:(org-latex-export-to-pdf%20nil%20t)][Export]] [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][View PDF]]
 :END:
 ** *Thanksgiving Holiday*                                 :Holiday:skipcount:
@@ -528,7 +528,7 @@ Instructions:
 :EXPORT_FILE_NAME: ./Exams/Exam_1_01_A
 :TYPE: A
 :TYPE_MARK: 0
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 #+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
@@ -543,7 +543,7 @@ Instructions:
 :EXPORT_FILE_NAME: ./Exams/Exam_1_01_B
 :TYPE: B
 :TYPE_MARK: 1
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 #+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
@@ -563,7 +563,7 @@ Instructions:
 :EXPORT_FILE_NAME: ./Exams/Exam_1_02_A
 :TYPE: A
 :TYPE_MARK: 0
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 #+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
@@ -579,7 +579,7 @@ Instructions:
 :EXPORT_FILE_NAME: ./Exams/Exam_1_02_B
 :TYPE: B
 :TYPE_MARK: 1
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 #+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
@@ -657,7 +657,7 @@ Instructions:
 :EXPORT_FILE_NAME: ./Assignments/Assignment_1
 :EXPORT_AUTHOR: {{{COURSE_NUM}}} {{{COURSE}}} Assignment {{{property(Assignment)}}}
 :EXPORT_DATE: Due: {{{property(DUE)}}}
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][Reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 *** Handout heading                                    :handoutonly:ignore:

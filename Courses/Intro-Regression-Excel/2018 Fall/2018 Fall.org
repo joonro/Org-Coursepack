@@ -163,7 +163,7 @@
   =#+BEGIN: columnview=.
 :END:
 
-#+BEGIN: columnview :hlines 1 :id 79d5e887-4637-43e7-8e8a-b83fa83ee56e :maxlevel 2 :skip-empty-rows t
+#+BEGIN: columnview :hlines 1 :id Lectures :maxlevel 2 :skip-empty-rows t
 | Date             | Class | Topic                                                                     |
 |------------------+-------+---------------------------------------------------------------------------|
 | [2018-08-28 Tue] |     1 | Regression Analysis: Introduction                                         |
@@ -182,7 +182,7 @@
 * Lectures
 :PROPERTIES:
 :COLUMNS: %Date %Class %ITEM
-:ID:  79d5e887-4637-43e7-8e8a-b83fa83ee56e 
+:ID:  Lectures
 :Class_ALL: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 --
 :EXPORT_LATEX_CLASS_OPTIONS: [10pt,article]
 :EXPORT_LATEX_HEADER+: \usepackage{titling}
