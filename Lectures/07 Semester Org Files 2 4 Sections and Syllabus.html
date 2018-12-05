@@ -1,0 +1,351 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Class 7: Semester Org Files (2/4): Sections and Syllabus &#8212; Org-Coursepack  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 8: Semester Org Files (3/4): Lectures" href="08 Semester Org Files 3 4 Lectures.html" />
+    <link rel="prev" title="Class 6: Semester Org Files (1/4): Introduction" href="06 Semester Org Files 1 4 Introduction.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-7-semester-org-files-2-4-sections-and-syllabus">
+<h1>Class 7: Semester Org Files (2/4): Sections and Syllabus<a class="headerlink" href="#class-7-semester-org-files-2-4-sections-and-syllabus" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
+Class 7  [2018-09-18 Tue]</div></blockquote>
+<div class="section" id="sections-top-level-tree">
+<h2>1 <code class="docutils literal"><span class="pre">Sections</span></code> Top-level Tree<a class="headerlink" href="#sections-top-level-tree" title="Permalink to this headline">¶</a></h2>
+<p>An instructor may teach multiple sections of the same course during a
+given semester. The <code class="docutils literal"><span class="pre">Sections</span></code> subtree contains a subtree for each
+section, which contains section-specific information such as section
+number, classroom location and time, and exam dates. It also acts as a
+wrapper around the content of the syllabus, which passes on section-specific
+information.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Sections</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="o">**</span> <span class="mi">01</span>
+<span class="o">**</span> <span class="mi">02</span>
+<span class="o">**</span> <span class="mi">03</span>
+</pre></div>
+</div>
+<div class="section" id="properties">
+<h3>1.1 <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code><a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Properties:</th><td class="field-body">of these subtrees have information common across all sections,</td>
+</tr>
+</tbody>
+</table>
+<p>such as LaTeX preamble items via <code class="docutils literal"><span class="pre">EXPORT_LATEX_HEADER</span></code>. These will be
+inherited and shared by the subtrees with the
+<code class="docutils literal"><span class="pre">org-use-property-inheritance</span></code> option set to <code class="docutils literal"><span class="pre">t</span></code>. For example:</p>
+<div class="code tex highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Sections</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">Sections</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_CLASS</span><span class="p">:</span> <span class="n">koma</span><span class="o">-</span><span class="n">article</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_CLASS_OPTIONS</span><span class="p">:</span> <span class="p">[</span><span class="n">article</span><span class="p">,</span><span class="n">letterpaper</span><span class="p">,</span><span class="n">times</span><span class="p">,</span><span class="mi">10</span><span class="n">pt</span><span class="p">,</span><span class="n">listings</span><span class="o">-</span><span class="n">bw</span><span class="p">,</span><span class="n">microtype</span><span class="p">]</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_HEADER</span><span class="o">+</span><span class="p">:</span> \<span class="n">usepackage</span><span class="p">[</span><span class="n">onehalfspacing</span><span class="p">]{</span><span class="n">setspace</span><span class="p">}</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_HEADER</span><span class="o">+</span><span class="p">:</span> \<span class="n">usepackage</span><span class="p">[</span><span class="n">T1</span><span class="p">]{</span><span class="n">fontenc</span><span class="p">}</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_HEADER</span><span class="o">+</span><span class="p">:</span> \<span class="n">usepackage</span><span class="p">{</span><span class="n">mathpazo</span><span class="p">}</span> \<span class="n">usepackage</span><span class="p">[</span><span class="n">scaled</span><span class="o">=</span><span class="mf">0.85</span><span class="p">]{</span><span class="n">helvet</span><span class="p">}</span> \<span class="n">usepackage</span><span class="p">{</span><span class="n">courier</span><span class="p">}</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_HEADER</span><span class="o">+</span><span class="p">:</span> \<span class="n">usepackage</span><span class="p">{</span><span class="n">geometry</span><span class="p">}</span> \<span class="n">geometry</span><span class="p">{</span><span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="ow">in</span><span class="p">,</span><span class="n">right</span><span class="o">=</span><span class="mi">1</span><span class="ow">in</span><span class="p">,</span><span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="ow">in</span><span class="p">,</span><span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="ow">in</span><span class="p">}</span>
+<span class="p">:</span><span class="n">EXPORT_LATEX_HEADER</span><span class="o">+</span><span class="p">:</span> \<span class="n">usepackage</span><span class="p">[</span><span class="n">framemethod</span><span class="o">=</span><span class="n">default</span><span class="p">]{</span><span class="n">mdframed</span><span class="p">}</span>
+<span class="p">:</span><span class="n">EXPORT_DATE</span><span class="p">:</span> <span class="p">{{{</span><span class="n">SEMESTER</span><span class="p">}}}</span>
+<span class="p">:</span><span class="n">EXPORT_OPTIONS</span><span class="p">:</span> <span class="n">num</span><span class="p">:</span><span class="n">nil</span> <span class="n">title</span><span class="p">:</span><span class="n">nil</span> <span class="n">toc</span><span class="p">:</span><span class="n">nil</span> <span class="n">tags</span><span class="p">:</span><span class="n">nil</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="sections">
+<h3>1.2 Sections<a class="headerlink" href="#sections" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Each section subtree has properties and macros for the section
+information and a subtree for the syllabus of the section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">**</span> <span class="mi">01</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">MACROS_Section_Info</span><span class="p">:</span>
+<span class="o">***</span> <span class="n">Syllabus</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="id1">
+<h4>1.2.1 <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Each section subtree has property items containing section-specific
+information such as <code class="docutils literal"><span class="pre">:SECTION:</span></code> (section number), <code class="docutils literal"><span class="pre">:SECTION_LOC:</span></code>
+(classroom location), <code class="docutils literal"><span class="pre">:SECTION_DATE:</span></code> (class date and time), and
+<code class="docutils literal"><span class="pre">:SECTION_DATE_FINAL_EXAM:</span></code> (final exam date), which will be used in
+the syllabus via the <code class="docutils literal"><span class="pre">{{{property(Property_NAME)}}}</span></code> grammar (e.g.,
+<code class="docutils literal"><span class="pre">{{{property(SECTION_DATE)}}}</span></code>). Note that we created a macro
+<code class="docutils literal"><span class="pre">{{{DATE_FINAL_EXAM_01}}}</span></code> for <code class="docutils literal"><span class="pre">:SECTION_DATE_FINAL_EXAM:</span></code>, so it can be
+used in other places, such as class announcements.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">**</span> <span class="mi">01</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">SECTION</span><span class="p">:</span> <span class="mi">01</span>
+<span class="p">:</span><span class="n">SECTION_DATE</span><span class="p">:</span> <span class="n">Tue</span><span class="o">/</span><span class="n">Thurs</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">30</span><span class="n">a</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mi">45</span>
+<span class="p">:</span><span class="n">SECTION_DATE_FINAL_EXAM</span><span class="p">:</span> <span class="p">{{{</span><span class="n">DATE_FINAL_EXAM_01</span><span class="p">}}}</span>
+<span class="p">:</span><span class="n">SECTION_LOC</span><span class="p">:</span> <span class="n">BLDG</span> <span class="mi">100</span>
+<span class="p">:</span><span class="n">CUSTOM_ID</span><span class="p">:</span> <span class="n">Sections</span><span class="o">/</span><span class="mi">01</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="macros">
+<h4>1.2.2 Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Instructors can specify the final exam date in the
+<code class="docutils literal"><span class="pre">:MACROS_Section_Info:</span></code> drawer.</p>
+</li>
+<li><p class="first">To allow this information to be used in other places (e.g.,
+reminders or announcements), we used a macro instead of a property.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">**</span> <span class="mi">01</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">MACROS_Section_Info</span><span class="p">:</span>
+<span class="c1">#+MACRO: DATE_FINAL_EXAM_01 [2018-12-16 Sun 13:00] - 4:00PM</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="syllabus">
+<h4>1.2.3 Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">The <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree has properties containing section-specific
+information for the section’s syllabus. For its body, it pulls content
+from the <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree of the file.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">Syllabus</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="c1">#+INCLUDE: &quot;./2018 Fall.org::#Syllabus&quot; :only-contents t</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> of this subtree contain export-related information for the
+syllabus, such as <code class="docutils literal"><span class="pre">:EXPORT_FILE_NAME:</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">Syllabus</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="p">:</span><span class="n">EXPORT_TITLE</span><span class="p">:</span> <span class="p">{{{</span><span class="n">COURSE_NUM</span><span class="p">}}}</span><span class="o">-</span><span class="p">{{{</span><span class="nb">property</span><span class="p">(</span><span class="n">SECTION</span><span class="p">)}}}</span> <span class="n">Syllabus</span>
+<span class="p">:</span><span class="n">EXPORT_FILE_NAME</span><span class="p">:</span> <span class="o">./</span><span class="n">Syllabus</span><span class="o">/</span><span class="mi">01</span><span class="n">_Syllabus</span>
+<span class="p">:</span><span class="n">EXPORT_TO</span><span class="p">:</span>  <span class="n">LaTeX</span> <span class="p">(</span><span class="n">Custom</span> <span class="n">Time</span> <span class="n">Format</span><span class="p">)</span>
+<span class="p">:</span><span class="n">OUTPUT_VIEW</span><span class="p">:</span> <span class="n">PDF</span>
+<span class="p">:</span><span class="n">END</span><span class="p">:</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The syllabus subtree simply includes in its body the content of the top level <code class="docutils literal"><span class="pre">Syllabus</span></code> tree. Since
+property macros are used for section-specific information in the content,
+the corresponding section-specific information will be included automatically.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">Syllabus</span>
+<span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
+<span class="c1">#+INCLUDE: &quot;./2018 Fall.org::#Syllabus&quot; :only-contents t</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="syllabus-top-level-tree">
+<h2>2 <code class="docutils literal"><span class="pre">Syllabus</span></code> Top-level Tree<a class="headerlink" href="#syllabus-top-level-tree" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree contains course description, learning
+objectives, grading, etc., as shown in the example below. Instructors
+can include additional information as they see fit. We now describe each
+subtree.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Syllabus</span>
+<span class="o">**</span> <span class="n">Tasks</span> <span class="p">[</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span><span class="p">]</span>                                                     <span class="p">:</span><span class="n">noexport</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">Intro</span>                                                            <span class="p">:</span><span class="n">ignore</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">Course</span> <span class="n">Description</span>
+<span class="o">**</span> <span class="n">Course</span> <span class="n">Prerequisites</span>
+<span class="o">**</span> <span class="n">Student</span> <span class="n">Learning</span> <span class="n">Objectives</span>
+<span class="o">**</span> <span class="n">Course</span> <span class="n">Material</span>
+<span class="o">**</span> <span class="n">Grading</span>
+<span class="o">**</span> <span class="n">Specific</span> <span class="n">Course</span> <span class="n">Policies</span>
+<span class="o">**</span> <span class="n">School</span><span class="o">-</span><span class="n">Specific</span> <span class="n">Policies</span>
+<span class="o">**</span> <span class="n">Class</span> <span class="n">Schedule</span>                                                   <span class="p">:</span><span class="n">newpage</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="section" id="intro">
+<h3>2.1 Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h3>
+<p>The Intro has the title page of the Syllabus. The title page contains a blank
+school name (the color of the text is defined in the institution Org file) as a
+placeholder for the school logo the instructor wishes to use. There is
+also a table of course information, which heavily relies on macros
+to avoid redundancy.</p>
+<p>Some of the macros are in the form of <code class="docutils literal"><span class="pre">property(PROPERTY_NAME)</span></code> (e.g.,
+<code class="docutils literal"><span class="pre">{{{property(SECTION_DATE)}}}</span></code>), which means it will receive the value of the
+<code class="docutils literal"><span class="pre">:PROPERTY_NAME:</span></code> property of the subtree. When the content is included in
+another subtree such as the <code class="docutils literal"><span class="pre">Sections</span></code> subtree, these property macros will pull
+the value from the subtree including this content. That is,
+<code class="docutils literal"><span class="pre">{{{property(SECTION_DATE)}}}</span></code> will get the value from the <code class="docutils literal"><span class="pre">:SECTION_DATE:</span></code>
+property of the <code class="docutils literal"><span class="pre">01</span></code> (<code class="docutils literal"><span class="pre">02</span></code>) subtree of the <code class="docutils literal"><span class="pre">Sections</span></code> subtree when
+included by the <code class="docutils literal"><span class="pre">01</span></code> (<code class="docutils literal"><span class="pre">02</span></code>) subtree.</p>
+<p>Note that the header of the Intro subtree is assigned an <code class="docutils literal"><span class="pre">:ignore:</span></code> tag, which means the heading (<code class="docutils literal"><span class="pre">Intro</span></code>)
+will be ignored in exporting.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">**</span> <span class="n">Intro</span>                                                            <span class="p">:</span><span class="n">ignore</span><span class="p">:</span>
+<span class="o">@</span><span class="nd">@latex</span><span class="p">:</span>\<span class="n">definecolor</span><span class="p">{</span><span class="n">SchoolColor</span><span class="p">}{</span><span class="n">RGB</span><span class="p">}{</span><span class="o">@@</span><span class="p">{{{</span><span class="n">SCHOOL_COLOR</span><span class="p">}}}</span><span class="o">@</span><span class="nd">@latex</span><span class="p">:}</span><span class="o">@@</span>
+
+<span class="c1">#+BEGIN_CENTER</span>
+<span class="c1">#+LATEX: {\color{SchoolColor}{\Large</span>
+<span class="o">*</span><span class="p">{{{</span><span class="n">SCHOOL</span><span class="p">}}}</span><span class="o">*</span>
+<span class="c1">#+LATEX: }}</span>
+<span class="c1">#+END_CENTER</span>
+
+<span class="c1">#+BEGIN_CENTER</span>
+<span class="c1">#+LATEX: {\color{SchoolColor}{</span>
+<span class="o">*</span><span class="p">{{{</span><span class="n">COURSE_NUM</span><span class="p">}}}</span><span class="o">-</span><span class="p">{{{</span><span class="nb">property</span><span class="p">(</span><span class="n">SECTION</span><span class="p">)}}}</span><span class="o">*</span>
+
+<span class="o">*</span><span class="p">{{{</span><span class="n">COURSE</span><span class="p">}}}</span><span class="o">*</span>
+
+<span class="o">*</span><span class="p">{{{</span><span class="n">SEMESTER</span><span class="p">}}}</span><span class="o">*</span>
+<span class="c1">#+LATEX: }}</span>
+<span class="c1">#+END_CENTER</span>
+
+<span class="p">{{{</span><span class="n">VSPACE</span><span class="p">(</span><span class="mi">5</span><span class="p">)}}}</span>
+
+<span class="o">|</span> <span class="o">*</span><span class="n">Instructor</span><span class="p">:</span><span class="o">*</span>               <span class="o">|</span> <span class="p">{{{</span><span class="n">PROFESSOR</span><span class="p">}}}</span>              <span class="o">|</span> <span class="o">*</span><span class="n">Office</span> <span class="n">Phone</span><span class="p">:</span><span class="o">*</span>   <span class="o">|</span> <span class="p">{{{</span><span class="n">PHONE</span><span class="p">}}}</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="o">*</span><span class="n">Office</span><span class="p">:</span><span class="o">*</span>                   <span class="o">|</span> <span class="p">{{{</span><span class="n">OFFICE</span><span class="p">}}}</span>                 <span class="o">|</span> <span class="o">*</span><span class="n">E</span><span class="o">-</span><span class="n">mail</span><span class="p">:</span><span class="o">*</span>         <span class="o">|</span> <span class="p">{{{</span><span class="n">EMAIL</span><span class="p">}}}</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="o">*</span><span class="n">Office</span> <span class="n">Hours</span><span class="p">:</span><span class="o">*</span>             <span class="o">|</span> <span class="p">{{{</span><span class="n">OFFICE_HOURS</span><span class="p">}}}</span>           <span class="o">|</span> <span class="o">*</span><span class="n">Course</span> <span class="n">Site</span><span class="p">:</span><span class="o">*</span>    <span class="o">|</span> <span class="o">*</span><span class="p">{{{</span><span class="n">COURSE_LINK</span><span class="p">}}}</span><span class="o">*</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="o">*</span><span class="n">Class</span> <span class="n">Meeting</span> <span class="n">Day</span> <span class="o">&amp;</span> <span class="n">Time</span><span class="p">:</span><span class="o">*</span> <span class="o">|</span> <span class="p">{{{</span><span class="nb">property</span><span class="p">(</span><span class="n">SECTION_DATE</span><span class="p">)}}}</span> <span class="o">|</span> <span class="o">*</span><span class="n">Class</span> <span class="n">Location</span><span class="p">:</span><span class="o">*</span> <span class="o">|</span> <span class="p">{{{</span><span class="nb">property</span><span class="p">(</span><span class="n">SECTION_LOC</span><span class="p">)}}}</span> <span class="o">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="course-speific-information">
+<h3>2.2 Course-speific information<a class="headerlink" href="#course-speific-information" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Since different sections of the same course typically share common elements (e.g.,
+course description, prerequisites, learning objectives), the
+content of most subtrees of <code class="docutils literal"><span class="pre">Syllabus</span></code> are pulled from the course Org
+file on exporting, using <code class="docutils literal"><span class="pre">#+INCLUDE</span></code>.</li>
+<li>Note that instructors can use semester-specific information in these subtrees using macros – see the <code class="docutils literal"><span class="pre">Grading</span></code> subtree for an example.</li>
+<li>School-wide information (e.g., grade cutoff percentages) is imported
+from the institution Org file.</li>
+</ul>
+</div>
+<div class="section" id="class-schedule">
+<h3>2.3 Class Schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">Class</span> <span class="pre">Schedule</span></code> subtree contains the class schedule in a table format.</li>
+<li>The table is dynamically generated using org-mode’s <a class="reference external" href="https://orgmode.org/manual/Capturing-column-view.html#Capturing-column-view">columnview dynamic block</a>
+functionality – it will extract information about each class from the class
+subtree’s properties, and automatically create the class schedule table.</li>
+<li>One can use <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> while the cursor is on the <code class="docutils literal"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code> to
+update the columnview dynamic block. Once it is updated, <code class="docutils literal"><span class="pre">#+TBLFM</span></code> is used
+to format the table (e.g., change the third column name from <code class="docutils literal"><span class="pre">ITEM</span></code> to
+<code class="docutils literal"><span class="pre">Topic</span></code>) automatically.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Class 7: Semester Org Files (2/4): Sections and Syllabus</a><ul>
+<li><a class="reference internal" href="#sections-top-level-tree">1 <code class="docutils literal"><span class="pre">Sections</span></code> Top-level Tree</a><ul>
+<li><a class="reference internal" href="#properties">1.1 <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code></a></li>
+<li><a class="reference internal" href="#sections">1.2 Sections</a><ul>
+<li><a class="reference internal" href="#id1">1.2.1 <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code></a></li>
+<li><a class="reference internal" href="#macros">1.2.2 Macros</a></li>
+<li><a class="reference internal" href="#syllabus">1.2.3 Syllabus</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#syllabus-top-level-tree">2 <code class="docutils literal"><span class="pre">Syllabus</span></code> Top-level Tree</a><ul>
+<li><a class="reference internal" href="#intro">2.1 Intro</a></li>
+<li><a class="reference internal" href="#course-speific-information">2.2 Course-speific information</a></li>
+<li><a class="reference internal" href="#class-schedule">2.3 Class Schedule</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="06 Semester Org Files 1 4 Introduction.html" title="previous chapter">Class 6: Semester Org Files (1/4): Introduction</a></li>
+      <li>Next: <a href="08 Semester Org Files 3 4 Lectures.html" title="next chapter">Class 8: Semester Org Files (3/4): Lectures</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Lectures/07 Semester Org Files 2 4 Sections and Syllabus.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Joon Ro & Jae Eun Namkoong.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/Lectures/07 Semester Org Files 2 4 Sections and Syllabus.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
