@@ -43,11 +43,7 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 #+ATTR_REVEAL: :frag (appear)
 - Consistent, properly-formatted, and strategically presented course materials add to student engagement
 - Availability of materials that are easier to digest and review outside the classroom
-*** TODO Requirements
-:LOGBOOK:
-- State "TODO"       from              [2018-11-19 Mon 20:20] \\
-  Make it sound more approachable for any users.
-:END:
+*** Requirements
 - Org-Coursepack is a tool based on [[https://orgmode.org/manual/Export-settings.html][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables][GNU Emacs]]. It
   does not, however, require extensive previous experience with either, unless
   the user wants to make changes to pre-built scripts. The basic level of
@@ -60,10 +56,6 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 ** Quickstart Guide: Create your first class with Org-Coursepack 
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Quickstart Guide
-:END:
-:LOGBOOK:
-- State "TODO"       from              [2018-11-20 Tue 14:25] \\
-  Need this!
 :END:
 In this quickstart guide, we will guide you through how to create your course
 with =Org-Coursepack= with step-by-step examples. We focus on syllabi and lectures, 
