@@ -60,7 +60,7 @@ This quickstart guide will show you, step-by-step, how to create your course
 with =Org-Coursepack=. We focus on creating syllabi and lectures, 
 as they typically make up the majority of course content. Other course materials, such as 
 assignments and exams, can be created in similar ways.
-*** Copy and rename =Template= course
+*** Copy and rename the =Template= directory and Org file
 The quickstart guide uses =/= to refer the root path of Org-Coursepack. Make a copy of the =Template= directory (inside the =/Courses= directory). Change the names of the =Template= directory and
 the =template.org= file inside the directory, so they reflect the name of the course you are creating the materials for. See example below (we changed the names to =Example Course=):
 
@@ -71,12 +71,12 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Course-renamed.png
 
 It is common for the same course to be taught across multiple semesters. Hence, the course will include a =Semester= folder for each semester it is taught. This folder includes a semester Org file, which is used to pull and organize modular course materials that can be used across courses and/or semesters. The semester Org file can also contain semester-specific content, such as class dates, classroom information, or office hours. The semester Org file is used to export course content into appropriate output formats (e.g., slides or handouts).
 
-The example below shows that the semester is Spring 2020. You can rename the =Semester= folder and the =Semestor.org= inside that folder to reflect the semester in which you are teaching that course. 
+The example below shows that the semester is 2020 Spring. You can rename the =Semester= folder and the =Semestor.org= inside that folder to reflect the semester in which you are teaching that course. 
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-renamed.png
-*** Set local variables permission in semester Org file
-Visit (i.e., open) =2018 Fall.org=. First time you visit this file, it will 
+*** Set local variable permissions in the semester Org file
+Visit (i.e., open) =2020 Spring.org=. First time you visit this file, it will 
 show you the following warning about local variables:
 
   #+BEGIN_SRC emacs-lisp
@@ -108,17 +108,17 @@ semester Org itself and the course Org file. We should rename paths to these
 files so =#+INCLUDE= statements work property.
 
 First, you should replace all occurrences of =./Semester.org::= with the name
-of the current semester Org file, =./2018 Fall.org::=. This can be achieved in
+of the current semester Org file, =./2020 Spring.org::=. This can be achieved in
 Emacs by pressing =M-%= (=Alt+Shift+5=, or via =Edit= -> =Replace= -> =Replace
 String= menu), and inputting =./Semester.org::<Enter>= followed by =./2018
 Fall.org::<Enter>=, and pressing =!= (replace all). Emacs will let you know
 how many replaces it has done. The query replace will look like the following:
 
   #+BEGIN_EXAMPLE 
-  Query replace ./Semester.org with: ./2018 Fall.org
+  Query replace ./Semester.org with: ./2020 Spring.org
   #+END_EXAMPLE
   
-So all =./Semester.org::= are replaced by =./2018 Fall.org::=:
+So all =./Semester.org::= are replaced by =./2020 Spring.org::=:
 
 #+LATEX: \begin{multicols}{2}
 #+ATTR_LATEX: :height 3cm
@@ -146,7 +146,7 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Befor
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png
 #+LATEX: \end{multicols}
 *** Inputting course information
-The first several lines of the semester Org file (=2018 Fall.org=) contain
+The first several lines of the semester Org file (=2020 Spring.org=) contain
 multiple course information values, such as the =#+TITLE:= and
 =#+DESCRIPTION:=. Also, You can press =Tab= key while your cursor is on
 =:COURSE_INFO:= to expand the drawer, revealing other information such as
@@ -212,7 +212,7 @@ your course. We add the following content there:
 file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description-Content-Edited.png
 
 Now if you again click on the LaTeX export button in the =:PROPERTIES:= of the =Syllabus= 
-tree in the semester Org file (=2018 Fall.org=), you will see that the new course description 
+tree in the semester Org file (=2020 Spring.org=), you will see that the new course description 
 is reflected in the exported pdf.
 
 #+ATTR_LATEX: :height 6cm
@@ -674,8 +674,8 @@ The following example is the directory structure of this course, {{{COURSE}}}, a
 |   +---Org-Coursepack
 |   |   |   Org-Coursepack.org
 |   |   |
-|   |   +---2018 Fall
-|   |       |   2018 Fall.org
+|   |   +---2020 Spring
+|   |       |   2020 Spring.org
 |   |       |
 |   |       +---Assignments
 |   |       |   |   Assignment 1.pdf
@@ -819,7 +819,7 @@ semester subtrees are links to their respective semester Org files.
 
   #+BEGIN_EXAMPLE
   ,* Courses
-  ,** 2018 Fall
+  ,** 2020 Spring
   #+END_EXAMPLE
 
 The =Syllabus= subtree containts partial content for the syllabus,
@@ -865,10 +865,10 @@ with all the trees and drawers collapsed. We will dedicate several
 lectures to cover each component, following the order in which they are presented in the example.
 
   #+BEGIN_EXAMPLE
-  ,#+TITLE:     Org-Coursepack: Fall 2018
+  ,#+TITLE:     Org-Coursepack: 2020 Spring
   ,#+AUTHOR:    Your Name
   ,#+EMAIL:     Your Email
-  ,#+DESCRIPTION: Org-Coursepack: Fall 2018
+  ,#+DESCRIPTION: Org-Coursepack: 2020 Spring
   ,#+CATEGORY: Teaching
   
   :LOCALSETUP:
@@ -896,10 +896,10 @@ followed by three drawers containing various macros and export
 options, which will be used across the file.
 
   #+BEGIN_EXAMPLE
-  ,#+TITLE:     Org-Coursepack: Fall 2018
+  ,#+TITLE:     Org-Coursepack: 2020 Spring
   ,#+AUTHOR:    Your Name
   ,#+EMAIL:     Your Email
-  ,#+DESCRIPTION: Org-Coursepack: Fall 2018
+  ,#+DESCRIPTION: Org-Coursepack: 2020 Spring
   ,#+CATEGORY: Teaching
   
   :LOCALSETUP:
@@ -969,7 +969,7 @@ Course name and number are categorized as semester-specific information, as they
   :SEMESTER_INFO:
   ,#+MACRO: COURSE Org Teaching Template
   ,#+MACRO: COURSE_NUM ORG 0000
-  ,#+MACRO: SEMESTER Fall 2018
+  ,#+MACRO: SEMESTER 2020 Spring
   ,#+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
   :END:
   #+END_EXAMPLE
@@ -1076,7 +1076,7 @@ used in other places, such as class announcements.
   #+BEGIN_EXAMPLE
   ,*** Syllabus
   :PROPERTIES:
-  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
   #+END_EXAMPLE
 - =:PROPERTIES:= of this subtree contain export-related information for the
   syllabus, such as =:EXPORT_FILE_NAME:=.
@@ -1097,7 +1097,7 @@ used in other places, such as class announcements.
   #+BEGIN_EXAMPLE
   ,*** Syllabus
   :PROPERTIES:
-  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
   #+END_EXAMPLE
 *** Syllabus Top-level Tree
 :PROPERTIES:
@@ -1423,7 +1423,7 @@ outputs.
 Subtrees following the =Introduction= subtree contain lecture content.
 To minimize redunancy, lectures should draw as much material from the reusable
 content in the topic Org file subtrees as possible. See example
-below. (For more examples, see =2018 Fall.org= in =Org_Teaching=.)
+below. (For more examples, see =2020 Spring.org= in =Org_Teaching=.)
 
   #+LATEX: {\footnotesize
   #+BEGIN_EXAMPLE
@@ -1521,12 +1521,12 @@ answers. See the example and note below.
   :END:
   ,**** A Type
   :PROPERTIES:
-  ,#+INCLUDE: "2018 Fall.org::#Exam/Title Page" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/Title Page" :only-contents t
   ,***** Multiple Choice                                               :newpage:
   (2 points each, unless otherwise specified)
-  ,#+INCLUDE: "2018 Fall.org::#Exam/1/MC/A" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/1/MC/A" :only-contents t
   ,***** Short Answers                                                 :newpage:
-  ,#+INCLUDE: "2018 Fall.org::#Exam/1/Short Answers" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/1/Short Answers" :only-contents t
   #+END_EXAMPLE
   #+LATEX: }
 
@@ -1620,7 +1620,7 @@ one can have such questions in the corresponding topic Org file
 - Instructors can create assignments as they do lecture content using Org mode.
 - Assignment instructions may be created in the =Assignments= top-level
   tree of a topic Org file, which are then included here.
-- See =Org_Teaching/2018 Fall/2018 Fall.org= for an example.
+- See =Org_Teaching/2020 Spring/2020 Spring.org= for an example.
 *** =Local Variables= Top-level Tree
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Semester Org Files/Local Variables
