@@ -46,37 +46,32 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 *** Requirements
 - Org-Coursepack is a tool based on [[https://orgmode.org/manual/Export-settings.html][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables][GNU Emacs]]. It
   does not, however, require extensive previous experience with either, unless
-  the user wants to make changes to pre-built scripts. The basic level of
-  knowledge needed is:
-  - Emacs :: Basic knowledge of text editing using Emacs
-  - Org mode :: Basic knowledge of Org mode markup syntax. Org mode uses a
+  the user wants to make changes to pre-built scripts. Only the following basic knowledge is needed:
+  - Emacs :: Text editing using Emacs
+  - Org mode :: Org mode markup syntax. Org mode uses a
                 straightforward markup language similar to Markdown and
-                reStructuredText, thus it will be easy to learn for any user
+                reStructuredText, and thus, it will be easy to learn for any user
                 who is familiar with other markup languages.
-** Quickstart Guide: Create your first class with Org-Coursepack 
+** Quickstart Guide: Creating a course with Org-Coursepack 
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Quickstart Guide
 :END:
-In this quickstart guide, we will guide you through how to create your course
-with =Org-Coursepack= with step-by-step examples. We focus on syllabi and lectures, 
-as they tend to make up for the majority of the course content, and other parts such as 
-assignments and exams can be created similarly.
+This quickstart guide will show you, step-by-step, how to create your course
+with =Org-Coursepack=. We focus on creating syllabi and lectures, 
+as they typically make up the majority of course content. Other course materials, such as 
+assignments and exams, can be created in similar ways.
 *** Copy and rename =Template= course
-We use =/= as the root path of Org-Coursepack throughout this quickstart
-guide. Make a copy of the =Template= directory inside =/Courses= folder and
-rename the folder and =template.org= inside the folder to your course name. We
-call this =Org-Coursepack-Quickstart-Guide= in this tutorial:
+The quickstart guide uses =/= to refer the root path of Org-Coursepack. Make a copy of the =Template= directory (inside the =/Courses= directory). Change the names of the =Template= directory and
+the =template.org= file inside the directory, so they reflect the name of the course you are creating the materials for. See example below (we changed the names to =Example Course=):
 
 #+ATTR_LATEX: :width 8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Course-renamed.png
 
 #+REVEAL: split
 
-Your specific course for a semester will reside inside =Semester= folder. We
-assume that you are preparing a course for the fall 2018 semester -- let's
-rename the folder and =Semestor.org= inside the folder to =2018 Fall= and
-=2018 Fall.org=, respectively. From this semester Org file you will be
-exporting your actual course content.
+It is common for the same course to be taught across multiple semesters. Hence, the course will include a =Semester= folder for each semester it is taught. This folder includes a semester Org file, which is used to pull and organize modular course materials that can be used across courses and/or semesters. The semester Org file can also contain semester-specific content, such as class dates, classroom information, or office hours. The semester Org file is used to export course content into appropriate output formats (e.g., slides or handouts).
+
+The example below shows that the semester is Spring 2020. You can rename the =Semester= folder and the =Semestor.org= inside that folder to reflect the semester in which you are teaching that course. 
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-renamed.png
