@@ -75,29 +75,31 @@ The example below shows that the semester is 2020 Spring. You can rename the =Se
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-renamed.png
-*** Set local variable permissions in the semester Org file
-Visit (i.e., open) =2020 Spring.org=. First time you visit this file, it will 
+*** Set local variables permissions in the semester Org file
+When you open =2020 Spring.org= for the first time, it will 
 show you the following warning about local variables:
 
   #+BEGIN_SRC emacs-lisp
-  The local variables list in 201 Fall.org
+  The local variables list in 2020 Spring.org
   contains values that may not be safe (*), and variables that are risky (**)
+  
+  Do you want to apply it?  You can type
+  y  -- to apply the local variables list.
+  n  -- to ignore the local variables list.
+  !  -- to apply the local variables list, and permanently mark these 
+        values (*) as safe (in the future, they will be set automatically.)
   #+END_SRC
 
-These variables have time-format settings, as well as
-=org-confirm-elisp-link-function: nil=, which allows you to click on links
-(mainly for exporting) without being asked to confirm. You can type =!= to set
-them permanently for your convenience.
+This warning is to ask what you will do about the pre-set options contained in the file. For example, the option =org-confirm-elisp-link-function= is currently set to =nil=, which means that, when links containing Emacs scripts are clicked (e.g., for exporting), Emacs will not ask for your confirmation before the action is taken. You can type =!= to permanently set these options.
 
-Then you will see that the file is open and it has a template to construct a
-course for this semester:
+When the file is open, you will see the template for constructing a course for this semester:
 
 #+ATTR_LATEX: :height 7cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Org-File.png
 
-You can freely move around with movement keys. Drawers (e.g., =:LOCALSETUP:=)
+You can freely move the cursor around using the arrow keys. Drawers (e.g., =:LOCALSETUP:=)
 and subtrees (e.g., =* Sections=) under the cursor can be expanded and
-collapsed by pressing =Tab= key:
+collapsed by pressing the =Tab= key:
 
 #+ATTR_LATEX: :height 2cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Org-Expand.png
