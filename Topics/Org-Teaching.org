@@ -104,23 +104,23 @@ collapsed by pressing the =Tab= key:
 #+ATTR_LATEX: :height 2cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Org-Expand.png
 
-*** Rename paths to semester and course Org files for =#+INCLUDE= statements
-The semester Org file has many =#+INCLUDE= statements which refer to the
-semester Org itself and the course Org file. We should rename paths to these
-files so =#+INCLUDE= statements work property.
+*** Rename paths to semester and course Org files specified in =#+INCLUDE= statements
+The semester Org file has =#+INCLUDE= statements, which are used to pull content from other Org files (e.g., course Org file or other sections of the same semester Org file). The =#+INCLUDE= statements specify the paths to the Org files from which content are pulled. Rename these paths so the =#+INCLUDE= statements work properly.
 
-First, you should replace all occurrences of =./Semester.org::= with the name
-of the current semester Org file, =./2020 Spring.org::=. This can be achieved in
-Emacs by pressing =M-%= (=Alt+Shift+5=, or via =Edit= -> =Replace= -> =Replace
-String= menu), and inputting =./Semester.org::<Enter>= followed by =./2018
-Fall.org::<Enter>=, and pressing =!= (replace all). Emacs will let you know
-how many replaces it has done. The query replace will look like the following:
+Specifically, you should replace two file names in these paths.
+
+First, replace all occurrences of =./Semester.org::= with the name
+of your semester Org file (in the case of our example, =./2020 Spring.org::=). You can use the search-and-replace feature in
+Emacs by pressing =M-%= (=Alt+Shift+5=) or via =Edit= -> =Replace= -> =Replace
+String= menu).
+
+The replace query will look like the following:
 
   #+BEGIN_EXAMPLE 
   Query replace ./Semester.org with: ./2020 Spring.org
   #+END_EXAMPLE
   
-So all =./Semester.org::= are replaced by =./2020 Spring.org::=:
+As shown below, =./Semester.org::= is replaced by =./2020 Spring.org::=:
 
 #+LATEX: \begin{multicols}{2}
 #+ATTR_LATEX: :height 3cm
@@ -130,15 +130,13 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Bef
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png
 #+LATEX: \end{multicols}
   
-
-Then, replace =../Template.org::= with the name of your course Org file in the
-same way. In this quickstart guide,
+Repeat the same process for the template Org file. That is, replace =../Template.org::= with the name of your course Org file. See example below.
 
   #+BEGIN_EXAMPLE 
   Query replace ../Template.org:: with: ../Org-Coursepack-Quickstart-Guide.org::
   #+END_EXAMPLE
 
-So all =../Template.org::= are replaced by =../Org-Coursepack-Quickstart-Guide.org::=:
+As shown below, =../Template.org::= is replaced by =../Org-Coursepack-Quickstart-Guide.org::=:
 
 #+LATEX: \begin{multicols}{2}
 #+ATTR_LATEX: :height 3cm
