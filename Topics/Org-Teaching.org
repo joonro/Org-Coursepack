@@ -90,7 +90,7 @@ show you the following warning about local variables:
         values (*) as safe (in the future, they will be set automatically.)
   #+END_SRC
 
-This warning is to ask what you will do about the pre-set options contained in the file. For example, the option =org-confirm-elisp-link-function= is currently set to =nil=, which means that, when links containing Emacs scripts are clicked (e.g., for exporting), Emacs will not ask for your confirmation before the action is taken. You can type =!= to permanently set these options.
+This warning asks what you would like to do about the pre-set options contained in the file. For example, the option =org-confirm-elisp-link-function= is currently set to =nil=, which means that, when links containing Emacs scripts are clicked (e.g., for exporting), Emacs will not ask for your confirmation before the action is taken. You can type =!= to permanently set these options.
 
 When the file is open, you will see the template for constructing a course for this semester:
 
@@ -146,16 +146,14 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Befor
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png
 #+LATEX: \end{multicols}
 *** Inputting course information
-The first several lines of the semester Org file (=2020 Spring.org=) contain
-multiple course information values, such as the =#+TITLE:= and
-=#+DESCRIPTION:=. Also, You can press =Tab= key while your cursor is on
-=:COURSE_INFO:= to expand the drawer, revealing other information such as
-=COURSE= and =SEMESTER=. They currently have filler values:
+The first few lines of the semester Org file (see =2020 Spring.org=) contain information about this file, such as the =#+TITLE:= and
+=#+DESCRIPTION:= of the file. Expanding the =:COURSE_INFO:= drawer will reveal several macros which have information about 
+the course; the =COURSE= macro is to specify the name of the course, =COURSE_NUM= is to specify the course ID, and so on. They currently have filler values as shown below.
 
 #+ATTR_LATEX: :height 6cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png
 
-You can fill them with relevant information:
+You can fill the macro values with your own course information:
 
 #+ATTR_LATEX: :height 6cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png
