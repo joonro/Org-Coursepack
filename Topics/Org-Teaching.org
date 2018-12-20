@@ -164,6 +164,8 @@ To reduce reduncancy, the top level =* Syllabus= tree simply pulls information f
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png
 
+You can change these content to fit your own course (TODO see page XX of the documentation).
+
 **** Exporting a syllabus
 Syllabus exporting occurs at the =Syllabus= subtree under each section's subtree (e.g, =* Sections/01/Syllabus=) to enable passing on section-specific information through macros (see macros below).
 
@@ -174,42 +176,6 @@ To export the syllabus in our example, navigate to the =* Sections/01/Syllabus= 
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
-
-**** Editing syllabus content
-While the syllabus will be exported from this semester Org file (=2018
-Fall.org=), any course-specific content common across semesters, such as the
-course description, are stored in the course Org file
-(=Org-Coursepack-Quickstart-Guide.org=).
-
-Let's modify the course description. Navigate to =* Syllabus/Course
-Description=. When you expand =Course Description= subtree (see the screenshot
-below), you will see that it just includes the content from the course Org
-file (=../Org-Coursepack-Quickstart-Guide.org=). Hence we are assuming that
-you will be using the common course description across semesters, but you can
-organize your content flexibility with =Org-Coursepack=, so you can just add
-semester-specific description here. You can even mix and match the two
-approaches. For example, you can include the common part and then write
-semester-specific part below the =#+INCLUDE= statement.
-
-#+ATTR_LATEX: :height 3cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description.png
-
-While the cursor is on the =#+INCLUDE= statement (see the screenshot above),
-you can press =C-c '= (=CTRL+C= followed by ='=) to visit the file
-included. You can modify the content there so it reflects the description of
-your course. We add the following content there:
-
-#+ATTR_LATEX: :height 3cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description-Content-Edited.png
-
-Now if you again click on the LaTeX export button in the =:PROPERTIES:= of the =Syllabus= 
-tree in the semester Org file (=2020 Spring.org=), you will see that the new course description 
-is reflected in the exported pdf.
-
-#+ATTR_LATEX: :height 6cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Course-Desc.png
-
-We will go to the class schedule section since users can modify other sections in the same way. 
 
 **** Class Schedule
 =Class Schedule= section needs more explanation since =Org-Coursepack= is
