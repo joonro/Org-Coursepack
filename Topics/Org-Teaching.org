@@ -148,40 +148,33 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After
 *** Inputting course information
 The first few lines of the semester Org file (see =2020 Spring.org=) contain information about this file, such as the =#+TITLE:= and
 =#+DESCRIPTION:= of the file. Expanding the =:COURSE_INFO:= drawer will reveal several macros which have information about 
-the course; the =COURSE= macro is to specify the name of the course, =COURSE_NUM= is to specify the course ID, and so on. They currently have filler values as shown below.
+the course; the =COURSE= macro is for specifying the name of the course, =COURSE_NUM= is for specifying the course ID, and so on. They currently have filler values as shown in the first image below. You can fill the macro values with your own course information as shown second image below:
 
 #+ATTR_LATEX: :height 6cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png
 
-You can fill the macro values with your own course information:
-
 #+ATTR_LATEX: :height 6cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png
+
 *** Preparing your syllabus
-**** Exporting syllabus
-Let's prepare your syllabus. First, let's see how the output looks like by
-exporting the current syllabus. Navigate to =* Sections/01/Syllabus= subtree.
-You can expand and collapse subtrees by pressing =Tab= key. Expand
-=:PROPERTIES:= of the =* Sections/01/Syllabus= subtree by pressing =Tab=. It
-has built-in clickable links for LaTeX export =LaTeX (Custom Time Format)=.
-Clicking on this link (see the screenshot below) will export the syllabus for
-the section 1 to the =Syllabus= sub-directory.
+**** How syllabi are constructed
 
-#+ATTR_LATEX: :width 10cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
-
-Once export is finished, clicking on the =PDF= link will open the exported
-output in your default pdf viewer:
+To reduce reduncancy, the top level =* Syllabus= tree simply pulls information from the course Org file (for course-related information common across sections and semesters; e.g., course description), the semester Org file (for semester-specific information; e.g., academic year or office hours), and section-level macros (which contain section-specific information; e.g., class time and location). See example syllabus below. 
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png
 
- As you can see, it included the content
-from =* Syllabus= subtree, but it used section-specific information from
-=:PROPERTIES:= of the section subtree, as shown below.
+**** Exporting a syllabus
+Syllabus exporting occurs at the =Syllabus= subtree under each section's subtree (e.g, =* Sections/01/Syllabus=) to enable passing on section-specific information through macros (see macros below).
 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png
+
+To export the syllabus in our example, navigate to the =* Sections/01/Syllabus= subtree, then expand the =:PROPERTIES:= drawer. When the drawer is expanded, you will see a clickable link named =LaTeX (Custom Time Format)= (see image below). Clicking this link will export the syllabus for Section 1 to a PDF file using LaTeX. You can find the exported file in the =Syllabus= sub-directory. You can also  click the =PDF= link in the same =:PROPERTIES:= drawer (see image below) to open the exported file.
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
+
 **** Editing syllabus content
 While the syllabus will be exported from this semester Org file (=2018
 Fall.org=), any course-specific content common across semesters, such as the
