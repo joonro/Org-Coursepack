@@ -177,83 +177,45 @@ To export the syllabus in our example, navigate to the =* Sections/01/Syllabus= 
 #+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
 
-**** Class Schedule
-=Class Schedule= section needs more explanation since =Org-Coursepack= is
-designed to automatically generate the schedule of classes for your syllabus
-from the list of classes. Here we will discuss only schedule-related part of
-the lectures, and describe how to change actual lecture content in the next
-section.
+**** Class schedule
+You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. With a simple command, =Org-Coursepack= automatically generates a class schedule from the list of classes in the semester Org file.
 
-*Lecture and Assignment Dates*
-Let's take a look at the =* Lectures/Lecture and Assignment Dates= subtree.
-
-#+ATTR_LATEX: :height 7cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Dates.png
-
-Here, currently 4 assignment due dates and 28 class dates are defined. You can
-adjust these dates following your teaching schedule. These dates will be used
-when we update lecture information. Org mode provides a convenient way to
-adjust dates. For instance, when the cursor is on a timestamp, one can easily
-adjust dates by pressing =Up= and =Down= keys with =Shift= key.
-
-*Adding Lectures* Under the subtree =Lectures=, subtrees with =skipcount= tag
-are not actual lectures, they are either subtrees which have auxiliary
-information (dates, etc) or ones that are for non-lecture events such as
-assignment deadlines or holidays. Currently it has only one lecture,
-=Introduction=:
+*Adding classes.* The example =* Lectures= tree, as shown below, has only one lecture (i.e., =Course Introduction=). Lets try adding two additional lectures. (Note that subtrees with the =skipcount= tag are not actual lectures--they are either subtrees with auxiliary
+information, such as class dates and instructor's tasks, or subtrees for non-lecture events such as
+assignment due dates and holidays.)
 
 #+ATTR_LATEX: :height 5cm
-ㅚㅗfile:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png
 
-Let's add additional two lectures by copying & pasting the =Introduction=
-subtree. Then, let's change the name of these lecture subtrees. We will simply
+To add two additional lectures, copy & paste the =Course Introduction=
+subtree twice. Then, change the names of the two additional lecture subtrees. In the example, we will simply
 call them =Second Lecture= and =Third Lecture=:
 
 #+ATTR_LATEX: :height 8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png
 
-*Updating Lecture Information* When you expand =:PROPERTIES:= of the =Second
-Lecture=, you will notice that it has multiple information that needs to be
-updated, such as =CLASS=, =EXPORT_FILE_NAME=, and =DATE=. =Org-Coursepack=
-provides a convenient script =Update Lecture Information= written in
-Emacs-lisp which update these values as well as other elements of lectures
-that depend on the schedule (e.g., agenda of the current and the previous
-lectures) automatically.
-
-Move your cursor to the script named =Update Lecture Information=, which is
-located right under the =Lectures= subtree headline. You can run this script
-by =C-c C-c= (=CTRL+c= and =c= while pressing =CTRL= down). 
+*Updating Lecture Information.* Expanding the =:PROPERTIES:= drawer of each lecture (e.g., =Second
+Lecture=) will reveal class-related information, such as =CLASS=, =EXPORT_FILE_NAME=, and =DATE=. 
+You can automatically update these values by running the =Update Lecture Information= script. 
+The script is located right under the =Lectures= subtree headline (see image below)--to run the script, simply move the curser to the script and type =C-c C-c= (hit =c= twice while holding down the =CTRL= key).
 
 #+ATTR_LATEX: :height 3cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png
 
-Emacs will ask to confirm, and you can press =y= key to do so.
+When asked to confirm (see image below), press =y=.
 
 #+ATTR_LATEX: :width 11cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png
 
-Upon running the script, you will notice that the rendering of the subtrees are broken:
+In addition, you will need to press =Shift+Tab= to reset the rendering.
 
-#+ATTR_LATEX: :height 3cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-After.png
-
-You can simple press =Shift+Tab= to collapse all the subtrees to reset the rendering.
-
-Now let's inspect =:PROPERTIES:= for the =Second Lecture= again. Press =Tab=
-key to expand =:PROPERTIES:=:
+As shown in the image below, you should be able to see that the class information has been updated.
 
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png 
 
-As you can see, the script has updated information for the second (and the
-third) lecture appropriately. The class number reflects the order of the
-subtree. Then, the script grabs the corresponding date from the date specified
-in =* Lectures/Lecture and Assignment Dates=. It also extract the name of the
-lecture from the subtree headline, and then use it and the class number to
-construct =EXPORT_FILE_NAME=. The script also does other things, which we will
-describe in the next section. For non-lecture items, you can tag them with
-=skipcount= tag and the script will ignore them. You can edit tags of a headline 
-with =C-c q= (=CTRL+c= and =q= while pressing =CTRL= down).
+
+
 
 *Updating Schedule* Now we are ready to update the class schedule in
 Syllabus. Navigate to =* Syllabus/Class Schedule=, and then place your cursor
@@ -304,6 +266,9 @@ As you can see, the sections with =slideonly= (=handoutonly=) tag are not
 exported in LaTeX (reveal.js) output. You can easily specify any content you
 want to show in slides (e.g., announcements) or handouts (extended explanations)
 only in this way.
+
+
+Note that running this script will also update parts of the lecture that change with the class order (e.g., review of the previous class).
 
 Also, note that the contents for =Last Class= and =Lecture Agenda= under
 =Introduction= section, and =Class Summary= section are automatically written
