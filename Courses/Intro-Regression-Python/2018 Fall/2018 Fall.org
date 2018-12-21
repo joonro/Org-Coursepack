@@ -213,7 +213,7 @@
 :EXPORT_DATE: @@latex:\vspace{-6ex}@@
 :END:
      
-#+NAME: Update Lectures
+#+NAME: Update lecture metadata
 #+BEGIN_SRC emacs-lisp :results none
 ;; Update CLASS, DATE, and EXPORT_FILE_NAME properties of each class subtree
 ;; Update CUSTOM_ID of corresponding Class Objectives subtree, which must exist
