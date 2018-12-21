@@ -174,11 +174,16 @@ item under the cursor can be expanded and collapsed by pressing the <code class=
 </div>
 <div class="section" id="rename-paths-to-semester-and-course-org-files-specified-in-include-statements">
 <h3>2.4 Rename paths to semester and course Org files specified in <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements<a class="headerlink" href="#rename-paths-to-semester-and-course-org-files-specified-in-include-statements" title="Permalink to this headline">¶</a></h3>
-<p>The semester Org file has <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements, which are used to pull content from other Org files (e.g., course Org file or other sections of the same semester Org file). The <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements specify the paths to the Org files from which content are pulled. Rename these paths so the <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work properly.</p>
+<p>The semester Org file has <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements, which are used to pull
+content from other Org files (e.g., course Org file or other sections of the
+same semester Org file). The <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements specify the paths to the
+Org files from which content are pulled. These paths should be renamed so the
+<code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work properly.</p>
 <p>Specifically, you should replace two file names in these paths.</p>
-<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">./Semester.org::</span></code> with the name
-of your semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>). You can use the search-and-replace feature in
-Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code> (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>) or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu).</p>
+<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">./Semester.org::</span></code> with the name of your
+semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>). You can
+use the search-and-replace feature in Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code> (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>)
+or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu).</p>
 <p>The replace query will look like the following:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="o">./</span><span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="o">./</span><span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
