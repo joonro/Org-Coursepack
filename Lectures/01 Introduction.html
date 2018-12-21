@@ -97,16 +97,15 @@ allow automation of many tasks including:<ul>
 <ul>
 <li><p class="first">Org-Coursepack is a tool based on <a class="reference external" href="https://orgmode.org/manual/Export-settings.html">Org mode</a>, a major mode in <a class="reference external" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables">GNU Emacs</a>. It
 does not, however, require extensive previous experience with either, unless
-the user wants to make changes to pre-built scripts. The basic level of
-knowledge needed is:</p>
+the user wants to make changes to pre-built scripts. Only the following basic knowledge is needed:</p>
 <dl class="docutils">
 <dt>Emacs</dt>
-<dd><p class="first last">Basic knowledge of text editing using Emacs</p>
+<dd><p class="first last">Text editing using Emacs</p>
 </dd>
 <dt>Org mode</dt>
-<dd><p class="first last">Basic knowledge of Org mode markup syntax. Org mode uses a
+<dd><p class="first last">Org mode markup syntax. Org mode uses a
 straightforward markup language similar to Markdown and
-reStructuredText, thus it will be easy to learn for any user
+reStructuredText, and thus, it will be easy to learn for any user
 who is familiar with other markup languages.</p>
 </dd>
 </dl>
@@ -116,286 +115,175 @@ who is familiar with other markup languages.</p>
 </div>
 <div class="section" id="quickstart-guide">
 <h2>2 Quickstart Guide<a class="headerlink" href="#quickstart-guide" title="Permalink to this headline">¶</a></h2>
-<p>In this quickstart guide, we will guide you through how to create your course
-with <code class="docutils literal"><span class="pre">Org-Coursepack</span></code> with step-by-step examples. We focus on syllabi and lectures,
-as they tend to make up for the majority of the course content, and other parts such as
-assignments and exams can be created similarly.</p>
-<div class="section" id="copy-and-rename-template-course">
-<h3>2.1 Copy and rename <code class="docutils literal"><span class="pre">Template</span></code> course<a class="headerlink" href="#copy-and-rename-template-course" title="Permalink to this headline">¶</a></h3>
-<p>We use <code class="docutils literal"><span class="pre">/</span></code> as the root path of Org-Coursepack throughout this quickstart
-guide. Make a copy of the <code class="docutils literal"><span class="pre">Template</span></code> directory inside <code class="docutils literal"><span class="pre">/Courses</span></code> folder and
-rename the folder and <code class="docutils literal"><span class="pre">template.org</span></code> inside the folder to your course name. We
-call this <code class="docutils literal"><span class="pre">Org-Coursepack-Quickstart-Guide</span></code> in this tutorial:</p>
+<p>This quickstart guide will show you, step-by-step, how to create your course
+with <code class="docutils literal"><span class="pre">Org-Coursepack</span></code>. We focus on creating syllabi and lectures,
+as they typically make up the majority of course content. Other course materials, such as
+assignments and exams, can be created in similar ways.</p>
+<div class="section" id="copy-and-rename-the-template-directory-and-org-file">
+<h3>2.1 Copy and rename the <code class="docutils literal"><span class="pre">Template</span></code> directory and Org file<a class="headerlink" href="#copy-and-rename-the-template-directory-and-org-file" title="Permalink to this headline">¶</a></h3>
+<p>The quickstart guide uses <code class="docutils literal"><span class="pre">/</span></code> to refer the root path of Org-Coursepack. Make a copy of the <code class="docutils literal"><span class="pre">Template</span></code> directory (inside the <code class="docutils literal"><span class="pre">/Courses</span></code> directory). Change the names of the <code class="docutils literal"><span class="pre">Template</span></code> directory and
+the <code class="docutils literal"><span class="pre">template.org</span></code> file inside the directory, so they reflect the name of the course you are creating the materials for. See example below (we changed the names to <code class="docutils literal"><span class="pre">Example</span> <span class="pre">Course</span></code>):</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Course-renamed.png" src="../Assets/Images/Org-Teaching/Quickstart_Course-renamed.png" />
-<p>Your specific course for a semester will reside inside <code class="docutils literal"><span class="pre">Semester</span></code> folder. We
-assume that you are preparing a course for the fall 2018 semester – let’s
-rename the folder and <code class="docutils literal"><span class="pre">Semestor.org</span></code> inside the folder to <code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall</span></code> and
-<code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall.org</span></code>, respectively. From this semester Org file you will be
-exporting your actual course content.</p>
+<p>It is common for the same course to be taught across multiple semesters. Hence, the course will include a <code class="docutils literal"><span class="pre">Semester</span></code> folder for each semester it is taught. This folder includes a semester Org file, which is used to pull and organize modular course materials that can be used across courses and/or semesters. The semester Org file can also contain semester-specific content, such as class dates, classroom information, or office hours. The semester Org file is used to export course content into appropriate output formats (e.g., slides or handouts).</p>
+<p>The example below shows that the semester is 2020 Spring. You can rename the <code class="docutils literal"><span class="pre">Semester</span></code> folder and the <code class="docutils literal"><span class="pre">Semestor.org</span></code> inside that folder to reflect the semester in which you are teaching that course.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-renamed.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-renamed.png" />
 </div>
-<div class="section" id="set-local-variables-permission-in-semester-org-file">
-<h3>2.2 Set local variables permission in semester Org file<a class="headerlink" href="#set-local-variables-permission-in-semester-org-file" title="Permalink to this headline">¶</a></h3>
-<p>Visit (i.e., open) <code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall.org</span></code>. First time you visit this file, it will
+<div class="section" id="set-local-variables-permissions-in-the-semester-org-file">
+<h3>2.2 Set local variables permissions in the semester Org file<a class="headerlink" href="#set-local-variables-permissions-in-the-semester-org-file" title="Permalink to this headline">¶</a></h3>
+<p>When you open <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code> for the first time, it will
 show you the following warning about local variables:</p>
-<div class="code common-lisp highlight-default"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">local</span> <span class="n">variables</span> <span class="nb">list</span> <span class="ow">in</span> <span class="mi">201</span> <span class="n">Fall</span><span class="o">.</span><span class="n">org</span>
-<span class="n">contains</span> <span class="n">values</span> <span class="n">that</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">safe</span> <span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="ow">and</span> <span class="n">variables</span> <span class="n">that</span> <span class="n">are</span> <span class="n">risky</span> <span class="p">(</span><span class="o">**</span><span class="p">)</span>
+<div class="code common-lisp highlight-default"><div class="highlight"><pre><span></span>The local variables list in 2020 Spring.org
+contains values that may not be safe (*), and variables that are risky (**)
+
+Do you want to apply it?  You can type
+y  -- to apply the local variables list.
+n  -- to ignore the local variables list.
+!  -- to apply the local variables list, and permanently mark these
+      values (*) as safe (in the future, they will be set automatically.)
 </pre></div>
 </div>
-<p>These variables have time-format settings, as well as
-<code class="docutils literal"><span class="pre">org-confirm-elisp-link-function:</span> <span class="pre">nil</span></code>, which allows you to click on links
-(mainly for exporting) without being asked to confirm. You can type <code class="docutils literal"><span class="pre">!</span></code> to set
-them permanently for your convenience.</p>
-<p>Then you will see that the file is open and it has a template to construct a
-course for this semester:</p>
+<p>This warning asks what you would like to do about the pre-set options contained in the file. For example, the option <code class="docutils literal"><span class="pre">org-confirm-elisp-link-function</span></code> is currently set to <code class="docutils literal"><span class="pre">nil</span></code>, which means that, when links containing Emacs scripts are clicked (e.g., for exporting), Emacs will not ask for your confirmation before the action is taken. You can type <code class="docutils literal"><span class="pre">!</span></code> to permanently set these options.</p>
+<p>When the file is open, you will see the template for constructing a course for this semester:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Org-File.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Org-File.png" />
-<p>You can freely move around with movement keys. Drawers (e.g., <code class="docutils literal"><span class="pre">:LOCALSETUP:</span></code>)
+<p>You can freely move the cursor around using the arrow keys. Drawers (e.g., <code class="docutils literal"><span class="pre">:LOCALSETUP:</span></code>)
 and subtrees (e.g., <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Sections</span></code>) under the cursor can be expanded and
-collapsed by pressing <code class="docutils literal"><span class="pre">Tab</span></code> key:</p>
+collapsed by pressing the <code class="docutils literal"><span class="pre">Tab</span></code> key:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Org-Expand.png" src="../Assets/Images/Org-Teaching/Quickstart_Org-Expand.png" />
 </div>
-<div class="section" id="rename-paths-to-semester-and-course-org-files-for-include-statements">
-<h3>2.3 Rename paths to semester and course Org files for <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements<a class="headerlink" href="#rename-paths-to-semester-and-course-org-files-for-include-statements" title="Permalink to this headline">¶</a></h3>
-<p>The semester Org file has many <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements which refer to the
-semester Org itself and the course Org file. We should rename paths to these
-files so <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work property.</p>
-<p>First, you should replace all occurrences of <code class="docutils literal"><span class="pre">./Semester.org::</span></code> with the name
-of the current semester Org file, <code class="docutils literal"><span class="pre">./2018</span> <span class="pre">Fall.org::</span></code>. This can be achieved in
-Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code> (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>, or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu), and inputting <code class="docutils literal"><span class="pre">./Semester.org::&lt;Enter&gt;</span></code> followed by <code class="docutils literal"><span class="pre">./2018</span> <span class="pre">Fall.org::&lt;Enter&gt;</span></code>, and pressing <code class="docutils literal"><span class="pre">!</span></code> (replace all). Emacs will let you know
-how many replaces it has done. The query replace will look like the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="o">./</span><span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="o">./</span><span class="mi">2018</span> <span class="n">Fall</span><span class="o">.</span><span class="n">org</span>
+<div class="section" id="rename-paths-to-semester-and-course-org-files-specified-in-include-statements">
+<h3>2.3 Rename paths to semester and course Org files specified in <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements<a class="headerlink" href="#rename-paths-to-semester-and-course-org-files-specified-in-include-statements" title="Permalink to this headline">¶</a></h3>
+<p>The semester Org file has <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements, which are used to pull content from other Org files (e.g., course Org file or other sections of the same semester Org file). The <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements specify the paths to the Org files from which content are pulled. Rename these paths so the <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work properly.</p>
+<p>Specifically, you should replace two file names in these paths.</p>
+<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">./Semester.org::</span></code> with the name
+of your semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>). You can use the search-and-replace feature in
+Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code> (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>) or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu).</p>
+<p>The replace query will look like the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="o">./</span><span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="o">./</span><span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
 </div>
-<p>So all <code class="docutils literal"><span class="pre">./Semester.org::</span></code> are replaced by <code class="docutils literal"><span class="pre">./2018</span> <span class="pre">Fall.org::</span></code>:</p>
+<p>As shown below, <code class="docutils literal"><span class="pre">./Semester.org::</span></code> is replaced by <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" />
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" />
-<p>Then, replace <code class="docutils literal"><span class="pre">../Template.org::</span></code> with the name of your course Org file in the
-same way. In this quickstart guide,</p>
+<p>Repeat the same process for the template Org file. That is, replace <code class="docutils literal"><span class="pre">../Template.org::</span></code> with the name of your course Org file. See example below.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="o">../</span><span class="n">Template</span><span class="o">.</span><span class="n">org</span><span class="p">::</span> <span class="k">with</span><span class="p">:</span> <span class="o">../</span><span class="n">Org</span><span class="o">-</span><span class="n">Coursepack</span><span class="o">-</span><span class="n">Quickstart</span><span class="o">-</span><span class="n">Guide</span><span class="o">.</span><span class="n">org</span><span class="p">::</span>
 </pre></div>
 </div>
-<p>So all <code class="docutils literal"><span class="pre">../Template.org::</span></code> are replaced by <code class="docutils literal"><span class="pre">../Org-Coursepack-Quickstart-Guide.org::</span></code>:</p>
+<p>As shown below, <code class="docutils literal"><span class="pre">../Template.org::</span></code> is replaced by <code class="docutils literal"><span class="pre">../Org-Coursepack-Quickstart-Guide.org::</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Before.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Before.png" />
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png" />
 </div>
 <div class="section" id="inputting-course-information">
 <h3>2.4 Inputting course information<a class="headerlink" href="#inputting-course-information" title="Permalink to this headline">¶</a></h3>
-<p>The first several lines of the semester Org file (<code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall.org</span></code>) contain
-multiple course information values, such as the <code class="docutils literal"><span class="pre">#+TITLE:</span></code> and
-<code class="docutils literal"><span class="pre">#+DESCRIPTION:</span></code>. Also, You can press <code class="docutils literal"><span class="pre">Tab</span></code> key while your cursor is on
-<code class="docutils literal"><span class="pre">:COURSE_INFO:</span></code> to expand the drawer, revealing other information such as
-<code class="docutils literal"><span class="pre">COURSE</span></code> and <code class="docutils literal"><span class="pre">SEMESTER</span></code>. They currently have filler values:</p>
+<p>The first few lines of the semester Org file (see <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>) contain information about this file, such as the <code class="docutils literal"><span class="pre">#+TITLE:</span></code> and
+<code class="docutils literal"><span class="pre">#+DESCRIPTION:</span></code> of the file. Expanding the <code class="docutils literal"><span class="pre">:COURSE_INFO:</span></code> drawer will reveal several macros which have information about
+the course; the <code class="docutils literal"><span class="pre">COURSE</span></code> macro is for specifying the name of the course, <code class="docutils literal"><span class="pre">COURSE_NUM</span></code> is for specifying the course ID, and so on. They currently have filler values as shown in the first image below. You can fill the macro values with your own course information as shown second image below:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png" />
-<p>You can fill them with relevant information:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png" />
 </div>
 <div class="section" id="preparing-your-syllabus">
 <h3>2.5 Preparing your syllabus<a class="headerlink" href="#preparing-your-syllabus" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="exporting-syllabus">
-<h4>2.5.1 Exporting syllabus<a class="headerlink" href="#exporting-syllabus" title="Permalink to this headline">¶</a></h4>
-<p>Let’s prepare your syllabus. First, let’s see how the output looks like by
-exporting the current syllabus. Navigate to <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree.
-You can expand and collapse subtrees by pressing <code class="docutils literal"><span class="pre">Tab</span></code> key. Expand
-<code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> of the <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree by pressing <code class="docutils literal"><span class="pre">Tab</span></code>. It
-has built-in clickable links for LaTeX export <code class="docutils literal"><span class="pre">LaTeX</span> <span class="pre">(Custom</span> <span class="pre">Time</span> <span class="pre">Format)</span></code>.
-Clicking on this link (see the screenshot below) will export the syllabus for
-the section 1 to the <code class="docutils literal"><span class="pre">Syllabus</span></code> sub-directory.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" />
-<p>Once export is finished, clicking on the <code class="docutils literal"><span class="pre">PDF</span></code> link will open the exported
-output in your default pdf viewer:</p>
-<p>from <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Syllabus</span></code> subtree, but it used section-specific information from
-<code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> of the section subtree, as shown below.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" src="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" />
+<div class="section" id="how-syllabi-are-constructed">
+<h4>2.5.1 How syllabi are constructed<a class="headerlink" href="#how-syllabi-are-constructed" title="Permalink to this headline">¶</a></h4>
+<p>To reduce reduncancy, the top level <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Syllabus</span></code> tree simply pulls information from the course Org file (for course-related information common across sections and semesters; e.g., course description), the semester Org file (for semester-specific information; e.g., academic year or office hours), and section-level macros (which contain section-specific information; e.g., class time and location). See example syllabus below.</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" />
+<p>You can change these content to fit your own course (TODO see page XX of the documentation).</p>
 </div>
-<div class="section" id="editing-syllabus-content">
-<h4>2.5.2 Editing syllabus content<a class="headerlink" href="#editing-syllabus-content" title="Permalink to this headline">¶</a></h4>
-<p>While the syllabus will be exported from this semester Org file (<code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall.org</span></code>), any course-specific content common across semesters, such as the
-course description, are stored in the course Org file
-(<code class="docutils literal"><span class="pre">Org-Coursepack-Quickstart-Guide.org</span></code>).</p>
-<p>Let’s modify the course description. Navigate to <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Syllabus/Course</span> <span class="pre">Description</span></code>. When you expand <code class="docutils literal"><span class="pre">Course</span> <span class="pre">Description</span></code> subtree (see the screenshot
-below), you will see that it just includes the content from the course Org
-file (<code class="docutils literal"><span class="pre">../Org-Coursepack-Quickstart-Guide.org</span></code>). Hence we are assuming that
-you will be using the common course description across semesters, but you can
-organize your content flexibility with <code class="docutils literal"><span class="pre">Org-Coursepack</span></code>, so you can just add
-semester-specific description here. You can even mix and match the two
-approaches. For example, you can include the common part and then write
-semester-specific part below the <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statement.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description.png" />
-<p>While the cursor is on the <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statement (see the screenshot above),
-you can press <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">'</span></code> (<code class="docutils literal"><span class="pre">CTRL+C</span></code> followed by <code class="docutils literal"><span class="pre">'</span></code>) to visit the file
-included. You can modify the content there so it reflects the description of
-your course. We add the following content there:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description-Content-Edited.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Course-Description-Content-Edited.png" />
-<p>Now if you again click on the LaTeX export button in the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> of the <code class="docutils literal"><span class="pre">Syllabus</span></code>
-tree in the semester Org file (<code class="docutils literal"><span class="pre">2018</span> <span class="pre">Fall.org</span></code>), you will see that the new course description
-is reflected in the exported pdf.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Course-Desc.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Course-Desc.png" />
-<p>We will go to the class schedule section since users can modify other sections in the same way.</p>
+<div class="section" id="exporting-a-syllabus">
+<h4>2.5.2 Exporting a syllabus<a class="headerlink" href="#exporting-a-syllabus" title="Permalink to this headline">¶</a></h4>
+<p>Syllabus exporting occurs at the <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree under each section’s subtree (e.g, <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Sections/01/Syllabus</span></code>) to enable passing on section-specific information through macros (see macros below).</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" src="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" />
+<p>To export the syllabus in our example, navigate to the <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree, then expand the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer. When the drawer is expanded, you will see a clickable link named <code class="docutils literal"><span class="pre">LaTeX</span> <span class="pre">(Custom</span> <span class="pre">Time</span> <span class="pre">Format)</span></code> (see image below). Clicking this link will export the syllabus for Section 1 to a PDF file using LaTeX. You can find the exported file in the <code class="docutils literal"><span class="pre">Syllabus</span></code> sub-directory. You can also  click the <code class="docutils literal"><span class="pre">PDF</span></code> link in the same <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer (see image below) to open the exported file.</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" />
 </div>
 <div class="section" id="class-schedule">
-<h4>2.5.3 Class Schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal"><span class="pre">Class</span> <span class="pre">Schedule</span></code> section needs more explanation since <code class="docutils literal"><span class="pre">Org-Coursepack</span></code> is
-designed to automatically generate the schedule of classes for your syllabus
-from the list of classes. Here we will discuss only schedule-related part of
-the lectures, and describe how to change actual lecture content in the next
-section.</p>
-<p><strong>Lecture and Assignment Dates</strong>
-Let’s take a look at the <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Lectures/Lecture</span> <span class="pre">and</span> <span class="pre">Assignment</span> <span class="pre">Dates</span></code> subtree.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Dates.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Dates.png" />
-<p>Here, currently 4 assignment due dates and 28 class dates are defined. You can
-adjust these dates following your teaching schedule. These dates will be used
-when we update lecture information. Org mode provides a convenient way to
-adjust dates. For instance, when the cursor is on a timestamp, one can easily
-adjust dates by pressing <code class="docutils literal"><span class="pre">Up</span></code> and <code class="docutils literal"><span class="pre">Down</span></code> keys with <code class="docutils literal"><span class="pre">Shift</span></code> key.</p>
-<p><strong>Adding Lectures</strong> Under the subtree <code class="docutils literal"><span class="pre">Lectures</span></code>, subtrees with <code class="docutils literal"><span class="pre">skipcount</span></code> tag
-are not actual lectures, they are either subtrees which have auxiliary
-information (dates, etc) or ones that are for non-lecture events such as
-assignment deadlines or holidays. Currently it has only one lecture,
-<code class="docutils literal"><span class="pre">Introduction</span></code>:</p>
-<p>ㅚㅗ.. image:: ../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png</p>
-<p>Let’s add additional two lectures by copying &amp; pasting the <code class="docutils literal"><span class="pre">Introduction</span></code>
-subtree. Then, let’s change the name of these lecture subtrees. We will simply
-call them <code class="docutils literal"><span class="pre">Second</span> <span class="pre">Lecture</span></code> and <code class="docutils literal"><span class="pre">Third</span> <span class="pre">Lecture</span></code>:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png" />
-<p><strong>Updating Lecture Information</strong> When you expand <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> of the <code class="docutils literal"><span class="pre">Second</span> <span class="pre">Lecture</span></code>, you will notice that it has multiple information that needs to be
-updated, such as <code class="docutils literal"><span class="pre">CLASS</span></code>, <code class="docutils literal"><span class="pre">EXPORT_FILE_NAME</span></code>, and <code class="docutils literal"><span class="pre">DATE</span></code>. <code class="docutils literal"><span class="pre">Org-Coursepack</span></code>
-provides a convenient script <code class="docutils literal"><span class="pre">Update</span> <span class="pre">Lecture</span> <span class="pre">Information</span></code> written in
-Emacs-lisp which update these values as well as other elements of lectures
-that depend on the schedule (e.g., agenda of the current and the previous
-lectures) automatically.</p>
-<p>Move your cursor to the script named <code class="docutils literal"><span class="pre">Update</span> <span class="pre">Lecture</span> <span class="pre">Information</span></code>, which is
-located right under the <code class="docutils literal"><span class="pre">Lectures</span></code> subtree headline. You can run this script
-by <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> (<code class="docutils literal"><span class="pre">CTRL+c</span></code> and <code class="docutils literal"><span class="pre">c</span></code> while pressing <code class="docutils literal"><span class="pre">CTRL</span></code> down).</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png" />
-<p>Emacs will ask to confirm, and you can press <code class="docutils literal"><span class="pre">y</span></code> key to do so.</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png" />
-<p>Upon running the script, you will notice that the rendering of the subtrees are broken:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-After.png" />
-<p>You can simple press <code class="docutils literal"><span class="pre">Shift+Tab</span></code> to collapse all the subtrees to reset the rendering.</p>
-<p>Now let’s inspect <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> for the <code class="docutils literal"><span class="pre">Second</span> <span class="pre">Lecture</span></code> again. Press <code class="docutils literal"><span class="pre">Tab</span></code>
-key to expand <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code>:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png" />
-<p>As you can see, the script has updated information for the second (and the
-third) lecture appropriately. The class number reflects the order of the
-subtree. Then, the script grabs the corresponding date from the date specified
-in <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Lectures/Lecture</span> <span class="pre">and</span> <span class="pre">Assignment</span> <span class="pre">Dates</span></code>. It also extract the name of the
-lecture from the subtree headline, and then use it and the class number to
-construct <code class="docutils literal"><span class="pre">EXPORT_FILE_NAME</span></code>. The script also does other things, which we will
-describe in the next section. For non-lecture items, you can tag them with
-<code class="docutils literal"><span class="pre">skipcount</span></code> tag and the script will ignore them. You can edit tags of a headline
-with <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">q</span></code> (<code class="docutils literal"><span class="pre">CTRL+c</span></code> and <code class="docutils literal"><span class="pre">q</span></code> while pressing <code class="docutils literal"><span class="pre">CTRL</span></code> down).</p>
-<p><strong>Updating Schedule</strong> Now we are ready to update the class schedule in
-Syllabus. Navigate to <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code>, and then place your cursor
-to the line starting with <code class="docutils literal"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. If you expand the columnview,
-you will see that it has a table with previous classes.</p>
+<h4>2.5.3 Class schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h4>
+<p>You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. You can use a simple command to automatically generate/update a class schedule from the list of classes and their metadata in the semester Org file. Navigate to the <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code> subtree and place your cursor on the line that starts with <code class="docutils literal"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. Then, with the curser in place, press <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> (hit <code class="docutils literal"><span class="pre">c</span></code> twice while holding down the <code class="docutils literal"><span class="pre">CTRL</span></code> key) to generate/update the class schedule with the most recent information. Any changes made to the order or names of classes will automatically be reflected when the instructor updates the class schedule with the <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> command.</p>
+<p>You can view the class schedule by expanding the <code class="docutils literal"><span class="pre">columnview</span></code> (see example class schedule below).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" />
-<p>Pressing <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> will update the table:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-New.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-New.png" />
-<p>As you can see, the columnview automatically extract relevant information from
-each lecture subtree in creating the table. Hence, the user can freely
-re-organize lectures and change their names without worrying about updating
-lecture information or class schedule manually.</p>
-<p>Of course, the updated schedule will be reflected when the user export the syllabus for a section:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Schedule.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Schedule.png" />
 </div>
 </div>
 <div class="section" id="preparing-your-lectures">
 <h3>2.6 Preparing your lectures<a class="headerlink" href="#preparing-your-lectures" title="Permalink to this headline">¶</a></h3>
+<p>The Quickstart guide will begin by introducing the exporting functions to help beginners visualize the lecture slides and handouts generated with the <code class="docutils literal"><span class="pre">Org-Coursepack</span></code>.</p>
 <div class="section" id="exporting-slides-and-handouts">
 <h4>2.6.1 Exporting slides and handouts<a class="headerlink" href="#exporting-slides-and-handouts" title="Permalink to this headline">¶</a></h4>
-<p>Similar to <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree under each section subtree, a lecture subtree
-has built-in export links available. You can click on <code class="docutils literal"><span class="pre">reveal.js</span></code> and <code class="docutils literal"><span class="pre">LaTeX</span></code>
-links to export the lecture to slide and handout formats, respectively.</p>
+<p>Each lecture subtree, in its <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer, has clickable links for export functions (see image below). The <code class="docutils literal"><span class="pre">reveal.js</span></code> link is for exporting the lecture to html <code class="docutils literal"><span class="pre">reveal.js</span></code> slides. The <code class="docutils literal"><span class="pre">LaTeX</span></code> link is for exporting the lecture to a document-like handout (as opposed to scaled-down slides) in a PDF file format. Clicking the <code class="docutils literal"><span class="pre">HTML</span></code> and <code class="docutils literal"><span class="pre">PDF</span></code> links will open the corresponding exported file.
+The exported files can be located in the <code class="docutils literal"><span class="pre">Lectures</span></code> sub-directory of the semester folder.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Export-Link.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Export-Link.png" />
-<p>Let’s export the lecture to both reveal.js and LaTeX output formats. The files
-will be exported to <code class="docutils literal"><span class="pre">Lectures</span></code> sub-directory of the semester folder. Clicking
-on <code class="docutils literal"><span class="pre">HTML</span></code> and <code class="docutils literal"><span class="pre">PDF</span></code> links will open the corresponding exported file.</p>
-<p>The following two screenshots show the exported outputs, where it is showing
-the slide overview for the reveal.js slides:</p>
+<p>The following image shows an example of an exported html <code class="docutils literal"><span class="pre">reveal.js</span></code> slides (the slide overview portion).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_reveal.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_reveal.png" />
+<p>The image below shows an example of an exported PDF handout.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_LaTeX.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_LaTeX.png" />
-<p>As you can see, the sections with <code class="docutils literal"><span class="pre">slideonly</span></code> (<code class="docutils literal"><span class="pre">handoutonly</span></code>) tag are not
-exported in LaTeX (reveal.js) output. You can easily specify any content you
-want to show in slides (e.g., announcements) or handouts (extended explanations)
-only in this way.</p>
-<p>Also, note that the contents for <code class="docutils literal"><span class="pre">Last</span> <span class="pre">Class</span></code> and <code class="docutils literal"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code> under
-<code class="docutils literal"><span class="pre">Introduction</span></code> section, and <code class="docutils literal"><span class="pre">Class</span> <span class="pre">Summary</span></code> section are automatically written
-by <code class="docutils literal"><span class="pre">Update</span> <span class="pre">Lecture</span> <span class="pre">Information</span></code> script described earlier. Hence, users can
-freely edit lecture content and the order of lectures without worrying about
-tediously fixing these boilerplate parts. For example, after changing the
-order of lectures, the user can simply run the script and the <code class="docutils literal"><span class="pre">Last</span> <span class="pre">Class</span></code>
-slide of each lecture will correctly point to the previous lecture in the new
-order.</p>
-<p>See <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/05%20Exporting%20Slides%20and%20Handouts.html">Exporting Slides and Handouts</a> for more information about exporting
-content, including setting up a key binding, which is convenient for repeated
-exporting.</p>
+<p>As you can see, class materials under subtrees with the <code class="docutils literal"><span class="pre">slideonly</span></code> (<code class="docutils literal"><span class="pre">handoutonly</span></code>) tag are not
+exported in the LaTeX (reveal.js) output. The tags allow you to specify materials you
+want to show only in lecture slides and not in handouts (e.g., in-class announcements) or only in handouts and not in lecture slides (e.g., supplementary information about a topic).</p>
+<p>See <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/05%20Exporting%20Slides%20and%20Handouts.html">Exporting Slides and Handouts</a> for more information about exporting lectures.</p>
+</div>
+<div class="section" id="adding-new-classes-lectures-and-updating-their-metadata">
+<h4>2.6.2 Adding new classes/lectures and updating their metadata<a class="headerlink" href="#adding-new-classes-lectures-and-updating-their-metadata" title="Permalink to this headline">¶</a></h4>
+<p>The example <code class="docutils literal"><span class="pre">\*</span> <span class="pre">Lectures</span></code> tree, as shown below, has only one lecture (i.e., <code class="docutils literal"><span class="pre">Course</span> <span class="pre">Introduction</span></code>). Lets try adding two additional lectures. (Note that subtrees with the <code class="docutils literal"><span class="pre">skipcount</span></code> tag are not actual lectures–they are either subtrees with auxiliary
+information, such as class dates and instructor’s tasks, or subtrees for non-lecture events such as
+assignment due dates and holidays.)</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png" />
+<p>To add two additional lectures, copy and paste the <code class="docutils literal"><span class="pre">Course</span> <span class="pre">Introduction</span></code>
+subtree twice. Then, change the names of the two additional lecture subtrees. In the example, we will simply
+call them <code class="docutils literal"><span class="pre">Second</span> <span class="pre">Lecture</span></code> and <code class="docutils literal"><span class="pre">Third</span> <span class="pre">Lecture</span></code>:</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png" />
+<p>Expanding the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer of each lecture (e.g., <code class="docutils literal"><span class="pre">Second</span> <span class="pre">Lecture</span></code>) will reveal class-related metadata, such as <code class="docutils literal"><span class="pre">CLASS</span></code>, <code class="docutils literal"><span class="pre">EXPORT_FILE_NAME</span></code>, and <code class="docutils literal"><span class="pre">DATE</span></code>.
+You can automatically update these values by running the <code class="docutils literal"><span class="pre">Update</span> <span class="pre">lecture</span> <span class="pre">metadata</span></code> script.
+The script is located right under the <code class="docutils literal"><span class="pre">Lectures</span></code> subtree headline (see image below)–to run the script, simply move the curser to the script and type <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code>.</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png" />
+<p>When asked to confirm (see image below), press <code class="docutils literal"><span class="pre">y</span></code>.</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png" />
+<p>In addition, you will need to press <code class="docutils literal"><span class="pre">Shift+Tab</span></code> to reset the rendering.</p>
+<p>As shown in the image below, you should be able to see that the lecture metadata have been updated.</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png" />
+<p>As explained earlier, you can update the class schedule in the syllabus with the new lecture metadata.</p>
+</div>
+<div class="section" id="creating-modular-content">
+<h4>2.6.3 Creating modular content<a class="headerlink" href="#creating-modular-content" title="Permalink to this headline">¶</a></h4>
+<p>One of the biggest advantages of using the <code class="docutils literal"><span class="pre">Org-Coursepack</span></code> is that instructors can leverage Org mode’s flexible inclusion
+functionality when developing course materials. Course materials that are stored in topic Org files can be pulled into semester Org files using the <code class="docutils literal"><span class="pre">#+INCLUDE:</span></code> statement to construct lectures (see example below).</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png" />
+<p>This modular approach reduces redundancy and makes it easier to manage and update course materials. For example, any improvements made to a content can be automatically applied to all courses pulling that content. This approach is optional–instructors can also choose to put all course materials directly into a semester Org file. See the <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/08%20Semester%20Org%20Files%203%204%20Lectures.html">Lectures</a> part of the documentation for more details.</p>
 </div>
 <div class="section" id="editing-lecture-content">
-<h4>2.6.2 Editing lecture content<a class="headerlink" href="#editing-lecture-content" title="Permalink to this headline">¶</a></h4>
-<p>Let’s add additional section to the lecture. Add a subtree called <code class="docutils literal"><span class="pre">New</span> <span class="pre">section</span></code> as the same
-level as other sections (<code class="docutils literal"><span class="pre">\*\*\*</span> <span class="pre">New</span> <span class="pre">section</span></code>).</p>
+<h4>2.6.4 Editing lecture content<a class="headerlink" href="#editing-lecture-content" title="Permalink to this headline">¶</a></h4>
+<p>Let’s add content to a lecture. Any lecture content (e.g., Focus Groups) will belong to a topic subtree (e.g., Types of Qualitative Research Methods). In the example shown below, we simply added a <code class="docutils literal"><span class="pre">New</span> <span class="pre">topic</span></code> subtree at the same
+level as other topic subtrees (i.e., <code class="docutils literal"><span class="pre">\*\*\*</span> <span class="pre">New</span> <span class="pre">topic</span></code>).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_New_Section.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_New_Section.png" />
-<p>You can freely use Org markup language, which is similar to other popular
-markup languages such as Markdown and reStructuredText, to create your
-content. The main differences are in Org mode, <code class="docutils literal"><span class="pre">\*</span></code> is used to specify levels
-of headings, and headings can have data associated with them in the form of
-<code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> and tags. In addition, navigating through a long document is
-convenient because all headings and drawers are collapsible.</p>
-<p>We show examples of several basic use cases here. For detailed instructions,
-see <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/04%20Creating%20Content%20for%20Slides%20and%20Handouts.html">Creating Content for Slides and Handouts</a> section of the documentation and
-<a class="reference external" href="https://orgmode.org/manual/index.html">Org manual</a>.</p>
-<p><strong>Lists</strong> Obviously you cannot use <code class="docutils literal"><span class="pre">\*</span></code> to specify a list, but otherwise Org mode
-uses a typical syntax (<code class="docutils literal"><span class="pre">-</span></code> or <code class="docutils literal"><span class="pre">+</span></code> for lists, <code class="docutils literal"><span class="pre">1.</span></code> for numbered lists) for
+<p>When creating content under the topic subtree, you can freely use Org markup language, which is similar to other popular
+markup languages such as Markdown and reStructuredText. The Quickstart Guide shows several basic examples. For more detailed instructions,
+see the <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/04%20Creating%20Content%20for%20Slides%20and%20Handouts.html">Creating Content for Slides and Handouts</a> section of the documentation. You can also see <a class="reference external" href="https://orgmode.org/manual/index.html">Org manual</a>.</p>
+<p><strong>Lists.</strong> Org mode uses a typical syntax (<code class="docutils literal"><span class="pre">-</span></code> or <code class="docutils literal"><span class="pre">+</span></code> for lists, <code class="docutils literal"><span class="pre">1.</span></code> for numbered lists) for
 lists. For example,</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Lists.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Lists.png" />
-<p><strong>Math</strong> you can directly input LaTeX math in Org mode. For example,</p>
+<p><strong>Math.</strong> you can directly input LaTeX math in Org mode. For example,</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Math.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Math.png" />
-<p><strong>Slide split</strong> in general, reveal.js will automatically create slide structure
-from the lecture subtree. Sometimes, however, users might want to split a
-slide into multiple slides. Users can put <code class="docutils literal"><span class="pre">#+REVEAL:</span> <span class="pre">split</span></code> to split a
-slide. For example,</p>
+<p>In <code class="docutils literal"><span class="pre">reveal.js</span></code> slides, math will be rendered with <a class="reference external" href="https://www.mathjax.org">MathJax</a>.</p>
+<p><strong>Slide split.</strong> Lecture content are automatically divided into different slides following the structure
+of the lecture subtree (e.g., content for a new topic will be presented in a new set of slides). An instructor can also force a new slide by inserting <code class="docutils literal"><span class="pre">#+REVEAL:</span> <span class="pre">split</span></code> into a desired location. For example,</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Split.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Split.png" />
-<p><strong>Fragmented contents</strong> Fragmented contents such as lists can be easily
-specified by putting <code class="docutils literal"><span class="pre">#+ATTR_REVEAL:</span> <span class="pre">:frag</span> <span class="pre">(appear)</span></code> before a list. For example:</p>
+<p><strong>Fragmented contents.</strong> Fragmented contents (e.g., items in a listing being presented one after another) can be
+specified by putting <code class="docutils literal"><span class="pre">#+ATTR_REVEAL:</span> <span class="pre">:frag</span> <span class="pre">(appear)</span></code> before the contents that are to be fragmented. For example:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Fragmented.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Fragmented.png" />
-<p><strong>Images</strong> Prepending <code class="docutils literal"><span class="pre">file:</span></code> to an image file path is sufficient to include a
-local image to both slide and handout. For HTML, specifying <code class="docutils literal"><span class="pre">URL</span></code> is
-sufficient for an image on the web. Note that using a relative path
-(<code class="docutils literal"><span class="pre">../../../Assets/Images/</span></code>) is recommended for portability. To make the image
-path consistent across LaTeX and HTML outputs, <code class="docutils literal"><span class="pre">&lt;base</span> <span class="pre">href</span></code>”../”&gt;= is set in
-<code class="docutils literal"><span class="pre">/Assets/setup_Macros.org</span></code>.</p>
-<p>One can also add HTML (e.g., <code class="docutils literal"><span class="pre">#+ATTR_HTML:</span> <span class="pre">:width</span> <span class="pre">80%</span></code>) and LaTeX
-(e.g., <code class="docutils literal"><span class="pre">#+ATTR_LATEX:</span> <span class="pre">:width</span> <span class="pre">6cm</span></code>) attributes before an image link to adjust the
-size of the image.</p>
+<p><strong>Images.</strong> Prepending <code class="docutils literal"><span class="pre">file:</span></code> to an image file path will include a
+local image to both lecture slides and handout. We recommend using a relative path
+(<code class="docutils literal"><span class="pre">../../../Assets/Images/</span></code>) is recommended for portability.</p>
+<p>To adjust the size of the image, specify HTML attributes (e.g., <code class="docutils literal"><span class="pre">#+ATTR_HTML:</span> <span class="pre">:width</span> <span class="pre">80%</span></code>) or LaTeX attributes
+(e.g., <code class="docutils literal"><span class="pre">#+ATTR_LATEX:</span> <span class="pre">:width</span> <span class="pre">6cm</span></code>) before the image file path.</p>
 <p>For example,</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Images.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Images.png" />
-<p><strong>Hiding specific content</strong> in addition to using <code class="docutils literal"><span class="pre">slideonly</span></code> and <code class="docutils literal"><span class="pre">handoutonly</span></code>
-tags to selectively include specific subtree in export, since Org mode allows
-embedding raw HTML and LaTeX code, it is easy to hide specific content based
-on output format. Content surrounded by <code class="docutils literal"><span class="pre">#+LATEX:</span> <span class="pre">\iffalse</span></code> and <code class="docutils literal"><span class="pre">#+LATEX:</span> <span class="pre">\fi</span></code>
-will not be shown in LaTeX outputs, and that surrounded by <code class="docutils literal"><span class="pre">#+REVEAL_HTML:</span> <span class="pre">&lt;span</span> <span class="pre">hidden&gt;</span></code> and <code class="docutils literal"><span class="pre">#+REVEAL_HTML:</span> <span class="pre">&lt;/span&gt;</span></code> will not be shown in reveal.js
-output. For example,</p>
+<p><strong>Hiding specific content.</strong> Since Org mode allows
+embedding raw HTML and LaTeX codes, it is easy to hide specific content based
+on an output format. Content surrounded by <code class="docutils literal"><span class="pre">#+LATEX:</span> <span class="pre">\iffalse</span></code> and <code class="docutils literal"><span class="pre">#+LATEX:</span> <span class="pre">\fi</span></code>
+will not be shown in LaTeX outputs. Content surrounded by <code class="docutils literal"><span class="pre">#+REVEAL_HTML:</span> <span class="pre">&lt;span</span> <span class="pre">hidden&gt;</span></code> and <code class="docutils literal"><span class="pre">#+REVEAL_HTML:</span> <span class="pre">&lt;/span&gt;</span></code> will not be shown in reveal.js
+outputs. For example,</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents.png" />
-<p>The following screenshots show how they are exported:</p>
+<p>The following screenshots show the exported outputs of the above content. The image is shown in the lecture slide but not in the handout.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-reveal.js.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-reveal.js.png" />
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-LaTeX.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-LaTeX.png" />
-</div>
-<div class="section" id="make-contents-reusable">
-<h4>2.6.3 Make contents reusable<a class="headerlink" href="#make-contents-reusable" title="Permalink to this headline">¶</a></h4>
-<p>One of the biggest advantage of using <code class="docutils literal"><span class="pre">Org-Coursepack</span></code> to prepare course
-content is that users can put content in topic Org files, and include relevant
-part in semester Org files as needed, leveraging Org mode’s flexible inclusion
-functionality. Putting contents on a central location and reusing them reduce
-redundancy and managing them easier. For example, any improvements on content
-will be applied to all courses automatically, and users can put topic Org
-files into version control and keep track of the improvements.</p>
-<p>The following shows an example usage:</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png" src="../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png" />
-<p>Note that it is optional - users can put all course content to a semester Org
-file directly. In fact, it is more convenient to do so when a course is
-actively developed with new contents. We recommend, however, users to start
-putting contents into relevant topic Org files as course content becomes more
-stabilized. See <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/08%20Semester%20Org%20Files%203%204%20Lectures.html">Lectures</a> part of the documentation for more information.</p>
+<p><strong>Creating materials for beginning and end of classes.</strong>  Classes often begin with a recap of the previous lecture topics and a preview of the current lecture topics. Classes often end with a recap of the current lecture topics. Recaps and previews of lecture topics are automatically generated with the <code class="docutils literal"><span class="pre">Update</span> <span class="pre">lecture</span> <span class="pre">metadata</span></code> script described earlier by pulling the titles of the topic subtrees covered in a given lecture. Appropriate content are written automatically, even when the orders of topics or lectures are changed.</p>
 </div>
 </div>
 <div class="section" id="conclusion">
@@ -472,8 +360,8 @@ are stored and accessed.</dd>
 <span class="o">|</span>   <span class="o">+---</span><span class="n">Org</span><span class="o">-</span><span class="n">Coursepack</span>
 <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>   <span class="n">Org</span><span class="o">-</span><span class="n">Coursepack</span><span class="o">.</span><span class="n">org</span>
 <span class="o">|</span>   <span class="o">|</span>   <span class="o">|</span>
-<span class="o">|</span>   <span class="o">|</span>   <span class="o">+---</span><span class="mi">2018</span> <span class="n">Fall</span>
-<span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>   <span class="mi">2018</span> <span class="n">Fall</span><span class="o">.</span><span class="n">org</span>
+<span class="o">|</span>   <span class="o">|</span>   <span class="o">+---</span><span class="mi">2020</span> <span class="n">Spring</span>
+<span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>   <span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
 <span class="o">|</span>   <span class="o">|</span>       <span class="o">+---</span><span class="n">Assignments</span>
 <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>   <span class="o">|</span>   <span class="n">Assignment</span> <span class="mf">1.</span><span class="n">pdf</span>
@@ -535,20 +423,21 @@ are stored and accessed.</dd>
 </ul>
 </li>
 <li><a class="reference internal" href="#quickstart-guide">2 Quickstart Guide</a><ul>
-<li><a class="reference internal" href="#copy-and-rename-template-course">2.1 Copy and rename <code class="docutils literal"><span class="pre">Template</span></code> course</a></li>
-<li><a class="reference internal" href="#set-local-variables-permission-in-semester-org-file">2.2 Set local variables permission in semester Org file</a></li>
-<li><a class="reference internal" href="#rename-paths-to-semester-and-course-org-files-for-include-statements">2.3 Rename paths to semester and course Org files for <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements</a></li>
+<li><a class="reference internal" href="#copy-and-rename-the-template-directory-and-org-file">2.1 Copy and rename the <code class="docutils literal"><span class="pre">Template</span></code> directory and Org file</a></li>
+<li><a class="reference internal" href="#set-local-variables-permissions-in-the-semester-org-file">2.2 Set local variables permissions in the semester Org file</a></li>
+<li><a class="reference internal" href="#rename-paths-to-semester-and-course-org-files-specified-in-include-statements">2.3 Rename paths to semester and course Org files specified in <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements</a></li>
 <li><a class="reference internal" href="#inputting-course-information">2.4 Inputting course information</a></li>
 <li><a class="reference internal" href="#preparing-your-syllabus">2.5 Preparing your syllabus</a><ul>
-<li><a class="reference internal" href="#exporting-syllabus">2.5.1 Exporting syllabus</a></li>
-<li><a class="reference internal" href="#editing-syllabus-content">2.5.2 Editing syllabus content</a></li>
-<li><a class="reference internal" href="#class-schedule">2.5.3 Class Schedule</a></li>
+<li><a class="reference internal" href="#how-syllabi-are-constructed">2.5.1 How syllabi are constructed</a></li>
+<li><a class="reference internal" href="#exporting-a-syllabus">2.5.2 Exporting a syllabus</a></li>
+<li><a class="reference internal" href="#class-schedule">2.5.3 Class schedule</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#preparing-your-lectures">2.6 Preparing your lectures</a><ul>
 <li><a class="reference internal" href="#exporting-slides-and-handouts">2.6.1 Exporting slides and handouts</a></li>
-<li><a class="reference internal" href="#editing-lecture-content">2.6.2 Editing lecture content</a></li>
-<li><a class="reference internal" href="#make-contents-reusable">2.6.3 Make contents reusable</a></li>
+<li><a class="reference internal" href="#adding-new-classes-lectures-and-updating-their-metadata">2.6.2 Adding new classes/lectures and updating their metadata</a></li>
+<li><a class="reference internal" href="#creating-modular-content">2.6.3 Creating modular content</a></li>
+<li><a class="reference internal" href="#editing-lecture-content">2.6.4 Editing lecture content</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#conclusion">2.7 Conclusion</a></li>
@@ -595,7 +484,7 @@ are stored and accessed.</dd>
       &copy;2018, Joon Ro & Jae Eun Namkoong.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
