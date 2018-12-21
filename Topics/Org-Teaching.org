@@ -178,10 +178,7 @@ To export the syllabus in our example, navigate to the =* Sections/01/Syllabus= 
 file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
 
 **** Class schedule
-You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. 
-
-*Generating/updating a class schedule.* You can use a simple command to automatically generate a class schedule from the list of classes in the semester Org file. Navigate to the =* Syllabus/Class Schedule= subtree and place your cursor on the line that starts with =#+BEGIN: columnview=. Then, with the curser in place, press =C-c C-c= (hit =c= twice while holding down the =CTRL= key) to generate/update the class schedule with the  most recent information. Any changes made to the order or names of classes will 
-automatically be reflected when the instructor updates the class schedule with the =C-c C-c= command.
+You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. You can use a simple command to automatically generate/update a class schedule from the list of classes and their metadata in the semester Org file. Navigate to the =* Syllabus/Class Schedule= subtree and place your cursor on the line that starts with =#+BEGIN: columnview=. Then, with the curser in place, press =C-c C-c= (hit =c= twice while holding down the =CTRL= key) to generate/update the class schedule with the most recent information. Any changes made to the order or names of classes will automatically be reflected when the instructor updates the class schedule with the =C-c C-c= command.
 
 You can view the class schedule by expanding the =columnview= (see example class schedule below).
 
@@ -190,41 +187,7 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png
 
 *** Preparing your lectures
 
-*Adding new classes.* The example =* Lectures= tree, as shown below, has only one lecture (i.e., =Course Introduction=). Lets try adding two additional lectures. (Note that subtrees with the =skipcount= tag are not actual lectures--they are either subtrees with auxiliary
-information, such as class dates and instructor's tasks, or subtrees for non-lecture events such as
-assignment due dates and holidays.)
-
-#+ATTR_LATEX: :height 5cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png
-
-To add two additional lectures, copy and paste the =Course Introduction=
-subtree twice. Then, change the names of the two additional lecture subtrees. In the example, we will simply
-call them =Second Lecture= and =Third Lecture=:
-
-#+ATTR_LATEX: :height 8cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png
-
-*Updating lecture information.* Expanding the =:PROPERTIES:= drawer of each lecture (e.g., =Second
-Lecture=) will reveal class-related information, such as =CLASS=, =EXPORT_FILE_NAME=, and =DATE=. 
-You can automatically update these values by running the =Update Lecture Information= script. 
-The script is located right under the =Lectures= subtree headline (see image below)--to run the script, simply move the curser to the script and type =C-c C-c=.
-
-#+ATTR_LATEX: :height 3cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png
-
-When asked to confirm (see image below), press =y=.
-
-#+ATTR_LATEX: :width 11cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png
-
-In addition, you will need to press =Shift+Tab= to reset the rendering.
-
-As shown in the image below, you should be able to see that the class information has been updated.
-
-#+ATTR_LATEX: :height 4cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png 
-
-As explained earlier, you can update the class schedule in the syllabus with the new lecture information.
+The Quickstart guide will begin by introducing the exporting functions to help beginners visualize the lecture slides and handouts generated with the =Org-Coursepack=.
 
 **** Exporting slides and handouts
 Each lecture subtree, in its =:PROPERTIES:= drawer, has clickable links for export functions (see image below). The =reveal.js= link is for exporting the lecture to html =reveal.js= slides. The =LaTeX= link is for exporting the lecture to a document-like handout (as opposed to scaled-down slides) in a PDF file format. Clicking the =HTML= and =PDF= links will open the corresponding exported file. 
@@ -243,99 +206,109 @@ The image below shows an example of an exported PDF handout.
 #+ATTR_LATEX: :height 8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_LaTeX.png
 
-As you can see, class materials that have the =slideonly= (=handoutonly=) tag are not
-exported in the LaTeX (reveal.js) output. The tags allow you to specify any content you
+As you can see, class materials under subtrees with the =slideonly= (=handoutonly=) tag are not
+exported in the LaTeX (reveal.js) output. The tags allow you to specify materials you
 want to show only in lecture slides and not in handouts (e.g., in-class announcements) or only in handouts and not in lecture slides (e.g., supplementary information about a topic).
 
-See [[https://joonro.github.io/Org-Coursepack/Lectures/05%2520Exporting%2520Slides%2520and%2520Handouts.html][Exporting Slides and Handouts]] for more information about exporting
-content, including setting up a key binding, which is convenient for repeated
-exporting.
+See [[https://joonro.github.io/Org-Coursepack/Lectures/05%2520Exporting%2520Slides%2520and%2520Handouts.html][Exporting Slides and Handouts]] for more information about exporting lectures.
 
-**** Tmp
-Note that running this script will also update parts of the lecture that change with the class order (e.g., review of the previous class).
+**** Adding new classes/lectures and updating their metadata
 
-Also, note that the contents for =Last Class= and =Lecture Agenda= under
-=Introduction= section, and =Class Summary= section are automatically written
-by =Update Lecture Information= script described earlier. Hence, users can
-freely edit lecture content and the order of lectures without worrying about
-tediously fixing these boilerplate parts. For example, after changing the
-order of lectures, the user can simply run the script and the =Last Class=
-slide of each lecture will correctly point to the previous lecture in the new
-order.
+The example =* Lectures= tree, as shown below, has only one lecture (i.e., =Course Introduction=). Lets try adding two additional lectures. (Note that subtrees with the =skipcount= tag are not actual lectures--they are either subtrees with auxiliary
+information, such as class dates and instructor's tasks, or subtrees for non-lecture events such as
+assignment due dates and holidays.)
 
+#+ATTR_LATEX: :height 5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png
+
+To add two additional lectures, copy and paste the =Course Introduction=
+subtree twice. Then, change the names of the two additional lecture subtrees. In the example, we will simply
+call them =Second Lecture= and =Third Lecture=:
+
+#+ATTR_LATEX: :height 8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png
+
+Expanding the =:PROPERTIES:= drawer of each lecture (e.g., =Second
+Lecture=) will reveal class-related metadata, such as =CLASS=, =EXPORT_FILE_NAME=, and =DATE=. 
+You can automatically update these values by running the =Update lecture metadata= script. 
+The script is located right under the =Lectures= subtree headline (see image below)--to run the script, simply move the curser to the script and type =C-c C-c=.
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png
+
+When asked to confirm (see image below), press =y=.
+
+#+ATTR_LATEX: :width 11cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures-Confirm.png
+
+In addition, you will need to press =Shift+Tab= to reset the rendering.
+
+As shown in the image below, you should be able to see that the lecture metadata have been updated.
+
+#+ATTR_LATEX: :height 4cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png 
+
+As explained earlier, you can update the class schedule in the syllabus with the new lecture metadata.
 
 **** Editing lecture content
-Let's add additional section to the lecture. Add a subtree called =New section= as the same
-level as other sections (=*** New section=). 
+Let's add content to the lecture. Any lecture content (e.g., Focus Groups) will belong to a topic subtree (e.g., Types of Qualitative Research Methods). In the example shown below, we simply added a =New topic= subtree at the same
+level as other topic subtrees (i.e., =*** New topic=). 
 
 #+ATTR_LATEX: :height 3.5cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_New_Section.png
 
-You can freely use Org markup language, which is similar to other popular
-markup languages such as Markdown and reStructuredText, to create your
-content. The main differences are in Org mode, =*= is used to specify levels
-of headings, and headings can have data associated with them in the form of
-=:PROPERTIES:= and tags. In addition, navigating through a long document is 
-convenient because all headings and drawers are collapsible. 
+When creating content under the topic subtree, you can freely use Org markup language, which is similar to other popular
+markup languages such as Markdown and reStructuredText. The Quickstart Guide shows several basic examples. For more detailed instructions,
+see the [[https://joonro.github.io/Org-Coursepack/Lectures/04%2520Creating%2520Content%2520for%2520Slides%2520and%2520Handouts.html][Creating Content for Slides and Handouts]] section of the documentation. You can also see [[https://orgmode.org/manual/index.html][Org manual]].
 
-We show examples of several basic use cases here. For detailed instructions,
-see [[https://joonro.github.io/Org-Coursepack/Lectures/04%2520Creating%2520Content%2520for%2520Slides%2520and%2520Handouts.html][Creating Content for Slides and Handouts]] section of the documentation and
-[[https://orgmode.org/manual/index.html][Org manual]].
-
-*Lists* Obviously you cannot use =*= to specify a list, but otherwise Org mode
-uses a typical syntax (=-= or =+= for lists, =1.= for numbered lists) for
+*Lists.* Org mode uses a typical syntax (=-= or =+= for lists, =1.= for numbered lists) for
 lists. For example,
 
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Lists.png
 
-*Math* you can directly input LaTeX math in Org mode. For example,
+*Math.* you can directly input LaTeX math in Org mode. For example,
 
 #+ATTR_LATEX: :height 1.8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Math.png
 
-*Slide split* in general, reveal.js will automatically create slide structure
-from the lecture subtree. Sometimes, however, users might want to split a
-slide into multiple slides. Users can put =#+REVEAL: split= to split a
-slide. For example,
+In =reveal.js= slides, math will be rendered with [[https://www.mathjax.org/]][[MathJax]]. 
+
+*Slide split.* Lecture content are automatically divided into different slides following the structure
+of the lecture subtree (e.g., content for a new topic will be presented in a new set of slides). An instructor can also force a new slide by inserting =#+REVEAL: split= into a desired location. For example,
 
 #+ATTR_LATEX: :height 1.8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Split.png
 
-*Fragmented contents* Fragmented contents such as lists can be easily
-specified by putting =#+ATTR_REVEAL: :frag (appear)= before a list. For example:
+*Fragmented contents.* Fragmented contents (e.g., items in a listing being presented one after another) can be 
+specified by putting =#+ATTR_REVEAL: :frag (appear)= before the contents that are to be fragmented. For example:
 
 #+ATTR_LATEX: :height 1.8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Fragmented.png
 
-*Images* Prepending =file:= to an image file path is sufficient to include a
-local image to both slide and handout. For HTML, specifying =URL= is
-sufficient for an image on the web. Note that using a relative path
-(=../../../Assets/Images/=) is recommended for portability. To make the image
-path consistent across LaTeX and HTML outputs, =<base href="../">= is set in
-=/Assets/setup_Macros.org=.
+*Images.* Prepending =file:= to an image file path will include a
+local image to both lecture slides and handout. We recommend using a relative path
+(=../../../Assets/Images/=) is recommended for portability.
 
-One can also add HTML (e.g., =#+ATTR_HTML: :width 80%=) and LaTeX
-(e.g., =#+ATTR_LATEX: :width 6cm=) attributes before an image link to adjust the
-size of the image.
+To adjust the size of the image, specify HTML attributes (e.g., =#+ATTR_HTML: :width 80%=) or LaTeX attributes
+(e.g., =#+ATTR_LATEX: :width 6cm=) before the image file path.
 
 For example,
 
 #+ATTR_LATEX: :height 2.5cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Images.png
 
-*Hiding specific content* in addition to using =slideonly= and =handoutonly=
-tags to selectively include specific subtree in export, since Org mode allows
-embedding raw HTML and LaTeX code, it is easy to hide specific content based
-on output format. Content surrounded by =#+LATEX: \iffalse= and =#+LATEX: \fi=
-will not be shown in LaTeX outputs, and that surrounded by =#+REVEAL_HTML:
+*Hiding specific content.* Since Org mode allows
+embedding raw HTML and LaTeX codes, it is easy to hide specific content based
+on an output format. Content surrounded by =#+LATEX: \iffalse= and =#+LATEX: \fi=
+will not be shown in LaTeX outputs. Content surrounded by =#+REVEAL_HTML:
 <span hidden>= and =#+REVEAL_HTML: </span>= will not be shown in reveal.js
-output. For example, 
+outputs. For example, 
 
 #+ATTR_LATEX: :height 5.5cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents.png
 
-The following screenshots show how they are exported:
+The following screenshots show the exported outputs of the above content. The image is shown in the lecture slide but not in the handout.
 
 #+LATEX: \begin{multicols}{2}
 #+ATTR_LATEX: :width 7.5cm
@@ -344,6 +317,8 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Conte
 #+ATTR_LATEX: :width 7.5cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-LaTeX.png
 #+LATEX: \end{multicols}
+
+*Creating materilas for beginning and end of classes.*  Classes often begin with a recap of the previous lecture topics and a preview of the current lecture topics. Classes often end with a recap of the current lecture topics. Recaps and previews of lecture topics are automatically generated with the =Update lecture metadata= script described earlier by pulling the titles of the topic subtrees covered in a given lecture. Appropriate content are written automatically, even when the orders of topics or lectures are changed.
 
 **** Make contents reusable
 One of the biggest advantage of using =Org-Coursepack= to prepare course
