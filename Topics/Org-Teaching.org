@@ -178,26 +178,36 @@ To export the syllabus in our example, navigate to the =* Sections/01/Syllabus= 
 file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png
 
 **** Class schedule
-You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. With a simple command, =Org-Coursepack= automatically generates a class schedule from the list of classes in the semester Org file.
+You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. 
 
-*Adding classes.* The example =* Lectures= tree, as shown below, has only one lecture (i.e., =Course Introduction=). Lets try adding two additional lectures. (Note that subtrees with the =skipcount= tag are not actual lectures--they are either subtrees with auxiliary
+*Generating/updating a class schedule.* You can use a simple command to automatically generate a class schedule from the list of classes in the semester Org file. Navigate to the =* Syllabus/Class Schedule= subtree and place your cursor on the line that starts with =#+BEGIN: columnview=. Then, with the curser in place, press =C-c C-c= (hit =c= twice while holding down the =CTRL= key) to generate/update the class schedule with the  most recent information. Any changes made to the order or names of classes will 
+automatically be reflected when the instructor updates the class schedule with the =C-c C-c= command.
+
+You can view the class schedule by expanding the =columnview= (see example class schedule below).
+
+#+ATTR_LATEX: :height 5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png
+
+*** Preparing your lectures
+
+*Adding new classes.* The example =* Lectures= tree, as shown below, has only one lecture (i.e., =Course Introduction=). Lets try adding two additional lectures. (Note that subtrees with the =skipcount= tag are not actual lectures--they are either subtrees with auxiliary
 information, such as class dates and instructor's tasks, or subtrees for non-lecture events such as
 assignment due dates and holidays.)
 
 #+ATTR_LATEX: :height 5cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Lectures.png
 
-To add two additional lectures, copy & paste the =Course Introduction=
+To add two additional lectures, copy and paste the =Course Introduction=
 subtree twice. Then, change the names of the two additional lecture subtrees. In the example, we will simply
 call them =Second Lecture= and =Third Lecture=:
 
 #+ATTR_LATEX: :height 8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Second-Lecture.png
 
-*Updating Lecture Information.* Expanding the =:PROPERTIES:= drawer of each lecture (e.g., =Second
+*Updating lecture information.* Expanding the =:PROPERTIES:= drawer of each lecture (e.g., =Second
 Lecture=) will reveal class-related information, such as =CLASS=, =EXPORT_FILE_NAME=, and =DATE=. 
 You can automatically update these values by running the =Update Lecture Information= script. 
-The script is located right under the =Lectures= subtree headline (see image below)--to run the script, simply move the curser to the script and type =C-c C-c= (hit =c= twice while holding down the =CTRL= key).
+The script is located right under the =Lectures= subtree headline (see image below)--to run the script, simply move the curser to the script and type =C-c C-c=.
 
 #+ATTR_LATEX: :height 3cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Run-Script-Update-Lectures.png
@@ -214,60 +224,34 @@ As shown in the image below, you should be able to see that the class informatio
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Info.png 
 
+As explained earlier, you can update the class schedule in the syllabus with the new lecture information.
 
-
-
-*Updating Schedule* Now we are ready to update the class schedule in
-Syllabus. Navigate to =* Syllabus/Class Schedule=, and then place your cursor
-to the line starting with =#+BEGIN: columnview=. If you expand the columnview, 
-you will see that it has a table with previous classes. 
-
-#+ATTR_LATEX: :height 5cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png
-
-Pressing =C-c C-c= will update the table:
-
-#+ATTR_LATEX: :height 5cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-New.png
-
-As you can see, the columnview automatically extract relevant information from
-each lecture subtree in creating the table. Hence, the user can freely
-re-organize lectures and change their names without worrying about updating
-lecture information or class schedule manually.
-
-Of course, the updated schedule will be reflected when the user export the syllabus for a section:
-
-#+ATTR_LATEX: :height 4cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Syllabus-Exported-Schedule.png
-
-*** Preparing your lectures
 **** Exporting slides and handouts
-Similar to =Syllabus= subtree under each section subtree, a lecture subtree
-has built-in export links available. You can click on =reveal.js= and =LaTeX=
-links to export the lecture to slide and handout formats, respectively.
+Each lecture subtree, in its =:PROPERTIES:= drawer, has clickable links for export functions (see image below). The =reveal.js= link is for exporting the lecture to html =reveal.js= slides. The =LaTeX= link is for exporting the lecture to a document-like handout (as opposed to scaled-down slides) in a PDF file format. Clicking the =HTML= and =PDF= links will open the corresponding exported file. 
+The exported files can be located in the =Lectures= sub-directory of the semester folder. 
 
 #+ATTR_LATEX: :height 6cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Export-Link.png
 
-Let's export the lecture to both reveal.js and LaTeX output formats. The files
-will be exported to =Lectures= sub-directory of the semester folder. Clicking
-on =HTML= and =PDF= links will open the corresponding exported file.
-
-The following two screenshots show the exported outputs, where it is showing
-the slide overview for the reveal.js slides:
+The following image shows an example of an exported html =reveal.js= slides (the slide overview portion).
 
 #+ATTR_LATEX: :height 9cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_reveal.png
 
+The image below shows an example of an exported PDF handout.
+
 #+ATTR_LATEX: :height 8cm
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Exported_LaTeX.png
 
-As you can see, the sections with =slideonly= (=handoutonly=) tag are not
-exported in LaTeX (reveal.js) output. You can easily specify any content you
-want to show in slides (e.g., announcements) or handouts (extended explanations)
-only in this way.
+As you can see, class materials that have the =slideonly= (=handoutonly=) tag are not
+exported in the LaTeX (reveal.js) output. The tags allow you to specify any content you
+want to show only in lecture slides and not in handouts (e.g., in-class announcements) or only in handouts and not in lecture slides (e.g., supplementary information about a topic).
 
+See [[https://joonro.github.io/Org-Coursepack/Lectures/05%2520Exporting%2520Slides%2520and%2520Handouts.html][Exporting Slides and Handouts]] for more information about exporting
+content, including setting up a key binding, which is convenient for repeated
+exporting.
 
+**** Tmp
 Note that running this script will also update parts of the lecture that change with the class order (e.g., review of the previous class).
 
 Also, note that the contents for =Last Class= and =Lecture Agenda= under
@@ -279,9 +263,7 @@ order of lectures, the user can simply run the script and the =Last Class=
 slide of each lecture will correctly point to the previous lecture in the new
 order.
 
-See [[https://joonro.github.io/Org-Coursepack/Lectures/05%2520Exporting%2520Slides%2520and%2520Handouts.html][Exporting Slides and Handouts]] for more information about exporting
-content, including setting up a key binding, which is convenient for repeated
-exporting.
+
 **** Editing lecture content
 Let's add additional section to the lecture. Add a subtree called =New section= as the same
 level as other sections (=*** New section=). 
