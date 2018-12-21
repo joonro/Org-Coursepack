@@ -250,8 +250,17 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Lectures-Updated-Lecture-Inf
 
 As explained earlier, you can update the class schedule in the syllabus with the new lecture metadata.
 
+**** Creating modular content
+One of the biggest advantages of using the =Org-Coursepack= is that instructors can leverage Org mode's flexible inclusion
+functionality when developing course materials. Course materials that are stored in topic Org files can be pulled into semester Org files using the =#+INCLUDE:= statement to construct lectures (see example below).
+
+#+ATTR_LATEX: :height 0.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png
+
+This modular approach reduces redundancy and makes it easier to manage and update course materials. For example, any improvements made to a content can be automatically applied to all courses pulling that content. This approach is optional--instructors can also choose to put all course materials directly into a semester Org file. See the [[https://joonro.github.io/Org-Coursepack/Lectures/08%2520Semester%2520Org%2520Files%25203%25204%2520Lectures.html][Lectures]] part of the documentation for more details.
+
 **** Editing lecture content
-Let's add content to the lecture. Any lecture content (e.g., Focus Groups) will belong to a topic subtree (e.g., Types of Qualitative Research Methods). In the example shown below, we simply added a =New topic= subtree at the same
+Let's add content to a lecture. Any lecture content (e.g., Focus Groups) will belong to a topic subtree (e.g., Types of Qualitative Research Methods). In the example shown below, we simply added a =New topic= subtree at the same
 level as other topic subtrees (i.e., =*** New topic=). 
 
 #+ATTR_LATEX: :height 3.5cm
@@ -318,27 +327,9 @@ file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Conte
 file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Hiding-Contents-LaTeX.png
 #+LATEX: \end{multicols}
 
-*Creating materilas for beginning and end of classes.*  Classes often begin with a recap of the previous lecture topics and a preview of the current lecture topics. Classes often end with a recap of the current lecture topics. Recaps and previews of lecture topics are automatically generated with the =Update lecture metadata= script described earlier by pulling the titles of the topic subtrees covered in a given lecture. Appropriate content are written automatically, even when the orders of topics or lectures are changed.
+*Creating materials for beginning and end of classes.*  Classes often begin with a recap of the previous lecture topics and a preview of the current lecture topics. Classes often end with a recap of the current lecture topics. Recaps and previews of lecture topics are automatically generated with the =Update lecture metadata= script described earlier by pulling the titles of the topic subtrees covered in a given lecture. Appropriate content are written automatically, even when the orders of topics or lectures are changed.
 
-**** Make contents reusable
-One of the biggest advantage of using =Org-Coursepack= to prepare course
-content is that users can put content in topic Org files, and include relevant
-part in semester Org files as needed, leveraging Org mode's flexible inclusion
-functionality. Putting contents on a central location and reusing them reduce
-redundancy and managing them easier. For example, any improvements on content 
-will be applied to all courses automatically, and users can put topic Org
-files into version control and keep track of the improvements.
 
-The following shows an example usage:
-
-#+ATTR_LATEX: :height 0.8cm
-file:../../../Assets/Images/Org-Teaching/Quickstart_Lecture-Editing_Include.png
-
-Note that it is optional - users can put all course content to a semester Org
-file directly. In fact, it is more convenient to do so when a course is
-actively developed with new contents. We recommend, however, users to start
-putting contents into relevant topic Org files as course content becomes more
-stabilized. See [[https://joonro.github.io/Org-Coursepack/Lectures/08%2520Semester%2520Org%2520Files%25203%25204%2520Lectures.html][Lectures]] part of the documentation for more information.
 *** Conclusion
 That is it! See the slide deck and the handout generated with the above examples. 
 ** Org Mode Basic Functionalities
