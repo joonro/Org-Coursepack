@@ -19,7 +19,7 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-
+;; Export related settings
 ;; LaTeX Export 
 (eval-after-load 'ox '(require 'ox-koma-letter))
 
@@ -35,7 +35,7 @@
                                       . "\\subparagraph*{%s}"))) )
 
 (require 'ox-latex)
-                                        ; (add-to-list 'org-latex-packages-alist '("" "minted"))
+
 (setq org-latex-listings 'minted)
 
 (add-to-list 'org-latex-minted-langs '(python "python"))
@@ -95,17 +95,3 @@
   )
 
 (add-hook 'org-export-before-parsing-hook 'org/parse-headings)
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (ox-reveal org-plus-contrib))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
