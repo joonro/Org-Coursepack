@@ -186,8 +186,8 @@ semester Org file (in the case of our example, <code class="docutils literal"><s
 <p>You can use the search-and-replace feature in Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code>
 (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>) or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu),
 inputting <code class="docutils literal"><span class="pre">Semester.org&lt;Enter&gt;</span></code> followed by <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org&lt;Enter&gt;</span></code>, and
-pressing <code class="docutils literal"><span class="pre">!</span></code> (replace all). Emacs will let you know how many replaces it has
-done.</p>
+pressing <code class="docutils literal"><span class="pre">!</span></code> (replace all). Emacs will let you know how many replaces has
+been made.</p>
 <p>The replace query will look like the following:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
@@ -205,10 +205,15 @@ done.</p>
 </div>
 <div class="section" id="inputting-course-information">
 <h3>2.5 Inputting course information<a class="headerlink" href="#inputting-course-information" title="Permalink to this headline">¶</a></h3>
-<p>The first few lines of the semester Org file (see <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>) contain information about this file, such as the <code class="docutils literal"><span class="pre">#+TITLE:</span></code> and
-<code class="docutils literal"><span class="pre">#+DESCRIPTION:</span></code> of the file. Expanding the <code class="docutils literal"><span class="pre">:COURSE_INFO:</span></code> drawer will reveal several macros which have information about
-the course; the <code class="docutils literal"><span class="pre">COURSE</span></code> macro is for specifying the name of the course, <code class="docutils literal"><span class="pre">COURSE_NUM</span></code> is for specifying the course ID, and so on. They currently have filler values as shown in the first image below. You can fill the macro values with your own course information as shown second image below:</p>
+<p>The first few lines of the semester Org file (see <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>) contain
+the file metadata, such as the <code class="docutils literal"><span class="pre">#+TITLE:</span></code> and <code class="docutils literal"><span class="pre">#+DESCRIPTION:</span></code> of the
+file. Expanding the <code class="docutils literal"><span class="pre">:COURSE_INFO:</span></code> drawer will reveal several macros which
+have the course metadata; the <code class="docutils literal"><span class="pre">COURSE</span></code> macro is for specifying the
+name of the course, <code class="docutils literal"><span class="pre">COURSE_NUM</span></code> is for specifying the course ID, and so
+on. They currently have filler values as shown in the image below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info.png" />
+<p>You can fill the macro values with your own course information as shown in the
+image below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Course-Info-Edited.png" />
 </div>
 <div class="section" id="preparing-your-syllabus">
