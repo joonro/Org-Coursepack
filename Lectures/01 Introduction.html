@@ -180,27 +180,27 @@ same semester Org file). The <code class="docutils literal"><span class="pre">#+
 Org files from which content are pulled. These paths should be renamed so the
 <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work properly.</p>
 <p>Specifically, you should replace two file names in these paths.</p>
-<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">Semester.org</span></code> with the name of your
+<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">Semester</span> <span class="pre">Template.org</span></code> with the name of your
 semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" />
 <p>You can use the search-and-replace feature in Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code>
 (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>) or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu),
-inputting <code class="docutils literal"><span class="pre">Semester.org&lt;Enter&gt;</span></code> followed by <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org&lt;Enter&gt;</span></code>, and
-pressing <code class="docutils literal"><span class="pre">!</span></code> (replace all). Emacs will let you know how many replaces has
-been made.</p>
+inputting <code class="docutils literal"><span class="pre">/Semester.org&lt;Enter&gt;</span></code> followed by <code class="docutils literal"><span class="pre">/2020</span> <span class="pre">Spring.org&lt;Enter&gt;</span></code>, and
+pressing <code class="docutils literal"><span class="pre">!</span></code> (replace all). Emacs will let you know how many replaces has been
+made.</p>
 <p>The replace query will look like the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Semester</span> <span class="n">Template</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
 </div>
-<p>As shown below, all occurrences of <code class="docutils literal"><span class="pre">Semester.org</span></code> are replaced by <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>:</p>
+<p>As shown below, all occurrences of <code class="docutils literal"><span class="pre">Semester</span> <span class="pre">Template.org</span></code> are replaced by <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" />
 <p>Repeat the same process for the template Org file. That is, replace
 <code class="docutils literal"><span class="pre">Template.org</span></code> with the name of your course Org file.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Before.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-Before.png" />
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Template</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="n">Example</span> <span class="n">Course</span><span class="o">.</span><span class="n">org</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Course</span> <span class="n">Template</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="n">Example</span> <span class="n">Course</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
 </div>
-<p>As shown below, <code class="docutils literal"><span class="pre">Template.org</span></code> is replaced by <code class="docutils literal"><span class="pre">Example</span> <span class="pre">Course.org</span></code>:</p>
+<p>As shown below, <code class="docutils literal"><span class="pre">Course</span> <span class="pre">Template.org</span></code> is replaced by <code class="docutils literal"><span class="pre">Example</span> <span class="pre">Course.org</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Course-After.png" />
 </div>
 <div class="section" id="inputting-course-information">
@@ -220,15 +220,28 @@ image below.</p>
 <h3>2.6 Preparing your syllabus<a class="headerlink" href="#preparing-your-syllabus" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="how-syllabi-are-constructed">
 <h4>2.6.1 How syllabi are constructed<a class="headerlink" href="#how-syllabi-are-constructed" title="Permalink to this headline">¶</a></h4>
-<p>To reduce reduncancy, the top level <code class="docutils literal"><span class="pre">*</span> <span class="pre">Syllabus</span></code> tree simply pulls information from the course Org file (for course-related information common across sections and semesters; e.g., course description), the semester Org file (for semester-specific information; e.g., academic year or office hours), and section-level macros (which contain section-specific information; e.g., class time and location). See example syllabus below.</p>
+<p>To reduce reduncancy, the top level <code class="docutils literal"><span class="pre">*</span> <span class="pre">Syllabus</span></code> tree simply pulls information
+from the course Org file (for course-related information common across
+sections and semesters; e.g., course description), the semester Org file (for
+semester-specific information; e.g., academic year or office hours), and
+section-level macros (which contain section-specific information; e.g., class
+time and location). See example syllabus below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" />
-<p>You can change these content to fit your own course (TODO see page XX of the documentation).</p>
+<p>You can change these content to fit your own course (See <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/07%20Semester%20Org%20Files%202%204%20Sections%20and%20Syllabus.html#syllabus-top-level-tree">2 Syllabus Top-level Tree</a> of the documentation).</p>
 </div>
 <div class="section" id="exporting-a-syllabus">
 <h4>2.6.2 Exporting a syllabus<a class="headerlink" href="#exporting-a-syllabus" title="Permalink to this headline">¶</a></h4>
-<p>Syllabus exporting occurs at the <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree under each section’s subtree (e.g, <code class="docutils literal"><span class="pre">*</span> <span class="pre">Sections/01/Syllabus</span></code>) to enable passing on section-specific information through macros (see macros below).</p>
+<p>Syllabus exporting occurs at the <code class="docutils literal"><span class="pre">Syllabus</span></code> subtree under each section’s
+subtree (e.g, <code class="docutils literal"><span class="pre">*</span> <span class="pre">Sections/01/Syllabus</span></code>) to enable passing on section-specific
+information through macros, which are defined in <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> and
+<code class="docutils literal"><span class="pre">:MACROS_Section_Info:</span></code> drawers of the section subtree (see the example
+below).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" src="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" />
-<p>To export the syllabus in our example, navigate to the <code class="docutils literal"><span class="pre">*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree, then expand the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer. When the drawer is expanded, you will see a clickable link named <code class="docutils literal"><span class="pre">LaTeX</span> <span class="pre">(Custom</span> <span class="pre">Time</span> <span class="pre">Format)</span></code> (see image below). Clicking this link will export the syllabus for Section 1 to a PDF file using LaTeX. You can find the exported file in the <code class="docutils literal"><span class="pre">Syllabus</span></code> sub-directory. You can also  click the <code class="docutils literal"><span class="pre">PDF</span></code> link in the same <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer (see image below) to open the exported file.</p>
+<p>To export the syllabus in our example, navigate to the <code class="docutils literal"><span class="pre">*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree, then expand the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer. When the
+drawer is expanded, you will see a clickable link named <code class="docutils literal"><span class="pre">LaTeX</span> <span class="pre">(Custom</span> <span class="pre">Time</span> <span class="pre">Format)</span></code> (see image below). Clicking this link will export the syllabus for
+Section 1 to a PDF file using LaTeX. You can find the exported file in the
+<code class="docutils literal"><span class="pre">Syllabus</span></code> sub-directory. You can also click the <code class="docutils literal"><span class="pre">PDF</span></code> link in the same
+<code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer (see image below) to open the exported file.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" />
 </div>
 <div class="section" id="class-schedule">
