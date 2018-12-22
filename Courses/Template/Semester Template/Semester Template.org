@@ -69,7 +69,7 @@
 :EXPORT_TO: [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Syllabus" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Syllabus" :only-contents t
 ** 02
 :PROPERTIES:
 :SECTION: 02
@@ -88,7 +88,7 @@
 :EXPORT_TO: [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Syllabus" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Syllabus" :only-contents t
 ** 03
 :PROPERTIES:
 :SECTION: 03
@@ -107,7 +107,7 @@
 :EXPORT_TO: [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Syllabus" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Syllabus" :only-contents t
 * Syllabus
 :PROPERTIES:
 :CUSTOM_ID: Syllabus
@@ -151,14 +151,14 @@
 | *Office Hours:*             | {{{OFFICE_HOURS}}}           | *Course Site:*    | *{{{CANVAS_LINK}}}*   |
 | *Class Meeting Day & Time:* | {{{property(SECTION_DATE)}}} | *Class Location:* | {{{property(SECTION_LOC)}}} |
 ** Course Description
-#+INCLUDE: "../Template.org::#Syllabus/Course Description" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Course Description" :only-contents t
 ** Course Prerequisites
-#+INCLUDE: "../Template.org::#Syllabus/Course Prerequisites" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Course Prerequisites" :only-contents t
 ** Student Learning Objectives
 :PROPERTIES:
 :CUSTOM_ID: Syllabus/Student Learning Objectives
 :END:
-#+INCLUDE: "../Template.org::#Syllabus/Student Learning Objectives" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Student Learning Objectives" :only-contents t
 ** Course Material
 :PROPERTIES:
 :CUSTOM_ID: Syllabus/Course Material
@@ -166,7 +166,7 @@
 
 #+MACRO: TEXTBOOK Textbook Title
 
-#+INCLUDE: "../Template.org::#Syllabus/Course Material" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Course Material" :only-contents t
 ** Grading
 #+MACRO: DATE_EXAM_1 [2018-02-27 Tue]
 #+MACRO: DATE_EXAM_2 [2018-03-22 Thu]
@@ -179,11 +179,11 @@
 
 #+MACRO: WEIGHT_ASSIGNMENTS 20%
 
-#+INCLUDE: "../Template.org::#Syllabus/Grading" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Grading" :only-contents t
 *** Grade Cutoff Percentage
 #+INCLUDE: "../../../Assets/Institutions/Institution_Template.org::Grade Cutoff Percentage" :only-contents t
 ** Specific Course Policies
-#+INCLUDE: "../Template.org::#Syllabus/Specific Course Policies" :only-contents t
+#+INCLUDE: "../Course Template.org::#Syllabus/Specific Course Policies" :only-contents t
 ** School-Specific Policies
 #+INCLUDE: "../../../Assets/Institutions/Institution_Template.org::School-Specific Policies" :only-contents t
 ** Class Schedule                                                   :newpage:
@@ -431,7 +431,7 @@
 **** TODO Task item for this class
 
 *** Handout heading                                    :handoutonly:ignore:
-#+INCLUDE: "./Semester.org::#Lecture/Common/Handout heading" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Lecture/Common/Handout heading" :only-contents t
 *** Introduction                                                :slideonly:
 **** Announcements
 - 
@@ -445,7 +445,7 @@
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Topic Template.org::#Lectures/Introduction" :only-contents t
 *** Class Summary                                                     :slideonly:
-#+INCLUDE: "./Semester.org::#Lecture/Introduction/Agenda" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Lecture/Introduction/Agenda" :only-contents t
 ** _Assignment 1 Due_                     :Assignment:skipcount:
 :PROPERTIES:
 :Class:  -  
@@ -531,12 +531,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "./Semester.org::#Exam/1/MC/A" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/MC/A" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/Short Answers" :only-contents t
 **** B Type
 :PROPERTIES:
 :EXPORT_TITLE+: (Type B)
@@ -546,12 +546,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "./Semester.org::#Exam/1/MC/B" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/MC/B" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/Short Answers" :only-contents t
 *** 02
 :PROPERTIES:
 :EXPORT_AUTHOR: {{{COURSE_NUM}}}-02: {{{COURSE}}}
@@ -566,13 +566,13 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "./Semester.org::#Exam/1/MC/A" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/MC/A" :only-contents t
 
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/Short Answers" :only-contents t
 **** B Type
 :PROPERTIES:
 :EXPORT_TITLE+: (Type B)
@@ -582,12 +582,12 @@ Instructions:
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
-#+INCLUDE: "./Semester.org::#Exam/Title Page" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/Title Page" :only-contents t
 ***** Multiple Choice                                               :newpage:
 (2 points each, unless otherwise specified)
-#+INCLUDE: "./Semester.org::#Exam/1/MC/B" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/MC/B" :only-contents t
 ***** Short Answers                                                 :newpage:
-#+INCLUDE: "./Semester.org::#Exam/1/Short Answers" :only-contents t
+#+INCLUDE: "./Semester Template.org::#Exam/1/Short Answers" :only-contents t
 *** Exam Content
 **** Multiple Choice
 :PROPERTIES:
