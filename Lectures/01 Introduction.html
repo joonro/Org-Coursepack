@@ -218,15 +218,31 @@ image below.</p>
 </div>
 <div class="section" id="preparing-your-syllabus">
 <h3>2.6 Preparing your syllabus<a class="headerlink" href="#preparing-your-syllabus" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="how-syllabi-are-constructed">
-<h4>2.6.1 How syllabi are constructed<a class="headerlink" href="#how-syllabi-are-constructed" title="Permalink to this headline">¶</a></h4>
 <p>To reduce reduncancy, the top level <code class="docutils literal"><span class="pre">*</span> <span class="pre">Syllabus</span></code> tree simply pulls information
 from the course Org file (for course-related information common across
 sections and semesters; e.g., course description), the semester Org file (for
 semester-specific information; e.g., academic year or office hours), and
 section-level macros (which contain section-specific information; e.g., class
-time and location). You can change these content to fit your own course (See <a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/07%20Semester%20Org%20Files%202%204%20Sections%20and%20Syllabus.html#syllabus-top-level-tree">2
-Syllabus Top-level Tree</a> of the documentation).</p>
+time and location).</p>
+<p><a class="reference external" href="https://joonro.github.io/Org-Coursepack/Lectures/07%20Semester%20Org%20Files%202%204%20Sections%20and%20Syllabus.html#syllabus-top-level-tree">2 Syllabus Top-level Tree</a> of the documentation contains detailed information about
+how to change syllabus content to fit your own course.</p>
+<p>Here, we show how to use a simple command to automatically generate/update a
+class schedule from the list of classes and their metadata in the <code class="docutils literal"><span class="pre">*</span> <span class="pre">Lectures*</span></code> top-level tree in the semester Org file, and how to export your
+syllabi.</p>
+<div class="section" id="class-schedule">
+<h4>2.6.1 Class schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h4>
+<p>You can include in your syllabus a class schedule, which is a table that shows
+a list of class dates, class numbers, and class titles, as well as exam dates
+and assignment due dates. Navigate to the
+<code class="docutils literal"><span class="pre">*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code> subtree and place your cursor on the line that
+starts with <code class="docutils literal"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. You can view the class schedule by
+expanding the <code class="docutils literal"><span class="pre">columnview</span></code> (see example class schedule below).</p>
+<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" />
+<p>Then, with the curser in place, press <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> (hit <code class="docutils literal"><span class="pre">c</span></code> twice while holding
+down the <code class="docutils literal"><span class="pre">CTRL</span></code> key) to generate/update the class schedule with the most
+recent information. Any changes made to the order or names of classes will
+automatically be reflected when the instructor updates the class schedule with
+the <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> command.</p>
 </div>
 <div class="section" id="exporting-a-syllabus">
 <h4>2.6.2 Exporting a syllabus<a class="headerlink" href="#exporting-a-syllabus" title="Permalink to this headline">¶</a></h4>
@@ -237,20 +253,15 @@ information through macros, which are defined in <code class="docutils literal">
 below).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" src="../Assets/Images/Org-Teaching/Quickstart_Section-Information-Properties.png" />
 <p>To export the syllabus in our example, navigate to the <code class="docutils literal"><span class="pre">*</span> <span class="pre">Sections/01/Syllabus</span></code> subtree, then expand the <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer. When the
-drawer is expanded, you will see a clickable link named <code class="docutils literal"><span class="pre">LaTeX</span> <span class="pre">(Custom</span> <span class="pre">Time</span> <span class="pre">Format)</span></code> (see image below). First, save your file so all your changes are
-written to the disk. Then, clicking this link will export the syllabus for
-Section 1 to a PDF file using LaTeX. You can find the exported file in the
-<code class="docutils literal"><span class="pre">Syllabus</span></code> sub-directory. You can also click the <code class="docutils literal"><span class="pre">PDF</span></code> link in the same
-<code class="docutils literal"><span class="pre">:PROPERTIES:</span></code> drawer (see image below) to open the exported file.</p>
+drawer is expanded, you will see a clickable link named <code class="docutils literal"><span class="pre">LaTeX</span></code> (see image
+below). First, make sure to save your file so all your changes are written to
+the disk. Then, clicking this link will export the syllabus for Section 1 to a
+PDF file using LaTeX. You can find the exported file in the <code class="docutils literal"><span class="pre">Syllabus</span></code>
+sub-directory. You can also click the <code class="docutils literal"><span class="pre">PDF</span></code> link in the same <code class="docutils literal"><span class="pre">:PROPERTIES:</span></code>
+drawer (see image below) to open the exported file.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Export-Link.png" />
-<p>See example syllabus below.</p>
+<p>See the screenshot of the exported syllabus below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" src="../Assets/Images/Org-Teaching/Quickstart_Exported-Syllabus-Course-Info.png" />
-</div>
-<div class="section" id="class-schedule">
-<h4>2.6.3 Class schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h4>
-<p>You can include in your syllabus a class schedule, which is a table that shows a list of class dates, class numbers, and class titles, as well as exam dates and assignment due dates. You can use a simple command to automatically generate/update a class schedule from the list of classes and their metadata in the semester Org file. Navigate to the <code class="docutils literal"><span class="pre">*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code> subtree and place your cursor on the line that starts with <code class="docutils literal"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. Then, with the curser in place, press <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> (hit <code class="docutils literal"><span class="pre">c</span></code> twice while holding down the <code class="docutils literal"><span class="pre">CTRL</span></code> key) to generate/update the class schedule with the most recent information. Any changes made to the order or names of classes will automatically be reflected when the instructor updates the class schedule with the <code class="docutils literal"><span class="pre">C-c</span> <span class="pre">C-c</span></code> command.</p>
-<p>You can view the class schedule by expanding the <code class="docutils literal"><span class="pre">columnview</span></code> (see example class schedule below).</p>
-<img alt="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" src="../Assets/Images/Org-Teaching/Quickstart_Syllabus-Schedule-Old.png" />
 </div>
 </div>
 <div class="section" id="preparing-your-lectures">
@@ -480,9 +491,8 @@ are stored and accessed.</dd>
 <li><a class="reference internal" href="#rename-paths-to-semester-and-course-org-files-specified-in-include-statements">2.4 Rename paths to semester and course Org files specified in <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements</a></li>
 <li><a class="reference internal" href="#inputting-course-information">2.5 Inputting course information</a></li>
 <li><a class="reference internal" href="#preparing-your-syllabus">2.6 Preparing your syllabus</a><ul>
-<li><a class="reference internal" href="#how-syllabi-are-constructed">2.6.1 How syllabi are constructed</a></li>
+<li><a class="reference internal" href="#class-schedule">2.6.1 Class schedule</a></li>
 <li><a class="reference internal" href="#exporting-a-syllabus">2.6.2 Exporting a syllabus</a></li>
-<li><a class="reference internal" href="#class-schedule">2.6.3 Class schedule</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#preparing-your-lectures">2.7 Preparing your lectures</a><ul>
