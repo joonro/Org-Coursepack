@@ -180,15 +180,15 @@ same semester Org file). The <code class="docutils literal"><span class="pre">#+
 Org files from which content are pulled. These paths should be renamed so the
 <code class="docutils literal"><span class="pre">#+INCLUDE</span></code> statements work properly.</p>
 <p>Specifically, you should replace two file names in these paths.</p>
-<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">./Semester.org::</span></code> with the name of your
-semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>). You can
+<p>First, replace all occurrences of <code class="docutils literal"><span class="pre">Semester.org</span></code> with the name of your
+semester Org file (in the case of our example, <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>). You can
 use the search-and-replace feature in Emacs by pressing <code class="docutils literal"><span class="pre">M-%</span></code> (<code class="docutils literal"><span class="pre">Alt+Shift+5</span></code>)
 or via <code class="docutils literal"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span></code> -&gt; <code class="docutils literal"><span class="pre">Replace</span> <span class="pre">String</span></code> menu).</p>
 <p>The replace query will look like the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="o">./</span><span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="o">./</span><span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Query</span> <span class="n">replace</span> <span class="n">Semester</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span><span class="p">:</span> <span class="mi">2020</span> <span class="n">Spring</span><span class="o">.</span><span class="n">org</span>
 </pre></div>
 </div>
-<p>As shown below, <code class="docutils literal"><span class="pre">./Semester.org::</span></code> is replaced by <code class="docutils literal"><span class="pre">./2020</span> <span class="pre">Spring.org::</span></code>:</p>
+<p>As shown below, <code class="docutils literal"><span class="pre">Semester.org</span></code> is replaced by <code class="docutils literal"><span class="pre">2020</span> <span class="pre">Spring.org</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-Before.png" />
 <img alt="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" src="../Assets/Images/Org-Teaching/Quickstart_Semester-Rename-Semester-After.png" />
 <p>Repeat the same process for the template Org file. That is, replace <code class="docutils literal"><span class="pre">../Template.org::</span></code> with the name of your course Org file. See example below.</p>
