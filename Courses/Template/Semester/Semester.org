@@ -11,7 +11,7 @@
 
 #+SETUPFILE: ../../../Assets/setup_Macros.org
 
-#+SETUPFILE: ../../../Assets/Institutions/Template.org
+#+SETUPFILE: ../../../Assets/Institutions/Institution_Template.org
 :END:
 
 :SETUP_EXPORT:
@@ -181,11 +181,11 @@
 
 #+INCLUDE: "../Template.org::#Syllabus/Grading" :only-contents t
 *** Grade Cutoff Percentage
-#+INCLUDE: "../../../Assets/Institutions/Template.org::Grade Cutoff Percentage" :only-contents t
+#+INCLUDE: "../../../Assets/Institutions/Institution_Template.org::Grade Cutoff Percentage" :only-contents t
 ** Specific Course Policies
 #+INCLUDE: "../Template.org::#Syllabus/Specific Course Policies" :only-contents t
 ** School-Specific Policies
-#+INCLUDE: "../../../Assets/Institutions/Template.org::School-Specific Policies" :only-contents t
+#+INCLUDE: "../../../Assets/Institutions/Institution_Template.org::School-Specific Policies" :only-contents t
 ** Class Schedule                                                   :newpage:
 :PROPERTIES:
 :CUSTOM_ID: Syllabus/Class Schedule
@@ -443,7 +443,7 @@
 #+ATTR_REVEAL: :frag (appear)
 - Introduction to {{{COURSE}}}
 *** Introduction to {{{COURSE}}}
-#+INCLUDE: "../../../Topics/Template.org::#Lectures/Introduction" :only-contents t
+#+INCLUDE: "../../../Topics/Topic Template.org::#Lectures/Introduction" :only-contents t
 *** Class Summary                                                     :slideonly:
 #+INCLUDE: "./Semester.org::#Lecture/Introduction/Agenda" :only-contents t
 ** _Assignment 1 Due_                     :Assignment:skipcount:
@@ -631,7 +631,7 @@ Instructions:
 :PROPERTIES:
 :CUSTOM_ID: Exam/1/Short Answers
 :END:
-  #+INCLUDE: "../../../Topics/Template.org::#Questions/SA" :only-contents t
+  #+INCLUDE: "../../../Topics/Topic Template.org::#Questions/SA" :only-contents t
 * Assignments                                              :Assignments:
 :PROPERTIES:
 :EXPORT_LATEX_CLASS_OPTIONS: [10pt,article]
@@ -669,7 +669,7 @@ Instructions:
 
 #+LATEX: \vspace{6ex}
 *** Instructions                                                   :ignore:
-#+INCLUDE: "../../../Topics/Template.org::#Assginments/1/Instructions" :only-contents t
+#+INCLUDE: "../../../Topics/Topic Template.org::#Assginments/1/Instructions" :only-contents t
 * Local Variables
 # Local Variables:
 # org-confirm-elisp-link-function: nil

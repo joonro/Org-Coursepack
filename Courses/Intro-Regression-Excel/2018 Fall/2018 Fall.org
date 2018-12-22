@@ -11,12 +11,9 @@
 
 #+SETUPFILE: ../../../Assets/setup_Macros.org
 
-#+SETUPFILE: ../../../Assets/Institutions/Template.org
+#+SETUPFILE: ../../../Assets/Institutions/JOSE.org
 
-#+LINK: image file:~/Sync/Org-Coursepack/Assets/Images/
-
-#+MACRO: Professor Joon H. Ro
-#+MACRO: EMAIL joon.ro@outlook.com 
+#+LINK: image file:../../../Assets/Images/
 :END:
 
 :SETUP_EXPORT:
