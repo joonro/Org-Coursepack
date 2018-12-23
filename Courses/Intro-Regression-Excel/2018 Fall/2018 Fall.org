@@ -278,13 +278,13 @@
                   (if (= level 3)  ;; only level-3 subtrees
                       (setq subheading-names (add-to-list 'subheading-names name t))
 
-                    (if (string= name "Introduction") (setq started t))
+                    (if (string= name "Introduction and Recap of Last Class") (setq started t))
                     )))
               "-noexport-handoutonly-slideonly" 'tree 'comment)
              )
          )
 
-       (if (string= name "Lecture Agenda")
+       (if (string= name "Lecture Outline")
            ;; Create Lecture Agenda
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -292,7 +292,7 @@
              (delete-region (region-beginning) (region-end))  ;; delete the rest
 
              (setq custom-id-last-lecture-agenda
-                   (concat "Lecture/" EXPORT_FILE_NAME "/Agenda"))
+                   (concat "Lecture/" EXPORT_FILE_NAME "/Outline"))
              (insert (concat ":PROPERTIES:\n:CUSTOM_ID: " custom-id-last-lecture-agenda "\n:END:\n"))
 
              (insert "#+ATTR_REVEAL: :frag (appear)\n")
@@ -303,7 +303,7 @@
 
              ))
 
-       (if (string= name "Last Class")
+       (if (string= name "Recap of Last Class")
            ;; Update INCLUDE of the Last Class
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -318,7 +318,7 @@
                         "\" :only-contents t\n")))
              ))
 
-       (if (string= name "Class Summary")
+       (if (string= name "Class Recap")
            ;; Update INCLUDE of the Summary
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -395,12 +395,12 @@
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
-**** Last Class
-**** Lecture Agenda
+**** Recap of Last Class
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Regression Analysis Introduction/Agenda
+:CUSTOM_ID: Lecture/Regression Analysis Introduction/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Regression Analysis: Introduction
@@ -432,8 +432,8 @@
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Multiple Regression" :only-contents t
 *** Running Regression Analysis in Excel                      :handoutonly:
 #+INCLUDE: "../../../Topics/Excel.org::#Lecture/Running Regression Analysis in Excel" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Regression Analysis Introduction/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Regression Analysis Introduction/Outline" :only-contents t
 ** Hypothesis Testing for a Mean and Significance of Regression Coefficients
 :PROPERTIES:
 :CLASS:    2
@@ -448,13 +448,13 @@
 
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Regression Analysis Introduction/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Regression Analysis Introduction/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Agenda
+:CUSTOM_ID: Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Review: Regression and Interpretation of Regression Results
@@ -469,8 +469,8 @@
 #+INCLUDE: "../../../Topics/Hypothesis_Testing.org::#Lecture/Hypothesis Testing for a Mean" :only-contents t
 *** Significance of Regression Coefficients
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Significance of Regression Coefficients" :only-contents t
-*** Class Summary                                               :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Outline" :only-contents t
 ** Multiple Regression and Categorical Variables
 :PROPERTIES:
 :CLASS:    3
@@ -484,13 +484,13 @@
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Hypothesis Testing for a Mean and Significance of Regression Coefficients/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Multiple Regression and Categorical Variables/Agenda
+:CUSTOM_ID: Lecture/Multiple Regression and Categorical Variables/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Categorical Variables
@@ -509,8 +509,8 @@
   Need to add an concrete example with numbers.
 :END:
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Making Predictions in Regression Models" :only-contents t
-*** Class Summary                                               :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Multiple Regression and Categorical Variables/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Multiple Regression and Categorical Variables/Outline" :only-contents t
 ** Design of Price and Advertising Elasticity Models
 :PROPERTIES: 
 :CLASS:    4
@@ -523,13 +523,13 @@
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Multiple Regression and Categorical Variables/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Multiple Regression and Categorical Variables/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Design of Price and Advertising Elasticity Models/Agenda
+:CUSTOM_ID: Lecture/Design of Price and Advertising Elasticity Models/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Variable Transformations and Non-linear Effects
@@ -538,8 +538,8 @@
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Variable Transformation and Non-linear Effects" :only-contents t
 *** Elasticities
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Elasticities" :only-contents t
-*** Class Summary                                               :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Design of Price and Advertising Elasticity Models/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Design of Price and Advertising Elasticity Models/Outline" :only-contents t
 ** Interaction Effects and Overfitting
 :PROPERTIES:
 :CLASS:    5
@@ -553,13 +553,13 @@
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Design of Price and Advertising Elasticity Models/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Design of Price and Advertising Elasticity Models/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Interaction Effects and Overfitting/Agenda
+:CUSTOM_ID: Lecture/Interaction Effects and Overfitting/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Interaction Effects
@@ -568,8 +568,9 @@
 #+INCLUDE: "../../../Topics/Regression.org::#Lecture/Interaction Effects" :only-contents t
 *** Overfitting                                                :newpage:
 #+INCLUDE: "../../../Topics/Regression.org::#Case/Google Flu" :only-contents t
-*** Class Summary                                               :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Interaction Effects and Overfitting/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Interaction Effects and Overfitting/Outline" :only-contents t
+
 * Local Variables
 # Local Variables:
 # org-confirm-elisp-link-function: nil

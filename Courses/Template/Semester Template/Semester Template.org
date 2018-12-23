@@ -314,13 +314,13 @@
                   (if (= level 3)  ;; only level-3 subtrees
                       (setq subheading-names (add-to-list 'subheading-names name t))
 
-                    (if (string= name "Introduction") (setq started t))
+                    (if (string= name "Introduction and Recap of Last Class") (setq started t))
                     )))
               "-noexport-handoutonly-slideonly" 'tree 'comment)
              )
          )
 
-       (if (string= name "Lecture Agenda")
+       (if (string= name "Lecture Outline")
            ;; Create Lecture Agenda
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -328,7 +328,7 @@
              (delete-region (region-beginning) (region-end))  ;; delete the rest
 
              (setq custom-id-last-lecture-agenda
-                   (concat "Lecture/" EXPORT_FILE_NAME "/Agenda"))
+                   (concat "Lecture/" EXPORT_FILE_NAME "/Outline"))
              (insert (concat ":PROPERTIES:\n:CUSTOM_ID: " custom-id-last-lecture-agenda "\n:END:\n"))
 
              (insert "#+ATTR_REVEAL: :frag (appear)\n")
@@ -339,7 +339,7 @@
 
              ))
 
-       (if (string= name "Last Class")
+       (if (string= name "Recap of Last Class")
            ;; Update INCLUDE of the Last Class
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -354,7 +354,7 @@
                         "\" :only-contents t\n")))
              ))
 
-       (if (string= name "Class Summary")
+       (if (string= name "Class Recap")
            ;; Update INCLUDE of the Summary
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -418,11 +418,11 @@
 
 #+TOC: headlines 1 local
 #+LATEX: \vspace{6ex}
-** Introduction
+** Course Introduction
 :PROPERTIES:
 :CLASS:    1
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
-:EXPORT_FILE_NAME: ./Lectures/01 Introduction
+:EXPORT_FILE_NAME: ./Lectures/01 Course Introduction
 :DATE:     [2018-08-28 Tue]
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
@@ -432,20 +432,14 @@
 
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./Semester Template.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-**** Lecture Agenda
-:PROPERTIES:
-:CUSTOM_ID: Lecture/Introduction/Agenda
-:END:
-#+ATTR_REVEAL: :frag (appear)
-- Introduction to {{{COURSE}}}
+**** Recap of Last Class
+**** Lecture Outline
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Topic Template.org::#Lectures/Introduction" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./Semester Template.org::#Lecture/Introduction/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
 ** _Assignment 1 Due_                     :Assignment:skipcount:
 :PROPERTIES:
 :Class:  -  
