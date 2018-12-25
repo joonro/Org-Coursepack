@@ -1,0 +1,45 @@
+#+TITLE:     Course: Template
+#+AUTHOR:    Your Name
+#+EMAIL:     Your Email
+#+DESCRIPTION: Org file for the Template Course
+#+CATEGORY: COURSE
+#+STARTUP: overview
+#+STARTUP: hidestars
+
+* Courses
+** [[file:Semester/Semester.org][Semester]]
+* Syllabus
+** Course Description
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Description
+:END:
+This is a course intended as the quickstarter guide for =Org-Coursepack=. We
+aim to equip students with the basic usage of =Org-Coursepack=.
+** Course Prerequisites
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Prerequisites
+:END:
+- Course Prerequisites here.
+** Student Learning Objectives
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Student Learning Objectives
+:END:
+As the result of this course, students should be able to:
+
+#+ATTR_REVEAL: :frag (appear)
+- Student Learning Objectives here.
+** Course Material
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Course Material
+:END:
+- Course Materials here.
+** Grading
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Grading
+:END:
+Grading information here.
+** Specific Course Policies
+:PROPERTIES:
+:CUSTOM_ID: Syllabus/Specific Course Policies
+:END:
+Specific Course Policies here.

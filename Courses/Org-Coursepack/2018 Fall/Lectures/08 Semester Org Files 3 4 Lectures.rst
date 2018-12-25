@@ -54,8 +54,8 @@ Class 8: Semester Org Files (3/4): Lectures
       ...
       :END:
 
-1.2 ``Update Lectures`` Source Code Block
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2 ``Update lecture metadata`` Source Code Block
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - The ``Lectures`` top-level tree has a source code block named ``Update Lectures``. When executed with ``C-c C-c``, it is designed to go through
   each lecture subtree and perform the following actions:
@@ -129,7 +129,7 @@ Class 8: Semester Org Files (3/4): Lectures
       #+DATE_CLASS_01: [2018-08-28 Tue]
       #+DATE_CLASS_02: [2018-08-30 Thu]
 
-- The ``Update Lectures`` source code block will use the dates defined
+- The ``Update lecture metadata`` source code block will use the dates defined
   in the file-level properties as shown above to update the date of each lecture.
 
 - 28 lecture/class dates are pre-defined in the
@@ -156,45 +156,44 @@ Class 8: Semester Org Files (3/4): Lectures
 2 Individual Lecture Subtree
 ----------------------------
 
-Each lecture subtree contains the teaching materials for that particular lecture/class. The
-example below shows the general structure of the subtree.
+Each lecture subtree contains the teaching materials for that particular
+lecture/class. The example below shows the general structure of the subtree.
 
 ::
 
-    ** Introduction
+    ** Course Introduction
     :PROPERTIES:
     *** Tasks [0/1]                                                  :noexport:
     *** Handout heading                                    :handoutonly:ignore:
-    *** Introduction                                                :slideonly:
+    *** Introduction and Recap of Last Class                        :slideonly:
     *** Introduction to {{{COURSE}}}
     *** Overview of the Directory Structure
-    *** Summary                                                     :slideonly:
+    *** Class Recap                                                 :slideonly:
 
 2.1 ``:PROPERTIES:``
 ~~~~~~~~~~~~~~~~~~~~
 
 - A lecture subtree has properties containing lecture-specific information.
 
-- As described earlier, ``:CLASS:`` (class number), ``:EXPORT_FILE_NAME:``, and ``:DATE:`` (class date) will be
-  automatically updated by the ``Update Lectures`` source code block.
+- As described earlier, ``:CLASS:`` (class number), ``:EXPORT_FILE_NAME:``, and
+  ``:DATE:`` (class date) will be automatically updated by the ``Update lecture metadata`` source code block.
 
-- The ``:EXPORT_TO:`` property has clickable links written in Emacs-lisp, which will
-  export class content to the designated output format. For example, clicking
-  ``reveal.js`` will export content to reveal.js slides.
+- The ``:EXPORT_TO:`` property has clickable links written in Emacs-lisp, which
+  will export class content to the designated output format. For example,
+  clicking ``reveal.js`` will export content to reveal.js slides.
 
-- The ``:OUTPUT_VIEW:`` property has links that, when clicked,
-  opens the corresponding output files, such as html or pdf files. The
-  links will use the value of the ``:EXPORT_FILE_NAME:`` property as the
-  file path; hence, it is unnecessary to manually edit the output
-  links.
+- The ``:OUTPUT_VIEW:`` property has links that, when clicked, opens the
+  corresponding output files, such as html or pdf files. The links will use
+  the value of the ``:EXPORT_FILE_NAME:`` property as the file path; hence, it
+  is unnecessary to manually edit the output links.
 
   ::
 
-      ** Introduction
+      ** Course Introduction
       :PROPERTIES:
       :CLASS:    1
       :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
-      :EXPORT_FILE_NAME: ./Classes/01 Introduction
+      :EXPORT_FILE_NAME: ./Lectures/01 Course Introduction
       :DATE:     [2018-08-28 Tue]
       :EXPORT_TO:  reveal.js | Beamer | LaTeX 
       :OUTPUT_VIEW: HTML | PDF
@@ -210,40 +209,43 @@ items <https://orgmode.org/manual/TODO-items.html>`_. The ``:noexport:`` tag pre
 2.3 Handout heading
 ~~~~~~~~~~~~~~~~~~~
 
-The ``Handout heading`` subtree will only be included in a handout export (with the
-``:handoutonly:`` tag). It includes the content from ``Handout heading`` subtree of the 
-``Common Items`` subtree in the ``Lectures`` top-level tree.
+The ``Handout heading`` headline will only be included in a handout export (with
+the ``:handoutonly:`` tag). It includes the content from ``Handout heading``
+headline of the ``Common Items`` subtree in the ``Lectures`` top-level tree.
 
-2.4 Introduction
-~~~~~~~~~~~~~~~~
+2.4 Introduction and Recap of Last Class
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``Introduction`` has three subheadings:
+Classes often begin with a recap of the previous lecture topics and a preview
+of the current lecture topics. The ``Introduction and Recap of Last Class`` has
+three subheadings:
 
 ::
 
     *** Introduction                                                :slideonly:
     **** Announcements
-    **** Last Class
-    **** Lecture Agenda
+    **** Recap of Last Class
+    **** Lecture Outline
 
 Instructors can enter any announcements to be made in class in ``Annoucements``;
-``Last Class`` includes a recap of the learning objectives from the previous
-class; ``Lecture Agenda`` lists the learning objectives for the current lecture.
+``Recap of Last Class`` includes a recap of the learning objectives from the previous
+class; ``Lecture Outline`` lists the learning objectives for the current lecture.
 
 Note that the content (``#+INCLUDE:`` statements) and properties (e.g.,
-``CUSTOM_ID``) of the latter two subheadings will be automatically updated by the ``Update Lectures``
-script as discussed earlier.
+``CUSTOM_ID``) of the latter two subheadings will be automatically updated by
+the ``Update lecture metadata`` script as discussed earlier. Hence, users do not 
+need to manually edit these.
 
-With the ``:slideonly:`` tag, the ``Introduction`` will only be exported to slide
-outputs.
+With the ``:slideonly:`` tag, the ``Introduction and Recap of Last Class``
+headline will only be exported to slide outputs.
 
 2.5 Content
 ~~~~~~~~~~~
 
-Subtrees following the ``Introduction`` subtree contain lecture content.
-To minimize redunancy, lectures should draw as much material from the reusable
-content in the topic Org file subtrees as possible. See example
-below. (For more examples, see ``2018 Fall.org`` in ``Org_Teaching``.)
+Subtrees following the ``Introduction and Recap of Last Class`` subtree contain
+lecture content. To minimize redunancy, lectures should draw as much material
+from the reusable content in the topic Org file subtrees as possible. See
+example below. (For more examples, see ``2020 Spring.org`` in ``Org_Teaching``.)
 
 ::
 
@@ -252,9 +254,11 @@ below. (For more examples, see ``2018 Fall.org`` in ``Org_Teaching``.)
     *** Course Org Files
     #+INCLUDE: "../../../Topics/Org_Teaching.org::#Lectures/Course Org Files" :only-contents t
 
-2.6 Class Summary
-~~~~~~~~~~~~~~~~~
+2.6 Class Recap
+~~~~~~~~~~~~~~~
 
-The ``Class Summary`` reviews the content of the current class, by including the content of ``Lecture Agenda`` in the ``Introduction`` subtree.  The ``#+INCLUDE:`` statement will be
-automatically generated by the ``Update Lectures`` script as described earlier.
-With the ``:slideonly:`` tag, ``Class Summary`` will only be exported in slide outputs.
+The ``Class Recap`` reviews the content of the current class, by including the
+content of ``Lecture Outline`` in the ``Introduction and Recap of Last Class``
+subtree. The ``#+INCLUDE:`` statement will be automatically generated by the
+``Update lecture metadata`` script as described earlier.  With the ``:slideonly:``
+tag, ``Class Recap`` will only be exported in slide outputs.

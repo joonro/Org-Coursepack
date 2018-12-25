@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 1: Course Introduction</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 1: Course Introduction</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org18f8a76"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org1ebb70a"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org9f5a8fe"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+</section>
+<section id="slide-sec-Lecture/Course Introduction/Outline">
+<h3 id="Lecture/Course Introduction/Outline"><a id="org3a7d1df"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear">Introduction to Org-Coursepack</li>
+<li class="fragment appear">Quickstart Guide</li>
+<li class="fragment appear">Overview of the Directory Structure</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="orgda525af"><span class="section-number-2">2</span> Introduction to Org-Coursepack</h2>
+<p>
+The Org-Coursepack provides a template for developing and managing teaching
+materials using <a href="https://orgmode.org/manual/Export-settings.html">Org mode</a>, a major mode in <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables">GNU Emacs</a>.
+</p>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="org21b3003"><span class="section-number-3">2.1</span> Advantages for Instructors</h3>
+<ul>
+<li class="fragment appear">First, Org mode and modular design allow for more effective and efficient
+content creation.
+<ul>
+<li>Content updates get propagated across courses, semesters, and sections,
+minimizing the potential for inconsistencies</li>
+<li>Minimizes redundancy when sharing content across courses, semesters, and
+sections</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section >
+
+<ul>
+<li class="fragment appear">Second, instructors can enjoy the benefits of having a flexible export system and an output-specific export option.
+<ul>
+<li>Consistent content across multiple output formats
+<ul>
+<li>Slides (e.g., via reveal.js or Beamer backends)</li>
+<li>Handouts (e.g., via the LaTeX or reStructuredText backends)</li>
+
+</ul></li>
+<li>Selective formatting and presentation of components depending on output
+format</li>
+
+</ul></li>
+<li class="fragment appear">Third, the template contains a) utility functions written in Emacs Lisp, b)
+shortcuts to Org mode functions, and c) pre-built tree structures, which
+allow automation of many tasks including:
+<ul>
+<li>Automatic class numbering</li>
+<li>Automatic creation of key content including (but not limited to)
+<ul>
+<li>course schedule for syllabi;</li>
+<li>agenda of lecture materials; and</li>
+<li>exam keys.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="org6febc8d"><span class="section-number-3">2.2</span> Advantages for Students</h3>
+<ul>
+<li class="fragment appear">Consistent, properly-formatted, and strategically presented course materials add to student engagement</li>
+<li class="fragment appear">Availability of materials that are easier to digest and review outside the classroom</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-3">
+<h3 id="org12e75ff"><span class="section-number-3">2.3</span> Requirements</h3>
+<ul>
+<li>Org-Coursepack is a tool based on <a href="https://orgmode.org/manual/Export-settings.html">Org mode</a>, a major mode in <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables">GNU Emacs</a>. It
+does not, however, require extensive previous experience with either, unless
+the user wants to make changes to pre-built scripts. Only the following basic knowledge is needed:
+<dl>
+<dt>Emacs</dt><dd>Text editing using Emacs</dd>
+<dt>Org mode</dt><dd>Org mode markup syntax. Org mode uses a
+straightforward markup language similar to Markdown and
+reStructuredText, and thus, it will be easy to learn for any user
+who is familiar with other markup languages.</dd>
+
+</dl></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="orga821368"><span class="section-number-2">3</span> Quickstart Guide</h2>
+<p>
+This quickstart guide will show you, step-by-step, how to create your course
+with <code>Org-Coursepack</code>. We focus on creating syllabi and lectures, 
+as they typically make up the majority of course content. Other course materials, such as 
+assignments and exams, can be created in similar ways.
+</p>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="orgf817499"><span class="section-number-3">3.1</span> Installation</h3>
+<p>
+Follow instructions on <a href="https://github.com/joonro/Org-Coursepack#installation">README</a> to install <code>Org-Coursepack</code> along with its
+dependencies.
+</p>
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org669de03"><span class="section-number-3">3.2</span> Copy and rename the <code>Template</code> directory and Org file</h3>
+<p>
+The quickstart guide uses <code>/</code> to refer the root path of <code>Org-Coursepack</code>. Make
+a copy of the <code>Template</code> directory (inside the <code>/Courses</code> directory). Change
+the names of the <code>Template</code> directory and the <code>Course Template.org</code> file
+inside the directory, so they reflect the name of the course you are creating
+the materials for. See example below (we changed the names to <code>Example
+Course</code>):
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Course-renamed.png" alt="Course-renamed.png" />
+</p>
+</div>
+
+</section>
+<section >
+
+<p>
+It is common for the same course to be taught across multiple
+semesters. Hence, the course will include a <code>Semester</code> folder for each
+semester it is taught. This folder includes a semester Org file, which is used
+to pull and organize modular course materials that can be used across courses
+and/or semesters. The semester Org file can also contain semester-specific
+content, such as class dates, classroom information, or office hours. The
+semester Org file is used to export course content into appropriate output
+formats (e.g., slides or handouts).
+</p>
+
+<p>
+The example below shows that the semester is 2020 Spring. You can rename the
+<code>Semester Template</code> folder and the <code>Semester Template.org</code> inside that folder
+to reflect the semester in which you are teaching that course.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-renamed.png" alt="Semester-renamed.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="orge280757"><span class="section-number-3">3.3</span> Set local variables permissions in the semester Org file</h3>
+<p>
+When you open <code>2020 Spring.org</code> for the first time, it will 
+show you the following warning about local variables:
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >  The local variables list in 2020 Spring.org
+  contains values that may not be safe (*), and variables that are risky (**)
+  
+  Do you want to apply it?  You can type
+  y  -- to apply the local variables list.
+  n  -- to ignore the local variables list.
+  !  -- to apply the local variables list, and permanently mark these 
+        values (*) as safe (in the future, they will be set automatically.)
+</code></pre>
+</div>
+
+<p>
+This warning asks what you would like to do about the pre-set options
+contained in the file. For example, the option
+<code>org-confirm-elisp-link-function</code> is currently set to <code>nil</code>, which means that,
+when links containing Emacs scripts are clicked (e.g., for exporting), Emacs
+will not ask for your confirmation before the action is taken. You can type
+<code>!</code> to permanently set these options.
+</p>
+
+<p>
+When the file is open, you will see the template for constructing a course for this semester:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Org-File.png" alt="Semester-Org-File.png" />
+</p>
+</div>
+
+<p>
+You can freely move the cursor around using the arrow keys. Many items such as
+such as <a href="https://orgmode.org/manual/Drawers.html">drawers</a> (e.g., <code>:LOCALSETUP:</code>) and <a href="https://orgmode.org/manual/Headlines.html">subtrees</a> (e.g., <code>* Sections</code>) are
+collapsible, and they are annotated with <code>...</code> when collapsed. A collapsible
+item under the cursor can be expanded and collapsed by pressing the <code>Tab</code> key:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Org-Expand.png" alt="Org-Expand.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-4">
+<h3 id="orga5ed06f"><span class="section-number-3">3.4</span> Rename paths to semester and course Org files specified in <code>#+INCLUDE</code> statements</h3>
+<p>
+The semester Org file has <code>#+INCLUDE</code> statements, which are used to pull
+content from other Org files (e.g., course Org file or other sections of the
+same semester Org file). The <code>#+INCLUDE</code> statements specify the paths to the
+Org files from which content are pulled. These paths should be renamed so the
+<code>#+INCLUDE</code> statements work properly.
+</p>
+
+<p>
+Specifically, you should replace two file names in these paths.
+</p>
+
+<p>
+First, replace all occurrences of <code>Semester Template.org</code> with the name of your
+semester Org file (in the case of our example, <code>2020 Spring.org</code>).
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Semester-Before.png" alt="Semester-Rename-Semester-Before.png" />
+</p>
+</div>
+
+<p>
+You can use the search-and-replace feature in Emacs by pressing <code>M-%</code>
+(<code>Alt+Shift+5</code>) or via <code>Edit</code> -&gt; <code>Replace</code> -&gt; <code>Replace String</code> menu),
+inputting <code>Semester Template.org&lt;Enter&gt;</code> followed by <code>2020 Spring.org&lt;Enter&gt;</code>, and
+pressing <code>!</code> (replace all). Emacs will let you know how many replaces has been
+made.
+</p>
+
+<p>
+The replace query will look like the following:
+</p>
+
+<pre class="example">
+  Query replace Semester Template.org with: 2020 Spring.org
+</pre>
+
+<p>
+As shown below, all occurrences of <code>Semester Template.org</code> are replaced by <code>2020
+Spring.org</code>:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Semester-After.png" alt="Semester-Rename-Semester-After.png" />
+</p>
+</div>
+
+<p>
+Repeat the same process for the template Org file. That is, replace
+<code>Course Template.org</code> with the name of your course Org file.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Course-Before.png" alt="Semester-Rename-Course-Before.png" />
+</p>
+</div>
+
+<pre class="example">
+  Query replace Course Template.org with: Example Course.org
+</pre>
+
+<p>
+As shown below, <code>Course Template.org</code> is replaced by <code>Example Course.org</code>:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Course-After.png" alt="Semester-Rename-Course-After.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-5">
+<h3 id="orge2a92fb"><span class="section-number-3">3.5</span> Inputting course information</h3>
+<p>
+The first few lines of the semester Org file (see <code>2020 Spring.org</code>) contain
+the file metadata, such as the <code>#+TITLE:</code> and <code>#+DESCRIPTION:</code> of the
+file. Expanding the <code>:COURSE_INFO:</code> drawer will reveal several macros which
+have the course metadata; the <code>COURSE</code> macro is for specifying the
+name of the course, <code>COURSE_NUM</code> is for specifying the course ID, and so
+on. They currently have filler values as shown in the image below. 
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info.png" alt="Semester-Course-Info.png" />
+</p>
+</div>
+
+<p>
+You can fill the macro values with your own course information as shown in the
+image below.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info-Edited.png" alt="Semester-Course-Info-Edited.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-3-6">
+<h3 id="orgcf2afe0"><span class="section-number-3">3.6</span> Preparing your syllabus</h3>
+<p>
+To reduce reduncancy, the top level <code>* Syllabus</code> tree simply pulls information
+from the course Org file (for course-related information common across
+sections and semesters; e.g., course description), the semester Org file (for
+semester-specific information; e.g., academic year or office hours), and
+section-level macros (which contain section-specific information; e.g., class
+time and location).
+</p>
+
+<p>
+Here, we show how to use a simple command to automatically generate/update a
+class schedule from the list of classes and their metadata in the <code>* Lectures</code>
+top-level tree in the semester Org file, and how to export your syllabi.
+</p>
+
+<p>
+<a href="https://joonro.github.io/Org-Coursepack/Lectures/07%20Semester%20Org%20Files%202%204%20Sections%20and%20Syllabus.html#syllabus-top-level-tree">2 Syllabus Top-level Tree</a> of the documentation contains detailed information about 
+how to change syllabus content to fit your own course. 
+</p>
+</section>
+<section id="slide-sec-3-6-1">
+<h4 id="org1538651"><span class="section-number-4">3.6.1</span> Class schedule</h4>
+<p>
+You can include in your syllabus a class schedule, which is a table that shows
+a list of class dates, class numbers, and class titles, as well as exam dates
+and assignment due dates. Navigate to the
+<code>* Syllabus/Class Schedule</code> subtree and place your cursor on the line that
+starts with <code>#+BEGIN: columnview</code>. You can view the class schedule by
+expanding the <code>columnview</code>:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png" alt="Syllabus-Schedule-Old.png" />
+</p>
+</div>
+
+<p>
+Then, with the cursor in place, press <code>C-c C-c</code> (hit <code>c</code> twice while holding
+down the <code>CTRL</code> key) to generate/update the class schedule with the most
+recent information. Any changes made to the order or names of classes will
+automatically be reflected when the instructor updates the class schedule with
+the <code>C-c C-c</code> command. See an example of updated class schedule below.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png" alt="Syllabus-Schedule-New.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-6-2">
+<h4 id="org7bfb48b"><span class="section-number-4">3.6.2</span> Exporting a syllabus</h4>
+<p>
+Syllabus exporting occurs at the <code>Syllabus</code> subtree under each section's
+headline (e.g, <code>* Sections/01/Syllabus</code>) to enable passing on section-specific
+information through macros, which are defined in <code>:PROPERTIES:</code> and
+<code>:MACROS_Section_Info:</code> drawers of the section subtree (see the example
+below).
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Section-Information-Properties.png" alt="Section-Information-Properties.png" />
+</p>
+</div>
+
+<p>
+To export the syllabus in our example, navigate to the <code>*
+Sections/01/Syllabus</code> headline, then expand its <code>:PROPERTIES:</code> drawer. When
+the drawer is expanded, you will see a clickable link named <code>LaTeX</code> (see image
+below). First, make sure to save your file so all your changes are written to
+the disk. Then, clicking this link will export the syllabus for Section 1 to a
+PDF file using LaTeX. You can find the exported file in the <code>Syllabus</code>
+sub-directory. You can also click the <code>PDF</code> link in the same <code>:PROPERTIES:</code>
+drawer (see image below) to open the exported file.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Export-Link.png" alt="Syllabus-Export-Link.png" />
+</p>
+</div>
+
+<p>
+See the screenshots of the exported syllabus (the first and the class schedule pages) below.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Exported-Course-Desc.png" alt="Syllabus-Exported-Course-Desc.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Exported-Schedule.png" alt="Syllabus-Exported-Schedule.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-7">
+<h3 id="org76a1d8e"><span class="section-number-3">3.7</span> Preparing your lectures</h3>
+<p>
+The Quickstart guide will begin by introducing the exporting functions to help
+beginners visualize the lecture slides and handouts generated with the
+<code>Org-Coursepack</code>.
+</p>
+</section>
+<section id="slide-sec-3-7-1">
+<h4 id="orga54e4ce"><span class="section-number-4">3.7.1</span> Exporting slides and handouts</h4>
+<p>
+Each lecture subtree, in its <code>:PROPERTIES:</code> drawer, has clickable links for
+export functions (see image below). The <code>reveal.js</code> link is for exporting the
+lecture to html <code>reveal.js</code> slides. The <code>LaTeX</code> link is for exporting the
+lecture to a document-like handout (as opposed to scaled-down slides) in a PDF
+file format. Clicking the <code>HTML</code> and <code>PDF</code> links will open the corresponding
+exported file. The exported files can be located in the <code>Lectures</code>
+sub-directory of the semester folder. You can also click on the <code>HTML</code> and
+<code>PDF</code> clickable links below the export buttons (on the <code>:OUTPUT_VIEW:</code>
+property) to view the exported files.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Export-Link.png" alt="Lecture-Export-Link.png" />
+</p>
+</div>
+
+<p>
+The following image shows an example of an exported html <code>reveal.js</code> slides
+(the slide overview mode). 
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_reveal.js.png" alt="Lecture-Exported_reveal.js.png" />
+</p>
+</div>
+
+<p>
+The image below shows an example of an exported PDF handout.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_LaTeX.png" alt="Lecture-Exported_LaTeX.png" />
+</p>
+</div>
+
+<p>
+As you can see, class materials under subtrees with the <code>slideonly</code>
+(<code>handoutonly</code>) tag are not exported in the LaTeX (reveal.js) output. The tags
+allow you to specify materials you want to show only in lecture slides and not
+in handouts (e.g., in-class announcements) or only in handouts and not in
+lecture slides (e.g., supplementary information about a topic).
+</p>
+
+<p>
+See <a href="https://joonro.github.io/Org-Coursepack/Lectures/05%20Exporting%20Slides%20and%20Handouts.html">Exporting Slides and Handouts</a> for more information about exporting lectures.
+</p>
+
+</section>
+<section id="slide-sec-3-7-2">
+<h4 id="org8541b94"><span class="section-number-4">3.7.2</span> Adding new classes/lectures and updating their metadata</h4>
+<p>
+The example <code>* Lectures</code> tree, as shown below, has only one lecture (i.e.,
+<code>Course Introduction</code>). Lets try adding two additional lectures. (Note that
+subtrees with the <code>skipcount</code> tag are not actual lectures&#x2013;they are either
+subtrees with auxiliary information, such as class dates and instructor's
+tasks, or subtrees for non-lecture events such as assignment due dates and
+holidays.)
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Lectures.png" alt="Lectures-Lectures.png" />
+</p>
+</div>
+
+<p>
+To add two additional lectures, copy and paste the <code>Course Introduction</code>
+subtree twice. Then, change the names of the two additional lecture
+subtrees. In the example, we will simply call them <code>Second Lecture</code> and <code>Third
+Lecture</code>:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Second-Lecture.png" alt="Lectures-Second-Lecture.png" />
+</p>
+</div>
+
+<p>
+<b>Updating metadata</b> Expanding the <code>:PROPERTIES:</code> drawer of each lecture (e.g.,
+<code>Second Lecture</code>) will reveal class-related metadata, such as <code>CLASS</code>,
+<code>EXPORT_FILE_NAME</code>, and <code>DATE</code>.  You can automatically update these values by
+running the <code>Update lecture metadata</code> script.  The script is located right
+under the <code>Lectures</code> subtree headline (see image below)&#x2013;to run the script,
+simply move the curser to the script and press <code>C-c C-c</code>.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png" alt="Lectures-Run-Script-Update-Lectures.png" />
+</p>
+</div>
+
+<p>
+Press <code>y</code> to confirm when asked (see image below).
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures-Confirm.png" alt="Lectures-Run-Script-Update-Lectures-Confirm.png" />
+</p>
+</div>
+
+<p>
+After the script finishes running, you will need to press <code>Shift+Tab</code> to reset
+the rendering.
+</p>
+
+<p>
+As shown in the image below, the lecture metadata have been updated with
+appropriate values. 
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Lecture-Info.png" alt="Lectures-Updated-Lecture-Info.png" /> 
+</p>
+</div>
+
+<p>
+<b>Creating materials for beginning and end of classes.</b> Classes often begin
+with a recap of the previous lecture topics and a preview of the current
+lecture topics. Classes often end with a recap of the current lecture
+topics. Recaps and previews of lecture topics are automatically generated with
+the <code>Update lecture metadata</code> script described earlier by pulling the list of
+titles of the topic subtrees covered in a given lecture. Appropriate content
+are written automatically, even when the orders of topics or lectures are
+changed. See the screenshot below for an example.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png" alt="Lectures-Updated-Boilerplate.png" /> 
+</p>
+</div>
+
+<p>
+<b>Updating class schedule in syllabus</b> As explained earlier, you can update the
+class schedule in the syllabus with the new lecture metadata automatically by
+updating the class schedule table. See the screenshot below.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png" alt="Syllabus-Schedule-Updated.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-7-3">
+<h4 id="org8108646"><span class="section-number-4">3.7.3</span> Creating modular content</h4>
+<p>
+One of the biggest advantages of using the <code>Org-Coursepack</code> is that
+instructors can leverage Org mode's flexible inclusion functionality when
+developing course materials. Course materials that are stored in topic Org
+files can be pulled into semester Org files using the <code>#+INCLUDE:</code> statement
+to construct lectures (see example below).
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Include.png" alt="Lecture-Editing_Include.png" />
+</p>
+</div>
+
+<p>
+This modular approach reduces redundancy and makes it easier to manage and
+update course materials. For example, any improvements made to a content can
+be automatically applied to all courses pulling that content. This approach is
+optional&#x2013;instructors can also choose to put all course materials directly
+into a semester Org file. See the <a href="https://joonro.github.io/Org-Coursepack/Lectures/08%20Semester%20Org%20Files%203%204%20Lectures.html">Lectures</a> part of the documentation for more
+details.
+</p>
+</section>
+<section id="slide-sec-3-7-4">
+<h4 id="org44b508c"><span class="section-number-4">3.7.4</span> Editing lecture content</h4>
+<p>
+Let's add content to a lecture. Any lecture content (e.g., Focus Groups) will
+belong to a topic subtree (e.g., Types of Qualitative Research Methods). In
+the example shown below, we simply added a <code>New topic</code> subtree at the same
+level as other topic subtrees (i.e., <code>*** New topic</code>).
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_New_Section.png" alt="Lecture-Editing_New_Section.png" />
+</p>
+</div>
+
+<p>
+When creating content under the topic subtree, you can freely use Org markup
+language, which is similar to other popular markup languages such as Markdown
+and reStructuredText. The Quickstart Guide shows several basic examples. For
+more detailed instructions, see the <a href="https://joonro.github.io/Org-Coursepack/Lectures/04%20Creating%20Content%20for%20Slides%20and%20Handouts.html">Creating Content for Slides and Handouts</a>
+section of the documentation. You can also see <a href="https://orgmode.org/manual/index.html">Org manual</a>.
+</p>
+
+<p>
+<b>Lists.</b> Org mode uses a typical syntax (<code>-</code> or <code>+</code> for lists, <code>1.</code> for
+numbered lists) for lists. For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Lists.png" alt="Lecture-Editing_Lists.png" />
+</p>
+</div>
+
+<p>
+<b>Math.</b> you can directly input LaTeX math in Org mode. For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Math.png" alt="Lecture-Editing_Math.png" />
+</p>
+</div>
+
+<p>
+In <code>reveal.js</code> slides, math will be rendered with <a href="https://www.mathjax.org">MathJax</a>.
+</p>
+
+<p>
+<b>Code.</b> Code can be inputting using <a href="https://orgmode.org/manual/Structure-of-code-blocks.html">code blocks</a>, which can be easily inserted
+by pressing <code>&lt;s</code> and then <code>&lt;TAB&gt;</code> key in Org mode. For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Code.png" alt="Lecture-Editing_Code.png" />
+</p>
+</div>
+
+<p>
+Code will be rendered with proper syntax highlighting. The following
+screenshots show how the above example is rendered in <code>reveal.js</code> and LaTeX outputs.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-reveal.js.png" alt="Lecture-Exported_Code-reveal.js.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-LaTeX.png" alt="Lecture-Exported_Code-LaTeX.png" />
+</p>
+</div>
+
+<p>
+<b>Slide split.</b> Lecture content are automatically divided into different slides
+following the structure of the lecture subtree (e.g., content for a new topic
+will be presented in a new set of slides). An instructor can also force a new
+slide by inserting <code>#+REVEAL: split</code> into a desired location. For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Split.png" alt="Lecture-Editing_Split.png" />
+</p>
+</div>
+
+<p>
+<b>Fragmented contents.</b> Fragmented contents (e.g., items in a listing being
+presented one after another) can be specified by putting <code>#+ATTR_REVEAL: :frag
+(appear)</code> before the contents that are to be fragmented. For example:
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Fragmented.png" alt="Lecture-Editing_Fragmented.png" />
+</p>
+</div>
+
+<p>
+<b>Images.</b> Prepending <code>file:</code> to an image file path will include a local image
+to both lecture slides and handout. We recommend using a relative path
+(<code>../../../Assets/Images/</code>) for portability.
+</p>
+
+<p>
+To adjust the size of the image, specify HTML attributes (e.g., <code>#+ATTR_HTML:
+:width 80%</code>) or LaTeX attributes (e.g., <code>#+ATTR_LATEX: :width 6cm</code>) before the
+image file path.
+</p>
+
+<p>
+For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Images.png" alt="Lecture-Editing_Images.png" />
+</p>
+</div>
+
+<p>
+<b>Hiding specific content.</b> Since Org mode allows embedding raw HTML and LaTeX
+codes, it is easy to hide specific content based on an output format. Content
+surrounded by <code>#+LATEX: \iffalse</code> and <code>#+LATEX: \fi</code> will not be shown in
+LaTeX outputs. Content surrounded by <code>#+REVEAL_HTML: &lt;span hidden&gt;</code> and
+<code>#+REVEAL_HTML: &lt;/span&gt;</code> will not be shown in reveal.js outputs. For example,
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents.png" alt="Lecture-Editing_Hiding-Contents.png" />
+</p>
+</div>
+
+<p>
+The following screenshots show the exported outputs of the above content. The
+image is shown in the lecture slide but not in the handout.
+</p>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents-reveal.js.png" alt="Lecture-Editing_Hiding-Contents-reveal.js.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents-LaTeX.png" alt="Lecture-Editing_Hiding-Contents-LaTeX.png" />
+</p>
+</div>
+</section>
+<section id="slide-sec-3-8">
+<h3 id="org017060e"><span class="section-number-3">3.8</span> Conclusion</h3>
+<p>
+This concludes the quickstart guide. In addition to syllabus and lectures, the
+<code>Org-Coursepack</code> provides templates for common course elements, including
+assignments and exams. The rest of the documentation will guide you through
+the <code>Org-Coursepack</code> in detail.
+</p>
+
+<p>
+Please let us know through <a href="https://github.com/joonro/Org-Coursepack/issues">GitHub issues</a> if you have any questions or
+issues.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orge8cc180"><span class="section-number-2">4</span> Overview of the Directory Structure</h2>
+<p>
+We present the directory structure of Org-Coursepack.
+</p>
+
+<dl>
+<dt><b>/Assets</b></dt><dd>This folder contains:
+<ul>
+<li>Org setup files, which include frequently used macros (e.g., for LaTex
+formatting).</li>
+<li>Supplementary course materials (if any), such as images, videos, or
+articles, for storage and access.</li>
+
+</ul></dd>
+<dt><b>/Assets/Institutions</b></dt><dd>This folder contains an institution Org file that
+includes institution-specific information (e.g., university policies);
+may have multiple Org files if teaching across multiple institutions.</dd>
+
+<dt><b>/Courses</b></dt><dd>Each unique course will have a subdirectory under <code>Courses</code>. A
+course is defined as a series of lectures occupying a given
+adademic calendar unit referred to as a semester. Same courses
+may be offered across multiple semesters. Note that a course
+may also have multiple sections in the same semester; for
+example, a Statistics 101 course may be offered to three
+different sets of students per semester.</dd>
+<dt><b>/Courses/Course</b></dt><dd>This folder contains:
+
+<ul>
+<li>A course Org file that includes permanent information about the course
+that remains consistent across semesters (e.g., syllabus items such as
+learning objectives, grading schemes).</li>
+<li>A subfolder for each semester this course is taught.</li>
+
+</ul></dd>
+
+<dt><b>/Courses/Course/Semester</b></dt><dd>Each semester folder contains:
+<ul>
+<li>A semester Org file that includes information about the course that varies
+by semester (e.g., classroom location, course schedule, assignment due
+dates). The semester Org file also pulls information from other Org files,
+such as course, topic, and institution Org files, to complete the course
+development for that semester. In other words, this is the master file
+that compiles all course materials for exporting.</li>
+<li>Subfolders are for exported course materials (if any) and are
+divided by type; i.e., Assignments, Lectures, Exams, and Syllabus.</li>
+
+</ul></dd>
+<dt><b>/Topics</b></dt><dd>This folder contains a topic Org file for each topic; these
+files are where course content (e.g., lecture slides and notes,
+exam questions, assignment guidelines) about specific topics
+are stored and accessed.</dd>
+
+</dl>
+</section>
+<section id="slide-sec-4-1">
+<h3 id="org0166260"><span class="section-number-3">4.1</span> Example</h3>
+<p>
+The following example is the directory structure of this course, Org-Coursepack, as well as the template.
+</p>
+
+<span style=font-size:20pt>
+<pre class="example">
+\
+|
++---Assets
+|   |   setup_Macros.org
+|   |
+|   +---Institutions
+|           JOSE.org
+|           Template.org
+|
++---Courses
+|   +---Org-Coursepack
+|   |   |   Org-Coursepack.org
+|   |   |
+|   |   +---2020 Spring
+|   |       |   2020 Spring.org
+|   |       |
+|   |       +---Assignments
+|   |       |   |   Assignment 1.pdf
+|   |       |   |   Assignment 1.tex
+|   |       |
+|   |       +---Lectures
+|   |       |   |   01 Introduction.pdf
+|   |       |   |   01 Introduction.tex
+|   |       |
+|   |       +---Exams
+|   |       |   |   Exam 1.pdf
+|   |       |   |   Exam 1.tex
+|   |       |
+|   |       +---Syllabus
+|   |           |   Syllabus (Section 1).pdf
+|   |           |   Syllabus (Section 1).tex
+|   |
+|   +---Template
+|       |   Course Template.org
+|       |   
+|       +---Semester Template
+|           |   Semester Template.org
+|           |   
+|           +---Assignments
+|           |   |   Assignment_1.pdf
+|           |   |   Assignment_1.tex
+|           |           
+|           +---Exams
+|           +---Lectures
+|           |   |   01 Introduction.pdf
+|           |   |   01 Introduction.tex
+|           |   |   
+|           |           
+|           +---Syllabus
+|               |   Syllabus (Section 1).pdf
+|               |   Syllabus (Section 1).tex
+|
++---Topics
+    |   Org-Teaching.org
+    |   Topic Template.org
+
+</pre>
+</span>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="org8012601"><span class="section-number-2">5</span> Class Recap</h2>
+<ul>
+<li class="fragment appear">Introduction to Org-Coursepack</li>
+<li class="fragment appear">Quickstart Guide</li>
+<li class="fragment appear">Overview of the Directory Structure</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

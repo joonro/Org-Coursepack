@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 3: Topic and Course Org Files</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 3: Topic and Course Org Files</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org0c03ab7"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="orgf9cc2ed"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org907ad3c"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">Headings</li>
+<li class="fragment appear">Macros</li>
+<li class="fragment appear">Including Content from Another Org file</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Topic and Course Org Files/Outline">
+<h3 id="Lecture/Topic and Course Org Files/Outline"><a id="orgdbc0bf1"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear">Topic Org Files</li>
+<li class="fragment appear">Course Org Files</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org3f3a7ed"><span class="section-number-2">2</span> Topic Org Files</h2>
+<p>
+A topic Org file contains course content (e.g., lecture slides and
+notes, exam questions, assignment guidelines) for a given topic. Its
+general structure is shown below, using an example of Regression as a
+teaching topic. The top section (where lines start with <code>#+</code>) has
+metadata for the Org file. Including meta data is optional.
+</p>
+
+<pre class="example">
+  #+TITLE:     Topics: Regression
+  #+AUTHOR:    Your Name
+  #+EMAIL:     Your Email
+  #+DESCRIPTION: Topic Org file for Regression
+  #+CATEGORY: TOPIC
+  #+STARTUP: overview
+  #+STARTUP: hidestars
+
+  * Lectures
+  * Assignments
+  * Exercises
+  * Questions
+</pre>
+</section>
+<section id="slide-sec-Lectures/Topic Org Files/Organizing Content">
+<h3 id="Lectures/Topic Org Files/Organizing Content"><a id="org83db618"></a><span class="section-number-3">2.1</span> Organizing Content in Topic Org Files</h3>
+<ul>
+<li class="fragment appear"><p>
+In most cases, course content would be created in a topic Org file (e.g., a
+topic Org file that covers Regression), each consisting of multiple
+sub-topics (e.g., subtopics of Regression such as, Estimation, Interpretation, R-squared). Sub-topics are
+organized in the form of a subtree as shown in the example below.
+</p>
+
+<pre class="example">
+  * Lectures
+  ** Estimation
+  :PROPERTIES:
+  :CUSTOM_ID: Lectures/Estimation
+  :END:
+  ** Interpretation
+  :PROPERTIES:
+  ** R-Squared
+  :PROPERTIES:
+</pre></li>
+
+<li class="fragment appear"><p>
+Each sub-topic should have a <code>:CUSTOM_ID:</code> property, as shown in the example
+above, so it can be included in another file, such as a semester Org file.
+</p>
+
+<div class="mdframed">
+<p>
+On a related note, an important consideration when creating a topic
+Org file is the fact that the content in it has the potential to be
+included in multiple different semester Org files. Hence, an
+instructor who, for instance, plans to teach the same topic (e.g.,
+Regression) or sub-topic (e.g., R-squared) in different courses
+(e.g., Statistics 101 and Marketing Research) would benefit from not
+making references to a specific course in the topic Org file.
+</p>
+
+</div></li>
+
+<li class="fragment appear">The Org-Coursepacket includes multiple topic Org files located in the the
+<code>Topics</code> folder.</li>
+<li class="fragment appear">A topic org file can contain relevant assignments, exercises, and exam
+questions under corresponding subtrees.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org221c8da"><span class="section-number-2">3</span> Course Org Files</h2>
+<p class="fragment (appear)">
+A course Org file contains permanent information for the corresponding
+course, that is, information about the course that remains consistent across semesters
+(e.g., learning objectives, grading schemes).
+</p>
+
+</section>
+<section >
+
+<p>
+We will now review the structure and contents of the course Org
+file. The example below shows the highest-level headings of the course
+Org file for Org-Coursepack &#x2013; i.e., Courses and Syllabus.
+</p>
+
+<pre class="example">
+  #+TITLE:     Course: Org-Coursepack
+  #+AUTHOR:    Your Name
+  #+EMAIL:     Your Email
+  #+DESCRIPTION: org file for Org-Coursepack
+  #+CATEGORY: COURSE
+  #+STARTUP: overview
+  #+STARTUP: hidestars
+  
+  * Courses
+  * Syllabus
+</pre>
+
+<p>
+The <code>Courses</code> tree can have a subtree for each semester teaching this
+course. See example below. Note that, in the actual course Org file,
+semester subtrees are links to their respective semester Org files.
+</p>
+
+<pre class="example">
+  * Courses
+  ** 2020 Spring
+</pre>
+
+<p>
+The <code>Syllabus</code> subtree containts partial content for the syllabus,
+specifically, information about the course that remains consistent
+across semesters (e.g., <code>Course Description</code>, <code>Learning
+Objectives</code>, grading scheme). See an example of the <code>Syllabus</code>
+tree with only the <code>Course Description</code> subtree expanded.
+</p>
+
+<pre class="example">
+  * Syllabus
+  ** Course Description
+  :PROPERTIES:
+  :CUSTOM_ID: Syllabus/Course Description
+  :END:
+  Course description here
+  ** Student Learning Objectives
+  ** Course Material
+  ** Grading
+  ** Specific Course Policies
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orgb17ae5a"><span class="section-number-2">4</span> Class Recap</h2>
+<ul>
+<li class="fragment appear">Topic Org Files</li>
+<li class="fragment appear">Course Org Files</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

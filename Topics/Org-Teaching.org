@@ -6,8 +6,6 @@
 #+STARTUP: overview
 #+STARTUP: hidestars
 
-#+MACRO: NAME Org-Coursepack
-
 * Lectures
 ** Introduction to Org-Coursepack
 :PROPERTIES:
@@ -46,8 +44,423 @@ materials using [[https://orgmode.org/manual/Export-settings.html][Org mode]], a
 - Consistent, properly-formatted, and strategically presented course materials add to student engagement
 - Availability of materials that are easier to digest and review outside the classroom
 *** Requirements
-- Basic knowledge of Emacs
-- Basic knowledge of Org mode
+- Org-Coursepack is a tool based on [[https://orgmode.org/manual/Export-settings.html][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables][GNU Emacs]]. It
+  does not, however, require extensive previous experience with either, unless
+  the user wants to make changes to pre-built scripts. Only the following basic knowledge is needed:
+  - Emacs :: Text editing using Emacs
+  - Org mode :: Org mode markup syntax. Org mode uses a
+                straightforward markup language similar to Markdown and
+                reStructuredText, and thus, it will be easy to learn for any user
+                who is familiar with other markup languages.
+** Quickstart Guide: Creating your first course with Org-Coursepack 
+:PROPERTIES:
+:CUSTOM_ID: Lectures/Quickstart Guide
+:END:
+This quickstart guide will show you, step-by-step, how to create your course
+with =Org-Coursepack=. We focus on creating syllabi and lectures, 
+as they typically make up the majority of course content. Other course materials, such as 
+assignments and exams, can be created in similar ways.
+*** Installation
+Follow instructions on [[https://github.com/joonro/Org-Coursepack#installation][README]] to install =Org-Coursepack= along with its
+dependencies.
+*** Copy and rename the =Template= directory and Org file
+The quickstart guide uses =/= to refer the root path of =Org-Coursepack=. Make
+a copy of the =Template= directory (inside the =/Courses= directory). Change
+the names of the =Template= directory and the =Course Template.org= file
+inside the directory, so they reflect the name of the course you are creating
+the materials for. See example below (we changed the names to =Example
+Course=):
+
+#+ATTR_LATEX: :width 8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Course-renamed.png
+
+#+REVEAL: split
+
+It is common for the same course to be taught across multiple
+semesters. Hence, the course will include a =Semester= folder for each
+semester it is taught. This folder includes a semester Org file, which is used
+to pull and organize modular course materials that can be used across courses
+and/or semesters. The semester Org file can also contain semester-specific
+content, such as class dates, classroom information, or office hours. The
+semester Org file is used to export course content into appropriate output
+formats (e.g., slides or handouts).
+
+The example below shows that the semester is 2020 Spring. You can rename the
+=Semester Template= folder and the =Semester Template.org= inside that folder
+to reflect the semester in which you are teaching that course.
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-renamed.png
+*** Set local variables permissions in the semester Org file
+When you open =2020 Spring.org= for the first time, it will 
+show you the following warning about local variables:
+
+  #+BEGIN_SRC emacs-lisp
+  The local variables list in 2020 Spring.org
+  contains values that may not be safe (*), and variables that are risky (**)
+  
+  Do you want to apply it?  You can type
+  y  -- to apply the local variables list.
+  n  -- to ignore the local variables list.
+  !  -- to apply the local variables list, and permanently mark these 
+        values (*) as safe (in the future, they will be set automatically.)
+  #+END_SRC
+
+This warning asks what you would like to do about the pre-set options
+contained in the file. For example, the option
+=org-confirm-elisp-link-function= is currently set to =nil=, which means that,
+when links containing Emacs scripts are clicked (e.g., for exporting), Emacs
+will not ask for your confirmation before the action is taken. You can type
+=!= to permanently set these options.
+
+When the file is open, you will see the template for constructing a course for this semester:
+
+#+ATTR_LATEX: :height 7cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Org-File.png
+
+You can freely move the cursor around using the arrow keys. Many items such as
+such as [[https://orgmode.org/manual/Drawers.html][drawers]] (e.g., =:LOCALSETUP:=) and [[https://orgmode.org/manual/Headlines.html][subtrees]] (e.g., ~* Sections~) are
+collapsible, and they are annotated with =...= when collapsed. A collapsible
+item under the cursor can be expanded and collapsed by pressing the =Tab= key:
+
+#+ATTR_LATEX: :height 2cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Org-Expand.png
+*** Rename paths to semester and course Org files specified in =#+INCLUDE= statements
+The semester Org file has =#+INCLUDE= statements, which are used to pull
+content from other Org files (e.g., course Org file or other sections of the
+same semester Org file). The =#+INCLUDE= statements specify the paths to the
+Org files from which content are pulled. These paths should be renamed so the
+=#+INCLUDE= statements work properly.
+
+Specifically, you should replace two file names in these paths.
+
+First, replace all occurrences of =Semester Template.org= with the name of your
+semester Org file (in the case of our example, =2020 Spring.org=).
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Semester-Before.png
+
+You can use the search-and-replace feature in Emacs by pressing =M-%=
+(=Alt+Shift+5=) or via =Edit= -> =Replace= -> =Replace String= menu),
+inputting =Semester Template.org<Enter>= followed by =2020 Spring.org<Enter>=, and
+pressing =!= (replace all). Emacs will let you know how many replaces has been
+made.
+
+The replace query will look like the following:
+
+  #+BEGIN_EXAMPLE 
+  Query replace Semester Template.org with: 2020 Spring.org
+  #+END_EXAMPLE
+  
+As shown below, all occurrences of =Semester Template.org= are replaced by =2020
+Spring.org=:
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Semester-After.png
+  
+Repeat the same process for the template Org file. That is, replace
+=Course Template.org= with the name of your course Org file.
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Course-Before.png
+
+  #+BEGIN_EXAMPLE 
+  Query replace Course Template.org with: Example Course.org
+  #+END_EXAMPLE
+
+As shown below, =Course Template.org= is replaced by =Example Course.org=:
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Rename-Course-After.png
+*** Inputting course information
+The first few lines of the semester Org file (see =2020 Spring.org=) contain
+the file metadata, such as the =#+TITLE:= and =#+DESCRIPTION:= of the
+file. Expanding the =:COURSE_INFO:= drawer will reveal several macros which
+have the course metadata; the =COURSE= macro is for specifying the
+name of the course, =COURSE_NUM= is for specifying the course ID, and so
+on. They currently have filler values as shown in the image below. 
+
+#+ATTR_LATEX: :height 6cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info.png
+
+You can fill the macro values with your own course information as shown in the
+image below.
+
+#+ATTR_LATEX: :height 6cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info-Edited.png
+
+*** Preparing your syllabus
+To reduce reduncancy, the top level =* Syllabus= tree simply pulls information
+from the course Org file (for course-related information common across
+sections and semesters; e.g., course description), the semester Org file (for
+semester-specific information; e.g., academic year or office hours), and
+section-level macros (which contain section-specific information; e.g., class
+time and location).
+
+Here, we show how to use a simple command to automatically generate/update a
+class schedule from the list of classes and their metadata in the =* Lectures=
+top-level tree in the semester Org file, and how to export your syllabi.
+
+[[https://joonro.github.io/Org-Coursepack/Lectures/07%2520Semester%2520Org%2520Files%25202%25204%2520Sections%2520and%2520Syllabus.html#syllabus-top-level-tree][2 Syllabus Top-level Tree]] of the documentation contains detailed information about 
+how to change syllabus content to fit your own course. 
+**** Class schedule
+You can include in your syllabus a class schedule, which is a table that shows
+a list of class dates, class numbers, and class titles, as well as exam dates
+and assignment due dates. Navigate to the
+=* Syllabus/Class Schedule= subtree and place your cursor on the line that
+starts with =#+BEGIN: columnview=. You can view the class schedule by
+expanding the =columnview=:
+
+#+ATTR_LATEX: :height 5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png
+
+Then, with the cursor in place, press =C-c C-c= (hit =c= twice while holding
+down the =CTRL= key) to generate/update the class schedule with the most
+recent information. Any changes made to the order or names of classes will
+automatically be reflected when the instructor updates the class schedule with
+the =C-c C-c= command. See an example of updated class schedule below.
+
+#+ATTR_LATEX: :height 5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
+**** Exporting a syllabus
+Syllabus exporting occurs at the =Syllabus= subtree under each section's
+headline (e.g, =* Sections/01/Syllabus=) to enable passing on section-specific
+information through macros, which are defined in =:PROPERTIES:= and
+=:MACROS_Section_Info:= drawers of the section subtree (see the example
+below).
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Section-Information-Properties.png
+
+To export the syllabus in our example, navigate to the =*
+Sections/01/Syllabus= headline, then expand its =:PROPERTIES:= drawer. When
+the drawer is expanded, you will see a clickable link named =LaTeX= (see image
+below). First, make sure to save your file so all your changes are written to
+the disk. Then, clicking this link will export the syllabus for Section 1 to a
+PDF file using LaTeX. You can find the exported file in the =Syllabus=
+sub-directory. You can also click the =PDF= link in the same =:PROPERTIES:=
+drawer (see image below) to open the exported file.
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Export-Link.png
+
+See the screenshots of the exported syllabus (the first and the class schedule pages) below.
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Exported-Course-Desc.png
+
+#+ATTR_LATEX: :width 10cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Exported-Schedule.png
+*** Preparing your lectures
+The Quickstart guide will begin by introducing the exporting functions to help
+beginners visualize the lecture slides and handouts generated with the
+=Org-Coursepack=.
+**** Exporting slides and handouts
+Each lecture subtree, in its =:PROPERTIES:= drawer, has clickable links for
+export functions (see image below). The =reveal.js= link is for exporting the
+lecture to html =reveal.js= slides. The =LaTeX= link is for exporting the
+lecture to a document-like handout (as opposed to scaled-down slides) in a PDF
+file format. Clicking the =HTML= and =PDF= links will open the corresponding
+exported file. The exported files can be located in the =Lectures=
+sub-directory of the semester folder. You can also click on the =HTML= and
+=PDF= clickable links below the export buttons (on the =:OUTPUT_VIEW:=
+property) to view the exported files.
+
+#+ATTR_LATEX: :height 6cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Export-Link.png
+
+The following image shows an example of an exported html =reveal.js= slides
+(the slide overview mode). 
+
+#+ATTR_LATEX: :height 9cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_reveal.js.png
+
+The image below shows an example of an exported PDF handout.
+
+#+ATTR_LATEX: :height 8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_LaTeX.png
+
+As you can see, class materials under subtrees with the =slideonly=
+(=handoutonly=) tag are not exported in the LaTeX (reveal.js) output. The tags
+allow you to specify materials you want to show only in lecture slides and not
+in handouts (e.g., in-class announcements) or only in handouts and not in
+lecture slides (e.g., supplementary information about a topic).
+
+See [[https://joonro.github.io/Org-Coursepack/Lectures/05%2520Exporting%2520Slides%2520and%2520Handouts.html][Exporting Slides and Handouts]] for more information about exporting lectures.
+
+**** Adding new classes/lectures and updating their metadata
+The example =* Lectures= tree, as shown below, has only one lecture (i.e.,
+=Course Introduction=). Lets try adding two additional lectures. (Note that
+subtrees with the =skipcount= tag are not actual lectures--they are either
+subtrees with auxiliary information, such as class dates and instructor's
+tasks, or subtrees for non-lecture events such as assignment due dates and
+holidays.)
+
+#+ATTR_LATEX: :height 5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Lectures.png
+
+To add two additional lectures, copy and paste the =Course Introduction=
+subtree twice. Then, change the names of the two additional lecture
+subtrees. In the example, we will simply call them =Second Lecture= and =Third
+Lecture=:
+
+#+ATTR_LATEX: :height 8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Second-Lecture.png
+
+*Updating metadata* Expanding the =:PROPERTIES:= drawer of each lecture (e.g.,
+=Second Lecture=) will reveal class-related metadata, such as =CLASS=,
+=EXPORT_FILE_NAME=, and =DATE=.  You can automatically update these values by
+running the =Update lecture metadata= script.  The script is located right
+under the =Lectures= subtree headline (see image below)--to run the script,
+simply move the curser to the script and press =C-c C-c=.
+
+#+ATTR_LATEX: :height 3cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png
+
+Press =y= to confirm when asked (see image below).
+
+#+ATTR_LATEX: :width 11cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures-Confirm.png
+
+After the script finishes running, you will need to press =Shift+Tab= to reset
+the rendering.
+
+As shown in the image below, the lecture metadata have been updated with
+appropriate values. 
+
+#+ATTR_LATEX: :height 4cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Lecture-Info.png 
+
+*Creating materials for beginning and end of classes.* Classes often begin
+with a recap of the previous lecture topics and a preview of the current
+lecture topics. Classes often end with a recap of the current lecture
+topics. Recaps and previews of lecture topics are automatically generated with
+the =Update lecture metadata= script described earlier by pulling the list of
+titles of the topic subtrees covered in a given lecture. Appropriate content
+are written automatically, even when the orders of topics or lectures are
+changed. See the screenshot below for an example.
+
+#+ATTR_LATEX: :height 4cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png 
+
+*Updating class schedule in syllabus* As explained earlier, you can update the
+class schedule in the syllabus with the new lecture metadata automatically by
+updating the class schedule table. See the screenshot below.
+
+#+ATTR_LATEX: :height 4cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png
+**** Creating modular content
+One of the biggest advantages of using the =Org-Coursepack= is that
+instructors can leverage Org mode's flexible inclusion functionality when
+developing course materials. Course materials that are stored in topic Org
+files can be pulled into semester Org files using the =#+INCLUDE:= statement
+to construct lectures (see example below).
+
+#+ATTR_LATEX: :height 0.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Include.png
+
+This modular approach reduces redundancy and makes it easier to manage and
+update course materials. For example, any improvements made to a content can
+be automatically applied to all courses pulling that content. This approach is
+optional--instructors can also choose to put all course materials directly
+into a semester Org file. See the [[https://joonro.github.io/Org-Coursepack/Lectures/08%2520Semester%2520Org%2520Files%25203%25204%2520Lectures.html][Lectures]] part of the documentation for more
+details.
+**** Editing lecture content
+Let's add content to a lecture. Any lecture content (e.g., Focus Groups) will
+belong to a topic subtree (e.g., Types of Qualitative Research Methods). In
+the example shown below, we simply added a =New topic= subtree at the same
+level as other topic subtrees (i.e., =*** New topic=).
+
+#+ATTR_LATEX: :height 3.5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_New_Section.png
+
+When creating content under the topic subtree, you can freely use Org markup
+language, which is similar to other popular markup languages such as Markdown
+and reStructuredText. The Quickstart Guide shows several basic examples. For
+more detailed instructions, see the [[https://joonro.github.io/Org-Coursepack/Lectures/04%2520Creating%2520Content%2520for%2520Slides%2520and%2520Handouts.html][Creating Content for Slides and Handouts]]
+section of the documentation. You can also see [[https://orgmode.org/manual/index.html][Org manual]].
+
+*Lists.* Org mode uses a typical syntax (=-= or =+= for lists, =1.= for
+numbered lists) for lists. For example,
+
+#+ATTR_LATEX: :height 4cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Lists.png
+
+*Math.* you can directly input LaTeX math in Org mode. For example,
+
+#+ATTR_LATEX: :height 1.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Math.png
+
+In =reveal.js= slides, math will be rendered with [[https://www.mathjax.org][MathJax]].
+
+*Code.* Code can be inputting using [[https://orgmode.org/manual/Structure-of-code-blocks.html][code blocks]], which can be easily inserted
+by pressing ~<s~ and then ~<TAB>~ key in Org mode. For example,
+
+#+ATTR_LATEX: :height 1.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Code.png
+
+Code will be rendered with proper syntax highlighting. The following
+screenshots show how the above example is rendered in =reveal.js= and LaTeX outputs.
+
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-reveal.js.png
+
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-LaTeX.png
+
+*Slide split.* Lecture content are automatically divided into different slides
+following the structure of the lecture subtree (e.g., content for a new topic
+will be presented in a new set of slides). An instructor can also force a new
+slide by inserting =#+REVEAL: split= into a desired location. For example,
+
+#+ATTR_LATEX: :height 1.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Split.png
+
+*Fragmented contents.* Fragmented contents (e.g., items in a listing being
+presented one after another) can be specified by putting =#+ATTR_REVEAL: :frag
+(appear)= before the contents that are to be fragmented. For example:
+
+#+ATTR_LATEX: :height 1.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Fragmented.png
+
+*Images.* Prepending =file:= to an image file path will include a local image
+to both lecture slides and handout. We recommend using a relative path
+(=../../../Assets/Images/=) for portability.
+
+To adjust the size of the image, specify HTML attributes (e.g., =#+ATTR_HTML:
+:width 80%=) or LaTeX attributes (e.g., =#+ATTR_LATEX: :width 6cm=) before the
+image file path.
+
+For example,
+
+#+ATTR_LATEX: :height 2.5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Images.png
+
+*Hiding specific content.* Since Org mode allows embedding raw HTML and LaTeX
+codes, it is easy to hide specific content based on an output format. Content
+surrounded by =#+LATEX: \iffalse= and =#+LATEX: \fi= will not be shown in
+LaTeX outputs. Content surrounded by =#+REVEAL_HTML: <span hidden>= and
+=#+REVEAL_HTML: </span>= will not be shown in reveal.js outputs. For example,
+
+#+ATTR_LATEX: :height 5.5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents.png
+
+The following screenshots show the exported outputs of the above content. The
+image is shown in the lecture slide but not in the handout.
+
+#+LATEX: \begin{multicols}{2}
+#+ATTR_LATEX: :width 7.5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents-reveal.js.png
+
+#+ATTR_LATEX: :width 7.5cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Hiding-Contents-LaTeX.png
+#+LATEX: \end{multicols}
+*** Conclusion
+This concludes the quickstart guide. In addition to syllabus and lectures, the
+=Org-Coursepack= provides templates for common course elements, including
+assignments and exams. The rest of the documentation will guide you through
+the =Org-Coursepack= in detail.
+
+Please let us know through [[https://github.com/joonro/Org-Coursepack/issues][GitHub issues]] if you have any questions or
+issues.
 ** Org Mode Basic Functionalities
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Org Mode Basic Functionalities
@@ -260,8 +673,8 @@ The following example is the directory structure of this course, {{{COURSE}}}, a
 |   +---Org-Coursepack
 |   |   |   Org-Coursepack.org
 |   |   |
-|   |   +---2018 Fall
-|   |       |   2018 Fall.org
+|   |   +---2020 Spring
+|   |       |   2020 Spring.org
 |   |       |
 |   |       +---Assignments
 |   |       |   |   Assignment 1.pdf
@@ -276,14 +689,14 @@ The following example is the directory structure of this course, {{{COURSE}}}, a
 |   |       |   |   Exam 1.tex
 |   |       |
 |   |       +---Syllabus
-|               |   Syllabus (Section 1).pdf
-|               |   Syllabus (Section 1).tex
+|   |           |   Syllabus (Section 1).pdf
+|   |           |   Syllabus (Section 1).tex
 |   |
 |   +---Template
-|       |   Template.org
+|       |   Course Template.org
 |       |   
-|       +---Semester
-|           |   Semester.org
+|       +---Semester Template
+|           |   Semester Template.org
 |           |   
 |           +---Assignments
 |           |   |   Assignment_1.pdf
@@ -301,6 +714,7 @@ The following example is the directory structure of this course, {{{COURSE}}}, a
 |
 +---Topics
     |   Org-Teaching.org
+    |   Topic Template.org
 
 #+END_EXAMPLE
 #+LATEX: }
@@ -405,7 +819,7 @@ semester subtrees are links to their respective semester Org files.
 
   #+BEGIN_EXAMPLE
   ,* Courses
-  ,** 2018 Fall
+  ,** 2020 Spring
   #+END_EXAMPLE
 
 The =Syllabus= subtree containts partial content for the syllabus,
@@ -451,10 +865,10 @@ with all the trees and drawers collapsed. We will dedicate several
 lectures to cover each component, following the order in which they are presented in the example.
 
   #+BEGIN_EXAMPLE
-  ,#+TITLE:     Org-Coursepack: Fall 2018
+  ,#+TITLE:     Org-Coursepack: 2020 Spring
   ,#+AUTHOR:    Your Name
   ,#+EMAIL:     Your Email
-  ,#+DESCRIPTION: Org-Coursepack: Fall 2018
+  ,#+DESCRIPTION: Org-Coursepack: 2020 Spring
   ,#+CATEGORY: Teaching
   
   :LOCALSETUP:
@@ -482,10 +896,10 @@ followed by three drawers containing various macros and export
 options, which will be used across the file.
 
   #+BEGIN_EXAMPLE
-  ,#+TITLE:     Org-Coursepack: Fall 2018
+  ,#+TITLE:     Org-Coursepack: 2020 Spring
   ,#+AUTHOR:    Your Name
   ,#+EMAIL:     Your Email
-  ,#+DESCRIPTION: Org-Coursepack: Fall 2018
+  ,#+DESCRIPTION: Org-Coursepack: 2020 Spring
   ,#+CATEGORY: Teaching
   
   :LOCALSETUP:
@@ -555,7 +969,7 @@ Course name and number are categorized as semester-specific information, as they
   :SEMESTER_INFO:
   ,#+MACRO: COURSE Org Teaching Template
   ,#+MACRO: COURSE_NUM ORG 0000
-  ,#+MACRO: SEMESTER Fall 2018
+  ,#+MACRO: SEMESTER 2020 Spring
   ,#+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
   :END:
   #+END_EXAMPLE
@@ -662,7 +1076,7 @@ used in other places, such as class announcements.
   #+BEGIN_EXAMPLE
   ,*** Syllabus
   :PROPERTIES:
-  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
   #+END_EXAMPLE
 - =:PROPERTIES:= of this subtree contain export-related information for the
   syllabus, such as =:EXPORT_FILE_NAME:=.
@@ -683,7 +1097,7 @@ used in other places, such as class announcements.
   #+BEGIN_EXAMPLE
   ,*** Syllabus
   :PROPERTIES:
-  #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
   #+END_EXAMPLE
 *** Syllabus Top-level Tree
 :PROPERTIES:
@@ -782,14 +1196,14 @@ will be ignored in exporting.
   =Topic=) automatically.
 
 #+BEGIN_COMMENT
-- This, combined with a Emacs-lisp script (=Update Lectures=) contained in
+- This, combined with a Emacs-lisp script (=Update lecture metadata=) contained in
   =Lectures= subtree, which automatically updates individual class information,
   allows the user to freely modify individual classes and their order without
   worrying about manually adjusting the class schedule. Hence, once
   modifications to classes are done, the user can run the source code block
   with =C-c C-c= to update properties of classes, and then update the
   columnview dynamic block to obtain the updated class schedule table. See the
-  class on Lectures for more information about =Update Lectures= script.
+  class on Lectures for more information about =Update lecture metadata= script.
 
 #+END_COMMENT
 *** Lectures Top-level Tree
@@ -847,7 +1261,7 @@ will be ignored in exporting.
   #+END_EXAMPLE
   #+LATEX: }
 
-**** =Update Lectures= Source Code Block
+**** =Update lecture metadata= Source Code Block
 - The =Lectures= top-level tree has a source code block named =Update
   Lectures=. When executed with =C-c C-c=, it is designed to go through
   each lecture subtree and perform the following actions:
@@ -912,7 +1326,7 @@ will be ignored in exporting.
   ,#+DATE_CLASS_02: [2018-08-30 Thu]
   #+END_EXAMPLE
 
-- The =Update Lectures= source code block will use the dates defined
+- The =Update lecture metadata= source code block will use the dates defined
   in the file-level properties as shown above to update the date of each lecture.
 
 - 28 lecture/class dates are pre-defined in the
@@ -933,42 +1347,42 @@ will be ignored in exporting.
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Semester Org Files/Individual Lecture Subtree
 :END:
-Each lecture subtree contains the teaching materials for that particular lecture/class. The
-example below shows the general structure of the subtree.
+Each lecture subtree contains the teaching materials for that particular
+lecture/class. The example below shows the general structure of the subtree.
 
   #+BEGIN_EXAMPLE
-  ,** Introduction
+  ,** Course Introduction
   :PROPERTIES:
   ,*** Tasks [0/1]                                                  :noexport:
   ,*** Handout heading                                    :handoutonly:ignore:
-  ,*** Introduction                                                :slideonly:
+  ,*** Introduction and Recap of Last Class                        :slideonly:
   ,*** Introduction to {{{COURSE}}}
   ,*** Overview of the Directory Structure
-  ,*** Summary                                                     :slideonly:
+  ,*** Class Recap                                                 :slideonly:
   #+END_EXAMPLE
 **** =:PROPERTIES:=
 #+ATTR_REVEAL: :frag (appear)
 - A lecture subtree has properties containing lecture-specific information.
-- As described earlier, =:CLASS:= (class number), =:EXPORT_FILE_NAME:=, and =:DATE:= (class date) will be
-  automatically updated by the =Update Lectures= source code block.
-- The =:EXPORT_TO:= property has clickable links written in Emacs-lisp, which will
-  export class content to the designated output format. For example, clicking
-  =reveal.js= will export content to reveal.js slides.
-- The =:OUTPUT_VIEW:= property has links that, when clicked,
-  opens the corresponding output files, such as html or pdf files. The
-  links will use the value of the =:EXPORT_FILE_NAME:= property as the
-  file path; hence, it is unnecessary to manually edit the output
-  links.
+- As described earlier, =:CLASS:= (class number), =:EXPORT_FILE_NAME:=, and
+  =:DATE:= (class date) will be automatically updated by the =Update lecture
+  metadata= source code block.
+- The =:EXPORT_TO:= property has clickable links written in Emacs-lisp, which
+  will export class content to the designated output format. For example,
+  clicking =reveal.js= will export content to reveal.js slides.
+- The =:OUTPUT_VIEW:= property has links that, when clicked, opens the
+  corresponding output files, such as html or pdf files. The links will use
+  the value of the =:EXPORT_FILE_NAME:= property as the file path; hence, it
+  is unnecessary to manually edit the output links.
 
   #+REVEAL: split
 
   #+LATEX: {\small
   #+BEGIN_EXAMPLE
-  ,** Introduction
+  ,** Course Introduction
   :PROPERTIES:
   :CLASS:    1
   :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
-  :EXPORT_FILE_NAME: ./Classes/01 Introduction
+  :EXPORT_FILE_NAME: ./Lectures/01 Course Introduction
   :DATE:     [2018-08-28 Tue]
   :EXPORT_TO:  reveal.js | Beamer | LaTeX 
   :OUTPUT_VIEW: HTML | PDF
@@ -980,36 +1394,39 @@ The =Tasks= subtree contains lecture-specific tasks you may have as an
 instructor. These are presented in the form of [[https://orgmode.org/manual/TODO-items.html][Org mode TODO
 items]]. The =:noexport:= tag prevents the tree from being exported.
 **** Handout heading
-The =Handout heading= subtree will only be included in a handout export (with the
-=:handoutonly:= tag). It includes the content from =Handout heading= subtree of the 
-=Common Items= subtree in the =Lectures= top-level tree.
-**** Introduction
-The =Introduction= has three subheadings:
+The =Handout heading= headline will only be included in a handout export (with
+the =:handoutonly:= tag). It includes the content from =Handout heading=
+headline of the =Common Items= subtree in the =Lectures= top-level tree.
+**** Introduction and Recap of Last Class
+Classes often begin with a recap of the previous lecture topics and a preview
+of the current lecture topics. The =Introduction and Recap of Last Class= has
+three subheadings:
 
   #+LATEX: {\small
   #+BEGIN_EXAMPLE
   ,*** Introduction                                                :slideonly:
   ,**** Announcements
-  ,**** Last Class
-  ,**** Lecture Agenda
+  ,**** Recap of Last Class
+  ,**** Lecture Outline
   #+END_EXAMPLE
   #+LATEX: }
 
 Instructors can enter any announcements to be made in class in =Annoucements=;
-=Last Class= includes a recap of the learning objectives from the previous
-class; =Lecture Agenda= lists the learning objectives for the current lecture.
+=Recap of Last Class= includes a recap of the learning objectives from the previous
+class; =Lecture Outline= lists the learning objectives for the current lecture.
 
 Note that the content (=#+INCLUDE:= statements) and properties (e.g.,
-=CUSTOM_ID=) of the latter two subheadings will be automatically updated by the =Update Lectures=
-script as discussed earlier.
+=CUSTOM_ID=) of the latter two subheadings will be automatically updated by
+the =Update lecture metadata= script as discussed earlier. Hence, users do not 
+need to manually edit these.
 
-With the =:slideonly:= tag, the =Introduction= will only be exported to slide
-outputs.
+With the =:slideonly:= tag, the =Introduction and Recap of Last Class=
+headline will only be exported to slide outputs.
 **** Content
-Subtrees following the =Introduction= subtree contain lecture content.
-To minimize redunancy, lectures should draw as much material from the reusable
-content in the topic Org file subtrees as possible. See example
-below. (For more examples, see =2018 Fall.org= in =Org_Teaching=.)
+Subtrees following the =Introduction and Recap of Last Class= subtree contain
+lecture content. To minimize redunancy, lectures should draw as much material
+from the reusable content in the topic Org file subtrees as possible. See
+example below. (For more examples, see =2020 Spring.org= in =Org_Teaching=.)
 
   #+LATEX: {\footnotesize
   #+BEGIN_EXAMPLE
@@ -1020,23 +1437,23 @@ below. (For more examples, see =2018 Fall.org= in =Org_Teaching=.)
   #+END_EXAMPLE
   #+LATEX: }
 
-**** Class Summary
-The =Class Summary= reviews the content of the current class, by including the content of =Lecture
-Agenda= in the =Introduction= subtree.  The =#+INCLUDE:= statement will be
-automatically generated by the =Update Lectures= script as described earlier.
-With the =:slideonly:= tag, =Class Summary= will only be exported in slide outputs.
+**** Class Recap
+The =Class Recap= reviews the content of the current class, by including the
+content of =Lecture Outline= in the =Introduction and Recap of Last Class=
+subtree. The =#+INCLUDE:= statement will be automatically generated by the
+=Update lecture metadata= script as described earlier.  With the =:slideonly:=
+tag, =Class Recap= will only be exported in slide outputs.
 *** Exams Top-level Tree
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Semester Org Files/Exams
 :END:
 #+ATTR_REVEAL: :frag (appear)
-Instructors can create content for exams as they wuold for
-lectures. Lists can be used to create multiple choice questions. See
-the Org mode [[https://orgmode.org/manual/Plain-lists.html][manual]] for more information. To minimize redundancy,
-exams are designed to be modular and common elements are shared as
-much as possible. Furthermore, Org mode's property inheritance allows
-instructors to conveniently create answer keys to multiple choice
-questions and to export the exam with or without the keys.
+Instructors can create content for exams as they wuold for lectures. Lists can
+be used to create multiple choice questions. See the Org mode [[https://orgmode.org/manual/Plain-lists.html][manual]] for more
+information. To minimize redundancy, exams are designed to be modular and
+common elements are shared as much as possible. Furthermore, Org mode's
+property inheritance allows instructors to conveniently create answer keys to
+multiple choice questions and to export the exam with or without the keys.
 
   #+REVEAL: split
   
@@ -1107,12 +1524,12 @@ answers. See the example and note below.
   :END:
   ,**** A Type
   :PROPERTIES:
-  ,#+INCLUDE: "2018 Fall.org::#Exam/Title Page" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/Title Page" :only-contents t
   ,***** Multiple Choice                                               :newpage:
   (2 points each, unless otherwise specified)
-  ,#+INCLUDE: "2018 Fall.org::#Exam/1/MC/A" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/1/MC/A" :only-contents t
   ,***** Short Answers                                                 :newpage:
-  ,#+INCLUDE: "2018 Fall.org::#Exam/1/Short Answers" :only-contents t
+  ,#+INCLUDE: "2020 Spring.org::#Exam/1/Short Answers" :only-contents t
   #+END_EXAMPLE
   #+LATEX: }
 
@@ -1206,7 +1623,7 @@ one can have such questions in the corresponding topic Org file
 - Instructors can create assignments as they do lecture content using Org mode.
 - Assignment instructions may be created in the =Assignments= top-level
   tree of a topic Org file, which are then included here.
-- See =Org_Teaching/2018 Fall/2018 Fall.org= for an example.
+- See =Org_Teaching/2020 Spring/2020 Spring.org= for an example.
 *** =Local Variables= Top-level Tree
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Semester Org Files/Local Variables
@@ -1423,6 +1840,10 @@ properly on Beamer.
 #+REVEAL_HTML: <span style=font-size:20pt>
 #+LATEX: {\small
 #+BEGIN_SRC emacs-lisp
+(defun string/starts-with (string prefix)
+  "Return t if STRING starts with prefix."
+  (and (string-match (rx-to-string `(: bos ,prefix) t) string) t))
+
 (defun my/process-NOTES-blocks (text backend info)
   "Filter NOTES special blocks in export."
   (cond
@@ -1795,7 +2216,7 @@ rendered in LaTeX outputs (handouts). See the example below.
   This will not be shown in LaTeX output
   ,#+LATEX: \fi
   #+END_SRC
-#+LATEX: }
+  #+LATEX: }
 * Assignments
 ** Assignment 1
 :PROPERTIES:

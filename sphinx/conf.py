@@ -99,7 +99,7 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
-
+html_baseurl = 'Org-Courspack'
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.

@@ -253,7 +253,7 @@
 :EXPORT_DATE: @@latex:\vspace{-6ex}@@
 :END:
      
-#+NAME: Update Lectures
+#+NAME: Update lecture metadata
 #+BEGIN_SRC emacs-lisp :results none
 ;; Update CLASS, DATE, and EXPORT_FILE_NAME properties of each class subtree
 ;; Update CUSTOM_ID of corresponding Class Objectives subtree, which must exist
@@ -324,13 +324,13 @@
                   (if (= level 3)  ;; only level-3 subtrees
                       (setq subheading-names (add-to-list 'subheading-names name t))
 
-                    (if (string= name "Introduction") (setq started t))
+                    (if (string= name "Introduction and Recap of Last Class") (setq started t))
                     )))
               "-noexport-handoutonly-slideonly" 'tree 'comment)
              )
          )
 
-       (if (string= name "Lecture Agenda")
+       (if (string= name "Lecture Outline")
            ;; Create Lecture Agenda
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -338,7 +338,7 @@
              (delete-region (region-beginning) (region-end))  ;; delete the rest
 
              (setq custom-id-last-lecture-agenda
-                   (concat "Lecture/" EXPORT_FILE_NAME "/Agenda"))
+                   (concat "Lecture/" EXPORT_FILE_NAME "/Outline"))
              (insert (concat ":PROPERTIES:\n:CUSTOM_ID: " custom-id-last-lecture-agenda "\n:END:\n"))
 
              (insert "#+ATTR_REVEAL: :frag (appear)\n")
@@ -349,7 +349,7 @@
 
              ))
 
-       (if (string= name "Last Class")
+       (if (string= name "Recap of Last Class")
            ;; Update INCLUDE of the Last Class
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -364,7 +364,7 @@
                         "\" :only-contents t\n")))
              ))
 
-       (if (string= name "Class Summary")
+       (if (string= name "Class Recap")
            ;; Update INCLUDE of the Summary
            (save-restriction
              (org-mark-subtree)  ;; mark the current subtree
@@ -428,11 +428,11 @@
 
 #+TOC: headlines 1 local
 #+LATEX: \vspace{6ex}
-** Introduction
+** Course Introduction
 :PROPERTIES:
 :CLASS:    1
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
-:EXPORT_FILE_NAME: ./Lectures/01 Introduction
+:EXPORT_FILE_NAME: ./Lectures/01 Course Introduction
 :DATE:     [2018-08-28 Tue]
 :EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
@@ -442,16 +442,17 @@
 
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-**** Lecture Agenda
+**** Recap of Last Class
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Introduction/Agenda
+:CUSTOM_ID: Lecture/Course Introduction/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Introduction to {{{COURSE}}}
+- Quickstart Guide
 - Overview of the Directory Structure
 *** COMMENT Class Overview
 :PROPERTIES:
@@ -463,10 +464,12 @@
 - Overview of the directory structure
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Introduction" :only-contents t
+*** Quickstart Guide
+#+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Quickstart Guide" :only-contents t
 *** Overview of the Directory Structure
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Directory Structure" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Introduction/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Course Introduction/Outline" :only-contents t
 ** Org Mode Basics
 :PROPERTIES:
 :CLASS:    2
@@ -480,14 +483,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Introduction/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Course Introduction/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Org Mode Basics/Agenda
+:CUSTOM_ID: Lecture/Org Mode Basics/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Headings
@@ -507,8 +510,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Org Mode Basics/Macros" :only-contents t
 *** Including Content from Another Org file
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Org mode Basics/Including Content" :only-contents t
-*** Class Summary                                               :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Org Mode Basics/Agenda" :only-contents t
+*** Class Recap                                                 :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Org Mode Basics/Outline" :only-contents t
 ** Topic and Course Org Files
 :PROPERTIES:
 :CLASS:    3
@@ -522,14 +525,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Org Mode Basics/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Org Mode Basics/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Topic and Course Org Files/Agenda
+:CUSTOM_ID: Lecture/Topic and Course Org Files/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Topic Org Files
@@ -538,8 +541,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Topic Org Files" :only-contents t
 *** Course Org Files
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Course Org Files" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Topic and Course Org Files/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Topic and Course Org Files/Outline" :only-contents t
 ** Creating Content for Slides and Handouts
 :PROPERTIES:
 :CLASS:    4
@@ -553,14 +556,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Topic and Course Org Files/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Topic and Course Org Files/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Creating Content for Slides and Handouts/Agenda
+:CUSTOM_ID: Lecture/Creating Content for Slides and Handouts/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Creating Slides and Handouts: Introduction
@@ -578,8 +581,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Creating Content/reveal.js" :only-contents t
 *** Handouts: Features for LaTeX
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Creating Content/LaTeX" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Creating Content for Slides and Handouts/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Creating Content for Slides and Handouts/Outline" :only-contents t
 ** Exporting Slides and Handouts
 :PROPERTIES:
 :CLASS:    5
@@ -593,20 +596,20 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Creating Content for Slides and Handouts/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Creating Content for Slides and Handouts/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Exporting Slides and Handouts/Agenda
+:CUSTOM_ID: Lecture/Exporting Slides and Handouts/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Exporting Content in Org Mode
 - Clickable Links and Keybindings for Exporting
 - Exporting Slides: with reveal.js
-- Exporting Slides: with LaTeX
+- Exporting Handouts: with LaTeX
 - Selective Export
 *** Exporting Content in Org Mode
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Introduction" :only-contents t
@@ -618,29 +621,29 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Handouts" :only-contents t
 *** Selective Export
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Exporting/Selective Export" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Exporting Slides and Handouts/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Exporting Slides and Handouts/Outline" :only-contents t
 ** Semester Org Files (1/4): Introduction
 :PROPERTIES:
 :CLASS:    6
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/06 Semester Org Files 1 4 Introduction
 :DATE:     [2018-09-13 Thu]
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]] | [[elisp:(let%20((org-display-custom-times%20t))%20(org-md-export-to-markdown%20nil%20t))][markdown]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 *** Tasks [0/1]                                                    :noexport:
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Exporting Slides and Handouts/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Exporting Slides and Handouts/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Semester Org Files 1 4 Introduction/Agenda
+:CUSTOM_ID: Lecture/Semester Org Files 1 4 Introduction/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - Semester Org Files: Introduction
@@ -655,8 +658,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Export Options and Macros" :only-contents t
 *** =Tasks= Top-level Tree
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Tasks" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 1 4 Introduction/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 1 4 Introduction/Outline" :only-contents t
 ** Semester Org Files (2/4): Sections and Syllabus
 :PROPERTIES:
 :CLASS:    7
@@ -670,14 +673,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 1 4 Introduction/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 1 4 Introduction/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Semester Org Files 2 4 Sections and Syllabus/Agenda
+:CUSTOM_ID: Lecture/Semester Org Files 2 4 Sections and Syllabus/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - =Sections= Top-level Tree
@@ -686,8 +689,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Sections" :only-contents t
 *** =Syllabus= Top-level Tree
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Syllabus" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 2 4 Sections and Syllabus/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 2 4 Sections and Syllabus/Outline" :only-contents t
 ** Semester Org Files (3/4): Lectures
 :PROPERTIES:
 :CLASS:    8
@@ -701,14 +704,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 2 4 Sections and Syllabus/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 2 4 Sections and Syllabus/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Semester Org Files 3 4 Lectures/Agenda
+:CUSTOM_ID: Lecture/Semester Org Files 3 4 Lectures/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - The =Lectures= Top-level Tree
@@ -717,8 +720,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Lectures" :only-contents t
 *** Individual Lecture Subtree
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Individual Lecture Subtree" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 3 4 Lectures/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 3 4 Lectures/Outline" :only-contents t
 ** Semester Org Files (4/4): Exams and Assignments
 :PROPERTIES:
 :CLASS:    9
@@ -732,14 +735,14 @@
 **** TODO Task item for this class
 *** Handout heading                                    :handoutonly:ignore:
 #+INCLUDE: "./2018 Fall.org::#Lecture/Common/Handout heading" :only-contents t
-*** Introduction                                                :slideonly:
+*** Introduction and Recap of Last Class                        :slideonly:
 **** Announcements
 - 
-**** Last Class
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 3 4 Lectures/Agenda" :only-contents t
-**** Lecture Agenda
+**** Recap of Last Class
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 3 4 Lectures/Outline" :only-contents t
+**** Lecture Outline
 :PROPERTIES:
-:CUSTOM_ID: Lecture/Semester Org Files 4 4 Exams and Assignments/Agenda
+:CUSTOM_ID: Lecture/Semester Org Files 4 4 Exams and Assignments/Outline
 :END:
 #+ATTR_REVEAL: :frag (appear)
 - =Exams= Top-level Tree
@@ -751,8 +754,8 @@
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Assignments" :only-contents t
 *** =Local Variables= Top-level Tree
 #+INCLUDE: "../../../Topics/Org-Teaching.org::#Lectures/Semester Org Files/Local Variables" :only-contents t
-*** Class Summary                                                     :slideonly:
-#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 4 4 Exams and Assignments/Agenda" :only-contents t
+*** Class Recap                                                       :slideonly:
+#+INCLUDE: "./2018 Fall.org::#Lecture/Semester Org Files 4 4 Exams and Assignments/Outline" :only-contents t
 ** _Assignment 1 Due_                     :Assignment:skipcount:
 :PROPERTIES:
 :Class:  -  

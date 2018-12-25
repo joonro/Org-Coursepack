@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 7: Semester Org Files (2/4): Sections and Syllabus</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 7: Semester Org Files (2/4): Sections and Syllabus</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org0de86eb"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org691d703"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="orgbc020c5"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">Semester Org Files: Introduction</li>
+<li class="fragment appear">Export Options and Macros</li>
+<li class="fragment appear"><code>Tasks</code> Top-level Tree</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Semester Org Files 2 4 Sections and Syllabus/Outline">
+<h3 id="Lecture/Semester Org Files 2 4 Sections and Syllabus/Outline"><a id="org5b717bf"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear"><code>Sections</code> Top-level Tree</li>
+<li class="fragment appear"><code>Syllabus</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org20f04ef"><span class="section-number-2">2</span> <code>Sections</code> Top-level Tree</h2>
+<p class="fragment (appear)">
+An instructor may teach multiple sections of the same course during a
+given semester. The <code>Sections</code> subtree contains a subtree for each
+section, which contains section-specific information such as section
+number, classroom location and time, and exam dates. It also acts as a
+wrapper around the content of the syllabus, which passes on section-specific
+information.
+</p>
+
+</section>
+<section >
+
+<pre class="example">
+  * Sections
+  :PROPERTIES:
+  ** 01
+  ** 02
+  ** 03
+</pre>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="org4414c0e"><span class="section-number-3">2.1</span> <code>:PROPERTIES:</code></h3>
+<ul>
+<li><p>
+:Properties: of these subtrees have information common across all sections,
+such as LaTeX preamble items via <code>EXPORT_LATEX_HEADER</code>. These will be
+inherited and shared by the subtrees with the
+<code>org-use-property-inheritance</code> option set to <code>t</code>. For example:
+</p>
+<div class="org-src-container">
+
+<pre><code class="latex" >  * Sections
+  :PROPERTIES:
+  :CUSTOM_ID: Sections
+  :EXPORT_LATEX_CLASS: koma-article
+  :EXPORT_LATEX_CLASS_OPTIONS: [article,letterpaper,times,10pt,listings-bw,microtype]
+  :EXPORT_LATEX_HEADER+: \usepackage[onehalfspacing]{setspace}
+  :EXPORT_LATEX_HEADER+: \usepackage[T1]{fontenc}
+  :EXPORT_LATEX_HEADER+: \usepackage{mathpazo} \usepackage[scaled=0.85]{helvet} \usepackage{courier}
+  :EXPORT_LATEX_HEADER+: \usepackage{geometry} \geometry{left=1in,right=1in,top=1in,bottom=1in}
+  :EXPORT_LATEX_HEADER+: \usepackage[framemethod=default]{mdframed}
+  :EXPORT_DATE: {{{SEMESTER}}}
+  :EXPORT_OPTIONS: num:nil title:nil toc:nil tags:nil
+  :END:
+</code></pre>
+</div></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="orgf1a3929"><span class="section-number-3">2.2</span> Sections</h3>
+<ul>
+<li><p>
+Each section subtree has properties and macros for the section
+information and a subtree for the syllabus of the section:
+</p>
+
+<pre class="example">
+  ** 01
+  :PROPERTIES:
+  :MACROS_Section_Info:
+  *** Syllabus
+</pre></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2-1">
+<h4 id="org4e5f4fa"><span class="section-number-4">2.2.1</span> <code>:PROPERTIES:</code></h4>
+<p>
+Each section subtree has property items containing section-specific
+information such as <code>:SECTION:</code> (section number), <code>:SECTION_LOC:</code>
+(classroom location), <code>:SECTION_DATE:</code> (class date and time), and
+<code>:SECTION_DATE_FINAL_EXAM:</code> (final exam date), which will be used in
+the syllabus via the <code>{{{property(Property_NAME)}}}</code> grammar (e.g.,
+<code>{{{property(SECTION_DATE)}}}</code>). Note that we created a macro
+<code>{{{DATE_FINAL_EXAM_01}}}</code> for <code>:SECTION_DATE_FINAL_EXAM:</code>, so it can be
+used in other places, such as class announcements.
+</p>
+
+<pre class="example">
+  ** 01
+  :PROPERTIES:
+  :SECTION: 01
+  :SECTION_DATE: Tue/Thurs, 9:30a-10:45
+  :SECTION_DATE_FINAL_EXAM: {{{DATE_FINAL_EXAM_01}}}
+  :SECTION_LOC: BLDG 100
+  :CUSTOM_ID: Sections/01
+  :END:
+</pre>
+</section>
+<section id="slide-sec-2-2-2">
+<h4 id="org30ac92f"><span class="section-number-4">2.2.2</span> Macros</h4>
+<ul>
+<li class="fragment appear">Instructors can specify the final exam date in the
+<code>:MACROS_Section_Info:</code> drawer.</li>
+<li class="fragment appear"><p>
+To allow this information to be used in other places (e.g.,
+reminders or announcements), we used a macro instead of a property.
+</p>
+
+<pre class="example">
+  ** 01
+  :PROPERTIES:
+  :MACROS_Section_Info:
+  #+MACRO: DATE_FINAL_EXAM_01 [2018-12-16 Sun 13:00] - 4:00PM
+  :END:
+</pre></li>
+
+</ul>
+</section>
+<section id="slide-sec-2-2-3">
+<h4 id="org4e2893d"><span class="section-number-4">2.2.3</span> Syllabus</h4>
+<ul>
+<li><p>
+The <code>Syllabus</code> subtree has properties containing section-specific
+information for the section's syllabus. For its body, it pulls content
+from the <code>Syllabus</code> subtree of the file.
+</p>
+<pre class="example">
+  *** Syllabus
+  :PROPERTIES:
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
+</pre></li>
+<li><p>
+<code>:PROPERTIES:</code> of this subtree contain export-related information for the
+syllabus, such as <code>:EXPORT_FILE_NAME:</code>.
+</p>
+
+<pre class="example">
+  *** Syllabus
+  :PROPERTIES:
+  :EXPORT_TITLE: {{{COURSE_NUM}}}-{{{property(SECTION)}}} Syllabus
+  :EXPORT_FILE_NAME: ./Syllabus/01_Syllabus
+  :EXPORT_TO:  LaTeX (Custom Time Format)
+  :OUTPUT_VIEW: PDF
+  :END:
+</pre></li>
+<li><p>
+The syllabus subtree simply includes in its body the content of the top level <code>Syllabus</code> tree. Since
+property macros are used for section-specific information in the content,
+the corresponding section-specific information will be included automatically.
+</p>
+
+<pre class="example">
+  *** Syllabus
+  :PROPERTIES:
+  #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
+</pre></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org66aff2e"><span class="section-number-2">3</span> <code>Syllabus</code> Top-level Tree</h2>
+<p>
+The <code>Syllabus</code> subtree contains course description, learning
+objectives, grading, etc., as shown in the example below. Instructors
+can include additional information as they see fit. We now describe each
+subtree.
+</p>
+
+</section>
+<section >
+
+<pre class="example">
+  * Syllabus
+  ** Tasks [0/1]                                                     :noexport:
+  ** Intro                                                            :ignore:
+  ** Course Description
+  ** Course Prerequisites
+  ** Student Learning Objectives
+  ** Course Material
+  ** Grading
+  ** Specific Course Policies
+  ** School-Specific Policies
+  ** Class Schedule                                                   :newpage:
+</pre>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="org994274c"><span class="section-number-3">3.1</span> Intro</h3>
+<p class="fragment (appear)">
+The Intro has the title page of the Syllabus. The title page contains a blank
+school name (the color of the text is defined in the institution Org file) as a
+placeholder for the school logo the instructor wishes to use. There is
+also a table of course information, which heavily relies on macros
+to avoid redundancy.
+</p>
+
+<p>
+Some of the macros are in the form of <code>property(PROPERTY_NAME)</code> (e.g.,
+<code>{{{property(SECTION_DATE)}}}</code>), which means it will receive the value of the
+<code>:PROPERTY_NAME:</code> property of the subtree. When the content is included in
+another subtree such as the <code>Sections</code> subtree, these property macros will pull
+the value from the subtree including this content. That is,
+<code>{{{property(SECTION_DATE)}}}</code> will get the value from the <code>:SECTION_DATE:</code>
+property of the <code>01</code> (<code>02</code>) subtree of the <code>Sections</code> subtree when
+included by the <code>01</code> (<code>02</code>) subtree.
+</p>
+
+<p>
+Note that the header of the Intro subtree is assigned an <code>:ignore:</code> tag, which means the heading (<code>Intro</code>)
+will be ignored in exporting.
+</p>
+
+<pre class="example">
+  ** Intro                                                            :ignore:
+  @@latex:\definecolor{SchoolColor}{RGB}{@@{{{SCHOOL_COLOR}}}@@latex:}@@
+
+  #+BEGIN_CENTER
+  #+LATEX: {\color{SchoolColor}{\Large
+  *{{{SCHOOL}}}*
+  #+LATEX: }}
+  #+END_CENTER
+  
+  #+BEGIN_CENTER
+  #+LATEX: {\color{SchoolColor}{
+  *{{{COURSE_NUM}}}-{{{property(SECTION)}}}*
+  
+  *{{{COURSE}}}*
+  
+  *{{{SEMESTER}}}*
+  #+LATEX: }}
+  #+END_CENTER
+  
+  {{{VSPACE(5)}}}
+  
+  | *Instructor:*               | {{{PROFESSOR}}}              | *Office Phone:*   | {{{PHONE}}}                 |
+  | *Office:*                   | {{{OFFICE}}}                 | *E-mail:*         | {{{EMAIL}}}                 |
+  | *Office Hours:*             | {{{OFFICE_HOURS}}}           | *Course Site:*    | *{{{COURSE_LINK}}}*         |
+  | *Class Meeting Day &amp; Time:* | {{{property(SECTION_DATE)}}} | *Class Location:* | {{{property(SECTION_LOC)}}} |
+</pre>
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org1847b06"><span class="section-number-3">3.2</span> Course-speific information</h3>
+<ul>
+<li class="fragment appear">Since different sections of the same course typically share common elements (e.g.,
+course description, prerequisites, learning objectives), the
+content of most subtrees of <code>Syllabus</code> are pulled from the course Org
+file on exporting, using <code>#+INCLUDE</code>.</li>
+<li class="fragment appear">Note that instructors can use semester-specific information in these subtrees using macros &#x2013; see the <code>Grading</code> subtree for an example.</li>
+<li class="fragment appear">School-wide information (e.g., grade cutoff percentages) is imported
+from the institution Org file.</li>
+
+</ul>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="orgda7b386"><span class="section-number-3">3.3</span> Class Schedule</h3>
+<ul>
+<li class="fragment appear">The <code>Class Schedule</code> subtree contains the class schedule in a table format.</li>
+<li class="fragment appear"><p>
+The table is dynamically generated using org-mode's <a href="https://orgmode.org/manual/Capturing-column-view.html#Capturing-column-view">columnview dynamic block</a>
+functionality &#x2013; it will extract information about each class from the class
+subtree's properties, and automatically create the class schedule table.
+</p>
+
+</section>
+<section ></li>
+
+<li class="fragment appear">One can use <code>C-c C-c</code> while the cursor is on the <code>#+BEGIN: columnview</code> to
+update the columnview dynamic block. Once it is updated, <code>#+TBLFM</code> is used
+to format the table (e.g., change the third column name from <code>ITEM</code> to
+<code>Topic</code>) automatically.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orgaa51745"><span class="section-number-2">4</span> Class Recap</h2>
+<ul>
+<li class="fragment appear"><code>Sections</code> Top-level Tree</li>
+<li class="fragment appear"><code>Syllabus</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
