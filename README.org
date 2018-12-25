@@ -3,13 +3,12 @@
 The Org-Coursepack provides a template for developing and managing teaching
 materials using [[https://orgmode.org][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/][GNU Emacs]].
 
-Please see the [[https://joonro.github.io/Org-Coursepack/Lectures/01%2520Course%2520Introduction.html#quickstart-guide][quickstart guide]] for basic usage of =Org-Coursepack= with
+Please see the [[https://joonro.github.io/Org-Coursepack/Lectures/01%20Course%20Introduction.html#quickstart-guide][quickstart guide]] for basic usage of =Org-Coursepack= with
 screenshots.
 
 The template (see =Courses/Template=) is designed to be self-explanatory, as
 the documentation for it (see =Courses/Org-Coursepack=) consists of an example
-course developed with this template. See the [[https://joonro.github.io/Org-Coursepack/][HTML version of the
-documentation]].
+course developed with this template. See the [[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]].
 
 See [[file:paper.md]] for the detailed summary for the template.
 
