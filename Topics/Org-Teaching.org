@@ -394,6 +394,17 @@ file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Math.png
 In =reveal.js= slides, math will be rendered with [[https://www.mathjax.org][MathJax]].
 
 *Code.* Code can be inputting using [[https://orgmode.org/manual/Structure-of-code-blocks.html][code blocks]], which can be easily inserted
+by pressing ~<s~ and then ~<TAB>~ key in Org mode. For example,
+
+#+ATTR_LATEX: :height 1.8cm
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Code.png
+
+Code will be rendered with proper syntax highlighting. The following
+screenshots show how the above example is rendered in =reveal.js= and LaTeX outputs.
+
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-reveal.js.png
+
+file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-LaTeX.png
 
 *Slide split.* Lecture content are automatically divided into different slides
 following the structure of the lecture subtree (e.g., content for a new topic

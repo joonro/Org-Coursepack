@@ -413,6 +413,18 @@ numbered lists) for lists. For example,
 
 In ``reveal.js`` slides, math will be rendered with `MathJax <https://www.mathjax.org>`_.
 
+**Code.** Code can be inputting using `code blocks <https://orgmode.org/manual/Structure-of-code-blocks.html>`_, which can be easily inserted
+by pressing ``<s`` and then ``<TAB>`` key in Org mode. For example,
+
+.. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Editing_Code.png
+
+Code will be rendered with proper syntax highlighting. The following
+screenshots show how the above example is rendered in ``reveal.js`` and LaTeX outputs.
+
+.. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-reveal.js.png
+
+.. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Exported_Code-LaTeX.png
+
 **Slide split.** Lecture content are automatically divided into different slides
 following the structure of the lecture subtree (e.g., content for a new topic
 will be presented in a new set of slides). An instructor can also force a new
