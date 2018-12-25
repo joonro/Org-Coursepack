@@ -191,6 +191,10 @@ notes in LaTeX, reStructuredText, and HTML output formats.
 
 .. code:: common-lisp
 
+    (defun string/starts-with (string prefix)
+      "Return t if STRING starts with prefix."
+      (and (string-match (rx-to-string `(: bos ,prefix) t) string) t))
+
     (defun my/process-NOTES-blocks (text backend info)
       "Filter NOTES special blocks in export."
       (cond

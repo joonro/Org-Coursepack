@@ -25,10 +25,10 @@ lectures to cover each component, following the order in which they are presente
 
 ::
 
-    #+TITLE:     Org-Coursepack: Fall 2018
+    #+TITLE:     Org-Coursepack: 2020 Spring
     #+AUTHOR:    Your Name
     #+EMAIL:     Your Email
-    #+DESCRIPTION: Org-Coursepack: Fall 2018
+    #+DESCRIPTION: Org-Coursepack: 2020 Spring
     #+CATEGORY: Teaching
 
     :LOCALSETUP:
@@ -55,10 +55,10 @@ options, which will be used across the file.
 
 ::
 
-    #+TITLE:     Org-Coursepack: Fall 2018
+    #+TITLE:     Org-Coursepack: 2020 Spring
     #+AUTHOR:    Your Name
     #+EMAIL:     Your Email
-    #+DESCRIPTION: Org-Coursepack: Fall 2018
+    #+DESCRIPTION: Org-Coursepack: 2020 Spring
     #+CATEGORY: Teaching
 
     :LOCALSETUP:
@@ -129,7 +129,7 @@ the course that is common across sections but specific to the semester.
     :SEMESTER_INFO:
     #+MACRO: COURSE Org Teaching Template
     #+MACRO: COURSE_NUM ORG 0000
-    #+MACRO: SEMESTER Fall 2018
+    #+MACRO: SEMESTER 2020 Spring
     #+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
     :END:
 

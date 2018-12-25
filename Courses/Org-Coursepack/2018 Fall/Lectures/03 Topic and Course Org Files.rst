@@ -102,7 +102,7 @@ semester subtrees are links to their respective semester Org files.
 ::
 
     * Courses
-    ** 2018 Fall
+    ** 2020 Spring
 
 The ``Syllabus`` subtree containts partial content for the syllabus,
 specifically, information about the course that remains consistent
