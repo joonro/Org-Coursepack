@@ -14,24 +14,38 @@ See [[file:paper.md]] for the detailed summary for the template.
 
 * Dependencies
 Using Org-Coursepack requires Emacs for creating course content and LaTeX for
-exporting handouts.
-** Emacs
+exporting handouts. Follow the installation instructions below.
+** Emacs 
 See the official [[https://www.gnu.org/software/emacs/download.html][Download & installation]] page to learn how to install Emacs.
-
-For user configuration, Emacs uses [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Init-file.html#Init-file][init file]]. 
-The =Org-Coursepack= includes an example init file (located under =/Assets/init.el=) which has necessary settings for its basic usage (e.g., export options). You can place the init file (=init.el=) into the =.emacs.d= directory under your =HOME= folder. See
-[[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html#Location-of-init-file][Where do I put my init file?]] of the Emacs documentation for more details. (Note that, for Emacs to be able to locate the init file in Windows, you must to add an environmental variable named =HOME=, with the variable value set to your user profile directory (e.g., =C:\Users\UserName=). See [[https://java.com/en/download/help/path.xml][How do I set or change the PATH system variable?]] to learn how to add environmental variables in Windows.)
+*** Emacs init file
+The =Org-Coursepack= includes an example [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Init-file.html#Init-file][Emacs init file]] (located at
+=/Assets/.emacs.d/init.el=) which has necessary settings for its basic usage
+(e.g., package installations and export options). You can place the file
+(=init.el=) into the =.emacs.d= directory under your =HOME= folder
+(=~/.emacs.d/init.el=). See [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html#Location-of-init-file][Where do I put my init file?]] of the Emacs
+documentation for more details. (Note that, for Emacs to be able to locate the
+init file in Windows, you must to add an environmental variable named =HOME=,
+with the variable value set to your user profile directory (e.g.,
+=C:\Users\UserName=). See [[https://java.com/en/download/help/path.xml][How do I set or change the PATH system variable?]] to
+learn how to add environmental variables in Windows.)
  
-Those already using Emacs would likely have an init file with their own custom settings. They can copy and paste necessary codes from the  example init file (e.g., lines starting from ~;; * Org-Coursepack settings~) to their own init file.
+Those already using Emacs would likely have an init file with their own custom
+settings. They can copy and paste necessary codes from the example init file
+(e.g., lines starting from ~;; * Org-Coursepack settings~) to their own init
+file.
 
-Note that the init file is set up to detect and install any necessary packages (org-plus-contrib and ox-reveal) that are missing. This might lengthen the startup time when the user runs Emacs for the first time.
-
+Note that the init file is set up to detect and install any necessary packages
+(org-plus-contrib and ox-reveal) that are missing. This might lengthen the
+startup time when the user runs Emacs for the first time.
 ** LaTeX
 You can install [[https://tug.org/texlive/][TeX Live]] (for GNU/Linux and Windows) or [[https://tug.org/mactex/][MacTeX]] (for macOS).
 
 * Installation of =Org-Coursepack=
-=Org-Coursepack= can be installed by cloning the repo (=$ git clone https://github.com/joonro/Org-Coursepack.git=) or by
-downloading and unzipping the [[https://github.com/joonro/Org-Coursepack/archive/master.zip][ZIP archive]]. The Org-Coursepack is a self-contained package and thus will work regardless of where it is installed; hence, users can freely choose the location of the installation. 
+=Org-Coursepack= can be installed by cloning the repo (=$ git clone
+https://github.com/joonro/Org-Coursepack.git=) or by downloading and unzipping
+the [[https://github.com/joonro/Org-Coursepack/archive/master.zip][ZIP archive]]. The Org-Coursepack is a self-contained package and thus will
+work regardless of where it is installed; hence, users can freely choose the
+location of the installation.
 
 * Usage
 We
