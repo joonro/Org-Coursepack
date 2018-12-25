@@ -21,7 +21,7 @@ For user configuration, Emacs uses [[https://www.gnu.org/software/emacs/manual/h
 The =Org-Coursepack= includes an example init file (located under =/Assets/init.el=) which has necessary settings for its basic usage (e.g., export options). You can place the init file (=init.el=) into the =.emacs.d= directory under your =HOME= folder. See
 [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html#Location-of-init-file][Where do I put my init file?]] of the Emacs documentation for more details. (Note that, for Emacs to be able to locate the init file in Windows, you must to add an environmental variable named =HOME=, with the variable value set to your user profile directory (e.g., =C:\Users\UserName=). See [[https://java.com/en/download/help/path.xml][How do I set or change the PATH system variable?]] to learn how to add environmental variables in Windows.)
  
-Those already using Emacs would likely have an init file with their own custom settings. They can copy and paste necessary codes from the  example init file (e.g., lines starting from ~;; Export related settings~) to their own init file.
+Those already using Emacs would likely have an init file with their own custom settings. They can copy and paste necessary codes from the  example init file (e.g., lines starting from ~;; * Org-Coursepack settings~) to their own init file.
 
 Note that the init file is set up to detect and install any necessary packages (org-plus-contrib and ox-reveal) that are missing. This might lengthen the startup time when the user runs Emacs for the first time.
 

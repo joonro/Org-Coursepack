@@ -4,8 +4,6 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
-(setq package-list
-      '(org-plus-contrib ox-reveal))
 ;; activate all the packages
 (package-initialize)
 
@@ -15,6 +13,8 @@
 
 ;; ** Make sure essential packages are installed
 ;; list the packages you want
+(setq package-list
+      '(org-plus-contrib ox-reveal htmlize))
 
 ;; install the missing packages
 (dolist (package package-list)
