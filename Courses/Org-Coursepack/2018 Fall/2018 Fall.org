@@ -629,7 +629,7 @@
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/06 Semester Org Files 1 4 Introduction
 :DATE:     [2018-09-13 Thu]
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]] | [[elisp:(let%20((org-display-custom-times%20t))%20(org-md-export-to-markdown%20nil%20t))][markdown]]
+:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
 :VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
 :END:
 *** Tasks [0/1]                                                    :noexport:

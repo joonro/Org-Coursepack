@@ -199,11 +199,6 @@
 #+BEGIN: columnview :hlines 1 :id Lectures :maxlevel 2 :skip-empty-rows t
 | Date                                    | Class | Topic                  |
 |-----------------------------------------+-------+------------------------|
-| [2018-08-28 Tue]                        |     1 | Introduction           |
-|                                         |       | _Assignment 1 Due_     |
-| [2018-08-30 Thu]                        |     2 | _Exam 1_               |
-| [2018-11-21 Wed]--[2018-11-25 Sun]      |       | *Thanksgiving Holiday* |
-| {{{property(SECTION_DATE_FINAL_EXAM)}}} |       | _Final Exam_           |
 #+TBLFM: ::@1$>=(string("Topic"))::$2='(replace-regexp-in-string "-" "" $2)::$>='(replace-regexp-in-string "\\*+ \\(.+\\)" "\\1" $>)
 #+END:
 
