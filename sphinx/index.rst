@@ -10,7 +10,7 @@ Welcome to Org-Coursepack's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Lectures/01 Introduction.rst
+   Lectures/01 Course Introduction.rst
    Lectures/02 Org Mode Basics.rst
    Lectures/03 Topic and Course Org Files.rst
    Lectures/04 Creating Content for Slides and Handouts.rst
