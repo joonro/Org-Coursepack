@@ -19,7 +19,7 @@ exporting handouts. Follow the installation instructions below.
 See the official [[https://www.gnu.org/software/emacs/download.html][Download & installation]] page to learn how to install Emacs.
 *** Emacs init file
 The =Org-Coursepack= includes an example [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Init-file.html#Init-file][Emacs init file]] (located at
-=[[https://github.com/joonro/Org-Coursepack/blob/master/Assets/.emacs.d/init.el][/Assets/.emacs.d/init.el]]=) which has necessary settings for its basic usage
+[[https://github.com/joonro/Org-Coursepack/blob/master/Assets/.emacs.d/init.el][/Assets/.emacs.d/init.el]] which has necessary settings for its basic usage
 (e.g., package installations and export options). You can place the file
 (=init.el=) into the =.emacs.d= directory under your =HOME= folder
 (=~/.emacs.d/init.el=). See [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html#Location-of-init-file][Where do I put my init file?]] of the Emacs
