@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 6: Semester Org Files (1/4): Introduction</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 6: Semester Org Files (1/4): Introduction</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org371f016"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="orgf082f45"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="orgc623693"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">Exporting Content in Org Mode</li>
+<li class="fragment appear">Clickable Links and Keybindings for Exporting</li>
+<li class="fragment appear">Exporting Slides: with reveal.js</li>
+<li class="fragment appear">Exporting Handouts: with LaTeX</li>
+<li class="fragment appear">Selective Export</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Semester Org Files 1 4 Introduction/Outline">
+<h3 id="Lecture/Semester Org Files 1 4 Introduction/Outline"><a id="orgbf4240d"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear">Semester Org Files: Introduction</li>
+<li class="fragment appear">Export Options and Macros</li>
+<li class="fragment appear"><code>Tasks</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-Lecture/Semester Org Files 1 4 Introduction/Agenda">
+<h2 id="Lecture/Semester Org Files 1 4 Introduction/Agenda"><a id="orge97dc3d"></a><span class="section-number-2">2</span> Semester Org Files: Introduction</h2>
+<p class="fragment (appear)">
+A semester Org file is the master file for the course in a given
+semester. That is, a semester Org file, which is where
+semester-specific information about the course (e.g., classroom
+location, course schedule, etc.) is stored, is also where materials
+from other Org files are pulled as the instructor contructs the
+course to create a syllabus, lectures, exams, assignments, etc. It can
+accommodate multiple sections of the same course offered in the semester.
+</p>
+
+</section>
+<section >
+
+<p>
+The example below shows the top-level contents of a semester Org file,
+with all the trees and drawers collapsed. We will dedicate several
+lectures to cover each component, following the order in which they are presented in the example.
+</p>
+
+<pre class="example">
+  #+TITLE:     Org-Coursepack: 2020 Spring
+  #+AUTHOR:    Your Name
+  #+EMAIL:     Your Email
+  #+DESCRIPTION: Org-Coursepack: 2020 Spring
+  #+CATEGORY: Teaching
+  
+  :LOCALSETUP:
+  
+  :SETUP_EXPORT:
+  
+  :SEMESTER_INFO:
+  
+  * Tasks
+  * Sections
+  * Syllabus
+  * Classes
+  * Exams                                                               :Exams:
+  * Assignments                                                   :Assignments:
+  * Local Variables
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org7b4b615"><span class="section-number-2">3</span> Export Options and Macros</h2>
+<p>
+The file starts with multiple metadata definitions, such as <code>TITLE</code>
+and <code>AUTHOR</code>, which also act as global export keywords. This is
+followed by three drawers containing various macros and export
+options, which will be used across the file.
+</p>
+
+<pre class="example">
+  #+TITLE:     Org-Coursepack: 2020 Spring
+  #+AUTHOR:    Your Name
+  #+EMAIL:     Your Email
+  #+DESCRIPTION: Org-Coursepack: 2020 Spring
+  #+CATEGORY: Teaching
+  
+  :LOCALSETUP:
+  
+  :SETUP_EXPORT:
+  
+  :SEMESTER_INFO:
+</pre>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="orgf07a959"><span class="section-number-3">3.1</span> <code>:LOCALSETUP:</code> Drawer</h3>
+<p class="fragment (appear)">
+The <code>:LOCALSETUP:</code> drawer has startup options (<code>#+STARTUP</code>) for the
+Org file as well as a couple of <code>#+SETUPFILE</code>'s which import necessary
+macros from the dedicated macro Org file
+(<code>../../../Assets/setup_Macros.org</code>) and school Org file
+(<code>../../../Assets/Institutions/School.org</code>). Note that one can visit each
+file with <code>C-c '</code>. Absolute paths can be used instead of relative
+ones.
+</p>
+
+</section>
+<section >
+
+<pre class="example">
+  :LOCALSETUP:
+  #+STARTUP: overview
+  #+STARTUP: hidestars
+  #+STARTUP: indent
+  
+  #+SETUPFILE: ../../../Assets/setup_Macros.org
+  
+  #+SETUPFILE: ../../../Institutions/School.org
+  :END:
+</pre>
+</section>
+<section id="slide-sec-3-2">
+<h3 id="orgd133e90"><span class="section-number-3">3.2</span> <code>:SETUP_EXPORT:</code> Drawer</h3>
+<p class="fragment (appear)">
+The <code>:SETUP_EXPORT:</code> drawer has export related options, mainly those
+related to <code>org-reveal</code> (e.g., handouts). For example, <code>#+REVEAL_ROOT</code>
+should specify the location of <code>reveal.js</code> (see the <a href="https://github.com/yjwen/org-reveal/" class="fragment (appear)">org-reveal
+documentation</a> for more information). The semester Org file for
+Org-Coursepack specifies reveal.js 3.6.0 from a CDN. See the <a href="https://orgmode.org/manual/Export-settings.html">Org manual</a>
+for more general information about export options.
+</p>
+
+</section>
+<section >
+
+<pre class="example">
+  :SETUP_EXPORT:
+  #+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+  
+  #+REVEAL_PLUGINS: (classList markdown zoom notes highlight)
+  
+  #+EXCLUDE_TAGS: noexport
+  #+OPTIONS: reveal_history:t tags:nil timestamp:nil todo:nil
+  
+  #+REVEAL_THEME: simple
+  #+REVEAL_TRANS: linear
+  :END:
+</pre>
+</section>
+<section id="slide-sec-3-3">
+<h3 id="orgd10f9ac"><span class="section-number-3">3.3</span> <code>:SEMESTER_INFO:</code> Drawer</h3>
+<p>
+The <code>:SEMESTER_INFO:</code> drawer has macros containing information about
+the course that is common across sections but specific to the semester.
+</p>
+
+<div class="mdframed">
+<p>
+Course name and number are categorized as semester-specific information, as they may change over time.
+</p>
+
+</div>
+
+<pre class="example">
+  :SEMESTER_INFO:
+  #+MACRO: COURSE Org Teaching Template
+  #+MACRO: COURSE_NUM ORG 0000
+  #+MACRO: SEMESTER 2020 Spring
+  #+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
+  :END:
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="org85b41f2"><span class="section-number-2">4</span> <code>Tasks</code> Top-level Tree</h2>
+<p>
+This is the subtree where users can organize instruction-related tasks
+(TODO items) specific to the semester, e.g., reminders to post
+announcements or grades. See the <a href="https://orgmode.org/manual/TODO-items.html">Org manual</a> for more information on
+how to use TODO items in Org mode.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="orga886fb5"><span class="section-number-2">5</span> Class Recap</h2>
+<ul>
+<li class="fragment appear">Semester Org Files: Introduction</li>
+<li class="fragment appear">Export Options and Macros</li>
+<li class="fragment appear"><code>Tasks</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

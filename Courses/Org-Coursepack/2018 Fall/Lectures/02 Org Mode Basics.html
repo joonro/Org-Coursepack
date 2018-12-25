@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 2: Org Mode Basics</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 2: Org Mode Basics</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="orgacf25cb"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org5ae34e4"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org86bb1a9"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">Introduction to Org-Coursepack</li>
+<li class="fragment appear">Quickstart Guide</li>
+<li class="fragment appear">Overview of the Directory Structure</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Org Mode Basics/Outline">
+<h3 id="Lecture/Org Mode Basics/Outline"><a id="orgf2e2c82"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear">Headings</li>
+<li class="fragment appear">Macros</li>
+<li class="fragment appear">Including Content from Another Org file</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="orgc835615"><span class="section-number-2">2</span> Headings</h2>
+<ul>
+<li>In Org mode, a heading is denoted by preceding stars (<code>*</code>), and the level of
+a heading is determined by the number of stars.</li>
+<li><p>
+For example,
+</p>
+
+<pre class="example">
+  * Heading 1
+  ** Subheading 1.1
+  * Heading 2
+  ** Subheading 2.1
+</pre></li>
+
+<li>A heading can have tags and properties associated with them, which allows
+very flexible usage that we exploit throughout Org-Coursepack.</li>
+
+</ul>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="orgb2658cf"><span class="section-number-3">2.1</span> Tags</h3>
+<ul>
+<li><p>
+A heading can have tags associated with them. They are used in the form of <code>:tag:</code>, on the same line as the heading. For example,
+</p>
+
+<pre class="example">
+  * Heading with a tag                       :tag:
+</pre></li>
+
+</ul>
+</section>
+<section id="slide-sec-Lectures/Org Mode Basics/Properties">
+<h3 id="Lectures/Org Mode Basics/Properties"><a id="org30e0ffc"></a><span class="section-number-3">2.2</span> Properties</h3>
+<ul>
+<li>Each heading can have properties associated with it. You can think of
+properties as data specific for the heading, as they consist of
+<code>:PROPERTY_NAME:</code> and <code>PROPERTY VALUE</code> pairs.</li>
+<li>For example, a heading for a lecture can have property values for lecture
+number, file name for exports, etc. One of the frequently used properties is
+<code>:CUSTOM_ID:</code>, which can be used to locate the particular heading. See the
+<code>Including Content from Another Org file</code> section for how it is used in
+Org-Coursepack.</li>
+<li>See the <a href="https://orgmode.org/manual/Properties-and-columns.html">Org manual</a> for more information.</li>
+
+<li><p>
+For example,
+</p>
+<pre class="example">
+  * Heading 1
+  :PROPERTIES:
+  :CUSTOM_ID: Heading 1
+  :END:
+</pre></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org3212979"><span class="section-number-2">3</span> Macros</h2>
+<p>
+Org mode provides macro replacement functionality. This can be especially
+useful for instructors, as shown in the following cases.
+</p>
+
+<ul>
+<li>When defining terms that will be repeated within or across course-related
+materials, or needs to be changed in future semesters.
+<dl>
+<dt>Example</dt><dd><p>
+Suppose an instructor were to present a due date for
+"Assignment 1" in three different places (e.g., syllabus,
+lecture, and assignment guideline). By using a macro, an
+instructor can ensure that all documents have the same
+information, and make such updates easily in future
+semesters. Such a macro (named <code>DUE_ASSIGNMENT_1</code>) can be
+defined like the following:
+</p>
+
+<pre class="example">
+    #+MACRO: DUE_ASSIGNMENT_1 [2018-09-27 Thu]
+</pre>
+
+<p>
+One can then use the macro with <code>{{{MACRO_NAME}}}</code>. For example, all
+areas in documents where it says <code>{{{DUE_ASSIGNMENT_1}}}</code> will be
+replaced with <code>[2018-09-27 Thu]</code> upon export.
+</p></dd>
+
+</dl></li>
+
+<li>When defining terms specific to a subtree (e.g., a specific class) that
+the instructor may want to use in multiple places. This can be useful when
+specifying class orders, class titles, or section numbers. One
+can achieve this by referring to property values of a subtree.
+<dl>
+<dt>Example</dt><dd><p>
+An instructor can define a class number property like the following:
+</p>
+
+<pre class="example">
+    * Heading
+    :PROPERTIES:
+    :CLASS:    2
+    :END:
+</pre>
+
+<p>
+Then <code>{{{property(PROPERTY_NAME)}}}</code> will be replaced by
+the value of <code>PROPERTY_NAME</code> property:
+</p>
+
+<pre class="example">
+    This is class number {{{property(CLASS)}}}.
+</pre></dd>
+
+</dl></li>
+
+<li>See the <a href="https://orgmode.org/manual/Macro-replacement.html">Org manual</a> for more information.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="orgefe7692"><span class="section-number-2">4</span> Including Content from Another Org file</h2>
+<ul>
+<li>In Org mode, a user can pull content, without making a copy, from any org file (including
+the current one) via the <code>#+INCLUDE:</code> statement. See the <a href="https://orgmode.org/manual/Include-files.html">Org manual</a> fore more information.</li>
+
+<li>Taking advantage of this functionality, the template is created so that its
+content is modular and can be pulled flexibly as needed. This feature is
+useful when sharing content across different courses or semesters or when
+revisiting past materials (e.g., in exam reviews or when reviewing past
+cases to build on them).
+
+<dl>
+<dt>Example</dt><dd>This is how an instructor would use the <code>#+INCLUDE:</code> statement
+to pull content from a subtree with <code>:CUSTOM_ID:</code> <code>R-squared</code>
+in the file <code>Regression.org</code> so it is presented across multiple
+courses (i.e., Statistics 101 and Marketing Research).
+<code>:only-contents t</code> option means only the contents of the
+subtree, not its heading and properties, will be included. To
+visit the included file, press <code>C-c '</code> while the cursor is on
+the <code>#+INCLUDE:</code> statement.
+
+<ul>
+<li><p>
+<b><code>Regression.org</code></b>  &ensp;
+</p>
+
+<pre class="example">
+      * R-squared
+      :PROPERTIES:
+      :CUSTOM_ID: R-squared
+      :END:
+      - The definition of \( R^{2} \) is:
+        \[ R^{2} = 1 - \dfrac{SS_{\text{res}}}{SS_{\text{tot}}}\]
+</pre></li>
+
+<li><p>
+<b><code>Statistics 101.org</code></b>  &ensp;
+</p>
+
+<pre class="example">
+      * Regression
+      ** R-squared
+      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+</pre></li>
+
+<li><p>
+<b><code>Marketing Research.org</code></b>  &ensp;
+</p>
+
+<pre class="example">
+      * Regression
+      ** R-squared
+      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+</pre></li>
+
+</ul></dd>
+
+</dl></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="org25bf2b3"><span class="section-number-2">5</span> Class Recap</h2>
+<ul>
+<li class="fragment appear">Headings</li>
+<li class="fragment appear">Macros</li>
+<li class="fragment appear">Including Content from Another Org file</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

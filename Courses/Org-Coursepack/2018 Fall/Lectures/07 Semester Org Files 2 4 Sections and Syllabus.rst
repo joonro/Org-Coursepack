@@ -112,7 +112,7 @@ used in other places, such as class announcements.
 
       *** Syllabus
       :PROPERTIES:
-      #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+      #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
 
 - ``:PROPERTIES:`` of this subtree contain export-related information for the
   syllabus, such as ``:EXPORT_FILE_NAME:``.
@@ -135,7 +135,7 @@ used in other places, such as class announcements.
 
       *** Syllabus
       :PROPERTIES:
-      #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
+      #+INCLUDE: "./2020 Spring.org::#Syllabus" :only-contents t
 
 2 ``Syllabus`` Top-level Tree
 -----------------------------

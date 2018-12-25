@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 9: Semester Org Files (4/4): Exams and Assignments</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 9: Semester Org Files (4/4): Exams and Assignments</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="org2bd6ee6"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="org042d89c"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="orgc03927a"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">The <code>Lectures</code> Top-level Tree</li>
+<li class="fragment appear">Individual Lecture Subtree</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Semester Org Files 4 4 Exams and Assignments/Outline">
+<h3 id="Lecture/Semester Org Files 4 4 Exams and Assignments/Outline"><a id="org1591ea8"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear"><code>Exams</code> Top-level Tree</li>
+<li class="fragment appear"><code>Assignments</code> Top-level Tree</li>
+<li class="fragment appear"><code>Local Variables</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org9388520"><span class="section-number-2">2</span> <code>Exams</code> Top-level Tree</h2>
+<p class="fragment (appear)">
+Instructors can create content for exams as they wuold for lectures. Lists can
+be used to create multiple choice questions. See the Org mode <a href="https://orgmode.org/manual/Plain-lists.html" class="fragment (appear)">manual</a> for more
+information. To minimize redundancy, exams are designed to be modular and
+common elements are shared as much as possible. Furthermore, Org mode's
+property inheritance allows instructors to conveniently create answer keys to
+multiple choice questions and to export the exam with or without the keys.
+</p>
+
+</section>
+<section >
+
+<p>
+As shown in the following example, there are two subtrees in the
+Org-Coursepack: one for the exam title page and another for the mid-term
+exam.
+</p>
+
+<pre class="example">
+  * Exams                                                          :Exams:
+  :PROPERTIES:
+  ** Title Page
+  ** Mid-Term Exam
+</pre>
+
+</section>
+<section id="slide-sec-2-1">
+<h3 id="org147d11b"><span class="section-number-3">2.1</span> <code>:PROPERTIES:</code></h3>
+<p class="fragment (appear)">
+The properties have general information common across exams, such as LaTeX headers.
+</p>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="org80b9e20"><span class="section-number-3">2.2</span> <code>Title Page</code> Subtree</h3>
+<p class="fragment (appear)">
+The content of this subtree will be shared across exams via the
+<code>#+INCLUDE</code> statement. Instructors can include general information
+pertaining to exams (e.g., student code of conduct) in this page. Note
+that any information about a specific exam (e.g., exam date, exam
+time, number of questions) can be specified by passing property values
+to the <code>Title Page</code> subtree. For example, the exam time information
+uses the value of the property <code>TIME</code> using <code>{{{property(TIME)}}}</code>.
+</p>
+</section>
+<section id="slide-sec-2-3">
+<h3 id="orgdf99ddf"><span class="section-number-3">2.3</span> Exam subtree</h3>
+<p class="fragment (appear)">
+The mid-term exam subtree in the Org-Coursepack has the following structure:
+</p>
+
+<pre class="example">
+  ** Mid-Term Exam
+  :PROPERTIES:
+  *** 01
+  *** 02
+  *** Exam Content
+</pre>
+
+<p>
+Each exam has a separate subtree for each course section, and they will
+share common <code>Exam Content</code>.
+</p>
+</section>
+<section id="slide-sec-2-3-1">
+<h4 id="orgeb0d7e8"><span class="section-number-4">2.3.1</span> <code>:Properties:</code></h4>
+<p class="fragment (appear)">
+Each exam subtree has properties containing information common across sections. See example below.
+</p>
+<pre class="example">
+  :PROPERTIES:
+  :CUSTOM_ID: Exam/1
+  :EXPORT_TITLE: Exam 1
+  :EXPORT_DATE:  {{{DATE_EXAM_1}}}
+  :TIME: 75 Minutes
+  :END:
+</pre>
+</section>
+<section id="slide-sec-2-4">
+<h3 id="org74fb369"><span class="section-number-3">2.4</span> Section Subtrees</h3>
+<p class="fragment (appear)">
+Each exam in the Org-Coursepack has two section subtrees. Instructors
+may add additional sections. Each subtree has section-specific
+information about the exam in their <code>:PROPERTIES:</code>. Each section can
+have multiple versions of the same exam (e.g., <code>A</code> and <code>B</code> versions),
+with each version beloning to a separate subtree. The exam content
+includes a title page, multiple choice questions, and short
+answers. See the example and note below.
+</p>
+
+<pre class="example">
+  *** 01
+  :PROPERTIES:
+  :EXPORT_AUTHOR: {{{COURSE_NUM}}}-01: {{{COURSE}}}
+  :ANSWER:
+  :END:
+  **** A Type
+  :PROPERTIES:
+  #+INCLUDE: "2020 Spring.org::#Exam/Title Page" :only-contents t
+  ***** Multiple Choice                                               :newpage:
+  (2 points each, unless otherwise specified)
+  #+INCLUDE: "2020 Spring.org::#Exam/1/MC/A" :only-contents t
+  ***** Short Answers                                                 :newpage:
+  #+INCLUDE: "2020 Spring.org::#Exam/1/Short Answers" :only-contents t
+</pre>
+</section>
+<section >
+
+<div class="mdframed">
+<p>
+Note that the property <code>:ANSWER:</code> is empty. This is to hide answers for
+multiple choice questions&#x2013;see <code>Exam Contents/Multiple Choice</code> for details.
+</p>
+
+</div>
+</section>
+<section id="slide-sec-2-5">
+<h3 id="orge0fc756"><span class="section-number-3">2.5</span> <code>Exam Content</code> Subtree</h3>
+<p class="fragment (appear)">
+The <code>Exam Content</code> subtree contains exam questions. Its content can be
+pulled in section-specific exam subtrees to create exams. The <code>Exam Content</code> subtree
+can also be used to create exam keys by exporting the version subtree
+(e.g., <code>Type A (Key)</code>) under <code>Exam Content/Multiple Choice</code>. 
+</p>
+
+<pre class="example">
+  *** Exam Content
+  **** Multiple Choice
+  :PROPERTIES:
+  ***** Type A (Key)
+  ***** Type B (Key)
+  **** Short Answers                                                  :newpage:
+  :PROPERTIES:
+  #+INCLUDE: "../../../Topics/Org_Teaching.org::#Question/SA" :only-contents t
+</pre>
+</section>
+<section id="slide-sec-2-6">
+<h3 id="org2b33b12"><span class="section-number-3">2.6</span> Multiple Choice</h3>
+<p class="fragment (appear)">
+The Org-Coursepack exams have two versions (type A and B). The two
+versions have the same multiple choice questions in the same order,
+but the choice options are in different orders. 
+</p>
+
+<div class="mdframed">
+<p>
+To create a new version, an instructor may first create a duplicate of the
+original version subtree and use the <code>Alt+Up</code> or <code>Alt+Down</code> keys on the choice
+options to change their orders. Pressing <code>C-c C-c</code> automatically re-numbers the
+items in the list.
+</p>
+
+</div>
+
+<p>
+The example below shows a
+subset of content in the <code>Multiple Choice</code> tree.
+</p>
+
+<pre class="example">
+  **** Multiple Choice
+  :PROPERTIES:
+  :ANSWER: \checkmark
+  :END:
+  ***** Type A (Key)
+  :PROPERTIES:
+
+  1. Which of the following is a vegetable?
+     1. Okra
+     2. Carrot {{{property(ANSWER)}}}
+     3. Eggplant
+     4. Pepper
+
+  ***** Type B (Key)
+  :PROPERTIES:
+
+  1. Which of the following is a vegetable?
+     1. Okra
+     2. Pepper
+     3. Eggplant
+     4. Carrot {{{property(ANSWER)}}}
+</pre>
+<div class="mdframed">
+<p>
+The answer to each multiple choice question is marked with the macro
+<code>{{{property(ANSWER)}}}</code> and the <code>Multiple Choice</code> tree has the property of <code>:ANSWER:
+\checkmark</code>. Hence, an instructor can export the version subtree (e.g., <code>Type A
+(Key)</code>) to obtain the answer keys, with correct answers marked by a checkmark symbol.
+</p>
+
+</div>
+
+</section>
+<section >
+
+</section>
+<section id="slide-sec-2-7">
+<h3 id="orgb4dd9a2"><span class="section-number-3">2.7</span> Short Answers</h3>
+<p class="fragment (appear)">
+Since open-ended questions do not typically require multiple versions,
+one can have such questions in the corresponding topic Org file
+(e.g., under the <code>Questions</code> top-level tree) and include them here.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org5c773dc"><span class="section-number-2">3</span> <code>Assignments</code> Top-level Tree</h2>
+<ul>
+<li class="fragment appear">Instructors can create assignments as they do lecture content using Org mode.</li>
+<li class="fragment appear">Assignment instructions may be created in the <code>Assignments</code> top-level
+tree of a topic Org file, which are then included here.</li>
+<li class="fragment appear">See <code>Org_Teaching/2020 Spring/2020 Spring.org</code> for an example.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="org4309e28"><span class="section-number-2">4</span> <code>Local Variables</code> Top-level Tree</h2>
+<p class="fragment (appear)">
+<code>Local variables</code> top-level tree has file-local variables. See the
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html#Specifying-File-Variables" class="fragment (appear)">Emacs manual</a> for more information. File-local variables include the
+options to (a) skip confirmation on running elisp-link functions
+(<code>org-confirm-elisp-link-function: nil</code>), (b) allow property
+inheritance (<code>org-use-property-inheritance: t</code>), which is important
+for many functionalities of the Org-Coursepack to work properly, and (c)
+change the default timestamp format.
+</p>
+
+<p>
+The following shows the content of this subtree.
+</p>
+
+</section>
+<section >
+
+<pre class="example">
+  # Local Variables:
+  # org-confirm-elisp-link-function: nil
+  # org-export-babel-evaluate: 'inline-only
+  # org-use-property-inheritance: t
+  # org-time-stamp-custom-formats: ("&lt;%a, %b %d, %Y&gt;" . "&lt;%a, %b %d, %Y %l:%M%p&gt;")
+  # org-latex-active-timestamp-format: "%s"
+  # org-latex-inactive-timestamp-format: "%s"
+  # End:
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="org4ab2329"><span class="section-number-2">5</span> Class Recap</h2>
+<ul>
+<li class="fragment appear"><code>Exams</code> Top-level Tree</li>
+<li class="fragment appear"><code>Assignments</code> Top-level Tree</li>
+<li class="fragment appear"><code>Local Variables</code> Top-level Tree</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

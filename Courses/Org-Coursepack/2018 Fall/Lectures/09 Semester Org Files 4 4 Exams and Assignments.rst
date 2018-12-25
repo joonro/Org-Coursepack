@@ -9,13 +9,12 @@ Class 9: Semester Org Files (4/4): Exams and Assignments
 1 ``Exams`` Top-level Tree
 --------------------------
 
-Instructors can create content for exams as they wuold for
-lectures. Lists can be used to create multiple choice questions. See
-the Org mode `manual <https://orgmode.org/manual/Plain-lists.html>`_ for more information. To minimize redundancy,
-exams are designed to be modular and common elements are shared as
-much as possible. Furthermore, Org mode's property inheritance allows
-instructors to conveniently create answer keys to multiple choice
-questions and to export the exam with or without the keys.
+Instructors can create content for exams as they wuold for lectures. Lists can
+be used to create multiple choice questions. See the Org mode `manual <https://orgmode.org/manual/Plain-lists.html>`_ for more
+information. To minimize redundancy, exams are designed to be modular and
+common elements are shared as much as possible. Furthermore, Org mode's
+property inheritance allows instructors to conveniently create answer keys to
+multiple choice questions and to export the exam with or without the keys.
 
 As shown in the following example, there are two subtrees in the
 Org-Coursepack: one for the exam title page and another for the mid-term
@@ -94,12 +93,12 @@ answers. See the example and note below.
     :END:
     **** A Type
     :PROPERTIES:
-    #+INCLUDE: "2018 Fall.org::#Exam/Title Page" :only-contents t
+    #+INCLUDE: "2020 Spring.org::#Exam/Title Page" :only-contents t
     ***** Multiple Choice                                               :newpage:
     (2 points each, unless otherwise specified)
-    #+INCLUDE: "2018 Fall.org::#Exam/1/MC/A" :only-contents t
+    #+INCLUDE: "2020 Spring.org::#Exam/1/MC/A" :only-contents t
     ***** Short Answers                                                 :newpage:
-    #+INCLUDE: "2018 Fall.org::#Exam/1/Short Answers" :only-contents t
+    #+INCLUDE: "2020 Spring.org::#Exam/1/Short Answers" :only-contents t
 
 .. note::
 
@@ -186,7 +185,7 @@ one can have such questions in the corresponding topic Org file
 - Assignment instructions may be created in the ``Assignments`` top-level
   tree of a topic Org file, which are then included here.
 
-- See ``Org_Teaching/2018 Fall/2018 Fall.org`` for an example.
+- See ``Org_Teaching/2020 Spring/2020 Spring.org`` for an example.
 
 3 ``Local Variables`` Top-level Tree
 ------------------------------------

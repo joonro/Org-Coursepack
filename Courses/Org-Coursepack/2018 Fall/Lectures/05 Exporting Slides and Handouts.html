@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Class 5: Exporting Slides and Handouts</title>
+<meta name="description" content="Fall 2018 Org-Coursepack
+School specific teaching materials"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<base target="_blank">
+<base href="../">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Class 5: Exporting Slides and Handouts</h1>
+</section>
+<section>
+<section id="slide-sec-1">
+<h2 id="orge19cdc8"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-sec-1-1">
+<h3 id="orgcf4f085"><span class="section-number-3">1.1</span> Announcements</h3>
+<ul>
+<li></li>
+
+</ul>
+</section>
+<section id="slide-sec-1-2">
+<h3 id="org8e9678f"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<ul>
+<li class="fragment appear">Creating Slides and Handouts: Introduction</li>
+<li class="fragment appear">Using Raw HTML Tags and LaTeX Code</li>
+<li class="fragment appear">Features for Both Slides and Handouts</li>
+<li class="fragment appear">Slides: Features for reveal.js</li>
+<li class="fragment appear">Handouts: Features for LaTeX</li>
+
+</ul>
+</section>
+<section id="slide-sec-Lecture/Exporting Slides and Handouts/Outline">
+<h3 id="Lecture/Exporting Slides and Handouts/Outline"><a id="org1bcf751"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<ul>
+<li class="fragment appear">Exporting Content in Org Mode</li>
+<li class="fragment appear">Clickable Links and Keybindings for Exporting</li>
+<li class="fragment appear">Exporting Slides: with reveal.js</li>
+<li class="fragment appear">Exporting Handouts: with LaTeX</li>
+<li class="fragment appear">Selective Export</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="org1c9fb00"><span class="section-number-2">2</span> Exporting Content in Org Mode</h2>
+<p>
+Org mode provides powerful export functionalities, which enable users to
+convert Org markup content to a variety of other formats. The outputs have proper
+formatting while maintaining the original structure and markup. 
+The Org-Coursepack is set up to use reveal.js for slides and LaTeX for
+handouts. Users can adapt the current setting to accomodate other output
+formats.
+</p>
+
+<p>
+General information about exporting can be found in the <a href="https://orgmode.org/manual/Exporting.html">Org manual</a>. Hence,
+this lecture focuses on describing how exporting is set up in the
+Org-Coursepack, introducing pre-built export functionalities of the
+Org-Coursepack, and offering useful exporting tips for instructors.
+</p>
+</section>
+<section id="slide-sec-2-1">
+<h3 id="org3fb7c2d"><span class="section-number-3">2.1</span> Setting Export Scope to <code>Subtree</code></h3>
+<p>
+The export command, <code>org-export-dispatch</code> (<code>C-c C-e</code>), takes the user
+to the <code>Org Export Dispatcher</code> interface. Here, the user can select
+whether to export the buffer (i.e., the whole file) or only a
+subtree. An instructor may use the former to create a course
+booklet and the latter to export slides for a full or part of a
+lecture. The default scope of Org mode is <code>Buffer</code>, but a user can put the following snippet in
+the Emacs init file to set the default scope to <code>Subtree</code>.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >  ;; set the default export scope to subtree
+  (setf org-export-initial-scope 'subtree)
+</code></pre>
+</div>
+</section>
+<section id="slide-sec-2-2">
+<h3 id="org35cf112"><span class="section-number-3">2.2</span> Export Settings</h3>
+<p>
+Org mode allows users to specify <a href="https://orgmode.org/manual/Export-settings.html">export settings</a> at both buffer and subtree levels.
+</p>
+</section>
+<section id="slide-sec-2-2-1">
+<h4 id="org27712da"><span class="section-number-4">2.2.1</span> Buffer-Level Settings</h4>
+<p>
+For buffer-level settings, one can use the <code>#+OPTIONS:</code> statement. For
+example, including the following line in an Org file will include a table
+of contents for that file in the exported document:
+</p>
+
+<pre class="example">
+#+OPTIONS: toc:t
+</pre>
+
+<p>
+Similarly including the following line will add numbers in front of the headings.
+</p>
+
+<pre class="example">
+#+OPTIONS: num:t
+</pre>
+
+</section>
+<section id="slide-sec-2-2-2">
+<h4 id="org98b366d"><span class="section-number-4">2.2.2</span> Subtree-Level Settings</h4>
+<p>
+Export settings can be specified at the subtree level with
+<code>:PROPERTIES:</code>. Simply add <code>:EXPORT_:</code> as a prefix to each option. For
+example, the title of the document can be set with
+<code>:EXPORT_TITLE:</code>. To specify multiple settings (e.g., items for LaTeX preamble),
+one can add <code>+</code> to the property name to append an additional value.  For example,
+</p>
+
+<pre class="example">
+:PROPERTIES:
+:EXPORT_LATEX_HEADER+: \usepackage{titling}
+:EXPORT_LATEX_HEADER+: \usepackage{multicol}
+:END:
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="org67ea592"><span class="section-number-2">3</span> Clickable Links and Keybindings for Exporting</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-sec-3-1">
+<h3 id="org35afa5c"><span class="section-number-3">3.1</span> Buttons</h3>
+<p class="fragment (appear)">
+We include export buttons (in the form of links written in Emacs-lisp) in the
+properties of any exportable subtree in the Org-Coursepack (e.g.,
+lectures, syllabi, and exams).
+</p>
+
+<p>
+For example, each lecture headline comes with the <code>:EXPORT_TO:</code>
+property, which includes buttons such as <code>reveal.js</code> and
+<code>LaTeX</code>. These buttons will export files to their respective format,
+using <code>Subtree</code> as the export scope.
+</p>
+
+<p>
+After exporting, users can click on buttons in the <code>:VIEW_OUTPUT:</code>
+property (e.g., <code>HTML</code> or <code>PDF</code>) to open the exported files.
+</p>
+
+</section>
+<section id="slide-sec-3-2">
+<h3 id="org81499fb"><span class="section-number-3">3.2</span> Key Bindings</h3>
+<p class="fragment (appear)">
+Using the command=org-export-dispatch= (<code>C-c C-e</code>) when exporting a
+content allows users to later repeat the last export action for that
+same content using the prefix argument (<code>C-u</code>). This is a convenient
+feature when exporting the same content multiple times.
+</p>
+
+</section>
+<section >
+
+<p>
+
+</p>
+
+<div class="mdframed">
+<p>
+Note that the cursor shoud be in the correct position (heading,
+properties, or spaces between the heading and its first subheading) of
+the subtree being exported. When using <code>C-u C-c C-e</code> for repeated
+export, however, the cursor position does <i>not</i> matter as long as the
+same buffer which contains the last exported subtree is open.
+</p>
+
+</div>
+
+<p>
+
+</p>
+
+</section>
+<section >
+
+<p class="fragment (appear)">
+To bind <code>C-u C-c C-e</code> to a key (<code>F5</code> in this example), include
+the following Emacs-lisp code in into the init file:
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >;; bind f5 to keyboard macro of export-last-subtree
+(fset 'export-last-subtree
+      "\C-u\C-c\C-e")
+
+(eval-after-load "org"
+  '(progn
+     (define-key org-mode-map (kbd "<f5>") 'export-last-subtree)))
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-4">
+<h2 id="org51e0d08"><span class="section-number-2">4</span> Exporting Slides: with reveal.js</h2>
+<ul>
+<li>See the <a href="https://github.com/yjwen/org-reveal/">org-reveal documentation</a> for instructions on installation and usage.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-5">
+<h2 id="org41acb6c"><span class="section-number-2">5</span> Exporting Handouts: with LaTeX</h2>
+<p>
+LaTeX export is extensively supported by Org mode. We refer users to the <a href="https://orgmode.org/manual/LaTeX-export.html#LaTeX-export">Org
+manual</a> for the in-depth instructions.
+</p>
+
+<p>
+The following snippet shows the basic setup for our LaTeX output,
+where the <code>koma-article</code> class is added to <code>org-latex-classes</code> and the
+<code>minted</code> package is used for syntax highlighting. Currently, Python is
+the only language added to <code>org-latex-minted-langs</code>. Users can add to
+<code>org-latex-minted-langs</code> any other languages they want processed with
+the <code>minted</code> package.
+</p>
+
+<div class="mdframed">
+<p>
+Note that we manually added the <code>minted</code> package to LaTeX preambles as opposed to adding
+it to <code>org-latex-packages-alist</code>. This was to allow for flexible specifications of the <code>outputdir</code> option.
+</p>
+
+</div>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >(eval-after-load 'ox '(require 'ox-koma-letter))
+
+(eval-after-load 'ox '(add-to-list 'org-latex-classes
+                                   '("koma-article"
+                                     "\\documentclass{scrartcl}"
+                                     ("\\section{%s}" . "\\section*{%s}")
+                                     ("\\subsection{%s}" . "\\subsection*{%s}")
+                                     ("\\subsubsection{%s}"
+                                      . "\\subsubsection*{%s}")
+                                     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                                     ("\\subparagraph{%s}"
+                                      . "\\subparagraph*{%s}"))) )
+
+(require 'ox-latex)
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(add-to-list 'org-latex-minted-langs '(python "python"))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-sec-5-1">
+<h3 id="org4b4786a"><span class="section-number-3">5.1</span> Inserting a Page Break Before a Heading in LaTeX Export</h3>
+<p>
+Users can add a page break in the LaTeX export by inserting
+<code>#+LATEX: \clearpage</code>. Importantly, adding the following code into the init file
+automatically inserts a page break before any subtree that has a <code>:newpage:</code>
+tag.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >(defun org/get-headline-string-element  (headline backend info)
+  "Return the org element representation of an element.
+
+  Won't work on ~verb~/=code=-only headers"
+  (let ((prop-point (next-property-change 0 headline)))
+    (if prop-point (plist-get (text-properties-at prop-point headline) :parent))))
+
+(defun org/ensure-latex-clearpage (headline backend info)
+  (when (org-export-derived-backend-p backend 'latex)
+    (let ((elmnt (org/get-headline-string-element headline backend info)))
+      (when (member "newpage" (org-element-property :tags elmnt))
+        (concat "\\clearpage\n" headline)))))
+
+(eval-after-load 'ox '(add-to-list
+                       'org-export-filter-headline-functions
+                       'org/ensure-latex-clearpage))
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-6">
+<h2 id="org9b5657b"><span class="section-number-2">6</span> Selective Export</h2>
+<p>
+By using raw code and custom Emacs-lisp scripts, users can flexibly choose
+which content to show/hide, depending on output format. For example,
+instructors may want to show images in slides but not in handouts, or they may
+want to include supplementary notes in handouts but not in slides.
+</p>
+</section>
+<section id="slide-sec-Lectures/Exporting/Slide and Handout Only">
+<h3 id="Lectures/Exporting/Slide and Handout Only"><a id="org904304e"></a><span class="section-number-3">6.1</span> Tagging a Subtree as Slide or Handout Only</h3>
+<p>
+With the code below in added to your init file, you can use the <code>:slideonly:</code>
+or <code>:handoutonly:</code> tags to selectively include a subtree in either a slide
+output or handout output, respectively. Currently LaTeX and <code>rst</code> backends is
+set as a handout output, and reveal.js and beamer backends are set as slide
+outputs.
+</p>
+
+<p>
+For example,
+</p>
+
+<pre class="example">
+  * This subtree will only be exported in slide output      :slideonly:
+  - Content
+  * This subtree will only be exported in handout output    :handoutonly:
+  - Content
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="emacs-lisp" >  (defun org/parse-headings (backend)
+    "Remove every headline with certain tags in the
+    current buffer. BACKEND is the export back-end being used, as
+    a symbol.
+  
+    "
+  
+    (if (member backend '(latex rst))
+        (org-map-entries
+         (lambda ()
+           (progn
+             (org-narrow-to-subtree)
+             (org-cut-subtree)
+             (widen)
+             ))
+         "+slideonly"))
+  
+    (if (member backend '(reveal beamer))
+        (org-map-entries
+         (lambda ()
+           (progn
+             (org-narrow-to-subtree)
+             (org-cut-subtree)
+             (widen)
+             ))
+         "+handoutonly"))
+  
+  )
+  
+  (add-hook 'org-export-before-parsing-hook 'org/parse-headings)
+</code></pre>
+</div>
+</section>
+<section id="slide-sec-6-2">
+<h3 id="orgc1032d3"><span class="section-number-3">6.2</span> Hiding Specific Content</h3>
+<p>
+To hide content when exporting to HTML-based format outputs (slides), use raw
+HTML tags <code>&lt;span hidden&gt;</code> and <code>&lt;/span&gt;</code>. See the example below.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="html" >  #+REVEAL_HTML: <span hidden>
+  This will not be shown in reveal.js output
+  #+REVEAL_HTML: </span>
+</code></pre>
+</div>
+<p>
+Similarly, any content placed between <code>\iffalse</code> and <code>\fi</code> will not be
+rendered in LaTeX outputs (handouts). See the example below.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="text" >  #+LATEX: \iffalse
+  This will not be shown in LaTeX output
+  #+LATEX: \fi
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-7">
+<h2 id="orge67ace5"><span class="section-number-2">7</span> Class Recap</h2>
+<ul>
+<li class="fragment appear">Exporting Content in Org Mode</li>
+<li class="fragment appear">Clickable Links and Keybindings for Exporting</li>
+<li class="fragment appear">Exporting Slides: with reveal.js</li>
+<li class="fragment appear">Exporting Handouts: with LaTeX</li>
+<li class="fragment appear">Selective Export</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
