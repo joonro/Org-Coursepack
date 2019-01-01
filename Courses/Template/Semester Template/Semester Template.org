@@ -407,8 +407,16 @@
 :PROPERTIES:
 :CUSTOM_ID: Lecture/Common/Handout heading
 :END:
-@@latex:\lhead{@@ {{{COURSE_NUM}}} @@latex:\\@@ {{{PROFESSOR}}} @@latex:}@@ 
-@@latex:\rhead{@@ Class {{{property(CLASS)}}} @@latex:\\@@ {{{property(Date)}}}@@latex:}@@ 
+#+LATEX: \fancyhead{}  % clear all header fields
+
+#+LATEX: \fancyhead[L]{\fontsize{9}{12} \selectfont 
+{{{COURSE_NUM}}} {{{NEWLINE}}} 
+{{{PROFESSOR}}} 
+#+LATEX: } 
+#+LATEX: \fancyhead[R]{\fontsize{8}{12} \selectfont
+Class {{{property(CLASS)}}} {{{NEWLINE}}}
+{{{property(Date)}}}
+#+LATEX: } 
 #+LATEX: \thispagestyle{fancy}
 
 #+TOC: headlines 1 local
