@@ -90,7 +90,7 @@
              (delete-region (region-beginning) (region-end))  ;; delete the rest
 
              (setq custom-id-last-lecture-agenda
-                   (concat "Lecture/" EXPORT_FILE_NAME "/Outline"))
+                   (concat "Lectures/" EXPORT_FILE_NAME "/Outline"))
              (insert (concat ":PROPERTIES:\n:CUSTOM_ID: " custom-id-last-lecture-agenda "\n:END:\n"))
 
              (insert "#+ATTR_REVEAL: :frag (appear)\n")
