@@ -314,9 +314,15 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 - 
 **** Recap of Last Class
 **** Lecture Outline
+:PROPERTIES:
+:CUSTOM_ID: Lectures/Course Introduction/Outline
+:END:
+#+ATTR_REVEAL: :frag (appear)
+- Introduction to {{{COURSE}}}
 *** Introduction to {{{COURSE}}}
 #+INCLUDE: "../../../Topics/Topic Template.org::#Lectures/Introduction" :only-contents t
 *** Class Recap                                                 :slideonly:
+#+INCLUDE: "./Semester Template.org::#Lectures/Course Introduction/Outline" :only-contents t
 ** _Assignment 1 Due_                     :Assignment:skipcount:
 :PROPERTIES:
 :Class:  -  
