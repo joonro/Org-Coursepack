@@ -210,7 +210,7 @@
 :EXPORT_DATE: @@latex:\vspace{-6ex}@@
 :END:
      
-#+CALL: Update lecture metadata()
+#+CALL: org-coursepack-update-lecture-metadata()
 
 ** Tasks [0/1]                                                   :skipcount:
 *** TODO Class-wide tasks

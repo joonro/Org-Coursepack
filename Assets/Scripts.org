@@ -5,7 +5,7 @@
 
 * Update lecture metadata
 
-#+NAME: Update lecture metadata
+#+NAME: org-coursepack-update-lecture-metadata
 #+BEGIN_SRC emacs-lisp :results none
 ;; Update CLASS, DATE, and EXPORT_FILE_NAME properties of each class subtree
 ;; Update CUSTOM_ID of corresponding Class Objectives subtree, which must exist
