@@ -5,7 +5,6 @@ services:
 
 before_install:
 - docker pull silex/emacs
-- docker run -it --rm silex/emacs /bin/bash
 
 script:
-- emacs --batch -l tests.el
+- docker run -it --rm silex/emacs emacs --batch -l tests.el
