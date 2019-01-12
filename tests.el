@@ -24,7 +24,6 @@
 (with-current-buffer (find-file-noselect "./Courses/Template/Semester Template/Semester Template.org")
   (progn
     (re-search-forward ":EXPORT_FILE_NAME: ./Exams/Exam_1_01_A")
-    (org-reveal-export-to-html nil t)
     (org-latex-export-to-pdf nil t)
     ))
 
@@ -32,7 +31,6 @@
 (with-current-buffer (find-file-noselect "./Courses/Template/Semester Template/Semester Template.org")
   (progn
     (re-search-forward ":EXPORT_FILE_NAME: ./Assignments/Assignment_1")
-    (org-reveal-export-to-html nil t)
     (org-latex-export-to-pdf nil t)
     ))
 
