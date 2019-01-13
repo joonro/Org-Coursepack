@@ -1,0 +1,134 @@
+#+TITLE:     Project: Org-Coursepack
+#+AUTHOR:    Joon Ro
+#+EMAIL:     joon.ro@outlook.com
+#+DESCRIPTION: scripts for Org-Coursepack
+
+* Update lecture metadata
+
+#+NAME: org-coursepack-update-lecture-metadata
+#+BEGIN_SRC emacs-lisp :results none
+;; Update CLASS, DATE, and EXPORT_FILE_NAME properties of each class subtree
+;; Update CUSTOM_ID of corresponding Class Objectives subtree, which must exist
+;; Update #+INCLUDE of corresponding Last Class and Class Summary subtrees
+;; it will skip subtrees with "skipcount" tag
+(setq num-class 1)
+(setq custom-id-last-lecture-agenda "")
+
+(let ((MATCH "-skipcount")
+      (SCOPE 'tree)
+      (SKIP nil)
+      (spacing nil))
+
+  (org-map-entries
+   (lambda ()
+     (let ((level (nth 1 (org-heading-components)))
+           (name (nth 4 (org-heading-components))))
+       (if (= level 2)  ;; only level-2 subtrees
+           (save-restriction
+             (setq num-class-string (number-to-string num-class))
+
+             ;; CLASS
+             (org-entry-put nil "CLASS" num-class-string)
+
+             ;; add 0 in front of single digit class number
+             (if (< num-class 10)
+                 (setq num-class-string
+                       (concat "0" num-class-string)))
+
+             ;; DATE
+             (org-entry-put nil "DATE"
+                            (org-global-prop-value
+                             (concat "DATE_CLASS_"
+                                     num-class-string)))
+
+             ;; EXPORT_FILE_NAME
+             (if (org-entry-get nil "EXPORT_FILE_NAME_MANUAL")  ;; unless EXPORT_FILE_NAME_MANUAL exists
+                 (setq EXPORT_FILE_NAME
+                       (org-entry-get
+                        nil "EXPORT_FILE_NAME_MANUAL"))
+               (setq EXPORT_FILE_NAME
+                     (org-entry-get nil "ITEM")))
+
+             (setq EXPORT_FILE_NAME
+                   (replace-regexp-in-string "[^[:alpha:][:digit:][:blank:]_-]" " "
+                                             EXPORT_FILE_NAME))
+             (setq EXPORT_FILE_NAME
+                   (replace-regexp-in-string " +" " "
+                                             EXPORT_FILE_NAME))
+
+             (org-entry-put nil "EXPORT_FILE_NAME"
+                            (concat "./Lectures/"
+                                    num-class-string " "
+                                    EXPORT_FILE_NAME))
+
+             ;; increment counter
+             (setq num-class (+ num-class 1))
+             
+             (setq subheading-names '())
+
+             (org-map-entries
+              ;; Get the list of subtrees for lecture agenda
+              (lambda ()
+                (let ((level (nth 1 (org-heading-components))) 
+                      (name (nth 4 (org-heading-components)))
+                      (tags (nth 5 (org-heading-components))))
+
+                  (if (= level 3)  ;; only level-3 subtrees
+                      (setq subheading-names (add-to-list 'subheading-names name t))
+
+                    (if (string= name "Introduction and Recap of Last Class") (setq started t))
+                    )))
+              "-noexport-handoutonly-slideonly" 'tree 'comment)
+             )
+         )
+
+       (if (string= name "Lecture Outline")
+           ;; Create Lecture Agenda
+           (save-restriction
+             (org-mark-subtree)  ;; mark the current subtree
+             (forward-line)  ;; move point forward, so the headline isn't in the region
+             (delete-region (region-beginning) (region-end))  ;; delete the rest
+
+             (setq custom-id-last-lecture-agenda
+                   (concat "Lectures/" EXPORT_FILE_NAME "/Outline"))
+             (insert (concat ":PROPERTIES:\n:CUSTOM_ID: " custom-id-last-lecture-agenda "\n:END:\n"))
+
+             (insert "#+ATTR_REVEAL: :frag (appear)\n")
+
+             (while subheading-names
+               (insert (concat "- " (car subheading-names) "\n"))
+               (setq subheading-names (cdr subheading-names)))
+
+             ))
+
+       (if (string= name "Recap of Last Class")
+           ;; Update INCLUDE of the Last Class
+           (save-restriction
+             (org-mark-subtree)  ;; mark the current subtree
+             (forward-line)  ;; move point forward, so the headline isn't in the region
+             (delete-region (region-beginning) (region-end))  ;; delete the rest
+             (unless (string= custom-id-last-lecture-agenda "")
+               (insert (concat
+                        "#+INCLUDE: \"./"
+                        (file-name-nondirectory (buffer-file-name))
+                        "::#"
+                        custom-id-last-lecture-agenda
+                        "\" :only-contents t\n")))
+             ))
+
+       (if (string= name "Class Recap")
+           ;; Update INCLUDE of the Summary
+           (save-restriction
+             (org-mark-subtree)  ;; mark the current subtree
+             (forward-line)  ;; move point forward, so the headline isn't in the region
+             (delete-region (region-beginning) (region-end))  ;; delete the rest
+             (insert (concat
+                      "#+INCLUDE: \"./"
+                      (file-name-nondirectory (buffer-file-name))
+                      "::#"
+                      custom-id-last-lecture-agenda
+                      "\" :only-contents t\n"))
+             ))
+
+       )) MATCH SCOPE SKIP))
+#+END_SRC
