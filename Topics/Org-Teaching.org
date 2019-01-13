@@ -180,13 +180,13 @@ have the course metadata; the =COURSE= macro is for specifying the
 name of the course, =COURSE_NUM= is for specifying the course ID, and so
 on. They currently have filler values as shown in the image below. 
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info.png
 
 You can fill the macro values with your own course information as shown in the
 image below.
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info-Edited.png
 
 *** Preparing your syllabus
@@ -211,7 +211,7 @@ and assignment due dates. Navigate to the
 starts with =#+BEGIN: columnview=. You can view the class schedule by
 expanding the =columnview=:
 
-#+ATTR_LATEX: :height 5cm
+#+ATTR_LATEX: :width 16cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png
 
 Then, with the cursor in place, press =C-c C-c= (hit =c= twice while holding
@@ -220,7 +220,7 @@ recent information. Any changes made to the order or names of classes will
 automatically be reflected when the instructor updates the class schedule with
 the =C-c C-c= command. See an example of updated class schedule below.
 
-#+ATTR_LATEX: :height 5cm
+#+ATTR_LATEX: :width 16cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
 **** Exporting a syllabus
 Syllabus exporting occurs at the =Syllabus= subtree under each section's
@@ -266,7 +266,7 @@ sub-directory of the semester folder. You can also click on the =HTML= and
 =PDF= clickable links below the export buttons (on the =:OUTPUT_VIEW:=
 property) to view the exported files.
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Export-Link.png
 
 The following image shows an example of an exported html =reveal.js= slides
