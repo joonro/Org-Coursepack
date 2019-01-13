@@ -3,8 +3,11 @@ Class 5: Exporting Slides and Handouts
 ======================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 5  [2018-09-11 Tue] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 5  
+[2018-09-11 Tue]
 
 1 Exporting Content in Org Mode
 -------------------------------
@@ -154,22 +157,22 @@ the ``minted`` package.
     (eval-after-load 'ox '(require 'ox-koma-letter))
 
     (eval-after-load 'ox '(add-to-list 'org-latex-classes
-                                       '("koma-article"
-                                         "\\documentclass{scrartcl}"
-                                         ("\\section{%s}" . "\\section*{%s}")
-                                         ("\\subsection{%s}" . "\\subsection*{%s}")
-                                         ("\\subsubsection{%s}"
-                                          . "\\subsubsection*{%s}")
-                                         ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                                         ("\\subparagraph{%s}"
-                                          . "\\subparagraph*{%s}"))) )
+    				   '("koma-article"
+    				     "\\documentclass{scrartcl}"
+    				     ("\\section{%s}" . "\\section*{%s}")
+    				     ("\\subsection{%s}" . "\\subsection*{%s}")
+    				     ("\\subsubsection{%s}"
+    				      . "\\subsubsection*{%s}")
+    				     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+    				     ("\\subparagraph{%s}"
+    				      . "\\subparagraph*{%s}"))) )
 
     (require 'ox-latex)
     (setq org-latex-listings 'minted)
 
     (setq org-latex-pdf-process
           '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+    	"pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
     (add-to-list 'org-latex-minted-langs '(python "python"))
 
@@ -194,11 +197,11 @@ tag.
       (when (org-export-derived-backend-p backend 'latex)
         (let ((elmnt (org/get-headline-string-element headline backend info)))
           (when (member "newpage" (org-element-property :tags elmnt))
-            (concat "\\clearpage\n" headline)))))
+    	(concat "\\clearpage\n" headline)))))
 
     (eval-after-load 'ox '(add-to-list
-                           'org-export-filter-headline-functions
-                           'org/ensure-latex-clearpage))
+    		       'org-export-filter-headline-functions
+    		       'org/ensure-latex-clearpage))
 
 5 Selective Export
 ------------------
@@ -240,21 +243,21 @@ For example,
       (if (member backend '(latex rst))
           (org-map-entries
            (lambda ()
-             (progn
-               (org-narrow-to-subtree)
-               (org-cut-subtree)
-               (widen)
-               ))
+    	 (progn
+    	   (org-narrow-to-subtree)
+    	   (org-cut-subtree)
+    	   (widen)
+    	   ))
            "+slideonly"))
 
       (if (member backend '(reveal beamer))
           (org-map-entries
            (lambda ()
-             (progn
-               (org-narrow-to-subtree)
-               (org-cut-subtree)
-               (widen)
-               ))
+    	 (progn
+    	   (org-narrow-to-subtree)
+    	   (org-cut-subtree)
+    	   (widen)
+    	   ))
            "+handoutonly"))
 
     )

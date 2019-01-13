@@ -3,8 +3,11 @@ Class 1: Course Introduction
 ============================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 1  [2018-08-28 Tue] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 1  
+[2018-08-28 Tue]
 
 1 Introduction to Org-Coursepack
 --------------------------------
@@ -231,10 +234,9 @@ how to change syllabus content to fit your own course.
 
 You can include in your syllabus a class schedule, which is a table that shows
 a list of class dates, class numbers, and class titles, as well as exam dates
-and assignment due dates. Navigate to the
-``\* Syllabus/Class Schedule`` subtree and place your cursor on the line that
-starts with ``#+BEGIN: columnview``. You can view the class schedule by
-expanding the ``columnview``:
+and assignment due dates. Navigate to the ``\* Syllabus/Class Schedule`` subtree
+and place your cursor on the line that starts with ``#+BEGIN: columnview``. You
+can view the class schedule by expanding the ``columnview``:
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png
 
@@ -245,6 +247,12 @@ automatically be reflected when the instructor updates the class schedule with
 the ``C-c C-c`` command. See an example of updated class schedule below.
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
+
+.. note::
+
+    Note that the ``org-coursepack-update-lecture-metadata`` script described below 
+    will automatically update this table upon execution. Hence, in general manual 
+    updating of the table is not needed.
 
 2.6.2 Exporting a syllabus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -333,9 +341,11 @@ subtrees. In the example, we will simply call them ``Second Lecture`` and ``Thir
 **Updating metadata** Expanding the ``:PROPERTIES:`` drawer of each lecture (e.g.,
 ``Second Lecture``) will reveal class-related metadata, such as ``CLASS``,
 ``EXPORT_FILE_NAME``, and ``DATE``.  You can automatically update these values by
-running the ``Update lecture metadata`` script.  The script is located right
-under the ``Lectures`` subtree headline (see image below)--to run the script,
-simply move the curser to the script and press ``C-c C-c``.
+running the ``org-coursepack-update-lecture-metadata`` script, which is defined
+in ``/Assets/Scripts.org``. The script is set up to be called remotely, and the
+call statement (``#+CALL: org-coursepack-update-lecture-metadata()``) is located
+right under the ``Lectures`` subtree headline (see image below)--to run the
+script, simply move the cursor to the call statement and press ``C-c C-c``.
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png
 
@@ -347,7 +357,7 @@ After the script finishes running, you will need to press ``Shift+Tab`` to reset
 the rendering.
 
 As shown in the image below, the lecture metadata have been updated with
-appropriate values. 
+appropriate values.
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Lecture-Info.png
 
@@ -362,9 +372,11 @@ changed. See the screenshot below for an example.
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png
 
-**Updating class schedule in syllabus** As explained earlier, you can update the
-class schedule in the syllabus with the new lecture metadata automatically by
-updating the class schedule table. See the screenshot below.
+**Updating class schedule in syllabus** The
+``org-coursepack-update-lecture-metadata`` is designed to automatically update
+the class schedule table in the syllabus with the new lecture metadata, so the
+table will always reflect the latest lecture metadata. See the screenshot
+below.
 
 .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png
 

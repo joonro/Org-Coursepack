@@ -3,8 +3,11 @@ Class 8: Semester Org Files (3/4): Lectures
 ===========================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 8  [2018-09-20 Thu] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 8  
+[2018-09-20 Thu]
 
 1 The ``Lectures`` Top-level Tree
 ---------------------------------
@@ -18,8 +21,7 @@ Class 8: Semester Org Files (3/4): Lectures
       * Lectures
       :PROPERTIES:
 
-      #+NAME: Update Classes
-      #+BEGIN_SRC emacs-lisp :results none
+      #+CALL: org-coursepack-update-lecture-metadata()
 
       ** Tasks [0/1]                                           :noexport:skipcount:
       ** Classes and Assignments Dates                                  :skipcount:
@@ -50,67 +52,68 @@ Class 8: Semester Org Files (3/4): Lectures
 
       :PROPERTIES:
       :COLUMNS: %Date %Class %ITEM
-      :ID:  79d5e887-4637-43e7-8e8a-b83fa83ee56e
+      :ID:  Lectures
       ...
       :END:
 
-1.2 ``Update lecture metadata`` Source Code Block
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2 ``org-coursepack-update-lecture-metadata`` Source Code Block
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The ``Lectures`` top-level tree has a source code block named ``Update Lectures``. When executed with ``C-c C-c``, it is designed to go through
-  each lecture subtree and perform the following actions:
+- The ``Lectures`` top-level tree has a call statement (``#+CALL: org-coursepack-update-lecture-metadata()``) that can be used to execute the
+  source code block named ``org-coursepack-update-lecture-metadata``, which is
+  contained in ``/Assets/Scripts.org``. When executed with ``C-c C-c``, it is
+  designed to go through each lecture subtree and perform the following
+  actions:
 
-  1. Update ``:PROPERTIES:`` for the lecture, such as the class number
-     (``:CLASS:``), class date (``:DATE:``), and file name of the export
-     (``:EXPORT_FILE_NAME:``).
+  1. Update metadata for the lecture, such as the class number (``:CLASS:``),
+     class date (``:DATE:``), and file name of the export
+     (``:EXPORT_FILE_NAME:``), which are defined in the ``:PROPERTIES:``.
 
      ``:CLASS:``
-         The lectures are assumed to be in the order of the
-         lecture schedule (e.g., first lecture on Class
-         1). Note that any subtree with a ``:skipcount:`` tag
-         will be ignored, which is useful for
-         non-lecture subtrees (e.g., assignment due dates
-         and holidays).
+         The lectures are assumed to be in the order of the lecture
+         schedule (e.g., first lecture on Class 1). Note that any
+         subtree with a ``:skipcount:`` tag will be ignored, which is
+         useful for non-lecture subtrees (e.g., assignment due
+         dates and holidays).
 
      ``:DATE:``
-         It will get the date of each class from the ``DATE_CLASS_XX`` file-level
-         properties, which are defined in the ``Lectures and Assignments Dates`` subtree.
+         It will get the date of each class from the ``DATE_CLASS_XX``
+         file-level properties, which are defined in the ``Lectures and Assignments Dates`` subtree.
 
      ``:EXPORT_FILE_NAME:``
          By default, the script sets the
-         ``:EXPORT_FILE_NAME:`` as the subtree heading, which can be
-         overridden by setting the ``:EXPORT_FILE_NAME_MANUAL:``
-         property of the lecture subtree. If the property exists, the
-         script will use its value for ``:EXPORT_FILE_NAME:``
-         instead. This is useful when the lecture subtree heading is
-         very long or contains invalid characters for a file name.
+         ``:EXPORT_FILE_NAME:`` as the subtree heading, which can be overridden
+         by setting the ``:EXPORT_FILE_NAME_MANUAL:`` property of the lecture
+         subtree. If the property exists, the script will use its value for
+         ``:EXPORT_FILE_NAME:`` instead. This is useful when the lecture
+         subtree heading is very long or contains invalid characters for a
+         file name.
 
-  2. Update ``Lecture Agenda`` under the ``Introduction`` subtree.
+  2. Update ``Lecture Outline`` under the ``Introduction and Recap of Last Class`` subtree.
 
-     ``Lecture Agenda``
-         The script will get the list of subtrees
-         that belong to the particular lecture, ignoring any with
-         ``noexport``, ``handoutonly``, or ``slideonly`` tags. Then, it
-         will insert the list into the body of ``Lecture Agenda``. In
-         addition, it will set the ``CUSTOM_ID`` property value of the
-         subtree accordingly, so the agenda can be used in other
-         places.
+     ``Lecture Outline``
+         The script will get the list of subtrees that
+         belong to the particular lecture, ignoring any with ``noexport``,
+         ``handoutonly``, or ``slideonly`` tags. Then, it will insert the list
+         into the body of ``Lecture Agenda``. In addition, it will set the
+         ``CUSTOM_ID`` property value of the subtree accordingly, so the agenda
+         can be used in other places.
 
-  3. Update ``Last Class`` under the ``Introduction`` subtree and ``Class Summary`` of
-     each lecture. 
+  3. Update ``Last Class`` under the ``Introduction and Recap of Last Class``
+     subtree and ``Class Summary`` of each lecture.
 
-     ``Last Class``
+     ``Recap of Last Class``
          The script will insert an ``#+INCLUDE:``
-         statement which points to the previous
-         lecture's ``Lecture Agenda`` subtree under the
-         ``Introduction``. This is to provide a recap of
-         the previous lecture prior to starting the
+         statement which points to the previous lecture's ``Lecture Outline``
+         subtree under the ``Introduction and Recap of Last Class``. This is to
+         provide a recap of the previous lecture prior to starting the
          current lecture.
 
-     ``Class Summary``
-         The script will insert an ``#+INCLUDE:``
-         statement which points to the current lecture's ``Lecture Agenda`` subtree under the ``Introduction``. This provides a
-         summary of the current lecture.
+     ``Class Recap``
+         The script will insert an ``#+INCLUDE:`` statement which
+         points to the current lecture's ``Lecture Outline``
+         subtree under the ``Introduction and Recap of Last Class``. This provides a summary of the current
+         lecture.
 
 - The user should run this script before updating the class schedule table 
   in the ``Syllabus``, so the most current information is reflected in the table.
@@ -146,12 +149,14 @@ Class 8: Semester Org Files (3/4): Lectures
 1.5 Dynamic Columnview of Lectures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- A useful functionality of Org mode is the ability to create a
-  table-view overlay of subtrees with their property
-  values. Instructors can use the ``org-columns`` command to create a column-view of
-  lectures, which is essentially the same as the class schedule table
-  in the ``Syllabus``. It is useful when there is a need to quickly inspect
-  the overall course schedule.
+- A useful functionality of Org mode is the ability to create a table-view
+  overlay of subtrees with their property values. Instructors can use the
+  ``org-columns`` command to create a column-view of lectures, which is
+  essentially the same as the class schedule table in the ``Syllabus``. It is
+  useful when there is a need to quickly inspect the overall course
+  schedule. See the screenshot below for an example dynamic columnview.
+
+.. image:: ../../../Assets/Images/Org-Teaching/Semester-Lectures-Dynamic-Columnview.png
 
 2 Individual Lecture Subtree
 ----------------------------

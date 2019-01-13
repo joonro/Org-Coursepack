@@ -32,20 +32,20 @@ School specific teaching materials"/>
 <section id="sec-title-slide"><h1 class="title">Class 5: Exporting Slides and Handouts</h1>
 </section>
 <section>
-<section id="slide-sec-1">
-<h2 id="orge19cdc8"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<section id="slide-org66f81f8">
+<h2 id="org66f81f8"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
-<section id="slide-sec-1-1">
-<h3 id="orgcf4f085"><span class="section-number-3">1.1</span> Announcements</h3>
+<section id="slide-orgfad97b6">
+<h3 id="orgfad97b6"><span class="section-number-3">1.1</span> Announcements</h3>
 <ul>
 <li></li>
 
 </ul>
 </section>
-<section id="slide-sec-1-2">
-<h3 id="org8e9678f"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<section id="slide-orgb1d6f1f">
+<h3 id="orgb1d6f1f"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
 <ul>
 <li class="fragment appear">Creating Slides and Handouts: Introduction</li>
 <li class="fragment appear">Using Raw HTML Tags and LaTeX Code</li>
@@ -55,8 +55,8 @@ School specific teaching materials"/>
 
 </ul>
 </section>
-<section id="slide-sec-Lecture/Exporting Slides and Handouts/Outline">
-<h3 id="Lecture/Exporting Slides and Handouts/Outline"><a id="org1bcf751"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<section id="slide-Lecture/Exporting Slides and Handouts/Outline">
+<h3 id="Lecture/Exporting Slides and Handouts/Outline"><a id="org176c53b"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
 <ul>
 <li class="fragment appear">Exporting Content in Org Mode</li>
 <li class="fragment appear">Clickable Links and Keybindings for Exporting</li>
@@ -68,8 +68,8 @@ School specific teaching materials"/>
 </section>
 </section>
 <section>
-<section id="slide-sec-2">
-<h2 id="org1c9fb00"><span class="section-number-2">2</span> Exporting Content in Org Mode</h2>
+<section id="slide-org1c300aa">
+<h2 id="org1c300aa"><span class="section-number-2">2</span> Exporting Content in Org Mode</h2>
 <p>
 Org mode provides powerful export functionalities, which enable users to
 convert Org markup content to a variety of other formats. The outputs have proper
@@ -86,8 +86,8 @@ Org-Coursepack, introducing pre-built export functionalities of the
 Org-Coursepack, and offering useful exporting tips for instructors.
 </p>
 </section>
-<section id="slide-sec-2-1">
-<h3 id="org3fb7c2d"><span class="section-number-3">2.1</span> Setting Export Scope to <code>Subtree</code></h3>
+<section id="slide-org36378d9">
+<h3 id="org36378d9"><span class="section-number-3">2.1</span> Setting Export Scope to <code>Subtree</code></h3>
 <p>
 The export command, <code>org-export-dispatch</code> (<code>C-c C-e</code>), takes the user
 to the <code>Org Export Dispatcher</code> interface. Here, the user can select
@@ -100,19 +100,19 @@ the Emacs init file to set the default scope to <code>Subtree</code>.
 
 <div class="org-src-container">
 
-<pre><code class="emacs-lisp" >  ;; set the default export scope to subtree
-  (setf org-export-initial-scope 'subtree)
+<pre><code class="emacs-lisp" >;; set the default export scope to subtree
+(setf org-export-initial-scope 'subtree)
 </code></pre>
 </div>
 </section>
-<section id="slide-sec-2-2">
-<h3 id="org35cf112"><span class="section-number-3">2.2</span> Export Settings</h3>
+<section id="slide-orgcb89ab2">
+<h3 id="orgcb89ab2"><span class="section-number-3">2.2</span> Export Settings</h3>
 <p>
 Org mode allows users to specify <a href="https://orgmode.org/manual/Export-settings.html">export settings</a> at both buffer and subtree levels.
 </p>
 </section>
-<section id="slide-sec-2-2-1">
-<h4 id="org27712da"><span class="section-number-4">2.2.1</span> Buffer-Level Settings</h4>
+<section id="slide-orgae6ec86">
+<h4 id="orgae6ec86"><span class="section-number-4">2.2.1</span> Buffer-Level Settings</h4>
 <p>
 For buffer-level settings, one can use the <code>#+OPTIONS:</code> statement. For
 example, including the following line in an Org file will include a table
@@ -132,8 +132,8 @@ Similarly including the following line will add numbers in front of the headings
 </pre>
 
 </section>
-<section id="slide-sec-2-2-2">
-<h4 id="org98b366d"><span class="section-number-4">2.2.2</span> Subtree-Level Settings</h4>
+<section id="slide-org8876915">
+<h4 id="org8876915"><span class="section-number-4">2.2.2</span> Subtree-Level Settings</h4>
 <p>
 Export settings can be specified at the subtree level with
 <code>:PROPERTIES:</code>. Simply add <code>:EXPORT_:</code> as a prefix to each option. For
@@ -151,13 +151,13 @@ one can add <code>+</code> to the property name to append an additional value.  
 </section>
 </section>
 <section>
-<section id="slide-sec-3">
-<h2 id="org67ea592"><span class="section-number-2">3</span> Clickable Links and Keybindings for Exporting</h2>
+<section id="slide-org4e0b5ac">
+<h2 id="org4e0b5ac"><span class="section-number-2">3</span> Clickable Links and Keybindings for Exporting</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 </section>
-<section id="slide-sec-3-1">
-<h3 id="org35afa5c"><span class="section-number-3">3.1</span> Buttons</h3>
+<section id="slide-orgb1b2210">
+<h3 id="orgb1b2210"><span class="section-number-3">3.1</span> Buttons</h3>
 <p class="fragment (appear)">
 We include export buttons (in the form of links written in Emacs-lisp) in the
 properties of any exportable subtree in the Org-Coursepack (e.g.,
@@ -177,8 +177,8 @@ property (e.g., <code>HTML</code> or <code>PDF</code>) to open the exported file
 </p>
 
 </section>
-<section id="slide-sec-3-2">
-<h3 id="org81499fb"><span class="section-number-3">3.2</span> Key Bindings</h3>
+<section id="slide-org801a150">
+<h3 id="org801a150"><span class="section-number-3">3.2</span> Key Bindings</h3>
 <p class="fragment (appear)">
 Using the command=org-export-dispatch= (<code>C-c C-e</code>) when exporting a
 content allows users to later repeat the last export action for that
@@ -230,8 +230,8 @@ the following Emacs-lisp code in into the init file:
 </section>
 </section>
 <section>
-<section id="slide-sec-4">
-<h2 id="org51e0d08"><span class="section-number-2">4</span> Exporting Slides: with reveal.js</h2>
+<section id="slide-orgaae4cd1">
+<h2 id="orgaae4cd1"><span class="section-number-2">4</span> Exporting Slides: with reveal.js</h2>
 <ul>
 <li>See the <a href="https://github.com/yjwen/org-reveal/">org-reveal documentation</a> for instructions on installation and usage.</li>
 
@@ -239,8 +239,8 @@ the following Emacs-lisp code in into the init file:
 </section>
 </section>
 <section>
-<section id="slide-sec-5">
-<h2 id="org41acb6c"><span class="section-number-2">5</span> Exporting Handouts: with LaTeX</h2>
+<section id="slide-org7a634fd">
+<h2 id="org7a634fd"><span class="section-number-2">5</span> Exporting Handouts: with LaTeX</h2>
 <p>
 LaTeX export is extensively supported by Org mode. We refer users to the <a href="https://orgmode.org/manual/LaTeX-export.html#LaTeX-export">Org
 manual</a> for the in-depth instructions.
@@ -268,30 +268,30 @@ it to <code>org-latex-packages-alist</code>. This was to allow for flexible spec
 <pre><code class="emacs-lisp" >(eval-after-load 'ox '(require 'ox-koma-letter))
 
 (eval-after-load 'ox '(add-to-list 'org-latex-classes
-                                   '("koma-article"
-                                     "\\documentclass{scrartcl}"
-                                     ("\\section{%s}" . "\\section*{%s}")
-                                     ("\\subsection{%s}" . "\\subsection*{%s}")
-                                     ("\\subsubsection{%s}"
-                                      . "\\subsubsection*{%s}")
-                                     ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                                     ("\\subparagraph{%s}"
-                                      . "\\subparagraph*{%s}"))) )
+				   '("koma-article"
+				     "\\documentclass{scrartcl}"
+				     ("\\section{%s}" . "\\section*{%s}")
+				     ("\\subsection{%s}" . "\\subsection*{%s}")
+				     ("\\subsubsection{%s}"
+				      . "\\subsubsection*{%s}")
+				     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+				     ("\\subparagraph{%s}"
+				      . "\\subparagraph*{%s}"))) )
 
 (require 'ox-latex)
 (setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+	"pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 (add-to-list 'org-latex-minted-langs '(python "python"))
 </code></pre>
 </div>
 
 </section>
-<section id="slide-sec-5-1">
-<h3 id="org4b4786a"><span class="section-number-3">5.1</span> Inserting a Page Break Before a Heading in LaTeX Export</h3>
+<section id="slide-orgad50e44">
+<h3 id="orgad50e44"><span class="section-number-3">5.1</span> Inserting a Page Break Before a Heading in LaTeX Export</h3>
 <p>
 Users can add a page break in the LaTeX export by inserting
 <code>#+LATEX: \clearpage</code>. Importantly, adding the following code into the init file
@@ -312,18 +312,18 @@ tag.
   (when (org-export-derived-backend-p backend 'latex)
     (let ((elmnt (org/get-headline-string-element headline backend info)))
       (when (member "newpage" (org-element-property :tags elmnt))
-        (concat "\\clearpage\n" headline)))))
+	(concat "\\clearpage\n" headline)))))
 
 (eval-after-load 'ox '(add-to-list
-                       'org-export-filter-headline-functions
-                       'org/ensure-latex-clearpage))
+		       'org-export-filter-headline-functions
+		       'org/ensure-latex-clearpage))
 </code></pre>
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-6">
-<h2 id="org9b5657b"><span class="section-number-2">6</span> Selective Export</h2>
+<section id="slide-orgee1a2cb">
+<h2 id="orgee1a2cb"><span class="section-number-2">6</span> Selective Export</h2>
 <p>
 By using raw code and custom Emacs-lisp scripts, users can flexibly choose
 which content to show/hide, depending on output format. For example,
@@ -331,8 +331,8 @@ instructors may want to show images in slides but not in handouts, or they may
 want to include supplementary notes in handouts but not in slides.
 </p>
 </section>
-<section id="slide-sec-Lectures/Exporting/Slide and Handout Only">
-<h3 id="Lectures/Exporting/Slide and Handout Only"><a id="org904304e"></a><span class="section-number-3">6.1</span> Tagging a Subtree as Slide or Handout Only</h3>
+<section id="slide-Lectures/Exporting/Slide and Handout Only">
+<h3 id="Lectures/Exporting/Slide and Handout Only"><a id="org68ba235"></a><span class="section-number-3">6.1</span> Tagging a Subtree as Slide or Handout Only</h3>
 <p>
 With the code below in added to your init file, you can use the <code>:slideonly:</code>
 or <code>:handoutonly:</code> tags to selectively include a subtree in either a slide
@@ -346,49 +346,49 @@ For example,
 </p>
 
 <pre class="example">
-  * This subtree will only be exported in slide output      :slideonly:
-  - Content
-  * This subtree will only be exported in handout output    :handoutonly:
-  - Content
+* This subtree will only be exported in slide output      :slideonly:
+- Content
+* This subtree will only be exported in handout output    :handoutonly:
+- Content
 </pre>
 
 <div class="org-src-container">
 
-<pre><code class="emacs-lisp" >  (defun org/parse-headings (backend)
-    "Remove every headline with certain tags in the
-    current buffer. BACKEND is the export back-end being used, as
-    a symbol.
-  
-    "
-  
-    (if (member backend '(latex rst))
-        (org-map-entries
-         (lambda ()
-           (progn
-             (org-narrow-to-subtree)
-             (org-cut-subtree)
-             (widen)
-             ))
-         "+slideonly"))
-  
-    (if (member backend '(reveal beamer))
-        (org-map-entries
-         (lambda ()
-           (progn
-             (org-narrow-to-subtree)
-             (org-cut-subtree)
-             (widen)
-             ))
-         "+handoutonly"))
-  
-  )
-  
-  (add-hook 'org-export-before-parsing-hook 'org/parse-headings)
+<pre><code class="emacs-lisp" >(defun org/parse-headings (backend)
+  "Remove every headline with certain tags in the
+  current buffer. BACKEND is the export back-end being used, as
+  a symbol.
+
+  "
+
+  (if (member backend '(latex rst))
+      (org-map-entries
+       (lambda ()
+	 (progn
+	   (org-narrow-to-subtree)
+	   (org-cut-subtree)
+	   (widen)
+	   ))
+       "+slideonly"))
+
+  (if (member backend '(reveal beamer))
+      (org-map-entries
+       (lambda ()
+	 (progn
+	   (org-narrow-to-subtree)
+	   (org-cut-subtree)
+	   (widen)
+	   ))
+       "+handoutonly"))
+
+)
+
+(add-hook 'org-export-before-parsing-hook 'org/parse-headings)
 </code></pre>
 </div>
 </section>
-<section id="slide-sec-6-2">
-<h3 id="orgc1032d3"><span class="section-number-3">6.2</span> Hiding Specific Content</h3>
+<section id="slide-orgaff88ce">
+<h3 id="orgaff88ce"><span class="section-number-3">6.2</span> Hiding Specific Content</h3>
 <p>
 To hide content when exporting to HTML-based format outputs (slides), use raw
 HTML tags <code>&lt;span hidden&gt;</code> and <code>&lt;/span&gt;</code>. See the example below.
@@ -396,9 +396,9 @@ HTML tags <code>&lt;span hidden&gt;</code> and <code>&lt;/span&gt;</code>. See t
 
 <div class="org-src-container">
 
-<pre><code class="html" >  #+REVEAL_HTML: <span hidden>
-  This will not be shown in reveal.js output
-  #+REVEAL_HTML: </span>
+<pre><code class="html" >#+REVEAL_HTML: <span hidden>
+This will not be shown in reveal.js output
+#+REVEAL_HTML: </span>
 </code></pre>
 </div>
 <p>
@@ -408,16 +408,16 @@ rendered in LaTeX outputs (handouts). See the example below.
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+LATEX: \iffalse
-  This will not be shown in LaTeX output
-  #+LATEX: \fi
+<pre><code class="text" >#+LATEX: \iffalse
+This will not be shown in LaTeX output
+#+LATEX: \fi
 </code></pre>
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-7">
-<h2 id="orge67ace5"><span class="section-number-2">7</span> Class Recap</h2>
+<section id="slide-org4d87e20">
+<h2 id="org4d87e20"><span class="section-number-2">7</span> Class Recap</h2>
 <ul>
 <li class="fragment appear">Exporting Content in Org Mode</li>
 <li class="fragment appear">Clickable Links and Keybindings for Exporting</li>

@@ -3,8 +3,11 @@ Class 2: Org Mode Basics
 ========================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 2  [2018-08-30 Thu] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 2  
+[2018-08-30 Thu]
 
 1 Headings
 ----------

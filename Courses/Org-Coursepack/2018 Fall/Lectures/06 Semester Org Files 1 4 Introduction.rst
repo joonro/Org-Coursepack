@@ -3,8 +3,11 @@ Class 6: Semester Org Files (1/4): Introduction
 ===============================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 6  [2018-09-13 Thu] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 6  
+[2018-09-13 Thu]
 
 .. _Lecture/Semester Org Files 1 4 Introduction/Agenda:
 
