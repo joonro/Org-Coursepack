@@ -1,5 +1,8 @@
 #+TITLE: Org-Coursepack
 #+AUTHOR: Joon Ro
+
+[[https://travis-ci.com/joonro/Org-Coursepack][https://travis-ci.com/joonro/Org-Coursepack.svg?branch=master]]
+
 The Org-Coursepack provides a template for developing and managing teaching
 materials using [[https://orgmode.org][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/][GNU Emacs]].
 
