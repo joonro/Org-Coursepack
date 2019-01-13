@@ -9,11 +9,11 @@
     <title>Class 8: Semester Org Files (3/4): Lectures &#8212; Org-Coursepack  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="Org-Courspack/Lectures/08 Semester Org Files 3 4 Lectures.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class 9: Semester Org Files (4/4): Exams and Assignments" href="09 Semester Org Files 4 4 Exams and Assignments.html" />
@@ -30,13 +30,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="class-8-semester-org-files-3-4-lectures">
 <h1>Class 8: Semester Org Files (3/4): Lectures<a class="headerlink" href="#class-8-semester-org-files-3-4-lectures" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
-Class 8  [2018-09-20 Thu]</div></blockquote>
+<p>ORG 0000
+Joon H. Ro &amp; Jae-Eun Namkoong</p>
+<p>Class 8
+[2018-09-20 Thu]</p>
 <div class="section" id="the-lectures-top-level-tree">
 <h2>1 The <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> Top-level Tree<a class="headerlink" href="#the-lectures-top-level-tree" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -46,8 +49,7 @@ assignment, exam). See the example below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Lectures</span>
 <span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
 
-<span class="c1">#+NAME: Update Classes</span>
-<span class="c1">#+BEGIN_SRC emacs-lisp :results none</span>
+<span class="c1">#+CALL: org-coursepack-update-lecture-metadata()</span>
 
 <span class="o">**</span> <span class="n">Tasks</span> <span class="p">[</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span><span class="p">]</span>                                           <span class="p">:</span><span class="n">noexport</span><span class="p">:</span><span class="n">skipcount</span><span class="p">:</span>
 <span class="o">**</span> <span class="n">Classes</span> <span class="ow">and</span> <span class="n">Assignments</span> <span class="n">Dates</span>                                  <span class="p">:</span><span class="n">skipcount</span><span class="p">:</span>
@@ -78,7 +80,7 @@ are used to create the class schedule columnview dynamic block
 described in <code class="docutils literal notranslate"><span class="pre">Syllabus</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">PROPERTIES</span><span class="p">:</span>
 <span class="p">:</span><span class="n">COLUMNS</span><span class="p">:</span> <span class="o">%</span><span class="n">Date</span> <span class="o">%</span><span class="n">Class</span> <span class="o">%</span><span class="n">ITEM</span>
-<span class="p">:</span><span class="n">ID</span><span class="p">:</span>  <span class="mi">79</span><span class="n">d5e887</span><span class="o">-</span><span class="mi">4637</span><span class="o">-</span><span class="mf">43e7</span><span class="o">-</span><span class="mf">8e8</span><span class="n">a</span><span class="o">-</span><span class="n">b83fa83ee56e</span>
+<span class="p">:</span><span class="n">ID</span><span class="p">:</span>  <span class="n">Lectures</span>
 <span class="o">...</span>
 <span class="p">:</span><span class="n">END</span><span class="p">:</span>
 </pre></div>
@@ -86,67 +88,68 @@ described in <code class="docutils literal notranslate"><span class="pre">Syllab
 </li>
 </ul>
 </div>
-<div class="section" id="update-lecture-metadata-source-code-block">
-<h3>1.2 <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">lecture</span> <span class="pre">metadata</span></code> Source Code Block<a class="headerlink" href="#update-lecture-metadata-source-code-block" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="org-coursepack-update-lecture-metadata-source-code-block">
+<h3>1.2 <code class="docutils literal notranslate"><span class="pre">org-coursepack-update-lecture-metadata</span></code> Source Code Block<a class="headerlink" href="#org-coursepack-update-lecture-metadata-source-code-block" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> top-level tree has a source code block named <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">Lectures</span></code>. When executed with <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code>, it is designed to go through
-each lecture subtree and perform the following actions:</p>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> top-level tree has a call statement (<code class="docutils literal notranslate"><span class="pre">#+CALL:</span> <span class="pre">org-coursepack-update-lecture-metadata()</span></code>) that can be used to execute the
+source code block named <code class="docutils literal notranslate"><span class="pre">org-coursepack-update-lecture-metadata</span></code>, which is
+contained in <code class="docutils literal notranslate"><span class="pre">/Assets/Scripts.org</span></code>. When executed with <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code>, it is
+designed to go through each lecture subtree and perform the following
+actions:</p>
 <ol class="arabic">
-<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code> for the lecture, such as the class number
-(<code class="docutils literal notranslate"><span class="pre">:CLASS:</span></code>), class date (<code class="docutils literal notranslate"><span class="pre">:DATE:</span></code>), and file name of the export
-(<code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code>).</p>
+<li><p class="first">Update metadata for the lecture, such as the class number (<code class="docutils literal notranslate"><span class="pre">:CLASS:</span></code>),
+class date (<code class="docutils literal notranslate"><span class="pre">:DATE:</span></code>), and file name of the export
+(<code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code>), which are defined in the <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code>.</p>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">:CLASS:</span></code></dt>
-<dd><p class="first last">The lectures are assumed to be in the order of the
-lecture schedule (e.g., first lecture on Class
-1). Note that any subtree with a <code class="docutils literal notranslate"><span class="pre">:skipcount:</span></code> tag
-will be ignored, which is useful for
-non-lecture subtrees (e.g., assignment due dates
-and holidays).</p>
+<dd><p class="first last">The lectures are assumed to be in the order of the lecture
+schedule (e.g., first lecture on Class 1). Note that any
+subtree with a <code class="docutils literal notranslate"><span class="pre">:skipcount:</span></code> tag will be ignored, which is
+useful for non-lecture subtrees (e.g., assignment due
+dates and holidays).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">:DATE:</span></code></dt>
-<dd><p class="first last">It will get the date of each class from the <code class="docutils literal notranslate"><span class="pre">DATE_CLASS_XX</span></code> file-level
-properties, which are defined in the <code class="docutils literal notranslate"><span class="pre">Lectures</span> <span class="pre">and</span> <span class="pre">Assignments</span> <span class="pre">Dates</span></code> subtree.</p>
+<dd><p class="first last">It will get the date of each class from the <code class="docutils literal notranslate"><span class="pre">DATE_CLASS_XX</span></code>
+file-level properties, which are defined in the <code class="docutils literal notranslate"><span class="pre">Lectures</span> <span class="pre">and</span> <span class="pre">Assignments</span> <span class="pre">Dates</span></code> subtree.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code></dt>
 <dd><p class="first last">By default, the script sets the
-<code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code> as the subtree heading, which can be
-overridden by setting the <code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME_MANUAL:</span></code>
-property of the lecture subtree. If the property exists, the
-script will use its value for <code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code>
-instead. This is useful when the lecture subtree heading is
-very long or contains invalid characters for a file name.</p>
+<code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code> as the subtree heading, which can be overridden
+by setting the <code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME_MANUAL:</span></code> property of the lecture
+subtree. If the property exists, the script will use its value for
+<code class="docutils literal notranslate"><span class="pre">:EXPORT_FILE_NAME:</span></code> instead. This is useful when the lecture
+subtree heading is very long or contains invalid characters for a
+file name.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code> under the <code class="docutils literal notranslate"><span class="pre">Introduction</span></code> subtree.</p>
+<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Outline</span></code> under the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">and</span> <span class="pre">Recap</span> <span class="pre">of</span> <span class="pre">Last</span> <span class="pre">Class</span></code> subtree.</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code></dt>
-<dd><p class="first last">The script will get the list of subtrees
-that belong to the particular lecture, ignoring any with
-<code class="docutils literal notranslate"><span class="pre">noexport</span></code>, <code class="docutils literal notranslate"><span class="pre">handoutonly</span></code>, or <code class="docutils literal notranslate"><span class="pre">slideonly</span></code> tags. Then, it
-will insert the list into the body of <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code>. In
-addition, it will set the <code class="docutils literal notranslate"><span class="pre">CUSTOM_ID</span></code> property value of the
-subtree accordingly, so the agenda can be used in other
-places.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Outline</span></code></dt>
+<dd><p class="first last">The script will get the list of subtrees that
+belong to the particular lecture, ignoring any with <code class="docutils literal notranslate"><span class="pre">noexport</span></code>,
+<code class="docutils literal notranslate"><span class="pre">handoutonly</span></code>, or <code class="docutils literal notranslate"><span class="pre">slideonly</span></code> tags. Then, it will insert the list
+into the body of <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code>. In addition, it will set the
+<code class="docutils literal notranslate"><span class="pre">CUSTOM_ID</span></code> property value of the subtree accordingly, so the agenda
+can be used in other places.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">Class</span></code> under the <code class="docutils literal notranslate"><span class="pre">Introduction</span></code> subtree and <code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Summary</span></code> of
-each lecture.</p>
+<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">Class</span></code> under the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">and</span> <span class="pre">Recap</span> <span class="pre">of</span> <span class="pre">Last</span> <span class="pre">Class</span></code>
+subtree and <code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Summary</span></code> of each lecture.</p>
 <dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">Class</span></code></dt>
+<dt><code class="docutils literal notranslate"><span class="pre">Recap</span> <span class="pre">of</span> <span class="pre">Last</span> <span class="pre">Class</span></code></dt>
 <dd><p class="first last">The script will insert an <code class="docutils literal notranslate"><span class="pre">#+INCLUDE:</span></code>
-statement which points to the previous
-lecture’s <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code> subtree under the
-<code class="docutils literal notranslate"><span class="pre">Introduction</span></code>. This is to provide a recap of
-the previous lecture prior to starting the
+statement which points to the previous lecture’s <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Outline</span></code>
+subtree under the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">and</span> <span class="pre">Recap</span> <span class="pre">of</span> <span class="pre">Last</span> <span class="pre">Class</span></code>. This is to
+provide a recap of the previous lecture prior to starting the
 current lecture.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Summary</span></code></dt>
-<dd><p class="first last">The script will insert an <code class="docutils literal notranslate"><span class="pre">#+INCLUDE:</span></code>
-statement which points to the current lecture’s <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Agenda</span></code> subtree under the <code class="docutils literal notranslate"><span class="pre">Introduction</span></code>. This provides a
-summary of the current lecture.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Recap</span></code></dt>
+<dd><p class="first last">The script will insert an <code class="docutils literal notranslate"><span class="pre">#+INCLUDE:</span></code> statement which
+points to the current lecture’s <code class="docutils literal notranslate"><span class="pre">Lecture</span> <span class="pre">Outline</span></code>
+subtree under the <code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">and</span> <span class="pre">Recap</span> <span class="pre">of</span> <span class="pre">Last</span> <span class="pre">Class</span></code>. This provides a summary of the current
+lecture.</p>
 </dd>
 </dl>
 </li>
@@ -190,13 +193,14 @@ header items and table of contents. The content will be included from the
 <div class="section" id="dynamic-columnview-of-lectures">
 <h3>1.5 Dynamic Columnview of Lectures<a class="headerlink" href="#dynamic-columnview-of-lectures" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>A useful functionality of Org mode is the ability to create a
-table-view overlay of subtrees with their property
-values. Instructors can use the <code class="docutils literal notranslate"><span class="pre">org-columns</span></code> command to create a column-view of
-lectures, which is essentially the same as the class schedule table
-in the <code class="docutils literal notranslate"><span class="pre">Syllabus</span></code>. It is useful when there is a need to quickly inspect
-the overall course schedule.</li>
+<li>A useful functionality of Org mode is the ability to create a table-view
+overlay of subtrees with their property values. Instructors can use the
+<code class="docutils literal notranslate"><span class="pre">org-columns</span></code> command to create a column-view of lectures, which is
+essentially the same as the class schedule table in the <code class="docutils literal notranslate"><span class="pre">Syllabus</span></code>. It is
+useful when there is a need to quickly inspect the overall course
+schedule. See the screenshot below for an example dynamic columnview.</li>
 </ul>
+<img alt="../Assets/Images/Org-Teaching/Semester-Lectures-Dynamic-Columnview.png" src="../Assets/Images/Org-Teaching/Semester-Lectures-Dynamic-Columnview.png" />
 </div>
 </div>
 <div class="section" id="individual-lecture-subtree">
@@ -302,33 +306,38 @@ tag, <code class="docutils literal notranslate"><span class="pre">Class</span> <
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Class 8: Semester Org Files (3/4): Lectures</a><ul>
-<li><a class="reference internal" href="#the-lectures-top-level-tree">1 The <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> Top-level Tree</a><ul>
-<li><a class="reference internal" href="#properties">1.1 <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code></a></li>
-<li><a class="reference internal" href="#update-lecture-metadata-source-code-block">1.2 <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">lecture</span> <span class="pre">metadata</span></code> Source Code Block</a></li>
-<li><a class="reference internal" href="#lectures-and-assignments-dates-subtree">1.3 <code class="docutils literal notranslate"><span class="pre">Lectures</span> <span class="pre">and</span> <span class="pre">Assignments</span> <span class="pre">Dates</span></code> Subtree</a></li>
-<li><a class="reference internal" href="#common-items-subtree">1.4 <code class="docutils literal notranslate"><span class="pre">Common</span> <span class="pre">Items</span></code> Subtree</a></li>
-<li><a class="reference internal" href="#dynamic-columnview-of-lectures">1.5 Dynamic Columnview of Lectures</a></li>
+<h1 class="logo"><a href="../index.html">Org-Coursepack</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01 Course Introduction.html">Class 1: Course Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02 Org Mode Basics.html">Class 2: Org Mode Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03 Topic and Course Org Files.html">Class 3: Topic and Course Org Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04 Creating Content for Slides and Handouts.html">Class 4: Creating Content for Slides and Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05 Exporting Slides and Handouts.html">Class 5: Exporting Slides and Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06 Semester Org Files 1 4 Introduction.html">Class 6: Semester Org Files (1/4): Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07 Semester Org Files 2 4 Sections and Syllabus.html">Class 7: Semester Org Files (2/4): Sections and Syllabus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class 8: Semester Org Files (3/4): Lectures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-lectures-top-level-tree">1 The <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> Top-level Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#individual-lecture-subtree">2 Individual Lecture Subtree</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#individual-lecture-subtree">2 Individual Lecture Subtree</a><ul>
-<li><a class="reference internal" href="#id1">2.1 <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code></a></li>
-<li><a class="reference internal" href="#tasks">2.2 Tasks</a></li>
-<li><a class="reference internal" href="#handout-heading">2.3 Handout heading</a></li>
-<li><a class="reference internal" href="#introduction-and-recap-of-last-class">2.4 Introduction and Recap of Last Class</a></li>
-<li><a class="reference internal" href="#content">2.5 Content</a></li>
-<li><a class="reference internal" href="#class-recap">2.6 Class Recap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09 Semester Org Files 4 4 Exams and Assignments.html">Class 9: Semester Org Files (4/4): Exams and Assignments</a></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -338,13 +347,6 @@ tag, <code class="docutils literal notranslate"><span class="pre">Class</span> <
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/Lectures/08 Semester Org Files 3 4 Lectures.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -357,6 +359,14 @@ tag, <code class="docutils literal notranslate"><span class="pre">Class</span> <
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -365,8 +375,8 @@ tag, <code class="docutils literal notranslate"><span class="pre">Class</span> <
       &copy;2018, Joon Ro & Jae Eun Namkoong.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/Lectures/08 Semester Org Files 3 4 Lectures.rst.txt"

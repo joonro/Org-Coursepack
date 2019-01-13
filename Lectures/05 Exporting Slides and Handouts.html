@@ -9,11 +9,11 @@
     <title>Class 5: Exporting Slides and Handouts &#8212; Org-Coursepack  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="Org-Courspack/Lectures/05 Exporting Slides and Handouts.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class 6: Semester Org Files (1/4): Introduction" href="06 Semester Org Files 1 4 Introduction.html" />
@@ -30,13 +30,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="class-5-exporting-slides-and-handouts">
 <h1>Class 5: Exporting Slides and Handouts<a class="headerlink" href="#class-5-exporting-slides-and-handouts" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
-Class 5  [2018-09-11 Tue]</div></blockquote>
+<p>ORG 0000
+Joon H. Ro &amp; Jae-Eun Namkoong</p>
+<p>Class 5
+[2018-09-11 Tue]</p>
 <div class="section" id="exporting-content-in-org-mode">
 <h2>1 Exporting Content in Org Mode<a class="headerlink" href="#exporting-content-in-org-mode" title="Permalink to this headline">¶</a></h2>
 <p>Org mode provides powerful export functionalities, which enable users to
@@ -160,22 +163,22 @@ it to <code class="docutils literal notranslate"><span class="pre">org-latex-pac
 <div class="code common-lisp highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">eval</span><span class="o">-</span><span class="n">after</span><span class="o">-</span><span class="n">load</span> <span class="s1">&#39;ox &#39;</span><span class="p">(</span><span class="n">require</span> <span class="s1">&#39;ox-koma-letter))</span>
 
 <span class="p">(</span><span class="nb">eval</span><span class="o">-</span><span class="n">after</span><span class="o">-</span><span class="n">load</span> <span class="s1">&#39;ox &#39;</span><span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="nb">list</span> <span class="s1">&#39;org-latex-classes</span>
-                                   <span class="s1">&#39;(&quot;koma-article&quot;</span>
-                                     <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">documentclass</span><span class="si">{scrartcl}</span><span class="s2">&quot;</span>
-                                     <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">section{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">section*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
-                                     <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsection{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsection*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
-                                     <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsubsection{</span><span class="si">%s</span><span class="s2">}&quot;</span>
-                                      <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsubsection*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
-                                     <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">paragraph{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">paragraph*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
-                                     <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subparagraph{</span><span class="si">%s</span><span class="s2">}&quot;</span>
-                                      <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subparagraph*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)))</span> <span class="p">)</span>
+                               <span class="s1">&#39;(&quot;koma-article&quot;</span>
+                                 <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">documentclass</span><span class="si">{scrartcl}</span><span class="s2">&quot;</span>
+                                 <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">section{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">section*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
+                                 <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsection{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsection*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
+                                 <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsubsection{</span><span class="si">%s</span><span class="s2">}&quot;</span>
+                                  <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subsubsection*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
+                                 <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">paragraph{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">paragraph*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)</span>
+                                 <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subparagraph{</span><span class="si">%s</span><span class="s2">}&quot;</span>
+                                  <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">subparagraph*{</span><span class="si">%s</span><span class="s2">}&quot;</span><span class="p">)))</span> <span class="p">)</span>
 
 <span class="p">(</span><span class="n">require</span> <span class="s1">&#39;ox-latex)</span>
 <span class="p">(</span><span class="n">setq</span> <span class="n">org</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">listings</span> <span class="s1">&#39;minted)</span>
 
 <span class="p">(</span><span class="n">setq</span> <span class="n">org</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">pdf</span><span class="o">-</span><span class="n">process</span>
       <span class="s1">&#39;(&quot;pdflatex -shell-escape -interaction nonstopmode -output-directory </span><span class="si">%o</span><span class="s1"> </span><span class="si">%f</span><span class="s1">&quot;</span>
-        <span class="s2">&quot;pdflatex -shell-escape -interaction nonstopmode -output-directory </span><span class="si">%o</span><span class="s2"> </span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="s2">&quot;pdflatex -shell-escape -interaction nonstopmode -output-directory </span><span class="si">%o</span><span class="s2"> </span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
 
 <span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="nb">list</span> <span class="s1">&#39;org-latex-minted-langs &#39;</span><span class="p">(</span><span class="n">python</span> <span class="s2">&quot;python&quot;</span><span class="p">))</span>
 </pre></div>
@@ -197,11 +200,11 @@ tag.</p>
   <span class="p">(</span><span class="n">when</span> <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">export</span><span class="o">-</span><span class="n">derived</span><span class="o">-</span><span class="n">backend</span><span class="o">-</span><span class="n">p</span> <span class="n">backend</span> <span class="s1">&#39;latex)</span>
     <span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="n">elmnt</span> <span class="p">(</span><span class="n">org</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">headline</span><span class="o">-</span><span class="n">string</span><span class="o">-</span><span class="n">element</span> <span class="n">headline</span> <span class="n">backend</span> <span class="n">info</span><span class="p">)))</span>
       <span class="p">(</span><span class="n">when</span> <span class="p">(</span><span class="n">member</span> <span class="s2">&quot;newpage&quot;</span> <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">element</span><span class="o">-</span><span class="nb">property</span> <span class="p">:</span><span class="n">tags</span> <span class="n">elmnt</span><span class="p">))</span>
-        <span class="p">(</span><span class="n">concat</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">clearpage</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="n">headline</span><span class="p">)))))</span>
+    <span class="p">(</span><span class="n">concat</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">clearpage</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="n">headline</span><span class="p">)))))</span>
 
 <span class="p">(</span><span class="nb">eval</span><span class="o">-</span><span class="n">after</span><span class="o">-</span><span class="n">load</span> <span class="s1">&#39;ox &#39;</span><span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="nb">list</span>
-                       <span class="s1">&#39;org-export-filter-headline-functions</span>
-                       <span class="s1">&#39;org/ensure-latex-clearpage))</span>
+                   <span class="s1">&#39;org-export-filter-headline-functions</span>
+                   <span class="s1">&#39;org/ensure-latex-clearpage))</span>
 </pre></div>
 </div>
 </div>
@@ -236,21 +239,21 @@ outputs.</p>
   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">member</span> <span class="n">backend</span> <span class="s1">&#39;(latex rst))</span>
       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">entries</span>
        <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
-         <span class="p">(</span><span class="n">progn</span>
-           <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">narrow</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
-           <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">cut</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
-           <span class="p">(</span><span class="n">widen</span><span class="p">)</span>
-           <span class="p">))</span>
+     <span class="p">(</span><span class="n">progn</span>
+       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">narrow</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
+       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">cut</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
+       <span class="p">(</span><span class="n">widen</span><span class="p">)</span>
+       <span class="p">))</span>
        <span class="s2">&quot;+slideonly&quot;</span><span class="p">))</span>
 
   <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">member</span> <span class="n">backend</span> <span class="s1">&#39;(reveal beamer))</span>
       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="nb">map</span><span class="o">-</span><span class="n">entries</span>
        <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
-         <span class="p">(</span><span class="n">progn</span>
-           <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">narrow</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
-           <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">cut</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
-           <span class="p">(</span><span class="n">widen</span><span class="p">)</span>
-           <span class="p">))</span>
+     <span class="p">(</span><span class="n">progn</span>
+       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">narrow</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
+       <span class="p">(</span><span class="n">org</span><span class="o">-</span><span class="n">cut</span><span class="o">-</span><span class="n">subtree</span><span class="p">)</span>
+       <span class="p">(</span><span class="n">widen</span><span class="p">)</span>
+       <span class="p">))</span>
        <span class="s2">&quot;+handoutonly&quot;</span><span class="p">))</span>
 
 <span class="p">)</span>
@@ -281,40 +284,41 @@ rendered in LaTeX outputs (handouts). See the example below.</p>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Class 5: Exporting Slides and Handouts</a><ul>
-<li><a class="reference internal" href="#exporting-content-in-org-mode">1 Exporting Content in Org Mode</a><ul>
-<li><a class="reference internal" href="#setting-export-scope-to-subtree">1.1 Setting Export Scope to <code class="docutils literal notranslate"><span class="pre">Subtree</span></code></a></li>
-<li><a class="reference internal" href="#export-settings">1.2 Export Settings</a><ul>
-<li><a class="reference internal" href="#buffer-level-settings">1.2.1 Buffer-Level Settings</a></li>
-<li><a class="reference internal" href="#subtree-level-settings">1.2.2 Subtree-Level Settings</a></li>
+<h1 class="logo"><a href="../index.html">Org-Coursepack</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01 Course Introduction.html">Class 1: Course Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02 Org Mode Basics.html">Class 2: Org Mode Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03 Topic and Course Org Files.html">Class 3: Topic and Course Org Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04 Creating Content for Slides and Handouts.html">Class 4: Creating Content for Slides and Handouts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class 5: Exporting Slides and Handouts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-content-in-org-mode">1 Exporting Content in Org Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clickable-links-and-keybindings-for-exporting">2 Clickable Links and Keybindings for Exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-slides-with-reveal-js">3 Exporting Slides: with reveal.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-handouts-with-latex">4 Exporting Handouts: with LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selective-export">5 Selective Export</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="06 Semester Org Files 1 4 Introduction.html">Class 6: Semester Org Files (1/4): Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07 Semester Org Files 2 4 Sections and Syllabus.html">Class 7: Semester Org Files (2/4): Sections and Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08 Semester Org Files 3 4 Lectures.html">Class 8: Semester Org Files (3/4): Lectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09 Semester Org Files 4 4 Exams and Assignments.html">Class 9: Semester Org Files (4/4): Exams and Assignments</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#clickable-links-and-keybindings-for-exporting">2 Clickable Links and Keybindings for Exporting</a><ul>
-<li><a class="reference internal" href="#buttons">2.1 Buttons</a></li>
-<li><a class="reference internal" href="#key-bindings">2.2 Key Bindings</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#exporting-slides-with-reveal-js">3 Exporting Slides: with reveal.js</a></li>
-<li><a class="reference internal" href="#exporting-handouts-with-latex">4 Exporting Handouts: with LaTeX</a><ul>
-<li><a class="reference internal" href="#inserting-a-page-break-before-a-heading-in-latex-export">4.1 Inserting a Page Break Before a Heading in LaTeX Export</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#selective-export">5 Selective Export</a><ul>
-<li><a class="reference internal" href="#tagging-a-subtree-as-slide-or-handout-only">5.1 Tagging a Subtree as Slide or Handout Only</a></li>
-<li><a class="reference internal" href="#hiding-specific-content">5.2 Hiding Specific Content</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -324,13 +328,6 @@ rendered in LaTeX outputs (handouts). See the example below.</p>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/Lectures/05 Exporting Slides and Handouts.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -343,6 +340,14 @@ rendered in LaTeX outputs (handouts). See the example below.</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -351,8 +356,8 @@ rendered in LaTeX outputs (handouts). See the example below.</p>
       &copy;2018, Joon Ro & Jae Eun Namkoong.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/Lectures/05 Exporting Slides and Handouts.rst.txt"

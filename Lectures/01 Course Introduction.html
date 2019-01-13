@@ -9,11 +9,11 @@
     <title>Class 1: Course Introduction &#8212; Org-Coursepack  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="Org-Courspack/Lectures/01 Course Introduction.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class 2: Org Mode Basics" href="02 Org Mode Basics.html" />
@@ -30,13 +30,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="class-1-course-introduction">
 <h1>Class 1: Course Introduction<a class="headerlink" href="#class-1-course-introduction" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
-Class 1  [2018-08-28 Tue]</div></blockquote>
+<p>ORG 0000
+Joon H. Ro &amp; Jae-Eun Namkoong</p>
+<p>Class 1
+[2018-08-28 Tue]</p>
 <div class="section" id="introduction-to-org-coursepack">
 <h2>1 Introduction to Org-Coursepack<a class="headerlink" href="#introduction-to-org-coursepack" title="Permalink to this headline">¶</a></h2>
 <p>The Org-Coursepack provides a template for developing and managing teaching
@@ -225,10 +228,9 @@ how to change syllabus content to fit your own course.</p>
 <h4>2.6.1 Class schedule<a class="headerlink" href="#class-schedule" title="Permalink to this headline">¶</a></h4>
 <p>You can include in your syllabus a class schedule, which is a table that shows
 a list of class dates, class numbers, and class titles, as well as exam dates
-and assignment due dates. Navigate to the
-<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code> subtree and place your cursor on the line that
-starts with <code class="docutils literal notranslate"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. You can view the class schedule by
-expanding the <code class="docutils literal notranslate"><span class="pre">columnview</span></code>:</p>
+and assignment due dates. Navigate to the <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">Syllabus/Class</span> <span class="pre">Schedule</span></code> subtree
+and place your cursor on the line that starts with <code class="docutils literal notranslate"><span class="pre">#+BEGIN:</span> <span class="pre">columnview</span></code>. You
+can view the class schedule by expanding the <code class="docutils literal notranslate"><span class="pre">columnview</span></code>:</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png" src="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png" />
 <p>Then, with the cursor in place, press <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code> (hit <code class="docutils literal notranslate"><span class="pre">c</span></code> twice while holding
 down the <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> key) to generate/update the class schedule with the most
@@ -236,6 +238,12 @@ recent information. Any changes made to the order or names of classes will
 automatically be reflected when the instructor updates the class schedule with
 the <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code> command. See an example of updated class schedule below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png" src="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that the <code class="docutils literal notranslate"><span class="pre">org-coursepack-update-lecture-metadata</span></code> script described below
+will automatically update this table upon execution. Hence, in general manual
+updating of the table is not needed.</p>
+</div>
 </div>
 <div class="section" id="exporting-a-syllabus">
 <h4>2.6.2 Exporting a syllabus<a class="headerlink" href="#exporting-a-syllabus" title="Permalink to this headline">¶</a></h4>
@@ -303,9 +311,11 @@ subtrees. In the example, we will simply call them <code class="docutils literal
 <p><strong>Updating metadata</strong> Expanding the <code class="docutils literal notranslate"><span class="pre">:PROPERTIES:</span></code> drawer of each lecture (e.g.,
 <code class="docutils literal notranslate"><span class="pre">Second</span> <span class="pre">Lecture</span></code>) will reveal class-related metadata, such as <code class="docutils literal notranslate"><span class="pre">CLASS</span></code>,
 <code class="docutils literal notranslate"><span class="pre">EXPORT_FILE_NAME</span></code>, and <code class="docutils literal notranslate"><span class="pre">DATE</span></code>.  You can automatically update these values by
-running the <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">lecture</span> <span class="pre">metadata</span></code> script.  The script is located right
-under the <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> subtree headline (see image below)–to run the script,
-simply move the curser to the script and press <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code>.</p>
+running the <code class="docutils literal notranslate"><span class="pre">org-coursepack-update-lecture-metadata</span></code> script, which is defined
+in <code class="docutils literal notranslate"><span class="pre">/Assets/Scripts.org</span></code>. The script is set up to be called remotely, and the
+call statement (<code class="docutils literal notranslate"><span class="pre">#+CALL:</span> <span class="pre">org-coursepack-update-lecture-metadata()</span></code>) is located
+right under the <code class="docutils literal notranslate"><span class="pre">Lectures</span></code> subtree headline (see image below)–to run the
+script, simply move the cursor to the call statement and press <code class="docutils literal notranslate"><span class="pre">C-c</span> <span class="pre">C-c</span></code>.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png" src="../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png" />
 <p>Press <code class="docutils literal notranslate"><span class="pre">y</span></code> to confirm when asked (see image below).</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures-Confirm.png" src="../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures-Confirm.png" />
@@ -323,9 +333,11 @@ titles of the topic subtrees covered in a given lecture. Appropriate content
 are written automatically, even when the orders of topics or lectures are
 changed. See the screenshot below for an example.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png" src="../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png" />
-<p><strong>Updating class schedule in syllabus</strong> As explained earlier, you can update the
-class schedule in the syllabus with the new lecture metadata automatically by
-updating the class schedule table. See the screenshot below.</p>
+<p><strong>Updating class schedule in syllabus</strong> The
+<code class="docutils literal notranslate"><span class="pre">org-coursepack-update-lecture-metadata</span></code> is designed to automatically update
+the class schedule table in the syllabus with the new lecture metadata, so the
+table will always reflect the latest lecture metadata. See the screenshot
+below.</p>
 <img alt="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png" src="../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png" />
 </div>
 <div class="section" id="creating-modular-content">
@@ -524,47 +536,39 @@ are stored and accessed.</dd>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Class 1: Course Introduction</a><ul>
-<li><a class="reference internal" href="#introduction-to-org-coursepack">1 Introduction to Org-Coursepack</a><ul>
-<li><a class="reference internal" href="#advantages-for-instructors">1.1 Advantages for Instructors</a></li>
-<li><a class="reference internal" href="#advantages-for-students">1.2 Advantages for Students</a></li>
-<li><a class="reference internal" href="#requirements">1.3 Requirements</a></li>
+<h1 class="logo"><a href="../index.html">Org-Coursepack</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class 1: Course Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-org-coursepack">1 Introduction to Org-Coursepack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart-guide">2 Quickstart Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-the-directory-structure">3 Overview of the Directory Structure</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#quickstart-guide">2 Quickstart Guide</a><ul>
-<li><a class="reference internal" href="#installation">2.1 Installation</a></li>
-<li><a class="reference internal" href="#copy-and-rename-the-template-directory-and-org-file">2.2 Copy and rename the <code class="docutils literal notranslate"><span class="pre">Template</span></code> directory and Org file</a></li>
-<li><a class="reference internal" href="#set-local-variables-permissions-in-the-semester-org-file">2.3 Set local variables permissions in the semester Org file</a></li>
-<li><a class="reference internal" href="#rename-paths-to-semester-and-course-org-files-specified-in-include-statements">2.4 Rename paths to semester and course Org files specified in <code class="docutils literal notranslate"><span class="pre">#+INCLUDE</span></code> statements</a></li>
-<li><a class="reference internal" href="#inputting-course-information">2.5 Inputting course information</a></li>
-<li><a class="reference internal" href="#preparing-your-syllabus">2.6 Preparing your syllabus</a><ul>
-<li><a class="reference internal" href="#class-schedule">2.6.1 Class schedule</a></li>
-<li><a class="reference internal" href="#exporting-a-syllabus">2.6.2 Exporting a syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02 Org Mode Basics.html">Class 2: Org Mode Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03 Topic and Course Org Files.html">Class 3: Topic and Course Org Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04 Creating Content for Slides and Handouts.html">Class 4: Creating Content for Slides and Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05 Exporting Slides and Handouts.html">Class 5: Exporting Slides and Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06 Semester Org Files 1 4 Introduction.html">Class 6: Semester Org Files (1/4): Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07 Semester Org Files 2 4 Sections and Syllabus.html">Class 7: Semester Org Files (2/4): Sections and Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08 Semester Org Files 3 4 Lectures.html">Class 8: Semester Org Files (3/4): Lectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09 Semester Org Files 4 4 Exams and Assignments.html">Class 9: Semester Org Files (4/4): Exams and Assignments</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#preparing-your-lectures">2.7 Preparing your lectures</a><ul>
-<li><a class="reference internal" href="#exporting-slides-and-handouts">2.7.1 Exporting slides and handouts</a></li>
-<li><a class="reference internal" href="#adding-new-classes-lectures-and-updating-their-metadata">2.7.2 Adding new classes/lectures and updating their metadata</a></li>
-<li><a class="reference internal" href="#creating-modular-content">2.7.3 Creating modular content</a></li>
-<li><a class="reference internal" href="#editing-lecture-content">2.7.4 Editing lecture content</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#conclusion">2.8 Conclusion</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#overview-of-the-directory-structure">3 Overview of the Directory Structure</a><ul>
-<li><a class="reference internal" href="#example">3.1 Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -574,13 +578,6 @@ are stored and accessed.</dd>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/Lectures/01 Course Introduction.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -593,6 +590,14 @@ are stored and accessed.</dd>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -601,8 +606,8 @@ are stored and accessed.</dd>
       &copy;2018, Joon Ro & Jae Eun Namkoong.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/Lectures/01 Course Introduction.rst.txt"

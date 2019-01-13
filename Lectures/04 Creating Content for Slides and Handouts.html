@@ -9,11 +9,11 @@
     <title>Class 4: Creating Content for Slides and Handouts &#8212; Org-Coursepack  documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="Org-Courspack/Lectures/04 Creating Content for Slides and Handouts.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Class 5: Exporting Slides and Handouts" href="05 Exporting Slides and Handouts.html" />
@@ -30,13 +30,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="class-4-creating-content-for-slides-and-handouts">
 <h1>Class 4: Creating Content for Slides and Handouts<a class="headerlink" href="#class-4-creating-content-for-slides-and-handouts" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>ORG 0000  Joon H. Ro &amp; Jae-Eun Namkoong
-Class 4  [2018-09-06 Thu]</div></blockquote>
+<p>ORG 0000
+Joon H. Ro &amp; Jae-Eun Namkoong</p>
+<p>Class 4
+[2018-09-06 Thu]</p>
 <div class="section" id="creating-slides-and-handouts-introduction">
 <h2>1 Creating Slides and Handouts: Introduction<a class="headerlink" href="#creating-slides-and-handouts-introduction" title="Permalink to this headline">¶</a></h2>
 <p>Content is created using the Org markup language. General information on how
@@ -212,8 +215,8 @@ properly on Beamer.</p>
    ))
 
 (eval-after-load &#39;ox &#39;(add-to-list
-                       &#39;org-export-filter-special-block-functions
-                       &#39;my/process-NOTES-blocks))
+                   &#39;org-export-filter-special-block-functions
+                   &#39;my/process-NOTES-blocks))
 </pre></div>
 </div>
 </div>
@@ -254,8 +257,8 @@ reStructuredText export.</p>
    <span class="p">))</span>
 
 <span class="p">(</span><span class="nb">eval</span><span class="o">-</span><span class="n">after</span><span class="o">-</span><span class="n">load</span> <span class="s1">&#39;ox &#39;</span><span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="nb">list</span>
-                       <span class="s1">&#39;org-export-filter-special-block-functions</span>
-                       <span class="s1">&#39;my/process-mdframed-blocks))</span>
+                   <span class="s1">&#39;org-export-filter-special-block-functions</span>
+                   <span class="s1">&#39;my/process-mdframed-blocks))</span>
 </pre></div>
 </div>
 </div>
@@ -275,48 +278,49 @@ the handout.</p>
 <span class="c1">#+LATEX: \end{multicols}</span>
 </pre></div>
 </div>
-<p>This is content in the first column.
-This is content in the first column.
-This is content in the first column.</p>
-<p>This is content in the second column.
-This is content in the second column.
-This is content in the second column.</p>
+<p>Note that one can put <code class="docutils literal notranslate"><span class="pre">#+LATEX:</span> <span class="pre">\columnbreak</span></code> to force a column break inside a
+multicolumn environment at that position.</p>
 </div>
 </div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Class 4: Creating Content for Slides and Handouts</a><ul>
-<li><a class="reference internal" href="#creating-slides-and-handouts-introduction">1 Creating Slides and Handouts: Introduction</a></li>
-<li><a class="reference internal" href="#using-raw-html-tags-and-latex-code">2 Using Raw HTML Tags and LaTeX Code</a></li>
-<li><a class="reference internal" href="#features-for-both-slides-and-handouts">3 Features for Both Slides and Handouts</a><ul>
-<li><a class="reference internal" href="#specifying-attributes">3.1 Specifying Attributes</a></li>
-<li><a class="reference internal" href="#changing-font-sizes">3.2 Changing Font Sizes</a></li>
-<li><a class="reference internal" href="#using-a-dummy-heading">3.3 Using a Dummy Heading</a></li>
+<h1 class="logo"><a href="../index.html">Org-Coursepack</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01 Course Introduction.html">Class 1: Course Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02 Org Mode Basics.html">Class 2: Org Mode Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03 Topic and Course Org Files.html">Class 3: Topic and Course Org Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Class 4: Creating Content for Slides and Handouts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-slides-and-handouts-introduction">1 Creating Slides and Handouts: Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-raw-html-tags-and-latex-code">2 Using Raw HTML Tags and LaTeX Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-for-both-slides-and-handouts">3 Features for Both Slides and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slides-features-for-reveal-js">4 Slides: Features for reveal.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handouts-features-for-latex">5 Handouts: Features for LaTeX</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#slides-features-for-reveal-js">4 Slides: Features for reveal.js</a><ul>
-<li><a class="reference internal" href="#list-fragments">4.1 List Fragments</a></li>
-<li><a class="reference internal" href="#splitting-slides">4.2 Splitting slides</a></li>
-<li><a class="reference internal" href="#embedding-youtube-videos">4.3 Embedding Youtube videos</a></li>
-<li><a class="reference internal" href="#speaker-notes">4.4 Speaker Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05 Exporting Slides and Handouts.html">Class 5: Exporting Slides and Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06 Semester Org Files 1 4 Introduction.html">Class 6: Semester Org Files (1/4): Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07 Semester Org Files 2 4 Sections and Syllabus.html">Class 7: Semester Org Files (2/4): Sections and Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08 Semester Org Files 3 4 Lectures.html">Class 8: Semester Org Files (3/4): Lectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09 Semester Org Files 4 4 Exams and Assignments.html">Class 9: Semester Org Files (4/4): Exams and Assignments</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#handouts-features-for-latex">5 Handouts: Features for LaTeX</a><ul>
-<li><a class="reference internal" href="#inserting-boxed-paragraphs">5.1 Inserting Boxed Paragraphs</a></li>
-<li><a class="reference internal" href="#organizing-content-in-multiple-columns">5.2 Organizing Content in Multiple Columns</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -326,13 +330,6 @@ This is content in the second column.</p>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/Lectures/04 Creating Content for Slides and Handouts.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -345,6 +342,14 @@ This is content in the second column.</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -353,8 +358,8 @@ This is content in the second column.</p>
       &copy;2018, Joon Ro & Jae Eun Namkoong.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/Lectures/04 Creating Content for Slides and Handouts.rst.txt"
