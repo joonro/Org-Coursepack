@@ -25,7 +25,8 @@
 ;; * Org-Coursepack settings
 ;; ** General settings
 ;; *** Allow remembering risky variables 
-(advice-add 'risky-local-variable-p :override #'ignore)
+;;(advice-add 'risky-local-variable-p :override #'ignore)
+(defun risky-local-variable-p (sym &optional _ignored) nil)
 
 ;; *** org-global-prop-value
 ;; Source: https://emacs.stackexchange.com/questions/21713
