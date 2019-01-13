@@ -131,4 +131,10 @@
              ))
 
        )) MATCH SCOPE SKIP))
+
+;; Update class schedule
+(beginning-of-buffer)
+(re-search-forward "BEGIN: columnview :hlines 1 :id Lectures")
+(org-ctrl-c-ctrl-c)
+
 #+END_SRC
