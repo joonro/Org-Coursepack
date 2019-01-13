@@ -1,13 +1,9 @@
 language: emacs-lisp
 
-services:
-  - docker
-
 before_install:
-- docker pull silex/emacs
-- docker run -dt --name emacs silex/emacs /bin/bash
-- docker cp ../Org-Coursepack emacs:/home/Org-Coursepack
-- docker exec -i -t emacs /bin/sh -c "cd /home/Org-Coursepack && emacs --batch -l tests.el"
+- sudo add-apt-repository ppa:kelleyk/emacs -y
+- sudo apt-get update -q
+- sudo apt install -y emacs26
 
 script:
 - emacs --batch -l tests.el
