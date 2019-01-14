@@ -9,7 +9,7 @@ authors:
 - name: Joon H. Ro
   orcid: 0000-0002-5895-163X
   affiliation: 1
-- name: Jae Eun Namkoong
+- name: Jae-Eun Namkoong
   orcid: 0000-0002-8133-5317
   affiliation: 2
 affiliations:
