@@ -32,20 +32,20 @@ School specific teaching materials"/>
 <section id="sec-title-slide"><h1 class="title">Class 6: Semester Org Files (1/4): Introduction</h1>
 </section>
 <section>
-<section id="slide-sec-1">
-<h2 id="org371f016"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<section id="slide-orga69b631">
+<h2 id="orga69b631"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
-<section id="slide-sec-1-1">
-<h3 id="orgf082f45"><span class="section-number-3">1.1</span> Announcements</h3>
+<section id="slide-orgb6cfb14">
+<h3 id="orgb6cfb14"><span class="section-number-3">1.1</span> Announcements</h3>
 <ul>
 <li></li>
 
 </ul>
 </section>
-<section id="slide-sec-1-2">
-<h3 id="orgc623693"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<section id="slide-orgc3f69d3">
+<h3 id="orgc3f69d3"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
 <ul>
 <li class="fragment appear">Exporting Content in Org Mode</li>
 <li class="fragment appear">Clickable Links and Keybindings for Exporting</li>
@@ -55,8 +55,8 @@ School specific teaching materials"/>
 
 </ul>
 </section>
-<section id="slide-sec-Lecture/Semester Org Files 1 4 Introduction/Outline">
-<h3 id="Lecture/Semester Org Files 1 4 Introduction/Outline"><a id="orgbf4240d"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<section id="slide-Lecture/Semester Org Files 1 4 Introduction/Outline">
+<h3 id="Lecture/Semester Org Files 1 4 Introduction/Outline"><a id="orgc779a9c"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
 <ul>
 <li class="fragment appear">Semester Org Files: Introduction</li>
 <li class="fragment appear">Export Options and Macros</li>
@@ -66,8 +66,8 @@ School specific teaching materials"/>
 </section>
 </section>
 <section>
-<section id="slide-sec-Lecture/Semester Org Files 1 4 Introduction/Agenda">
-<h2 id="Lecture/Semester Org Files 1 4 Introduction/Agenda"><a id="orge97dc3d"></a><span class="section-number-2">2</span> Semester Org Files: Introduction</h2>
+<section id="slide-Lecture/Semester Org Files 1 4 Introduction/Agenda">
+<h2 id="Lecture/Semester Org Files 1 4 Introduction/Agenda"><a id="org9d2f6ab"></a><span class="section-number-2">2</span> Semester Org Files: Introduction</h2>
 <p class="fragment (appear)">
 A semester Org file is the master file for the course in a given
 semester. That is, a semester Org file, which is where
@@ -88,31 +88,31 @@ lectures to cover each component, following the order in which they are presente
 </p>
 
 <pre class="example">
-  #+TITLE:     Org-Coursepack: 2020 Spring
-  #+AUTHOR:    Your Name
-  #+EMAIL:     Your Email
-  #+DESCRIPTION: Org-Coursepack: 2020 Spring
-  #+CATEGORY: Teaching
-  
-  :LOCALSETUP:
-  
-  :SETUP_EXPORT:
-  
-  :SEMESTER_INFO:
-  
-  * Tasks
-  * Sections
-  * Syllabus
-  * Classes
-  * Exams                                                               :Exams:
-  * Assignments                                                   :Assignments:
-  * Local Variables
+#+TITLE:     Org-Coursepack: 2020 Spring
+#+AUTHOR:    Your Name
+#+EMAIL:     Your Email
+#+DESCRIPTION: Org-Coursepack: 2020 Spring
+#+CATEGORY: Teaching
+
+:LOCALSETUP:
+
+:SETUP_EXPORT:
+
+:SEMESTER_INFO:
+
+* Tasks
+* Sections
+* Syllabus
+* Classes
+* Exams                                                               :Exams:
+* Assignments                                                   :Assignments:
+* Local Variables
 </pre>
 </section>
 </section>
 <section>
-<section id="slide-sec-3">
-<h2 id="org7b4b615"><span class="section-number-2">3</span> Export Options and Macros</h2>
+<section id="slide-orgadd4cc4">
+<h2 id="orgadd4cc4"><span class="section-number-2">3</span> Export Options and Macros</h2>
 <p>
 The file starts with multiple metadata definitions, such as <code>TITLE</code>
 and <code>AUTHOR</code>, which also act as global export keywords. This is
@@ -121,21 +121,21 @@ options, which will be used across the file.
 </p>
 
 <pre class="example">
-  #+TITLE:     Org-Coursepack: 2020 Spring
-  #+AUTHOR:    Your Name
-  #+EMAIL:     Your Email
-  #+DESCRIPTION: Org-Coursepack: 2020 Spring
-  #+CATEGORY: Teaching
-  
-  :LOCALSETUP:
-  
-  :SETUP_EXPORT:
-  
-  :SEMESTER_INFO:
+#+TITLE:     Org-Coursepack: 2020 Spring
+#+AUTHOR:    Your Name
+#+EMAIL:     Your Email
+#+DESCRIPTION: Org-Coursepack: 2020 Spring
+#+CATEGORY: Teaching
+
+:LOCALSETUP:
+
+:SETUP_EXPORT:
+
+:SEMESTER_INFO:
 </pre>
 </section>
-<section id="slide-sec-3-1">
-<h3 id="orgf07a959"><span class="section-number-3">3.1</span> <code>:LOCALSETUP:</code> Drawer</h3>
+<section id="slide-orgde87bae">
+<h3 id="orgde87bae"><span class="section-number-3">3.1</span> <code>:LOCALSETUP:</code> Drawer</h3>
 <p class="fragment (appear)">
 The <code>:LOCALSETUP:</code> drawer has startup options (<code>#+STARTUP</code>) for the
 Org file as well as a couple of <code>#+SETUPFILE</code>'s which import necessary
@@ -150,19 +150,19 @@ ones.
 <section >
 
 <pre class="example">
-  :LOCALSETUP:
-  #+STARTUP: overview
-  #+STARTUP: hidestars
-  #+STARTUP: indent
-  
-  #+SETUPFILE: ../../../Assets/setup_Macros.org
-  
-  #+SETUPFILE: ../../../Institutions/School.org
-  :END:
+:LOCALSETUP:
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: indent
+
+#+SETUPFILE: ../../../Assets/setup_Macros.org
+
+#+SETUPFILE: ../../../Institutions/School.org
+:END:
 </pre>
 </section>
-<section id="slide-sec-3-2">
-<h3 id="orgd133e90"><span class="section-number-3">3.2</span> <code>:SETUP_EXPORT:</code> Drawer</h3>
+<section id="slide-org7d6aa73">
+<h3 id="org7d6aa73"><span class="section-number-3">3.2</span> <code>:SETUP_EXPORT:</code> Drawer</h3>
 <p class="fragment (appear)">
 The <code>:SETUP_EXPORT:</code> drawer has export related options, mainly those
 related to <code>org-reveal</code> (e.g., handouts). For example, <code>#+REVEAL_ROOT</code>
@@ -176,21 +176,21 @@ for more general information about export options.
 <section >
 
 <pre class="example">
-  :SETUP_EXPORT:
-  #+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
-  
-  #+REVEAL_PLUGINS: (classList markdown zoom notes highlight)
-  
-  #+EXCLUDE_TAGS: noexport
-  #+OPTIONS: reveal_history:t tags:nil timestamp:nil todo:nil
-  
-  #+REVEAL_THEME: simple
-  #+REVEAL_TRANS: linear
-  :END:
+:SETUP_EXPORT:
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+
+#+REVEAL_PLUGINS: (classList markdown zoom notes highlight)
+
+#+EXCLUDE_TAGS: noexport
+#+OPTIONS: reveal_history:t tags:nil timestamp:nil todo:nil
+
+#+REVEAL_THEME: simple
+#+REVEAL_TRANS: linear
+:END:
 </pre>
 </section>
-<section id="slide-sec-3-3">
-<h3 id="orgd10f9ac"><span class="section-number-3">3.3</span> <code>:SEMESTER_INFO:</code> Drawer</h3>
+<section id="slide-org1cd520b">
+<h3 id="org1cd520b"><span class="section-number-3">3.3</span> <code>:SEMESTER_INFO:</code> Drawer</h3>
 <p>
 The <code>:SEMESTER_INFO:</code> drawer has macros containing information about
 the course that is common across sections but specific to the semester.
@@ -204,18 +204,18 @@ Course name and number are categorized as semester-specific information, as they
 </div>
 
 <pre class="example">
-  :SEMESTER_INFO:
-  #+MACRO: COURSE Org Teaching Template
-  #+MACRO: COURSE_NUM ORG 0000
-  #+MACRO: SEMESTER 2020 Spring
-  #+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
-  :END:
+:SEMESTER_INFO:
+#+MACRO: COURSE Org Teaching Template
+#+MACRO: COURSE_NUM ORG 0000
+#+MACRO: SEMESTER 2020 Spring
+#+MACRO: OFFICE_HOURS Tue 3:30-4:30pm
+:END:
 </pre>
 </section>
 </section>
 <section>
-<section id="slide-sec-4">
-<h2 id="org85b41f2"><span class="section-number-2">4</span> <code>Tasks</code> Top-level Tree</h2>
+<section id="slide-orgdeff67f">
+<h2 id="orgdeff67f"><span class="section-number-2">4</span> <code>Tasks</code> Top-level Tree</h2>
 <p>
 This is the subtree where users can organize instruction-related tasks
 (TODO items) specific to the semester, e.g., reminders to post
@@ -225,8 +225,8 @@ how to use TODO items in Org mode.
 </section>
 </section>
 <section>
-<section id="slide-sec-5">
-<h2 id="orga886fb5"><span class="section-number-2">5</span> Class Recap</h2>
+<section id="slide-org1d0b1a6">
+<h2 id="org1d0b1a6"><span class="section-number-2">5</span> Class Recap</h2>
 <ul>
 <li class="fragment appear">Semester Org Files: Introduction</li>
 <li class="fragment appear">Export Options and Macros</li>

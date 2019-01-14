@@ -3,8 +3,11 @@ Class 4: Creating Content for Slides and Handouts
 =================================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 4  [2018-09-06 Thu] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 4  
+[2018-09-06 Thu]
 
 1 Creating Slides and Handouts: Introduction
 --------------------------------------------
@@ -210,8 +213,8 @@ notes in LaTeX, reStructuredText, and HTML output formats.
        ))
 
     (eval-after-load 'ox '(add-to-list
-                           'org-export-filter-special-block-functions
-                           'my/process-NOTES-blocks))
+    		       'org-export-filter-special-block-functions
+    		       'my/process-NOTES-blocks))
 
 5 Handouts: Features for LaTeX
 ------------------------------
@@ -258,8 +261,8 @@ reStructuredText export.
        ))
 
     (eval-after-load 'ox '(add-to-list
-                           'org-export-filter-special-block-functions
-                           'my/process-mdframed-blocks))
+    		       'org-export-filter-special-block-functions
+    		       'my/process-mdframed-blocks))
 
 5.2 Organizing Content in Multiple Columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -280,10 +283,5 @@ the handout.
     This is content in the second column.
     #+LATEX: \end{multicols}
 
-This is content in the first column.
-This is content in the first column.
-This is content in the first column.
-
-This is content in the second column.
-This is content in the second column.
-This is content in the second column.
+Note that one can put ``#+LATEX: \columnbreak`` to force a column break inside a
+multicolumn environment at that position.

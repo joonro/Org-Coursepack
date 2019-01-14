@@ -3,8 +3,11 @@ Class 3: Topic and Course Org Files
 ===================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 3  [2018-09-04 Tue] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 3  
+[2018-09-04 Tue]
 
 1 Topic Org Files
 -----------------

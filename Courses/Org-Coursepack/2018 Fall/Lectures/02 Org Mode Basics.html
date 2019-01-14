@@ -32,20 +32,20 @@ School specific teaching materials"/>
 <section id="sec-title-slide"><h1 class="title">Class 2: Org Mode Basics</h1>
 </section>
 <section>
-<section id="slide-sec-1">
-<h2 id="orgacf25cb"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<section id="slide-orgbea2be1">
+<h2 id="orgbea2be1"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
-<section id="slide-sec-1-1">
-<h3 id="org5ae34e4"><span class="section-number-3">1.1</span> Announcements</h3>
+<section id="slide-org0997487">
+<h3 id="org0997487"><span class="section-number-3">1.1</span> Announcements</h3>
 <ul>
 <li></li>
 
 </ul>
 </section>
-<section id="slide-sec-1-2">
-<h3 id="org86bb1a9"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<section id="slide-org0fd33e1">
+<h3 id="org0fd33e1"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
 <ul>
 <li class="fragment appear">Introduction to Org-Coursepack</li>
 <li class="fragment appear">Quickstart Guide</li>
@@ -53,8 +53,8 @@ School specific teaching materials"/>
 
 </ul>
 </section>
-<section id="slide-sec-Lecture/Org Mode Basics/Outline">
-<h3 id="Lecture/Org Mode Basics/Outline"><a id="orgf2e2c82"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<section id="slide-Lecture/Org Mode Basics/Outline">
+<h3 id="Lecture/Org Mode Basics/Outline"><a id="org8408ad6"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
 <ul>
 <li class="fragment appear">Headings</li>
 <li class="fragment appear">Macros</li>
@@ -64,8 +64,8 @@ School specific teaching materials"/>
 </section>
 </section>
 <section>
-<section id="slide-sec-2">
-<h2 id="orgc835615"><span class="section-number-2">2</span> Headings</h2>
+<section id="slide-org631228e">
+<h2 id="org631228e"><span class="section-number-2">2</span> Headings</h2>
 <ul>
 <li>In Org mode, a heading is denoted by preceding stars (<code>*</code>), and the level of
 a heading is determined by the number of stars.</li>
@@ -74,10 +74,10 @@ For example,
 </p>
 
 <pre class="example">
-  * Heading 1
-  ** Subheading 1.1
-  * Heading 2
-  ** Subheading 2.1
+* Heading 1
+** Subheading 1.1
+* Heading 2
+** Subheading 2.1
 </pre></li>
 
 <li>A heading can have tags and properties associated with them, which allows
@@ -85,21 +85,21 @@ very flexible usage that we exploit throughout Org-Coursepack.</li>
 
 </ul>
 </section>
-<section id="slide-sec-2-1">
-<h3 id="orgb2658cf"><span class="section-number-3">2.1</span> Tags</h3>
+<section id="slide-org9f53b2d">
+<h3 id="org9f53b2d"><span class="section-number-3">2.1</span> Tags</h3>
 <ul>
 <li><p>
 A heading can have tags associated with them. They are used in the form of <code>:tag:</code>, on the same line as the heading. For example,
 </p>
 
 <pre class="example">
-  * Heading with a tag                       :tag:
+* Heading with a tag                       :tag:
 </pre></li>
 
 </ul>
 </section>
-<section id="slide-sec-Lectures/Org Mode Basics/Properties">
-<h3 id="Lectures/Org Mode Basics/Properties"><a id="org30e0ffc"></a><span class="section-number-3">2.2</span> Properties</h3>
+<section id="slide-Lectures/Org Mode Basics/Properties">
+<h3 id="Lectures/Org Mode Basics/Properties"><a id="org8c98358"></a><span class="section-number-3">2.2</span> Properties</h3>
 <ul>
 <li>Each heading can have properties associated with it. You can think of
 properties as data specific for the heading, as they consist of
@@ -115,18 +115,18 @@ Org-Coursepack.</li>
 For example,
 </p>
 <pre class="example">
-  * Heading 1
-  :PROPERTIES:
-  :CUSTOM_ID: Heading 1
-  :END:
+* Heading 1
+:PROPERTIES:
+:CUSTOM_ID: Heading 1
+:END:
 </pre></li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-sec-3">
-<h2 id="org3212979"><span class="section-number-2">3</span> Macros</h2>
+<section id="slide-org6823539">
+<h2 id="org6823539"><span class="section-number-2">3</span> Macros</h2>
 <p>
 Org mode provides macro replacement functionality. This can be especially
 useful for instructors, as shown in the following cases.
@@ -147,7 +147,7 @@ defined like the following:
 </p>
 
 <pre class="example">
-    #+MACRO: DUE_ASSIGNMENT_1 [2018-09-27 Thu]
+#+MACRO: DUE_ASSIGNMENT_1 [2018-09-27 Thu]
 </pre>
 
 <p>
@@ -168,10 +168,10 @@ An instructor can define a class number property like the following:
 </p>
 
 <pre class="example">
-    * Heading
-    :PROPERTIES:
-    :CLASS:    2
-    :END:
+* Heading
+:PROPERTIES:
+:CLASS:    2
+:END:
 </pre>
 
 <p>
@@ -180,7 +180,7 @@ the value of <code>PROPERTY_NAME</code> property:
 </p>
 
 <pre class="example">
-    This is class number {{{property(CLASS)}}}.
+This is class number {{{property(CLASS)}}}.
 </pre></dd>
 
 </dl></li>
@@ -191,8 +191,8 @@ the value of <code>PROPERTY_NAME</code> property:
 </section>
 </section>
 <section>
-<section id="slide-sec-4">
-<h2 id="orgefe7692"><span class="section-number-2">4</span> Including Content from Another Org file</h2>
+<section id="slide-orgf457d8c">
+<h2 id="orgf457d8c"><span class="section-number-2">4</span> Including Content from Another Org file</h2>
 <ul>
 <li>In Org mode, a user can pull content, without making a copy, from any org file (including
 the current one) via the <code>#+INCLUDE:</code> statement. See the <a href="https://orgmode.org/manual/Include-files.html">Org manual</a> fore more information.</li>
@@ -219,12 +219,12 @@ the <code>#+INCLUDE:</code> statement.
 </p>
 
 <pre class="example">
-      * R-squared
-      :PROPERTIES:
-      :CUSTOM_ID: R-squared
-      :END:
-      - The definition of \( R^{2} \) is:
-        \[ R^{2} = 1 - \dfrac{SS_{\text{res}}}{SS_{\text{tot}}}\]
+* R-squared
+:PROPERTIES:
+:CUSTOM_ID: R-squared
+:END:
+- The definition of \( R^{2} \) is:
+  \[ R^{2} = 1 - \dfrac{SS_{\text{res}}}{SS_{\text{tot}}}\]
 </pre></li>
 
 <li><p>
@@ -232,9 +232,9 @@ the <code>#+INCLUDE:</code> statement.
 </p>
 
 <pre class="example">
-      * Regression
-      ** R-squared
-      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+* Regression
+** R-squared
+#+INCLUDE: "/Regression.org::#R-squared" :only-contents t
 </pre></li>
 
 <li><p>
@@ -242,9 +242,9 @@ the <code>#+INCLUDE:</code> statement.
 </p>
 
 <pre class="example">
-      * Regression
-      ** R-squared
-      #+INCLUDE: "/Regression.org::#R-squared" :only-contents t
+* Regression
+** R-squared
+#+INCLUDE: "/Regression.org::#R-squared" :only-contents t
 </pre></li>
 
 </ul></dd>
@@ -255,8 +255,8 @@ the <code>#+INCLUDE:</code> statement.
 </section>
 </section>
 <section>
-<section id="slide-sec-5">
-<h2 id="org25bf2b3"><span class="section-number-2">5</span> Class Recap</h2>
+<section id="slide-org061c92d">
+<h2 id="org061c92d"><span class="section-number-2">5</span> Class Recap</h2>
 <ul>
 <li class="fragment appear">Headings</li>
 <li class="fragment appear">Macros</li>

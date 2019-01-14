@@ -3,8 +3,11 @@ Class 7: Semester Org Files (2/4): Sections and Syllabus
 ========================================================
 
 
- ORG 0000  Joon H. Ro & Jae-Eun Namkoong  
- Class 7  [2018-09-18 Tue] 
+ORG 0000   
+Joon H. Ro & Jae-Eun Namkoong 
+
+Class 7  
+[2018-09-18 Tue]
 
 1 ``Sections`` Top-level Tree
 -----------------------------
@@ -233,4 +236,12 @@ will be ignored in exporting.
 - One can use ``C-c C-c`` while the cursor is on the ``#+BEGIN: columnview`` to
   update the columnview dynamic block. Once it is updated, ``#+TBLFM`` is used
   to format the table (e.g., change the third column name from ``ITEM`` to
-  ``Topic``) automatically.
+  ``Topic``) automatically. See an example of updated class schedule below.
+
+  .. image:: ../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
+
+.. note::
+
+    Note that the ``org-coursepack-update-lecture-metadata`` script described below 
+    will automatically update this table upon execution. Hence, in general manual 
+    updating of the table is not needed.

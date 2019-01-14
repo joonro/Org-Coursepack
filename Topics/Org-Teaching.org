@@ -180,13 +180,13 @@ have the course metadata; the =COURSE= macro is for specifying the
 name of the course, =COURSE_NUM= is for specifying the course ID, and so
 on. They currently have filler values as shown in the image below. 
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info.png
 
 You can fill the macro values with your own course information as shown in the
 image below.
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Semester-Course-Info-Edited.png
 
 *** Preparing your syllabus
@@ -206,12 +206,11 @@ how to change syllabus content to fit your own course.
 **** Class schedule
 You can include in your syllabus a class schedule, which is a table that shows
 a list of class dates, class numbers, and class titles, as well as exam dates
-and assignment due dates. Navigate to the
-=* Syllabus/Class Schedule= subtree and place your cursor on the line that
-starts with =#+BEGIN: columnview=. You can view the class schedule by
-expanding the =columnview=:
+and assignment due dates. Navigate to the =* Syllabus/Class Schedule= subtree
+and place your cursor on the line that starts with =#+BEGIN: columnview=. You
+can view the class schedule by expanding the =columnview=:
 
-#+ATTR_LATEX: :height 5cm
+#+ATTR_LATEX: :width 16cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Old.png
 
 Then, with the cursor in place, press =C-c C-c= (hit =c= twice while holding
@@ -220,8 +219,14 @@ recent information. Any changes made to the order or names of classes will
 automatically be reflected when the instructor updates the class schedule with
 the =C-c C-c= command. See an example of updated class schedule below.
 
-#+ATTR_LATEX: :height 5cm
+#+ATTR_LATEX: :width 16cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
+
+#+BEGIN_mdframed
+Note that the ~org-coursepack-update-lecture-metadata~ script described below 
+will automatically update this table upon execution. Hence, in general manual 
+updating of the table is not needed.
+#+END_mdframed
 **** Exporting a syllabus
 Syllabus exporting occurs at the =Syllabus= subtree under each section's
 headline (e.g, =* Sections/01/Syllabus=) to enable passing on section-specific
@@ -266,7 +271,7 @@ sub-directory of the semester folder. You can also click on the =HTML= and
 =PDF= clickable links below the export buttons (on the =:OUTPUT_VIEW:=
 property) to view the exported files.
 
-#+ATTR_LATEX: :height 6cm
+#+ATTR_LATEX: :width 10cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Lecture-Export-Link.png
 
 The following image shows an example of an exported html =reveal.js= slides
@@ -310,9 +315,11 @@ file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Second-Lecture.png
 *Updating metadata* Expanding the =:PROPERTIES:= drawer of each lecture (e.g.,
 =Second Lecture=) will reveal class-related metadata, such as =CLASS=,
 =EXPORT_FILE_NAME=, and =DATE=.  You can automatically update these values by
-running the =Update lecture metadata= script.  The script is located right
-under the =Lectures= subtree headline (see image below)--to run the script,
-simply move the curser to the script and press =C-c C-c=.
+running the =org-coursepack-update-lecture-metadata= script, which is defined
+in =/Assets/Scripts.org=. The script is set up to be called remotely, and the
+call statement (~#+CALL: org-coursepack-update-lecture-metadata()~) is located
+right under the =Lectures= subtree headline (see image below)--to run the
+script, simply move the cursor to the call statement and press =C-c C-c=.
 
 #+ATTR_LATEX: :height 3cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Run-Script-Update-Lectures.png
@@ -326,7 +333,7 @@ After the script finishes running, you will need to press =Shift+Tab= to reset
 the rendering.
 
 As shown in the image below, the lecture metadata have been updated with
-appropriate values. 
+appropriate values.
 
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Lecture-Info.png 
@@ -343,9 +350,11 @@ changed. See the screenshot below for an example.
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Lectures-Updated-Boilerplate.png 
 
-*Updating class schedule in syllabus* As explained earlier, you can update the
-class schedule in the syllabus with the new lecture metadata automatically by
-updating the class schedule table. See the screenshot below.
+*Updating class schedule in syllabus* The
+~org-coursepack-update-lecture-metadata~ is designed to automatically update
+the class schedule table in the syllabus with the new lecture metadata, so the
+table will always reflect the latest lecture metadata. See the screenshot
+below.
 
 #+ATTR_LATEX: :height 4cm
 file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-Updated.png
@@ -1193,18 +1202,28 @@ will be ignored in exporting.
 - One can use =C-c C-c= while the cursor is on the =#+BEGIN: columnview= to
   update the columnview dynamic block. Once it is updated, =#+TBLFM= is used
   to format the table (e.g., change the third column name from =ITEM= to
-  =Topic=) automatically.
+  =Topic=) automatically. See an example of updated class schedule below.
+
+  #+ATTR_LATEX: :height 5cm
+  file:../../../Assets/Images/Org-Teaching/Quickstart/Syllabus-Schedule-New.png
+
+#+BEGIN_mdframed
+Note that the ~org-coursepack-update-lecture-metadata~ script described below 
+will automatically update this table upon execution. Hence, in general manual 
+updating of the table is not needed.
+#+END_mdframed
 
 #+BEGIN_COMMENT
-- This, combined with a Emacs-lisp script (=Update lecture metadata=) contained in
-  =Lectures= subtree, which automatically updates individual class information,
+- This, combined with a Emacs-lisp script
+  (=org-coursepack-update-lecture-metadata=), which can be called in
+  =Lectures= subtree, which automatically updates individual class metadata,
   allows the user to freely modify individual classes and their order without
   worrying about manually adjusting the class schedule. Hence, once
   modifications to classes are done, the user can run the source code block
   with =C-c C-c= to update properties of classes, and then update the
   columnview dynamic block to obtain the updated class schedule table. See the
-  class on Lectures for more information about =Update lecture metadata= script.
-
+  class on Lectures for more information about =Update lecture metadata=
+  script.
 #+END_COMMENT
 *** Lectures Top-level Tree
 :PROPERTIES:
@@ -1221,8 +1240,7 @@ will be ignored in exporting.
   ,* Lectures
   :PROPERTIES:
   
-  ,#+NAME: Update Classes
-  ,#+BEGIN_SRC emacs-lisp :results none
+  ,#+CALL: org-coursepack-update-lecture-metadata()
   
   ,** Tasks [0/1]                                           :noexport:skipcount:
   ,** Classes and Assignments Dates                                  :skipcount:
@@ -1255,62 +1273,63 @@ will be ignored in exporting.
   #+BEGIN_EXAMPLE
   :PROPERTIES:
   :COLUMNS: %Date %Class %ITEM
-  :ID:  79d5e887-4637-43e7-8e8a-b83fa83ee56e
+  :ID:  Lectures
   ...
   :END:
   #+END_EXAMPLE
   #+LATEX: }
 
-**** =Update lecture metadata= Source Code Block
-- The =Lectures= top-level tree has a source code block named =Update
-  Lectures=. When executed with =C-c C-c=, it is designed to go through
-  each lecture subtree and perform the following actions:
+**** =org-coursepack-update-lecture-metadata= Source Code Block
+- The =Lectures= top-level tree has a call statement (~#+CALL:
+  org-coursepack-update-lecture-metadata()~) that can be used to execute the
+  source code block named =org-coursepack-update-lecture-metadata=, which is
+  contained in =/Assets/Scripts.org=. When executed with =C-c C-c=, it is
+  designed to go through each lecture subtree and perform the following
+  actions:
  
-  1. Update =:PROPERTIES:= for the lecture, such as the class number
-     (=:CLASS:=), class date (=:DATE:=), and file name of the export
-     (=:EXPORT_FILE_NAME:=).
+  1. Update metadata for the lecture, such as the class number (=:CLASS:=),
+     class date (=:DATE:=), and file name of the export
+     (=:EXPORT_FILE_NAME:=), which are defined in the =:PROPERTIES:=.
      
-     - =:CLASS:= :: The lectures are assumed to be in the order of the
-                    lecture schedule (e.g., first lecture on Class
-                    1). Note that any subtree with a =:skipcount:= tag
-                    will be ignored, which is useful for
-                    non-lecture subtrees (e.g., assignment due dates
-                    and holidays).
-     - =:DATE:= ::  It will get the date of each class from the =DATE_CLASS_XX= file-level
-                   properties, which are defined in the =Lectures and
-                   Assignments Dates= subtree.
+     - =:CLASS:= :: The lectures are assumed to be in the order of the lecture
+                    schedule (e.g., first lecture on Class 1). Note that any
+                    subtree with a =:skipcount:= tag will be ignored, which is
+                    useful for non-lecture subtrees (e.g., assignment due
+                    dates and holidays).
+     - =:DATE:= :: It will get the date of each class from the =DATE_CLASS_XX=
+                   file-level properties, which are defined in the =Lectures
+                   and Assignments Dates= subtree.
      - =:EXPORT_FILE_NAME:= :: By default, the script sets the
-          =:EXPORT_FILE_NAME:= as the subtree heading, which can be
-          overridden by setting the =:EXPORT_FILE_NAME_MANUAL:=
-          property of the lecture subtree. If the property exists, the
-          script will use its value for =:EXPORT_FILE_NAME:=
-          instead. This is useful when the lecture subtree heading is
-          very long or contains invalid characters for a file name.
+          =:EXPORT_FILE_NAME:= as the subtree heading, which can be overridden
+          by setting the =:EXPORT_FILE_NAME_MANUAL:= property of the lecture
+          subtree. If the property exists, the script will use its value for
+          =:EXPORT_FILE_NAME:= instead. This is useful when the lecture
+          subtree heading is very long or contains invalid characters for a
+          file name.
 
-  2. Update =Lecture Agenda= under the =Introduction= subtree.
+  2. Update =Lecture Outline= under the =Introduction and Recap of Last Class= subtree.
 
-     - =Lecture Agenda= :: The script will get the list of subtrees
-          that belong to the particular lecture, ignoring any with
-          =noexport=, =handoutonly=, or =slideonly= tags. Then, it
-          will insert the list into the body of =Lecture Agenda=. In
-          addition, it will set the =CUSTOM_ID= property value of the
-          subtree accordingly, so the agenda can be used in other
-          places.
+     - =Lecture Outline= :: The script will get the list of subtrees that
+          belong to the particular lecture, ignoring any with =noexport=,
+          =handoutonly=, or =slideonly= tags. Then, it will insert the list
+          into the body of =Lecture Agenda=. In addition, it will set the
+          =CUSTOM_ID= property value of the subtree accordingly, so the agenda
+          can be used in other places.
           
-  3. Update =Last Class= under the =Introduction= subtree and =Class Summary= of
-     each lecture. 
+  3. Update =Last Class= under the =Introduction and Recap of Last Class=
+     subtree and =Class Summary= of each lecture.
 
-     - =Last Class= :: The script will insert an =#+INCLUDE:=
-                       statement which points to the previous
-                       lecture's =Lecture Agenda= subtree under the
-                       =Introduction=. This is to provide a recap of
-                       the previous lecture prior to starting the
-                       current lecture.
+     - =Recap of Last Class= :: The script will insert an =#+INCLUDE:=
+          statement which points to the previous lecture's =Lecture Outline=
+          subtree under the =Introduction and Recap of Last Class=. This is to
+          provide a recap of the previous lecture prior to starting the
+          current lecture.
 
-     - =Class Summary= :: The script will insert an =#+INCLUDE:=
-          statement which points to the current lecture's =Lecture
-          Agenda= subtree under the =Introduction=. This provides a
-          summary of the current lecture.
+     - =Class Recap= :: The script will insert an =#+INCLUDE:= statement which
+                        points to the current lecture's =Lecture Outline=
+                        subtree under the =Introduction and Recap of Last
+                        Class=. This provides a summary of the current
+                        lecture.
 
 - The user should run this script before updating the class schedule table 
   in the =Syllabus=, so the most current information is reflected in the table.
@@ -1337,12 +1356,16 @@ will be ignored in exporting.
   header items and table of contents. The content will be included from the 
   =Handout heading= subtree of each individual lecture subtree.
 **** Dynamic Columnview of Lectures
-- A useful functionality of Org mode is the ability to create a
-  table-view overlay of subtrees with their property
-  values. Instructors can use the ~org-columns~ command to create a column-view of
-  lectures, which is essentially the same as the class schedule table
-  in the =Syllabus=. It is useful when there is a need to quickly inspect
-  the overall course schedule.
+- A useful functionality of Org mode is the ability to create a table-view
+  overlay of subtrees with their property values. Instructors can use the
+  ~org-columns~ command to create a column-view of lectures, which is
+  essentially the same as the class schedule table in the =Syllabus=. It is
+  useful when there is a need to quickly inspect the overall course
+  schedule. See the screenshot below for an example dynamic columnview.
+
+#+ATTR_LATEX: :width 8cm
+[[file:../../../Assets/Images/Org-Teaching/Semester-Lectures-Dynamic-Columnview.png]]
+
 *** Individual Lecture Subtrees
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Semester Org Files/Individual Lecture Subtree
@@ -1931,16 +1954,22 @@ the handout.
   This is content in the second column.
   ,#+LATEX: \end{multicols}
   #+END_SRC
+  
+Note that one can put ~#+LATEX: \columnbreak~ to force a column break inside a
+multicolumn environment at that position.
 
-  #+LATEX: \begin{multicols}{2}
-  This is content in the first column.
-  This is content in the first column.
-  This is content in the first column.
+#+BEGIN_EXPORT latex
+\begin{multicols}{2}
+This is content in the first column.
+This is content in the first column.
+This is content in the first column.
 
-  This is content in the second column.
-  This is content in the second column.
-  This is content in the second column.
-  #+LATEX: \end{multicols}
+This is content in the second column.
+This is content in the second column.
+This is content in the second column.
+\end{multicols}
+#+END_EXPORT
+
 ** Exporting Slides and Handouts
 :PROPERTIES:
 :CUSTOM_ID: Lectures/Exporting

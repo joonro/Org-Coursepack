@@ -32,28 +32,28 @@ School specific teaching materials"/>
 <section id="sec-title-slide"><h1 class="title">Class 4: Creating Content for Slides and Handouts</h1>
 </section>
 <section>
-<section id="slide-sec-1">
-<h2 id="org3a69f25"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
+<section id="slide-orgebf7057">
+<h2 id="orgebf7057"><span class="section-number-2">1</span> Introduction and Recap of Last Class</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
-<section id="slide-sec-1-1">
-<h3 id="orge12d3e8"><span class="section-number-3">1.1</span> Announcements</h3>
+<section id="slide-org55bc792">
+<h3 id="org55bc792"><span class="section-number-3">1.1</span> Announcements</h3>
 <ul>
 <li></li>
 
 </ul>
 </section>
-<section id="slide-sec-1-2">
-<h3 id="org27dd35a"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
+<section id="slide-org38b6a4a">
+<h3 id="org38b6a4a"><span class="section-number-3">1.2</span> Recap of Last Class</h3>
 <ul>
 <li class="fragment appear">Topic Org Files</li>
 <li class="fragment appear">Course Org Files</li>
 
 </ul>
 </section>
-<section id="slide-sec-Lecture/Creating Content for Slides and Handouts/Outline">
-<h3 id="Lecture/Creating Content for Slides and Handouts/Outline"><a id="org3136158"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
+<section id="slide-Lecture/Creating Content for Slides and Handouts/Outline">
+<h3 id="Lecture/Creating Content for Slides and Handouts/Outline"><a id="org9451111"></a><span class="section-number-3">1.3</span> Lecture Outline</h3>
 <ul>
 <li class="fragment appear">Creating Slides and Handouts: Introduction</li>
 <li class="fragment appear">Using Raw HTML Tags and LaTeX Code</li>
@@ -65,8 +65,8 @@ School specific teaching materials"/>
 </section>
 </section>
 <section>
-<section id="slide-sec-2">
-<h2 id="org7ce4f1e"><span class="section-number-2">2</span> Creating Slides and Handouts: Introduction</h2>
+<section id="slide-org760144a">
+<h2 id="org760144a"><span class="section-number-2">2</span> Creating Slides and Handouts: Introduction</h2>
 <p>
 Content is created using the Org markup language. General information on how
 to use the markeup language can be found in the <a href="https://orgmode.org/manual/Markup.html">Org manual</a>. Hence,
@@ -89,8 +89,8 @@ note describing how to achieve the functionality in Beamer.
 </section>
 </section>
 <section>
-<section id="slide-sec-3">
-<h2 id="org68848c1"><span class="section-number-2">3</span> Using Raw HTML Tags and LaTeX Code</h2>
+<section id="slide-org3954563">
+<h2 id="org3954563"><span class="section-number-2">3</span> Using Raw HTML Tags and LaTeX Code</h2>
 <p>
 Directly quoting raw HTML tags and LaTeX code allows users to have granular
 control over how contents are presented. Such quotes will be only included in
@@ -112,20 +112,20 @@ applies to HTML as well) like the following:
 </p>
 
 <pre class="example">
-  @@latex:{\small@@ {{{COURSE}}} @@latex:}@@
+@@latex:{\small@@ {{{COURSE}}} @@latex:}@@
 </pre>
 
 </div>
 </section>
 </section>
 <section>
-<section id="slide-sec-4">
-<h2 id="org10970fe"><span class="section-number-2">4</span> Features for Both Slides and Handouts</h2>
+<section id="slide-org5ce7dbd">
+<h2 id="org5ce7dbd"><span class="section-number-2">4</span> Features for Both Slides and Handouts</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 </section>
-<section id="slide-sec-4-1">
-<h3 id="org475d4bb"><span class="section-number-3">4.1</span> Specifying Attributes</h3>
+<section id="slide-orga965f43">
+<h3 id="orga965f43"><span class="section-number-3">4.1</span> Specifying Attributes</h3>
 <p>
 Org mode allows users to specify attributes to raw HTML tags or LaTeX code
 using <code>#+ATTR_FORMAT:</code> grammar. For example, the following shows how to 
@@ -142,8 +142,8 @@ For more information, see the <a href="https://orgmode.org/worg/org-tutorials/im
 </p>
 
 </section>
-<section id="slide-sec-4-2">
-<h3 id="org1fc47be"><span class="section-number-3">4.2</span> Changing Font Sizes</h3>
+<section id="slide-orge65d43c">
+<h3 id="orge65d43c"><span class="section-number-3">4.2</span> Changing Font Sizes</h3>
 <p>
 One of the frequently used use cases of raw HTML or LaTeX code in Org markup
 is changing the font size of a specific text. 
@@ -156,9 +156,9 @@ font size in HTML outputs, the user can use the following code.
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+HTML: <span style=font-size:20pt>
-  Content with smaller font
-  #+HTML: </span>
+<pre><code class="text" >#+HTML: <span style=font-size:20pt>
+Content with smaller font
+#+HTML: </span>
 </code></pre>
 </div>
 
@@ -171,9 +171,9 @@ In LaTeX handouts, the user can use the code below.
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+LATEX: {\small
-  Content with smaller font
-  #+LATEX: }
+<pre><code class="text" >#+LATEX: {\small
+Content with smaller font
+#+LATEX: }
 </code></pre>
 </div>
 
@@ -188,16 +188,16 @@ HTML and LateX codes and use them together like so:
 
 <div class="org-src-container">
 
-<pre><code class="text" >    #+LATEX: {\small
-    #+HTML: <span style=font-size:20pt>
-    Content with smaller font
-    #+HTML: </span>
-    #+LATEX: }
+<pre><code class="text" >#+LATEX: {\small
+#+HTML: <span style=font-size:20pt>
+Content with smaller font
+#+HTML: </span>
+#+LATEX: }
 </code></pre>
 </div>
 </section>
-<section id="slide-sec-4-3">
-<h3 id="org72caad0"><span class="section-number-3">4.3</span> Using a Dummy Heading</h3>
+<section id="slide-orgc597ab8">
+<h3 id="orgc597ab8"><span class="section-number-3">4.3</span> Using a Dummy Heading</h3>
 <p>
 Instructors may want the option to present content of a tree without its heading. To do so, follow the instructions at
 <a href="https://orgmode.org/worg/org-hacks.html#ignoreheadline">https://orgmode.org/worg/org-hacks.html#ignoreheadline</a>. Specifically, include the
@@ -213,8 +213,8 @@ following in your init file, and any header with the <code>:ignore:</code> tag w
 </section>
 </section>
 <section>
-<section id="slide-sec-5">
-<h2 id="org5be103f"><span class="section-number-2">5</span> Slides: Features for reveal.js</h2>
+<section id="slide-orgd22c97f">
+<h2 id="orgd22c97f"><span class="section-number-2">5</span> Slides: Features for reveal.js</h2>
 <div class="mdframed">
 <p>
 Note that reveal.js is HTML-based, so any raw HTML tags (e.g., via <code>#+HTML:</code>)
@@ -227,8 +227,8 @@ should use <code>#+REVEAL:</code> (<code>#+ATTR_REVEAL:</code>) instead of <code
 </div>
 
 </section>
-<section id="slide-sec-5-1">
-<h3 id="org0c2c5f7"><span class="section-number-3">5.1</span> List Fragments</h3>
+<section id="slide-org6dd960a">
+<h3 id="org6dd960a"><span class="section-number-3">5.1</span> List Fragments</h3>
 <p>
 One can easily obtain list fragments (make items in the list appear
 sequentially) using reveal.js. Simply add <code>#+ATTR_REVEAL: :frag
@@ -237,10 +237,10 @@ sequentially) using reveal.js. Simply add <code>#+ATTR_REVEAL: :frag
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+ATTR_REVEAL: :frag (appear)
-  - I appear first.
-  - I appear second.
-  - I appear third.
+<pre><code class="text" >#+ATTR_REVEAL: :frag (appear)
+- I appear first.
+- I appear second.
+- I appear third.
 </code></pre>
 </div>
 
@@ -253,15 +253,15 @@ Similarly, a list fragment can be obtained on the Beamer output by including
 </div>
 
 </section>
-<section id="slide-sec-5-2">
-<h3 id="org79429a9"><span class="section-number-3">5.2</span> Splitting slides</h3>
+<section id="slide-org415b92a">
+<h3 id="org415b92a"><span class="section-number-3">5.2</span> Splitting slides</h3>
 <p>
 To split content into multiple slides, insert the following code between the areas where you want the split to happen.
 </p>
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+REVEAL: split
+<pre><code class="text" >#+REVEAL: split
 </code></pre>
 </div>
 
@@ -274,8 +274,8 @@ Similarly, a frame break can be inserted in Beamer by using <code>#+BEAMER:
 </div>
 
 </section>
-<section id="slide-sec-5-3">
-<h3 id="org9fc5ebe"><span class="section-number-3">5.3</span> Embedding Youtube videos</h3>
+<section id="slide-orge933699">
+<h3 id="orge933699"><span class="section-number-3">5.3</span> Embedding Youtube videos</h3>
 <p>
 One can use the following example to embed a YouTube video in a slide. The
 example specifies at which points of the video the viewing will start
@@ -283,16 +283,16 @@ example specifies at which points of the video the viewing will start
 </p>
 <div class="org-src-container">
 
-<pre><code class="text" >  #+BEGIN_EXPORT HTML
-  <iframe width="1066" height="570"
-  src="https://www.youtube.com/embed/SzA2YODtgK4?start=01&end=60" allowfullscreen>
-  </iframe>
-  #+END_EXPORT
+<pre><code class="text" >#+BEGIN_EXPORT HTML
+<iframe width="1066" height="570"
+src="https://www.youtube.com/embed/SzA2YODtgK4?start=01&end=60" allowfullscreen>
+</iframe>
+#+END_EXPORT
 </code></pre>
 </div>
 </section>
-<section id="slide-sec-5-4">
-<h3 id="orgb8b688a"><span class="section-number-3">5.4</span> Speaker Notes</h3>
+<section id="slide-org8592cbf">
+<h3 id="org8592cbf"><span class="section-number-3">5.4</span> Speaker Notes</h3>
 <p>
 An instructor may create a speaker note that accompanies a lecture
 slide. reveal.js will display the speaker note in a separate browser
@@ -346,16 +346,16 @@ properly on Beamer.
    ))
 
 (eval-after-load 'ox '(add-to-list
-                       'org-export-filter-special-block-functions
-                       'my/process-NOTES-blocks))
+		       'org-export-filter-special-block-functions
+		       'my/process-NOTES-blocks))
 </code></pre>
 </div>
 </span>
 </section>
 </section>
 <section>
-<section id="slide-sec-6">
-<h2 id="org39047c6"><span class="section-number-2">6</span> Handouts: Features for LaTeX</h2>
+<section id="slide-orgac39aa3">
+<h2 id="orgac39aa3"><span class="section-number-2">6</span> Handouts: Features for LaTeX</h2>
 <p>
 The features introduced in this section are readily available, as the
 necessary items in the LaTeX preamble enabling the features are already
@@ -363,8 +363,8 @@ specified in the properties of the <code>Lectures</code> subtree in the semester
 files of the Org-Coursepack.
 </p>
 </section>
-<section id="slide-sec-6-1">
-<h3 id="orge230aa2"><span class="section-number-3">6.1</span> Inserting Boxed Paragraphs</h3>
+<section id="slide-org0a57a0a">
+<h3 id="org0a57a0a"><span class="section-number-3">6.1</span> Inserting Boxed Paragraphs</h3>
 <p>
 With the <code>mdframed</code> block, users can easily create boxed paragraphs in LaTeX 
 handouts. The example below shows the code for the box and what the box will
@@ -414,14 +414,14 @@ reStructuredText export.
    ))
 
 (eval-after-load 'ox '(add-to-list
-                       'org-export-filter-special-block-functions
-                       'my/process-mdframed-blocks))
+		       'org-export-filter-special-block-functions
+		       'my/process-mdframed-blocks))
 </code></pre>
 </div>
 </span>
 </section>
-<section id="slide-sec-6-2">
-<h3 id="org3503939"><span class="section-number-3">6.2</span> Organizing Content in Multiple Columns</h3>
+<section id="slide-org983ae24">
+<h3 id="org983ae24"><span class="section-number-3">6.2</span> Organizing Content in Multiple Columns</h3>
 <p>
 One can easily make parts of the handout multi-column. The example
 below shows the code for creating two columns and what that will look like in
@@ -430,34 +430,27 @@ the handout.
 
 <div class="org-src-container">
 
-<pre><code class="text" >  #+LATEX: \begin{multicols}{2}
-  This is content in the first column.
-  This is content in the first column.
-  This is content in the first column.
+<pre><code class="text" >#+LATEX: \begin{multicols}{2}
+This is content in the first column.
+This is content in the first column.
+This is content in the first column.
 
-  This is content in the second column.
-  This is content in the second column.
-  This is content in the second column.
-  #+LATEX: \end{multicols}
+This is content in the second column.
+This is content in the second column.
+This is content in the second column.
+#+LATEX: \end{multicols}
 </code></pre>
 </div>
 
 <p>
-This is content in the first column.
-This is content in the first column.
-This is content in the first column.
-</p>
-
-<p>
-This is content in the second column.
-This is content in the second column.
-This is content in the second column.
+Note that one can put <code>#+LATEX: \columnbreak</code> to force a column break inside a
+multicolumn environment at that position.
 </p>
 </section>
 </section>
 <section>
-<section id="slide-sec-7">
-<h2 id="orga92dd2e"><span class="section-number-2">7</span> Class Recap</h2>
+<section id="slide-orgc085816">
+<h2 id="orgc085816"><span class="section-number-2">7</span> Class Recap</h2>
 <ul>
 <li class="fragment appear">Creating Slides and Handouts: Introduction</li>
 <li class="fragment appear">Using Raw HTML Tags and LaTeX Code</li>
