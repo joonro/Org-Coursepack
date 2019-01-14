@@ -21,13 +21,13 @@ date: 22 July 2018
 bibliography: paper.bib
 ---
 
-
 # Summary
 
 The Org-Coursepack provides a template for developing and managing teaching
 materials using [Org mode](https://orgmode.org), a major mode in [GNU Emacs](https://www.gnu.org/software/emacs/). The template is designed
 to be self-explanatory, as the documentation for it consists of an example
 course developed with this template.
+# Statement of Need
 
 Org-Coursepack started as an attempt to solve challenges authors experienced
 in creating and managing teaching materials. The key benefits of using the
@@ -113,3 +113,4 @@ elements. We hope that the Org-Coursepack, and Org mode in general, would
 contribute to the productivity of both those who use it and those who are
 served by it.
 
+# References
