@@ -10,6 +10,7 @@ Foreach-Object {
 echo "Image paths and escape characters for * are fixed."
 
 cp ../Assets/Images/Org-Teaching/*.png ../html/Assets/Images/Org-Teaching/
+cp ../Assets/Images/Org-Teaching/Quickstart/*.png ../html/Assets/Images/Org-Teaching/Quickstart
 
 echo "Images copied to ../html/Assets/Images."
 
