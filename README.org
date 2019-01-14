@@ -38,8 +38,8 @@ settings. They can copy and paste necessary codes from the example init file
 file.
 
 Note that the init file is set up to detect and install any necessary packages
-(org-plus-contrib and ox-reveal) that are missing. This might lengthen the
-startup time when the user runs Emacs for the first time.
+(=htmlize=, =org-plus-contrib=, and =ox-reveal=) that are missing. This might
+lengthen the startup time when the user runs Emacs for the first time.
 ** LaTeX
 You can install [[https://tug.org/texlive/][TeX Live]] (for GNU/Linux and Windows) or [[https://tug.org/mactex/][MacTeX]] (for macOS).
 
