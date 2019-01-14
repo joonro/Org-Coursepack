@@ -51,10 +51,8 @@ work regardless of where it is installed; hence, users can freely choose the
 location of the installation.
 
 * Usage
-We
-created the full documentation in the form of a short course. You can read the
-[[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]] or checkout exported PDF files in
-=Org-Coursepack/Courses/Org-Coursepack/2018 Fall/Lectures/=.
+We created the full documentation in the form of a short course. You can read
+the [[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]] or take a look at [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Org-Coursepack/2018%2520Fall/Lectures][exported PDF files]].
 * Example Courses
 The Org-Coursepack includes two example courses created with Org-Coursepack:
 =Introduction to Regression Analysis with Excel= and =Introduction to
