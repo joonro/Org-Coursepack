@@ -68,8 +68,8 @@
 :PROPERTIES:
 :EXPORT_TITLE: {{{COURSE_NUM}}}-{{{property(SECTION)}}} Syllabus
 :EXPORT_FILE_NAME: ./Syllabus/Syllabus (Section 1)
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-latex-export-to-pdf%20nil%20t))][LaTeX (Custom Time Format)]] 
-:OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-latex-export-to-pdf nil t))][LaTeX (Custom Time Format)]] 
+:OUTPUT_VIEW: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
 ** 02
@@ -87,8 +87,8 @@
 :PROPERTIES:
 :EXPORT_TITLE: {{{COURSE_NUM}}}-{{{property(SECTION)}}} Syllabus
 :EXPORT_FILE_NAME: ./Syllabus/Syllabus (Section 2)
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-latex-export-to-pdf%20nil%20t))][LaTeX (Custom Time Format)]] 
-:OUTPUT_VIEW: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-latex-export-to-pdf nil t))][LaTeX (Custom Time Format)]] 
+:OUTPUT_VIEW: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 #+INCLUDE: "./2018 Fall.org::#Syllabus" :only-contents t
 * Syllabus
@@ -271,8 +271,8 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 :Materials:   
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/01 Regression Analysis Introduction
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
-:VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-reveal-export-to-html nil t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf nil t)][Beamer]] | [[elisp:(org-latex-export-to-pdf nil t)][LaTeX]]
+:VIEW_OUTPUT: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".html\]\]"))][HTML]] | [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
@@ -323,8 +323,8 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 :Materials:   
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/02 Hypothesis Testing for a Mean and Significance of Regression Coefficients
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
-:VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-reveal-export-to-html nil t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf nil t)][Beamer]] | [[elisp:(org-latex-export-to-pdf nil t)][LaTeX]]
+:VIEW_OUTPUT: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".html\]\]"))][HTML]] | [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 *** Tasks [0/0]                                                    :noexport:
 
@@ -360,8 +360,8 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 :Materials:   
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/03 Multiple Regression and Categorical Variables
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
-:VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-reveal-export-to-html nil t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf nil t)][Beamer]] | [[elisp:(org-latex-export-to-pdf nil t)][LaTeX]]
+:VIEW_OUTPUT: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".html\]\]"))][HTML]] | [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
@@ -399,8 +399,8 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 :DATE:     [2018-09-06 Thu]
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/04 Design of Price and Advertising Elasticity Models
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
-:VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-reveal-export-to-html nil t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf nil t)][Beamer]] | [[elisp:(org-latex-export-to-pdf nil t)][LaTeX]]
+:VIEW_OUTPUT: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".html\]\]"))][HTML]] | [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:
@@ -429,8 +429,8 @@ Class {{{property(CLASS)}}} {{{NEWLINE}}}
 :Materials:   
 :EXPORT_TITLE: Class {{{property(CLASS)}}}: {{{property(ITEM)}}}
 :EXPORT_FILE_NAME: ./Lectures/05 Interaction Effects and Overfitting
-:EXPORT_TO:  [[elisp:(let%20((org-display-custom-times%20t))%20(org-reveal-export-to-html%20nil%20t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf%20nil%20t)][Beamer]] | [[elisp:(org-latex-export-to-pdf%20nil%20t)][LaTeX]]
-:VIEW_OUTPUT: [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".html%5D%5D"))][HTML]] | [[elisp:(org-open-link-from-string%20(concat%20"%5B%5Bfile:./"%20(org-entry-get%20nil%20"EXPORT_FILE_NAME")%20".pdf%5D%5D"))][PDF]]
+:EXPORT_TO:  [[elisp:(let ((org-display-custom-times t)) (org-reveal-export-to-html nil t))][reveal.js]] | [[elisp:(org-beamer-export-to-pdf nil t)][Beamer]] | [[elisp:(org-latex-export-to-pdf nil t)][LaTeX]]
+:VIEW_OUTPUT: [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".html\]\]"))][HTML]] | [[elisp:(org-open-link-from-string (concat "\[\[file:./" (org-entry-get nil "EXPORT_FILE_NAME") ".pdf\]\]"))][PDF]]
 :END:
 *** Tasks [0/0]                                                  :noexport:
 *** Handout heading                                    :handoutonly:ignore:

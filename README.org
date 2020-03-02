@@ -6,7 +6,7 @@
 The Org-Coursepack provides a template for developing and managing teaching
 materials using [[https://orgmode.org][Org mode]], a major mode in [[https://www.gnu.org/software/emacs/][GNU Emacs]].
 
-Please see the [[https://joonro.github.io/Org-Coursepack/Lectures/01%20Course%20Introduction.html#quickstart-guide][quickstart guide]] for basic usage of =Org-Coursepack= with
+Please see the [[https://joonro.github.io/Org-Coursepack/Lectures/01 Course Introduction.html#quickstart-guide][quickstart guide]] for basic usage of =Org-Coursepack= with
 screenshots.
 
 The template (see =Courses/Template=) is designed to be self-explanatory, as
@@ -52,7 +52,7 @@ location of the installation.
 
 * Usage
 We created the full documentation in the form of a short course. You can read
-the [[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]] or take a look at [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Org-Coursepack/2018%20Fall/Lectures][exported PDF files]].
+the [[https://joonro.github.io/Org-Coursepack/][HTML version of the documentation]] or take a look at [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Org-Coursepack/2018 Fall/Lectures][exported PDF files]].
 * Example Courses
 The Org-Coursepack includes two example courses created with Org-Coursepack:
 =Introduction to Regression Analysis with Excel= and =Introduction to
@@ -70,14 +70,14 @@ their own respective topic Org files where needed.
 See the semester Org files, exported syllabus, and exported lecture files
 linked below.
 ** Introduction to Regression Analysis with Excel
-- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Excel/2018%20Fall/2018%20Fall.org][Semester Org file (Fall 2018)]]
-- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Excel/2018%20Fall/Syllabus/Syllabus%20(Section%201).pdf][Exported Syllabus]]
-- [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Intro-Regression-Excel/2018%20Fall/Lectures][Exported Lecture files]]
+- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Excel/2018 Fall/2018 Fall.org][Semester Org file (Fall 2018)]]
+- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Excel/2018 Fall/Syllabus/Syllabus (Section 1).pdf][Exported Syllabus]]
+- [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Intro-Regression-Excel/2018 Fall/Lectures][Exported Lecture files]]
 
 ** Introduction to Regression Analysis with Python
-- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018%20Fall/2018%20Fall.org][Semester Org file (Fall 2018)]]
-- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018%20Fall/Syllabus/Syllabus%20(Section%201).pdf][Exported Syllabus]]
-- [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Intro-Regression-Python/2018%20Fall/Lectures][Exported Lecture files]]
+- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018 Fall/2018 Fall.org][Semester Org file (Fall 2018)]]
+- [[https://github.com/joonro/Org-Coursepack/blob/master/Courses/Intro-Regression-Python/2018 Fall/Syllabus/Syllabus (Section 1).pdf][Exported Syllabus]]
+- [[https://github.com/joonro/Org-Coursepack/tree/master/Courses/Intro-Regression-Python/2018 Fall/Lectures][Exported Lecture files]]
 * Authors
 - [[https://github.com/joonro/Org-Coursepack/tree/develop/Courses/Intro-Regression-Excel/2018%2520Fall/Lectures][Joon H. Ro]] & [[https://github.com/namkoong80][Jae-Eun Namkoong]]
 * Changelog
