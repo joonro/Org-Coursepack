@@ -5,7 +5,7 @@ language: emacs-lisp
 before_install:
 - sudo add-apt-repository ppa:kelleyk/emacs -y
 - sudo apt-get update -q
-- sudo apt install -y emacs texlive-latex-extra
+- sudo apt install -y emacs texlive-latex-extra texlive-generic-recommended
 
 script:
 - emacs --batch -l tests.el
