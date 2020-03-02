@@ -6,7 +6,7 @@
 #+STARTUP: hidestars
 
 * Courses
-** [[file:2018%20Fall/2018%20Fall.org][2018 Fall]]
+** [[file:2018 Fall/2018 Fall.org][2018 Fall]]
 * Syllabus
 ** Course Description
 :PROPERTIES:
