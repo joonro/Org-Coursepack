@@ -81,6 +81,10 @@ linked below.
 * Authors
 - [[https://github.com/joonro/Org-Coursepack/tree/develop/Courses/Intro-Regression-Excel/2018%2520Fall/Lectures][Joon H. Ro]] & [[https://github.com/namkoong80][Jae-Eun Namkoong]]
 * Changelog
+** v1.2.1
+- Fix special characters in elisp links
+** v1.2.0
+- JOSE publication
 ** v1.1.0
 - Add two example courses, =Introduction to Regression Analysis with Excel=
   and =Introduction to Regression Analysis with Python=
